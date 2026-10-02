@@ -8,7 +8,29 @@ from urllib.request import Request, urlopen
 from typing import Any
 
 OUTPUT = Path("blocklist.txt")
+PORTMASTER_OUTPUT = Path("portmaster.txt")
+SEARCH_OUTPUT = Path("search-rules.txt")
 HAGEZI_OUTPUT = Path("hagezi-overlap.txt")
+
+SEARCH_RULES = """! Title: Frontend blocklist - search URL rules
+! Purpose: block document URLs containing Reddit, Tumblr or Twitter.
+! Also blocks common viewer-search variants, including X viewer searches.
+! AdGuard/iOS: add this file as a custom Safari/user filter.
+
+*reddit*$document
+*tumblr*$document
+*twitter*$document
+
+*reddit*viewer*$document
+*tumblr*viewer*$document
+*twitter*viewer*$document
+
+*x%20viewer*$document
+*x+viewer*$document
+*x-viewer*$document
+*x_viewer*$document
+*x/viewer*$document
+"""
 TIMEOUT = 20
 USER_AGENT = "frontend-blocklist-updater/1.0"
 
@@ -168,6 +190,10 @@ def main() -> int:
     if counts.get("Nitter status",0)==0: attempt("Nitter gist")
     valid=sorted(d for d in all_domains if normalize(d)==d)
     OUTPUT.write_text("\n".join(f"||{d}^" for d in valid)+"\n", encoding="utf-8")
+    PORTMASTER_OUTPUT.write_text("\n".join(valid)+"\n", encoding="utf-8")
+    SEARCH_OUTPUT.write_text(SEARCH_RULES.rstrip()+"\n", encoding="utf-8")
+    print(f"[OK] Portmaster list: {len(valid)} domains")
+    print("[OK] Search rules: generated")
     try:
         hagezi=parse_hagezi(fetch(SOURCES["Hagezi Pro"]))
         overlap=sorted(set(valid)&hagezi)

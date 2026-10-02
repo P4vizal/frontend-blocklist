@@ -1,4 +1,3 @@
-yaml
 name: Update frontend blocklist
 
 on:
@@ -37,12 +36,6 @@ jobs:
               "reddit.com",
               "redd.it",
               "tumblr.com",
-
-              # Redirectores conocidos
-              "nitt.tr",
-              "twit.0r.cx",
-              "twiiit.com",
-              "xxcancel.com",
           }
 
           def add_value(value):
@@ -80,7 +73,6 @@ jobs:
 
               walk(data)
 
-          # Priviblur: extraer dominios publicados en instances.md
           priviblur_url = (
               "https://raw.githubusercontent.com/"
               "syeopite/priviblur/master/instances.md"
@@ -99,8 +91,8 @@ jobs:
 
           valid_domain = re.compile(
               r"^(?=.{1,253}$)"
-              r"(?:?:[a-z0-9-]{0,61}[a-z0-9]?\.)+"
-              r"?:[a-z0-9-]{0,61}[a-z0-9]?$"
+              r"(?:[a-z0-9-]{1,63}\.)+"
+              r"[a-z0-9-]{1,63}$"
           )
 
           domains = {

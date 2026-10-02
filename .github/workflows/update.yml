@@ -8,112 +8,41 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-frontend-blocklist
+  cancel-in-progress: true
+
 jobs:
   update:
+    name: Generate AdGuard DNS blocklist
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-      - name: Download repository
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: Generate AdGuard DNS blocklist
-        shell: python
-        run: |
-          import json
-          import re
-          import urllib.request
-          from urllib.parse import urlparse
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-          sources = [
-              "https://raw.githubusercontent.com/libredirect/instances/main/data.json",
-              "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json",
-          ]
-
-          domains = {
-              "x.com",
-              "twitter.com",
-              "t.co",
-              "reddit.com",
-              "redd.it",
-              "tumblr.com",
-          }
-
-          def add_value(value):
-              if not isinstance(value, str):
-                  return
-
-              value = value.strip()
-
-              if value.startswith(("http://", "https://")):
-                  hostname = urlparse(value).hostname
-
-                  if hostname:
-                      domains.add(hostname.lower().rstrip("."))
-
-          def walk(value):
-              if isinstance(value, dict):
-                  for item in value.values():
-                      walk(item)
-
-              elif isinstance(value, list):
-                  for item in value:
-                      walk(item)
-
-              elif isinstance(value, str):
-                  add_value(value)
-
-          for source in sources:
-              request = urllib.request.Request(
-                  source,
-                  headers={"User-Agent": "frontend-blocklist-generator"}
-              )
-
-              with urllib.request.urlopen(request, timeout=30) as response:
-                  data = json.load(response)
-
-              walk(data)
-
-          priviblur_url = (
-              "https://raw.githubusercontent.com/"
-              "syeopite/priviblur/master/instances.md"
-          )
-
-          request = urllib.request.Request(
-              priviblur_url,
-              headers={"User-Agent": "frontend-blocklist-generator"}
-          )
-
-          with urllib.request.urlopen(request, timeout=30) as response:
-              text = response.read().decode("utf-8", errors="ignore")
-
-          for url in re.findall(r"https?://[^\s|)>\]]+", text):
-              add_value(url.rstrip(".,`"))
-
-          valid_domain = re.compile(
-              r"^(?=.{1,253}$)"
-              r"(?:[a-z0-9-]{1,63}\.)+"
-              r"[a-z0-9-]{1,63}$"
-          )
-
-          domains = {
-              domain for domain in domains
-              if valid_domain.match(domain)
-          }
-
-          with open("blocklist.txt", "w", encoding="utf-8") as output:
-              output.write(
-                  "! Frontend blocklist generated automatically\n"
-                  "! Nitter, Redlib, Libreddit, Teddit and Priviblur\n\n"
-              )
-
-              for domain in sorted(domains):
-                  output.write(f"||{domain}^\n")
+      - name: Generate blocklist
+        run: python scripts/generate_blocklist.py
 
       - name: Commit updated list
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add blocklist.txt
-          git diff --cached --quiet && exit 0
-          git commit -m "Update frontend blocklist"
+          git add blocklist.txt hagezi-overlap.txt
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update frontend blocklist"
           git push

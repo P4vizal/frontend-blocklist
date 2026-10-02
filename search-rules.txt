@@ -1,0 +1,18 @@
+! Title: Frontend blocklist - search URL rules
+! Purpose: block document URLs containing Reddit, Tumblr or Twitter.
+! Also blocks common "viewer" search variants, including X/Twitter viewer searches.
+! AdGuard/iOS: add this file as a custom Safari/user filter.
+
+*reddit*$document
+*tumblr*$document
+*twitter*$document
+
+*reddit*viewer*$document
+*tumblr*viewer*$document
+*twitter*viewer*$document
+
+*x%20viewer*$document
+*x+viewer*$document
+*x-viewer*$document
+*x_viewer*$document
+*x/viewer*$document

@@ -37,7 +37,7 @@ SOURCES = {
     "Priviblur":"https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md",
     "Teddit":"https://codeberg.org/teddit/teddit/raw/branch/main/instances.json",
     "Librex":"https://raw.githubusercontent.com/hnhx/librex/main/instances.json",
-    "SearXNG JSON":"https://searx.space/instances.json",
+    "SearXNG JSON":"https://searx.space/data/instances.json",
     "SearXNG HTML fallback":"https://searx.space/",
     "4get":"https://4get.ca/instances",
     "Hagezi Pro":"https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt",
@@ -52,7 +52,7 @@ NOISE_HOSTS = {
 
 DOMAIN_RE = re.compile(r"^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$", re.I)
 URL_RE = re.compile(r"(?i)(?:https?://|//)[^\s<>'\"\]\[)]+")
-ADGUARD_RULE_RE = re.compile(r"^\|\|([^\^/]+)\^$")
+ADGUARD_RULE_RE = re.compile(r"^\|\|([^\^/\\s]+)\^", re.IGNORECASE)
 
 def fetch(url: str) -> str:
     req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})
@@ -114,8 +114,29 @@ def extract_links(text: str) -> set[str]:
         if d: out.add(d)
     return out
 
+def extract_teddit(text: str) -> set[str]:
+    cleaned = text.lstrip("\ufeff").strip()
+
+    # Strip optional Markdown fences around JSON.
+    cleaned = re.sub(r"^\s*```(?:json)?\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s*```\s*$", "", cleaned)
+
+    try:
+        return extract_json(cleaned)
+    except json.JSONDecodeError:
+        # Some endpoints can contain valid JSON followed by extra text.
+        try:
+            decoder = json.JSONDecoder()
+            data, _ = decoder.raw_decode(cleaned)
+            return extract_json(json.dumps(data))
+        except (json.JSONDecodeError, ValueError):
+            # Last-resort extraction from the returned body.
+            return extract_text(cleaned)
+
 def parse_source(name: str, text: str) -> set[str]:
-    if name.endswith("JSON") or name in {"LibRedirect","Teddit","Librex"}: return extract_json(text)
+    if name == "Teddit":
+        return extract_teddit(text)
+    if name.endswith("JSON") or name in {"LibRedirect","Librex"}: return extract_json(text)
     if name in {"Libreddit MD","Priviblur","Nitter gist"}: return extract_text(text)
     if name in {"4get","Nitter status","SearXNG HTML fallback"}: return extract_links(text)
     raise ValueError(f"Unsupported source: {name}")

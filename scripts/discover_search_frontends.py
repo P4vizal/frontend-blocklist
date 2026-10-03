@@ -27,11 +27,11 @@ PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
 MAX_CRAWL_PAGES = 3
-MAX_CANDIDATES = 180
-MAX_CONSECUTIVE_SEARCH_ERRORS = 3
+MAX_CANDIDATES = 320
 MIN_ACCEPTED = 2
-WORKERS = 6
-VALIDATION_DELAY = 0.35
+SEARCH_WORKERS = 4
+WORKERS = 10
+VALIDATION_DELAY = 0.0
 
 SEARCH_BACKEND = "auto"
 SEARCH_MAX_RESULTS = 15
@@ -210,6 +210,8 @@ CHALLENGE_MARKERS = (
 
 BAD_PATH_MARKERS = (
     "/news/", "/article/", "/articles/", "/press/",
+    "/blog/", "/blogs/", "/guide/", "/guides/", "/how-to/",
+    "/category/", "/categories/", "/tag/", "/tags/", "/topics/",
 )
 
 URL_IN_HTML_RE = re.compile(r"(?i)https?://[^\s\"<>]+")
@@ -396,6 +398,20 @@ def read_existing_domains() -> set[str]:
     return out
 
 
+def read_discovered_domains() -> set[str]:
+    """Read the historical discovery list; entries are append-only."""
+    if not OUTPUT.exists():
+        return set()
+    out = set()
+    for line in OUTPUT.read_text(encoding="utf-8", errors="replace").splitlines():
+        m = re.match(r"^\|\|([^\^/\s]+)\^", line.strip())
+        if m:
+            host = normalize_host(m.group(1))
+            if host:
+                out.add(host)
+    return out
+
+
 def quote_term(term: str) -> str:
     return '"' + term.replace('"', ' ') + '"'
 
@@ -458,8 +474,7 @@ def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
-def search_with_ddgs(query: str, region: str, page: int) -> list[dict]:
-    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
+def search_with_ddgs(searcher: DDGS, query: str, region: str, page: int) -> list[dict]:
     results = searcher.text(
         query,
         region=region,
@@ -469,6 +484,37 @@ def search_with_ddgs(query: str, region: str, page: int) -> list[dict]:
         backend=SEARCH_BACKEND,
     )
     return [r for r in results if isinstance(r, dict)]
+
+
+def run_search_spec(
+    index: int,
+    lang: str,
+    platform: str,
+    query: str,
+) -> tuple[int, str, str, str, list[tuple[int, list[dict]]], list[dict]]:
+    cfg = LANGUAGES[lang]
+    region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
+    results_by_page: list[tuple[int, list[dict]]] = []
+    errors: list[dict] = []
+    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
+
+    for page in SEARCH_PAGES:
+        try:
+            results = search_with_ddgs(searcher, query, region, page)
+            results_by_page.append((page, results))
+        except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+            errors.append({
+                "language": lang,
+                "platform": platform,
+                "query": query,
+                "backend": SEARCH_BACKEND,
+                "page": page,
+                "error": f"{type(exc).__name__}: {exc}",
+            })
+        if SEARCH_DELAY:
+            time.sleep(SEARCH_DELAY)
+
+    return index, lang, platform, query, results_by_page, errors
 
 
 def merge_search_result(
@@ -797,21 +843,57 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
     direct_trusted = bool(set(hit.sources) & DIRECT_TRUSTED_SOURCES)
 
-    # Prefer search-result URLs that actually look like the service page.
+    # Prefer service-like URLs, but do not throw away a real service just
+    # because search ranked an article or guide page first.
     ranked_urls = sorted(
         hit.urls,
         key=lambda url: (
+            any(marker in urlparse(url).path.lower() for marker in BAD_PATH_MARKERS),
             -sum(marker in urlparse(url).path.lower() for marker in (
                 "viewer", "frontend", "profile", "subreddit", "tweet",
-                "status", "blog", "search", "view"
+                "status", "search", "view", "tool", "tools"
             )),
             url,
         ),
     )
-    first_url = ranked_urls[0]
+    candidate_urls = []
+    seen_urls: set[str] = set()
+    for url in ranked_urls:
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+        candidate_urls.append(url)
+    root_url = f"https://{hit.domain}/"
+    if root_url not in seen_urls:
+        candidate_urls.append(root_url)
 
-    html_text, fetch_meta = fetch_html(first_url)
+    first_url = candidate_urls[0]
+    html_text = None
+    fetch_meta: dict = {"error": "fetch failed"}
     via = "direct"
+
+    for candidate_url in candidate_urls[:4]:
+        candidate_html, candidate_meta = fetch_html(candidate_url)
+        if candidate_html is None:
+            continue
+        candidate_final = candidate_meta.get("final_url") or candidate_url
+        candidate_final_host = normalize_host(candidate_final)
+        candidate_base = hit.domain[4:] if hit.domain.startswith("www.") else hit.domain
+        candidate_final_base = (
+            candidate_final_host[4:]
+            if candidate_final_host and candidate_final_host.startswith("www.")
+            else candidate_final_host
+        )
+        if candidate_final_base != candidate_base:
+            continue
+        final_path = urlparse(candidate_final).path.lower()
+        if any(marker in final_path for marker in BAD_PATH_MARKERS):
+            continue
+        first_url = candidate_url
+        html_text = candidate_html
+        fetch_meta = candidate_meta
+        break
+
     if html_text is None and seed_candidate:
         jina_text, jina_meta = fetch_jina_text(first_url)
         if jina_text is not None:
@@ -841,10 +923,11 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
 
     first_path = urlparse(first_url).path.lower()
-    if any(marker in first_path for marker in BAD_PATH_MARKERS):
+    final_path = urlparse(final_url).path.lower()
+    if any(marker in final_path for marker in BAD_PATH_MARKERS):
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
-            {}, "search result points to an article/news page"
+            {}, "service URL resolved to an article/news page"
         )
 
     if html_text == (fetch_meta.get("jina_text") or ""):
@@ -1025,12 +1108,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     # Search candidates: require actual search-intent evidence plus independent
     # corroboration, unless the hostname itself is a very strong service name.
+    search_quality_ok = (
+        len(hit.providers) >= 2
+        or distinct_queries >= 2
+        or host_service_hint
+        or service_path_hint
+    )
     search_accept = (
         not seed_candidate
         and strong_service_page
         and search_intent_hits >= 1
-        and search_confirmed
-        and (len(hit.providers) >= 2 or distinct_queries >= 2 or host_service_hint)
+        and search_quality_ok
     )
 
     trusted_accept = (
@@ -1115,10 +1203,13 @@ def safe_evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
 def main() -> int:
     existing = read_existing_domains()
+    historical = read_discovered_domains()
+    known_domains = existing | historical
     query_specs = build_queries()
 
     candidate_map: dict[tuple[str, str], SearchHit] = {}
     search_errors: list[dict] = []
+    search_results_seen = 0
 
     seeds = seed_candidates()
     candidate_map.update(seeds)
@@ -1170,55 +1261,61 @@ def main() -> int:
 
     provider_disabled: set[str] = set()
 
-    # DDGS auto mode performs internal fallback across the engines available
-    # in the installed release. Keep discovery simple and let it choose a
-    # currently healthy backend instead of producing hundreds of per-engine
-    # "No results found" messages.
-    for index, (lang, platform, query) in enumerate(query_specs, start=1):
-        cfg = LANGUAGES[lang]
-        region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
-        print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
-        result_count = 0
-
-        for page in SEARCH_PAGES:
-            try:
-                results = search_with_ddgs(query, region, page)
+    # DDGS auto mode performs internal fallback across engines available in the
+    # installed release. Run independent query jobs in parallel, but reuse one
+    # DDGS session for both result pages of each query.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=SEARCH_WORKERS) as executor:
+        futures = [
+            executor.submit(run_search_spec, index, lang, platform, query)
+            for index, (lang, platform, query) in enumerate(query_specs, start=1)
+        ]
+        for future in concurrent.futures.as_completed(futures):
+            index, lang, platform, query, results_by_page, errors = future.result()
+            for page, results in results_by_page:
+                search_results_seen += len(results)
                 for result in results:
                     merge_search_result(candidate_map, platform, query, SEARCH_BACKEND, result)
-                result_count += len(results)
-                print(f"[DDGS/{SEARCH_BACKEND}] page={page} results={len(results)}")
-            except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                search_errors.append({
-                    "language": lang,
-                    "platform": platform,
-                    "query": query,
-                    "backend": SEARCH_BACKEND,
-                    "page": page,
-                    "error": f"{type(exc).__name__}: {exc}",
-                })
                 print(
-                    f"[WARN] DDGS/{SEARCH_BACKEND} page={page}: "
-                    f"{type(exc).__name__}: {exc}"
+                    f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query} "
+                    f"page={page} results={len(results)}"
+                )
+            for error in errors:
+                search_errors.append(error)
+                print(
+                    f"[WARN] DDGS/{SEARCH_BACKEND} {lang}/{platform} "
+                    f"page={error['page']}: {error['error']}"
                 )
 
-        if result_count == 0:
-            print("[WARN] No results from DDGS auto mode for this query.")
-        time.sleep(SEARCH_DELAY)
-
-    # Stronger discovery signal first: domains seen in multiple independent queries.
-    hits = sorted(
-        candidate_map.values(),
+    # Prioritise maintained registries and GitHub-discovered instances so the
+    # validation cap cannot crowd them out with noisy search-engine results.
+    priority_hits = sorted(
+        [h for h in candidate_map.values() if h.sources and h.domain not in known_domains],
         key=lambda h: (
-            -len(h.providers),
-            -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
             -len(h.sources),
             -len(h.search_evidence),
             h.domain,
         ),
     )
-    hits = hits[:MAX_CANDIDATES]
+    search_hits = sorted(
+        [h for h in candidate_map.values() if not h.sources and h.domain not in known_domains],
+        key=lambda h: (
+            -len(h.providers),
+            -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
+            -len(h.search_evidence),
+            h.domain,
+        ),
+    )
+    hits = (priority_hits + search_hits)[:MAX_CANDIDATES]
 
-    print(f"Candidates discovered: {len(hits)}")
+    already_known_candidates = sum(
+        1 for h in candidate_map.values() if h.domain in known_domains
+    )
+    candidate_domains = {h.domain for h in candidate_map.values()}
+
+    print(f"Candidates discovered: {len(candidate_map)}")
+    print(f"Candidates selected for validation: {len(hits)}")
+    print(f"Previously known candidates skipped: {already_known_candidates}")
+    print(f"Search results seen: {search_results_seen}")
     print(f"Search-engine failures: {len(search_errors)}")
 
     evaluations: list[Evaluation] = []
@@ -1232,7 +1329,11 @@ def main() -> int:
 
     accepted_by_domain: dict[str, Evaluation] = {}
     for evaluation in evaluations:
-        if evaluation.accepted and evaluation.domain not in existing:
+        if (
+            evaluation.accepted
+            and evaluation.domain not in existing
+            and evaluation.domain not in historical
+        ):
             current = accepted_by_domain.get(evaluation.domain)
             if current is None or evaluation.score > current.score:
                 accepted_by_domain[evaluation.domain] = evaluation
@@ -1269,10 +1370,12 @@ def main() -> int:
         )
         return 0
 
+    retained_domains = historical | {e.domain for e in accepted}
     OUTPUT.write_text(
-        "# Generated from maintained frontend registries + GitHub + DDGS auto metasearch + page validation.\n"
-        "# Only newly discovered domains are included; domains already in blocklist.txt are omitted.\n"
-        + "\n".join(f"||{e.domain}^" for e in accepted)
+        "# Generated from maintained frontend registries + GitHub + DDGS auto search + page validation.\n"
+        "# Append-only discovery history: previously accepted domains are never removed.\n"
+        "# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.\n"
+        + "\n".join(f"||{domain}^" for domain in sorted(retained_domains))
         + "\n",
         encoding="utf-8",
     )
@@ -1286,14 +1389,18 @@ def main() -> int:
         "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
-        "search_strategy": "maintained registries + GitHub + DDGS multi-engine search; each backend queried separately",
+        "search_strategy": "maintained registries + GitHub + DDGS auto search + parallel query jobs + prioritized validation",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),
         "accepted_count": len(accepted),
-        "already_covered_count": sum(
-            1 for e in evaluations if "already covered" in e.reason
-        ),
+        "newly_accepted_count": len(accepted),
+        "retained_historical_count": len(historical),
+        "retained_total_count": len(retained_domains),
+        "already_covered_count": len(existing & candidate_domains),
+        "already_discovered_count": len(historical & candidate_domains),
+        "known_candidates_skipped_before_validation": already_known_candidates,
+        "search_results_seen": search_results_seen,
         "search_errors": search_errors,
         "accepted": [asdict(e) for e in accepted],
         "rejected_sample": [
@@ -1305,8 +1412,10 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    print(f"[OK] Validated new domains: {len(accepted)}")
-    print(f"[OK] Validation workers: {WORKERS}; fetch retries: {FETCH_RETRIES}")
+    print(f"[OK] New validated domains: {len(accepted)}")
+    print(f"[OK] Retained historical domains: {len(historical)}")
+    print(f"[OK] Total discovery list domains: {len(retained_domains)}")
+    print(f"[OK] Search workers: {SEARCH_WORKERS}; validation workers: {WORKERS}; fetch retries: {FETCH_RETRIES}")
     for e in accepted:
         print(f"[ACCEPT] {e.domain} | {e.platform} | {e.reason}")
 

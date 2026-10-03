@@ -156,7 +156,7 @@ jobs:
 
           git diff --check
 
-          python - <<'PY
+          python - <<PY
           import json
           import re
           from pathlib import Path

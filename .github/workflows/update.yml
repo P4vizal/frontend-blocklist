@@ -38,6 +38,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Validate generator syntax
+        run: python -m py_compile scripts/generate_blocklist.py
+
       - name: Generate blocklist
         run: python scripts/generate_blocklist.py
 

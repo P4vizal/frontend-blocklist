@@ -60,7 +60,7 @@ assert len(queries) == 72, f"Unexpected daily query count: {len(queries)}"
 assert len(set(queries)) == len(queries)
 assert discovery.active_search_languages()
 assert len(discovery.active_search_languages()) == 4
-assert sum("-news -article -guide -review" in q for q in queries) == 24
+assert sum("-news -article -guide -review" in q[2] for q in queries) == 24
 assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
 fr_pages = discovery.search_pages_for("fr", "twitter viewer")
 assert fr_pages in ((1,), (1, 2))

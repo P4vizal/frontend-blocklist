@@ -346,9 +346,15 @@ def sanitize_request_url(value: str) -> str | None:
     if any(ord(ch) < 32 or ord(ch) == 127 for ch in parsed.netloc):
         return None
 
-    safe_path = quote(parsed.path, safe="/:@!def path_looks_like_service(path: str) -> bool:
+    safe_path = quote(parsed.path, safe="/:@!    safe_path = quote(parsed.path, safe="/:@!def path_looks_like_service(path: str) -> bool:
 '()*+,;=-._~%")
     safe_query = quote(parsed.query, safe="/?:@!def path_looks_like_service(path: str) -> bool:
+'()*+,;=-._~%")
+'()*+,;=-._~%")
+    safe_query = quote(parsed.query, safe="/?:@!    safe_path = quote(parsed.path, safe="/:@!def path_looks_like_service(path: str) -> bool:
+'()*+,;=-._~%")
+    safe_query = quote(parsed.query, safe="/?:@!def path_looks_like_service(path: str) -> bool:
+'()*+,;=-._~%")
 '()*+,;=-._~%")
     return urlunparse(parsed._replace(path=safe_path, query=safe_query, fragment=""))
 
@@ -1773,7 +1779,7 @@ def fetch_error_is_permanent(error: str) -> bool:
     if not isinstance(error, str):
         return False
     return bool(re.search(
-        r"HTTP Error (?:" + "|".join(str(code) for code in sorted(PERMANENT_FETCH_ERROR_CODES)) + r")\\b",
+        r"HTTP Error (?:" + "|".join(str(code) for code in sorted(PERMANENT_FETCH_ERROR_CODES)) + r")\b",
         error,
         re.IGNORECASE,
     ))

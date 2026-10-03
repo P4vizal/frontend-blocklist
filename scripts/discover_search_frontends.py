@@ -1397,15 +1397,8 @@ BACKTICK_URL_RE = re.compile(r"(?i)`(https?://[^\s`<>]+)`")
 
 def repository_service_urls(text: str, platform: str) -> set[str]:
     urls = extract_section_urls(text, platform)
-
-    for raw_url in MARKDOWN_LINK_URL_RE.findall(text):
-        host = normalize_host(html.unescape(raw_url))
-        if host:
-            urls.add(host)
-    for raw_url in BACKTICK_URL_RE.findall(text):
-        host = normalize_host(html.unescape(raw_url))
-        if host:
-            urls.add(host)
+    if urls:
+        return urls
 
     lines = text.splitlines()
     context: list[str] = []
@@ -1421,7 +1414,16 @@ def repository_service_urls(text: str, platform: str) -> set[str]:
         ):
             context.extend(lines[max(0, i - 2): min(len(lines), i + 3)])
 
-    for raw_url in URL_IN_HTML_RE.findall("\n".join(context)):
+    context_text = "\n".join(context)
+    for raw_url in URL_IN_HTML_RE.findall(context_text):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            urls.add(host)
+    for raw_url in MARKDOWN_LINK_URL_RE.findall(context_text):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            urls.add(host)
+    for raw_url in BACKTICK_URL_RE.findall(context_text):
         host = normalize_host(html.unescape(raw_url))
         if host:
             urls.add(host)

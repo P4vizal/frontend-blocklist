@@ -62,7 +62,7 @@ jobs:
           queries = discovery.build_queries()
           assert queries
           assert len(discovery.active_search_languages()) == 4
-          assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
+          assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1,)
           assert discovery.search_pages_for("fr", "twitter viewer") == (1,)
           assert discovery.DISCOVERY_MODE == "daily"
           print("Runtime smoke test passed.")

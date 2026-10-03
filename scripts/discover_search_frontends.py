@@ -45,6 +45,8 @@ SEARCH_RETRIES = 0
 # daily runs can re-check them without lowering the publication threshold.
 PENDING_VERIFICATION_MAX = 120
 PENDING_VERIFICATION_TTL_DAYS = 21
+NEAR_MISS_DISCOVERY_SCORE = 10
+MAX_INTERNAL_SERVICE_LINKS = 3
 
 # Keep the daily search bounded, but let service-intent queries in every
 # configured language reach the second results page.
@@ -58,7 +60,7 @@ LANGUAGE_ROTATION = ("fr", "de", "zh", "ja", "ko", "hi", "ru", "ar", "pt", "it")
 # External discovery sources are deliberately low-rate and fail-soft.
 REPOSITORY_SOURCE_LIMIT = 10
 COMMON_CRAWL_LIMIT = 40
-COMMON_CRAWL_DELAY = 2.0
+COMMON_CRAWL_DELAY = 1.25
 URLSCAN_MAX_RESULTS = 20
 URLSCAN_DELAY = 1.0
 WEB_VERIFIED_SEEDS = [
@@ -669,6 +671,9 @@ def read_pending_verification() -> list[dict]:
             "last_attempt": str(item.get("last_attempt", "")),
             "last_attempt_epoch": last_attempt_epoch,
             "attempts": attempts,
+            "status": str(item.get("status", "temporary_unavailable") or "temporary_unavailable"),
+            "last_reason": str(item.get("last_reason", "")),
+            "discovery_score": max(0, int(item.get("discovery_score", 0) or 0)),
         })
 
     out.sort(key=lambda item: (
@@ -820,29 +825,79 @@ def build_queries() -> list[tuple[str, str, str]]:
         ],
     }
 
-    platform_queries = {
-        "twitter": [
-            '"Twitter profile viewer" -news -article -guide -review',
-            '"tweet viewer" -news -article -guide -review',
-            '"X profile viewer" "no login" -news -article -guide -review',
-            '"Twitter alternative front-end" -news -article -guide -review',
-            '"Twitter private front-end" -news -article -guide -review',
-        ],
-        "reddit": [
-            '"Reddit post viewer" -news -article -guide -review',
-            '"Reddit profile viewer" -news -article -guide -review',
-            '"Reddit anonymous viewer" -news -article -guide -review',
-            '"subreddit viewer" -news -article -guide -review',
-            '"Reddit private front-end" -news -article -guide -review',
-        ],
-        "tumblr": [
-            '"Tumblr blog viewer" -news -article -guide -review',
-            '"Tumblr profile viewer" -news -article -guide -review',
-            '"Tumblr anonymous viewer" -news -article -guide -review',
-            '"Tumblr post viewer" -news -article -guide -review',
-            '"Tumblr private front-end" -news -article -guide -review',
-        ],
-    }
+    platform_query_families = (
+        {
+            "twitter": [
+                '"Twitter profile viewer" -news -article -guide -review',
+                '"tweet viewer" -news -article -guide -review',
+                '"X profile viewer" "no login" -news -article -guide -review',
+                '"Twitter alternative front-end" -news -article -guide -review',
+                '"Twitter private front-end" -news -article -guide -review',
+            ],
+            "reddit": [
+                '"Reddit post viewer" -news -article -guide -review',
+                '"Reddit profile viewer" -news -article -guide -review',
+                '"Reddit anonymous viewer" -news -article -guide -review',
+                '"subreddit viewer" -news -article -guide -review',
+                '"Reddit private front-end" -news -article -guide -review',
+            ],
+            "tumblr": [
+                '"Tumblr blog viewer" -news -article -guide -review',
+                '"Tumblr profile viewer" -news -article -guide -review',
+                '"Tumblr anonymous viewer" -news -article -guide -review',
+                '"Tumblr post viewer" -news -article -guide -review',
+                '"Tumblr private front-end" -news -article -guide -review',
+            ],
+        },
+        {
+            "twitter": [
+                '"Twitter web viewer" public profiles -news -article -guide -review',
+                '"tweet browser" "without login" -news -article -guide -review',
+                '"X anonymous viewer" profiles -news -article -guide -review',
+                '"Nitter alternative" viewer -news -article -guide -review',
+                '"Twitter frontend" privacy -news -article -guide -review',
+            ],
+            "reddit": [
+                '"Reddit web viewer" public posts -news -article -guide -review',
+                '"Reddit browser" "without login" -news -article -guide -review',
+                '"Reddit anonymous viewer" posts -news -article -guide -review',
+                '"Redlib alternative" viewer -news -article -guide -review',
+                '"Reddit frontend" privacy -news -article -guide -review',
+            ],
+            "tumblr": [
+                '"Tumblr web viewer" public blogs -news -article -guide -review',
+                '"Tumblr browser" "without login" -news -article -guide -review',
+                '"Tumblr anonymous viewer" posts -news -article -guide -review',
+                '"Priviblur alternative" viewer -news -article -guide -review',
+                '"Tumblr frontend" privacy -news -article -guide -review',
+            ],
+        },
+        {
+            "twitter": [
+                '"Twitter profile browser" -news -article -guide -review',
+                '"public tweet viewer" -news -article -guide -review',
+                '"X viewer" "without account" -news -article -guide -review',
+                '"Nitter frontend" alternative -news -article -guide -review',
+                '"Twitter viewer" "no account" -news -article -guide -review',
+            ],
+            "reddit": [
+                '"Reddit profile browser" -news -article -guide -review',
+                '"public Reddit post viewer" -news -article -guide -review',
+                '"Reddit viewer" "without account" -news -article -guide -review',
+                '"Redlib frontend" alternative -news -article -guide -review',
+                '"Reddit viewer" "no account" -news -article -guide -review',
+            ],
+            "tumblr": [
+                '"Tumblr profile browser" -news -article -guide -review',
+                '"public Tumblr post viewer" -news -article -guide -review',
+                '"Tumblr viewer" "without account" -news -article -guide -review',
+                '"Priviblur frontend" alternative -news -article -guide -review',
+                '"Tumblr viewer" "no account" -news -article -guide -review',
+            ],
+        },
+    )
+    day_index = int(time.time() // 86400)
+    platform_queries = platform_query_families[(day_index // 2) % len(platform_query_families)]
 
     active = set(active_search_languages())
     for lang in active:
@@ -1084,9 +1139,15 @@ def search_result_is_relevant(
         term_present(term, evidence)
         for term in SEARCH_RESULT_EDITORIAL_MARKERS
     )
+    non_frontend_evidence = any(
+        term_present(term, evidence)
+        for term in NON_FRONTEND_SERVICE_TERMS
+    )
 
-    if brand_ok:
+    if brand_ok and not non_frontend_evidence:
         return True
+    if non_frontend_evidence and not service_ok:
+        return False
     if url_service_hint and query_service:
         return True
     if platform_ok and service_ok:
@@ -1247,7 +1308,7 @@ def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
     for query in GITHUB_SOURCE_QUERIES:
         url = (
             "https://api.github.com/search/repositories"
-            f"?q={quote_plus(query)}&sort=updated&order=desc&per_page=6"
+            f"?q={quote_plus(query)}&sort=updated&order=desc&per_page={REPOSITORY_SOURCE_LIMIT}"
         )
         try:
             data = json.loads(fetch_text(url, headers))
@@ -1264,7 +1325,7 @@ def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
                 if full_name.lower() != "p4vizal/frontend-blocklist":
                     repo_keys.add(f"{full_name}@{default_branch}")
 
-    for repo_key in sorted(repo_keys)[:30]:
+    for repo_key in sorted(repo_keys)[:36]:
         full_name, default_branch = repo_key.rsplit("@", 1)
         readme_url = (
             f"https://raw.githubusercontent.com/{full_name}/"
@@ -1331,10 +1392,20 @@ def add_source_candidate(
             hit.urls.append(source_url)
 
 
+MARKDOWN_LINK_URL_RE = re.compile(r"(?i)\[[^\]]{1,240}\]\((https?://[^\s)<>]+)")
+BACKTICK_URL_RE = re.compile(r"(?i)`(https?://[^\s`<>]+)`")
+
 def repository_service_urls(text: str, platform: str) -> set[str]:
     urls = extract_section_urls(text, platform)
-    if urls:
-        return urls
+
+    for raw_url in MARKDOWN_LINK_URL_RE.findall(text):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            urls.add(host)
+    for raw_url in BACKTICK_URL_RE.findall(text):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            urls.add(host)
 
     lines = text.splitlines()
     context: list[str] = []
@@ -1465,9 +1536,18 @@ def common_crawl_candidates() -> dict[tuple[str, str], SearchHit]:
         return found
 
     patterns = {
-        "twitter": ("*twitter*viewer*", "*twitter*frontend*"),
-        "reddit": ("*reddit*viewer*", "*reddit*frontend*"),
-        "tumblr": ("*tumblr*viewer*", "*tumblr*frontend*"),
+        "twitter": (
+            "*twitter*viewer*", "*twitter*frontend*", "*twitter*browser*",
+            "*nitter*", "*xcancel*",
+        ),
+        "reddit": (
+            "*reddit*viewer*", "*reddit*frontend*", "*reddit*browser*",
+            "*redlib*", "*libreddit*",
+        ),
+        "tumblr": (
+            "*tumblr*viewer*", "*tumblr*frontend*", "*tumblr*browser*",
+            "*priviblur*", "*tumlook*",
+        ),
     }
     for platform, platform_patterns in patterns.items():
         for pattern in platform_patterns:
@@ -1515,9 +1595,9 @@ def urlscan_candidates() -> dict[tuple[str, str], SearchHit]:
         return found
 
     queries = {
-        "twitter": "page.title:(twitter viewer)",
-        "reddit": "page.title:(reddit viewer)",
-        "tumblr": "page.title:(tumblr viewer)",
+        "twitter": "page.title:(twitter viewer OR tweet viewer OR twitter frontend OR nitter)",
+        "reddit": "page.title:(reddit viewer OR reddit frontend OR redlib OR libreddit)",
+        "tumblr": "page.title:(tumblr viewer OR tumblr frontend OR priviblur)",
     }
     headers = {
         "API-Key": api_key,
@@ -1716,6 +1796,113 @@ def page_evidence(url: str, html_text: str) -> dict:
     }
 
 
+def runtime_signals_from_html(html_text: str, platform: str) -> dict:
+    """Extract lightweight JS/metadata signals without executing page code."""
+    empty = {
+        "script_sources": [],
+        "manifest_urls": [],
+        "framework_hits": [],
+        "platform_hits": [],
+        "service_hits": [],
+        "service_runtime_hint": False,
+    }
+    if not isinstance(html_text, str) or "<" not in html_text:
+        return empty
+
+    script_sources = [
+        html.unescape(value)
+        for value in re.findall(
+            r"(?is)<script[^>]+\bsrc\s*=\s*['\"]([^'\"]+)",
+            html_text,
+        )
+    ][:24]
+    manifest_urls = [
+        html.unescape(value)
+        for value in re.findall(
+            r"(?is)<link[^>]+\brel\s*=\s*['\"][^'\"]*manifest[^'\"]*['\"][^>]+\bhref\s*=\s*['\"]([^'\"]+)",
+            html_text,
+        )
+    ][:8]
+    jsonld_text = " ".join(
+        html.unescape(value)
+        for value in re.findall(
+            r"(?is)<script[^>]+type\s*=\s*['\"]application/ld\+json['\"][^>]*>(.*?)</script>",
+            html_text,
+        )
+    )[:12000]
+
+    runtime_text = fold(" ".join(script_sources + manifest_urls + [jsonld_text]))
+    if platform == "twitter":
+        platform_terms = ("twitter", "tweet", "nitter", "xcancel")
+    elif platform == "reddit":
+        platform_terms = ("reddit", "subreddit", "redlib", "libreddit", "teddit", "troddit")
+    else:
+        platform_terms = ("tumblr", "priviblur", "tumlook", "tumviews", "zoomblr")
+    platform_hits = [t for t in platform_terms if term_present(t, runtime_text)]
+    service_hits = [t for t in STRONG_SERVICE_TERMS if term_present(t, runtime_text)]
+    framework_hits = [
+        t for t in ("react", "vue", "svelte", "angular", "next.js", "nuxt", "astro", "vite")
+        if term_present(t, runtime_text)
+    ]
+    return {
+        "script_sources": script_sources,
+        "manifest_urls": manifest_urls,
+        "framework_hits": framework_hits,
+        "platform_hits": platform_hits,
+        "service_hits": service_hits,
+        "service_runtime_hint": bool(platform_hits and service_hits),
+    }
+
+
+def service_route_candidates(
+    final_url: str,
+    page: dict,
+    platform: str,
+) -> list[str]:
+    """Rank same-origin links that look like actual frontend/content routes."""
+    final_host = normalize_host(final_url)
+    if not final_host:
+        return []
+
+    pcfg = PLATFORMS[platform]
+    identity_terms = list(dict.fromkeys(
+        pcfg["identity_extra"] + sum((cfg["identity"] for cfg in LANGUAGES.values()), [])
+    ))
+    ranked: list[tuple[int, str]] = []
+    seen: set[str] = set()
+
+    for href, label in page.get("links", []):
+        absolute = sanitize_request_url(urljoin(final_url, href))
+        if not absolute:
+            continue
+        parsed = urlparse(absolute)
+        if parsed.hostname != final_host:
+            continue
+        if absolute in seen:
+            continue
+        seen.add(absolute)
+        combined = fold(f"{href} {label} {parsed.path}")
+        if any(marker in parsed.path.lower() for marker in BAD_PATH_MARKERS):
+            continue
+
+        route_score = 0
+        if path_looks_like_service(parsed.path.lower()):
+            route_score += 5
+        if any(term_present(term, combined) for term in STRONG_SERVICE_TERMS):
+            route_score += 4
+        if any(term_present(term, combined) for term in identity_terms):
+            route_score += 2
+        if any(term_present(term, combined) for term in ("search", "browse", "explore", "view", "open")):
+            route_score += 2
+        if parsed.query:
+            route_score += 1
+        if route_score > 0:
+            ranked.append((route_score, absolute))
+
+    ranked.sort(key=lambda item: (-item[0], item[1]))
+    return [url for _, url in ranked[:MAX_INTERNAL_SERVICE_LINKS]]
+
+
 def search_result_has_strong_service_evidence(hit: SearchHit) -> bool:
     """Return True when at least one search snippet clearly matches platform + service."""
     for evidence in hit.search_evidence:
@@ -1792,6 +1979,31 @@ def search_query_intent_hits(hit: SearchHit) -> int:
     )
 
 
+def discovery_score(hit: SearchHit) -> int:
+    """Rank candidates using independent discovery evidence before page validation."""
+    score = 0
+    direct_trusted = bool(set(hit.sources) & DIRECT_TRUSTED_SOURCES)
+    score += 6 if direct_trusted else 0
+    score += min(8, 3 * len(hit.sources))
+    score += min(6, 2 * len(hit.providers))
+    score += min(8, 2 * search_query_intent_hits(hit))
+    score += min(6, 2 * len({
+        q for q in hit.queries
+        if not q.startswith("SOURCE:") and not q.startswith("SEED:")
+    }))
+    score += 4 if search_result_has_strong_service_evidence(hit) else 0
+    score += 3 if SEARCH_SERVICE_HOST_RE.search(hit.domain) else 0
+    score += 2 if any(
+        path_looks_like_service(urlparse(url).path.lower())
+        for url in hit.urls
+    ) else 0
+    score += 2 if any(
+        term_present(term, " ".join(hit.search_evidence))
+        for term in PLATFORMS[hit.platform]["brands"]
+    ) else 0
+    return score
+
+
 def pending_candidate_has_strong_signal(hit: SearchHit) -> bool:
     """Keep only candidates with independent service evidence worth retrying."""
     if is_seed_candidate(hit):
@@ -1819,6 +2031,37 @@ def fetch_error_is_permanent(error: str) -> bool:
         error,
         re.IGNORECASE,
     ))
+
+
+def classify_pending_status(evaluation: Evaluation, hit: SearchHit) -> str | None:
+    """Return a retry state for strong candidates that are not yet publishable."""
+    error = str(evaluation.evidence.get("fetch_error", "") or "")
+    if fetch_error_is_permanent(error):
+        return "permanent_4xx"
+    if "challenge/parked page detected" in evaluation.reason:
+        return "challenge_blocked"
+    if evaluation.reason == "page unavailable":
+        lowered = error.casefold()
+        if "429" in lowered or "rate limit" in lowered:
+            return "rate_limited"
+        if "timeout" in lowered or "timed out" in lowered:
+            return "timeout"
+        if re.search(r"HTTP Error 5\d\d", error, re.IGNORECASE):
+            return "server_error"
+        return "temporary_unavailable"
+    if (
+        discovery_score(hit) >= NEAR_MISS_DISCOVERY_SCORE
+        and evaluation.reason not in {
+            "already covered by blocklist.txt",
+            "redirected outside candidate host",
+            "service URL resolved to an article/news page",
+            "content/publishing host, not a service host",
+            "article/content page, not a frontend endpoint",
+            "non-frontend service/tool page",
+        }
+    ):
+        return "search_strong_but_page_unverified"
+    return None
 
 
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
@@ -1966,39 +2209,37 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     if fetch_meta.get("via") == "jina" or via == "jina":
         first = page_evidence_from_text(final_url, html_text)
+        runtime = {
+            "script_sources": [],
+            "manifest_urls": [],
+            "framework_hits": [],
+            "platform_hits": [],
+            "service_hits": [],
+            "service_runtime_hint": False,
+        }
     else:
         first = page_evidence(final_url, html_text)
+        runtime = runtime_signals_from_html(html_text, hit.platform)
 
     all_pages = [first]
 
-    # On direct HTML, follow at most two same-origin service links.
+    # Follow a small, scored set of same-origin routes to discover service
+    # endpoints exposed from a landing page.
     if via == "direct":
-        relevant = []
-        for href, label in first["links"]:
-            absolute = urljoin(final_url, href)
-            parsed = urlparse(absolute)
-            if parsed.scheme not in {"http", "https"} or parsed.hostname != final_host:
-                continue
-            combined = fold(f"{href} {label}")
-            if any(
-                term_present(term, combined)
-                for term in (
-                    "profile", "user", "post", "tweet", "subreddit", "blog",
-                    "viewer", "frontend", "instance", "proxy", "mirror",
-                    "search", "профиль", "пользователь", "帖子", "プロフィール", "사용자",
-                )
-            ):
-                relevant.append(absolute)
-
         seen = {final_url}
-        for extra_url in relevant[:2]:
+        for extra_url in service_route_candidates(final_url, first, hit.platform):
             if extra_url in seen:
                 continue
             seen.add(extra_url)
             extra_html, extra_meta = fetch_html(extra_url)
             extra_final = extra_meta.get("final_url", "") if extra_html is not None else ""
-            if extra_html is not None and normalize_host(extra_final) == hit.domain:
-                all_pages.append(page_evidence(extra_final, extra_html))
+            if extra_html is None or normalize_host(extra_final) != hit.domain:
+                continue
+            if any(marker in urlparse(extra_final).path.lower() for marker in BAD_PATH_MARKERS):
+                continue
+            all_pages.append(page_evidence(extra_final, extra_html))
+            if len(all_pages) - 1 >= MAX_INTERNAL_SERVICE_LINKS:
+                break
 
     pcfg = PLATFORMS[hit.platform]
     title = fold(" ".join(p["title"] for p in all_pages))
@@ -2007,7 +2248,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     body = fold(" ".join(p["body"] for p in all_pages))
     links = fold(" ".join(p["link_text"] for p in all_pages))
     url_text = fold(final_url)
-    total = fold(" ".join([title, headings, meta, body, links, url_text]))
+    runtime_text = fold(" ".join(
+        runtime["script_sources"]
+        + runtime["manifest_urls"]
+        + runtime["framework_hits"]
+        + runtime["platform_hits"]
+        + runtime["service_hits"]
+    ))
+    total = fold(" ".join([title, headings, meta, body, links, url_text, runtime_text]))
     header_text = fold(" ".join([title, headings, meta]))
 
     if any(marker in total[:12000] for marker in CHALLENGE_MARKERS):
@@ -2108,6 +2356,9 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     non_frontend_service_hits = [
         t for t in NON_FRONTEND_SERVICE_TERMS if term_present(t, header_text)
     ]
+    runtime_platform_hits = list(runtime["platform_hits"])
+    runtime_service_hits = list(runtime["service_hits"])
+    runtime_service_hint = bool(runtime.get("service_runtime_hint"))
 
     input_count = sum(p["inputs"] for p in all_pages)
     form_count = sum(p["forms"] for p in all_pages)
@@ -2138,6 +2389,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or service_path_hint
         or host_service_hint
         or brand_hits
+        or runtime_service_hint
     )
     non_frontend_only = bool(
         non_frontend_service_hits
@@ -2256,6 +2508,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # without page-level evidence.
     page_platform_ok = bool(
         header_platform_hits
+        or runtime_platform_hits
         or (
             platform_hits
             and (
@@ -2270,6 +2523,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     )
     page_service_ok = bool(
         strong_header_service_hits
+        or runtime_service_hint
         or brand_hits
         or service_path_hint
         or host_service_hint
@@ -2427,6 +2681,23 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     if via == "jina":
         score += 1
 
+    positive_frontend_signals = (
+        len(strong_header_service_hits)
+        + len(runtime_service_hits)
+        + int(service_path_hint)
+        + int(host_service_hint)
+        + int(ui_signal)
+        + int(bool(brand_hits))
+    )
+    tool_signal_hits = [
+        t for t in NON_FRONTEND_SERVICE_TERMS if term_present(t, total[:20000])
+    ]
+    editorial_signal_count = len(editorial_marker_hits) + len(content_title_hits)
+    score += min(6, 2 * positive_frontend_signals)
+    score += min(3, len(runtime["framework_hits"]))
+    score -= min(6, 2 * len(tool_signal_hits)) if tool_signal_hits and not frontend_signal_hint else 0
+    score -= min(6, editorial_signal_count) if editorial_signal_count and not frontend_signal_hint else 0
+
     evidence = {
         "platform_hits": platform_hits,
         "twitter_x_context_ok": twitter_x_context_ok(total),
@@ -2472,6 +2743,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "search_evidence": hit.search_evidence[:12],
         "trusted_sources": hit.sources,
         "fetch_via": via,
+        "runtime_platform_hits": runtime_platform_hits,
+        "runtime_service_hits": runtime_service_hits,
+        "runtime_framework_hits": runtime["framework_hits"],
+        "runtime_service_hint": runtime_service_hint,
+        "positive_frontend_signals": positive_frontend_signals,
+        "tool_signal_hits": tool_signal_hits,
+        "editorial_signal_count": editorial_signal_count,
+        "internal_routes_checked": len(all_pages) - 1,
         "query_urls": hit.urls[:10],
     }
 
@@ -2648,6 +2927,7 @@ def main() -> int:
             and (h.platform, h.domain) not in seed_keys
         ],
         key=lambda h: (
+            -discovery_score(h),
             -len(h.sources),
             -len(h.search_evidence),
             h.domain,
@@ -2670,6 +2950,7 @@ def main() -> int:
             and (h.platform, h.domain) not in pending_keys
         ],
         key=lambda h: (
+            -discovery_score(h),
             -int(search_result_has_strong_service_evidence(h)),
             -search_query_intent_hits(h),
             -len(h.providers),
@@ -2717,7 +2998,20 @@ def main() -> int:
             evaluations.append(completed.result())
             time.sleep(VALIDATION_DELAY)
 
-    evaluations.sort(key=lambda e: (-e.accepted, -e.score, e.domain))
+    evaluation_hit_map = {(hit.platform, hit.domain): hit for hit in hits}
+    for evaluation in evaluations:
+        source_hit = evaluation_hit_map.get((evaluation.platform, evaluation.domain))
+        if source_hit is not None:
+            evaluation.evidence["discovery_score"] = discovery_score(source_hit)
+
+    evaluations.sort(
+        key=lambda e: (
+            -e.accepted,
+            -int(e.evidence.get("discovery_score", 0)),
+            -e.score,
+            e.domain,
+        )
+    )
 
     seed_evaluations = {
         (e.platform, e.domain): e
@@ -2771,20 +3065,15 @@ def main() -> int:
             pending_state.pop(key, None)
             continue
 
-        if evaluation.reason != "page unavailable":
-            pending_state.pop(key, None)
-            continue
-
         if source_hit is None:
             continue
 
-        fetch_error = evaluation.evidence.get("fetch_error", "")
-        if fetch_error_is_permanent(fetch_error):
+        status = classify_pending_status(evaluation, source_hit)
+        meaningful_signal = pending_candidate_has_strong_signal(source_hit)
+        if status == "permanent_4xx" or not meaningful_signal:
             pending_state.pop(key, None)
             continue
-
-        meaningful_signal = pending_candidate_has_strong_signal(source_hit)
-        if not meaningful_signal:
+        if status is None:
             pending_state.pop(key, None)
             continue
 
@@ -2801,6 +3090,9 @@ def main() -> int:
             "last_attempt": now_iso,
             "last_attempt_epoch": now_epoch,
             "attempts": int(previous.get("attempts", 0) or 0) + 1,
+            "status": status,
+            "last_reason": evaluation.reason,
+            "discovery_score": discovery_score(source_hit),
         }
 
     pending_verification = sorted(
@@ -2808,6 +3100,7 @@ def main() -> int:
         key=lambda item: (
             -len(item.get("sources", [])),
             -len(item.get("search_evidence", [])),
+            -int(item.get("discovery_score", 0) or 0),
             -len(item.get("queries", [])),
             -float(item.get("last_attempt_epoch", 0) or 0),
             item.get("domain", ""),
@@ -2818,6 +3111,37 @@ def main() -> int:
     for evaluation in evaluations:
         if not evaluation.accepted:
             rejection_reason_counts[evaluation.reason] = rejection_reason_counts.get(evaluation.reason, 0) + 1
+
+    definitive_rejection_reasons = {
+        "already covered by blocklist.txt",
+        "redirected outside candidate host",
+        "service URL resolved to an article/news page",
+        "content/publishing host, not a service host",
+        "article/content page, not a frontend endpoint",
+        "non-frontend service/tool page",
+    }
+    near_misses = []
+    for evaluation in evaluations:
+        source_hit = evaluation_hit_map.get((evaluation.platform, evaluation.domain))
+        if (
+            not evaluation.accepted
+            and source_hit is not None
+            and discovery_score(source_hit) >= NEAR_MISS_DISCOVERY_SCORE
+            and evaluation.reason not in definitive_rejection_reasons
+        ):
+            near_misses.append({
+                "domain": evaluation.domain,
+                "platform": evaluation.platform,
+                "discovery_score": discovery_score(source_hit),
+                "validation_score": evaluation.score,
+                "reason": evaluation.reason,
+                "status": classify_pending_status(evaluation, source_hit),
+                "evidence": evaluation.evidence,
+            })
+    near_misses = sorted(
+        near_misses,
+        key=lambda item: (-item["discovery_score"], -item["validation_score"], item["domain"]),
+    )[:40]
 
     verified_frontend_domains = [
         {
@@ -2890,7 +3214,13 @@ def main() -> int:
                     "candidates_discovered": len(candidate_map),
                     "validated_candidates": len(evaluations),
                     "pending_verification_count": len(pending_verification),
+                    "pending_status_counts": {
+                        status: sum(1 for item in pending_verification if item.get("status") == status)
+                        for status in sorted({item.get("status", "") for item in pending_verification if item.get("status")})
+                    },
                     "pending_verification": pending_verification,
+                    "near_miss_count": len(near_misses),
+                    "top_near_misses": near_misses[:20],
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
                     "append_only": True,
@@ -2960,7 +3290,27 @@ def main() -> int:
         "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),
         "pending_verification_count": len(pending_verification),
+        "pending_status_counts": {
+            status: sum(1 for item in pending_verification if item.get("status") == status)
+            for status in sorted({item.get("status", "") for item in pending_verification if item.get("status")})
+        },
         "pending_verification": pending_verification,
+        "near_miss_count": len(near_misses),
+        "top_near_misses": near_misses[:20],
+        "candidate_selection_score_top": [
+            {
+                "domain": hit.domain,
+                "platform": hit.platform,
+                "discovery_score": discovery_score(hit),
+                "sources": hit.sources[:6],
+                "providers": hit.providers[:6],
+                "queries": hit.queries[:8],
+            }
+            for hit in sorted(
+                (h for h in candidate_map.values() if h.domain not in known_domains),
+                key=lambda h: (-discovery_score(h), h.domain),
+            )[:40]
+        ],
         "accepted_count": len(accepted),
         "newly_accepted_count": len(accepted),
         "retained_historical_count": len(historical),

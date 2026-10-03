@@ -361,6 +361,7 @@ class PageParser(HTMLParser):
         self.forms = 0
         self.inputs = 0
         self.buttons = 0
+        self.article_count = 0
         self.control_parts: list[str] = []
         self.current_tag: str | None = None
 
@@ -377,6 +378,8 @@ class PageParser(HTMLParser):
                 content = attrs_map.get("content")
                 if content:
                     self.meta_parts.append(content)
+        elif tag == "article":
+            self.article_count += 1
         elif tag == "form":
             self.forms += 1
         elif tag in {"input", "textarea", "select"}:
@@ -430,6 +433,7 @@ class PageParser(HTMLParser):
             "forms": self.forms,
             "inputs": self.inputs,
             "buttons": self.buttons,
+            "article_count": self.article_count,
             "controls": " ".join(self.control_parts),
         }
 
@@ -1220,6 +1224,7 @@ def page_evidence_from_text(url: str, text: str) -> dict:
         "forms": 0,
         "inputs": 0,
         "buttons": 0,
+        "article_count": 0,
         "controls": "",
         "url_text": f"{parsed.netloc} {parsed.path}",
         "visible": body,
@@ -1445,8 +1450,29 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     content_host = (
         hit.domain.endswith(CONTENT_HOST_SUFFIXES)
-        or hit.domain in {"alternativeto.net", "www.alternativeto.net", "beebom.com",
-                          "www.beebom.com", "makeuseof.com", "www.makeuseof.com"}
+        or hit.domain in {
+            "alternativeto.net", "www.alternativeto.net",
+            "beebom.com", "www.beebom.com",
+            "makeuseof.com", "www.makeuseof.com",
+            "dev.to", "www.dev.to",
+            "dev.co", "www.dev.co",
+            "libhunt.com", "www.libhunt.com",
+            "producthunt.com", "www.producthunt.com",
+            "pcmag.com", "www.pcmag.com",
+            "ghacks.net", "www.ghacks.net",
+            "wired.com", "www.wired.com",
+            "analyticsinsight.net", "www.analyticsinsight.net",
+            "rankred.com", "www.rankred.com",
+            "softwaretestinghelp.com", "www.softwaretestinghelp.com",
+            "wbcomdesigns.com", "www.wbcomdesigns.com",
+            "journaldufreenaute.fr", "www.journaldufreenaute.fr",
+            "begindot.com", "www.begindot.com",
+            "techbii.com", "www.techbii.com",
+            "techtactician.com", "www.techtactician.com",
+            "tuffermagazine.com", "www.tuffermagazine.com",
+            "hitpaw.com", "www.hitpaw.com",
+            "volumn.ai", "www.volumn.ai",
+        }
     )
     if content_host:
         return Evaluation(
@@ -1464,11 +1490,19 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     header_service_identity_hint = bool(
         any(term_present(term, header_text) for term in STRONG_SERVICE_TERMS)
     )
+    article_structure_hint = any(
+        p.get("article_count", 0) >= 1 for p in all_pages
+    )
     article_like = bool(
         content_path_hint
         or (
             content_title_hits
             and not service_path_hint
+            and not host_service_hint
+            and not header_service_identity_hint
+        )
+        or (
+            article_structure_hint
             and not host_service_hint
             and not header_service_identity_hint
         )
@@ -1481,6 +1515,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
                 "content_title_hits": content_title_hits,
                 "service_path_hint": service_path_hint,
                 "host_service_hint": host_service_hint,
+                "article_structure_hint": article_structure_hint,
             },
             "article/content page, not a frontend endpoint"
         )
@@ -1661,6 +1696,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         and page_service_ok
         and page_identity_ok
         and ui_signal
+        and not article_structure_hint
     )
     search_quality_ok = (
         strong_search_evidence
@@ -1729,6 +1765,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "inputs": input_count,
         "forms": form_count,
         "buttons": button_count,
+        "article_count": sum(p.get("article_count", 0) for p in all_pages),
+        "article_structure_hint": article_structure_hint,
         "interactive_target_hits": interactive_target_hits,
         "service_path_hint": service_path_hint,
         "host_service_hint": host_service_hint,

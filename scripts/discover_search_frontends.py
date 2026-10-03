@@ -564,6 +564,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     first_url = hit.urls[0]
     direct_trusted = bool(set(hit.sources) & DIRECT_TRUSTED_SOURCES)
+    search_confirmed = len(hit.providers) >= 2 or len(hit.queries) >= 2
     html_text, fetch_meta = fetch_html(first_url)
     if html_text is None:
         if direct_trusted:
@@ -686,6 +687,12 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         score += 4
     elif hit.sources:
         score += 2
+    if len(hit.providers) >= 2:
+        score += 4
+    elif hit.providers:
+        score += 2
+    if hit.search_evidence:
+        score += 1
     if len(service_hits) >= 1:
         score += 2
     if len(service_hits) >= 2:
@@ -714,8 +721,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             and not any(marker in total[:12000] for marker in CHALLENGE_MARKERS)
         )
         or (strong_brand and (service_hits or identity_hits) and score >= 10 and ui_signal)
-        or (structured_combo and (repeated_search or trusted_repeat) and score >= 11 and ui_signal)
-        or (structured_combo and len(hit.urls) >= 2 and score >= 11 and ui_signal)
+        or (structured_combo and search_confirmed and score >= 10 and ui_signal)
+        or (structured_combo and len(hit.urls) >= 2 and score >= 10 and ui_signal)
     )
     if direct_trusted:
         score += 6
@@ -744,6 +751,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "ui_signal": ui_signal,
         "crawled_pages": len(all_pages),
         "query_urls": hit.urls[:10],
+        "search_providers": hit.providers,
+        "search_evidence": hit.search_evidence[:12],
         "direct_trusted": direct_trusted,
     }
 
@@ -777,13 +786,29 @@ def safe_evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
 def main() -> int:
     existing = read_existing_domains()
+    query_specs = build_queries()
 
     candidate_map: dict[tuple[str, str], SearchHit] = {}
     search_errors: list[dict] = []
 
+    seeds = seed_candidates()
+    candidate_map.update(seeds)
+
     trusted = trusted_candidates()
     for key, hit in trusted.items():
-        candidate_map[key] = hit
+        if key not in candidate_map:
+            candidate_map[key] = hit
+        else:
+            current = candidate_map[key]
+            for source in hit.sources:
+                if source not in current.sources:
+                    current.sources.append(source)
+            for query in hit.queries:
+                if query not in current.queries:
+                    current.queries.append(query)
+            for url in hit.urls:
+                if url not in current.urls:
+                    current.urls.append(url)
 
     github_sources = github_repository_candidates()
     for key, hit in github_sources.items():
@@ -801,25 +826,55 @@ def main() -> int:
                 if url not in current.urls:
                     current.urls.append(url)
 
+    seed_candidate_count = len(seeds)
     trusted_candidate_count = len(trusted)
     github_candidate_count = len(github_sources)
-    trusted_source_names = sorted({
-        source
-        for hit in trusted.values()
-        for source in hit.sources
-    })
 
+    print(f"Verified web seeds: {seed_candidate_count}")
     print(f"Trusted-source candidates: {trusted_candidate_count}")
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
-    search_queries = GITHUB_SOURCE_QUERIES
-    for query in search_queries:
-        print(f"[GITHUB SEARCH] {query}")
+    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
+    provider_failures = {backend: 0 for backend in SEARCH_BACKENDS}
+    provider_disabled: set[str] = set()
 
-    # No direct Google/Bing/DDG scraping and no public SearXNG probing in CI.
-    # SearXNG public instances are documented for manual/self-hosted use, but
-    # the 2026-10-03 GitHub Actions logs showed widespread 429/403 responses.
-    searx_instances: list[str] = []
+    for index, (lang, platform, query) in enumerate(query_specs, start=1):
+        cfg = LANGUAGES[lang]
+        region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
+        print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
+        result_count = 0
+
+        for backend in SEARCH_BACKENDS:
+            if backend in provider_disabled:
+                continue
+            try:
+                results = search_with_ddgs(searcher, query, region, backend)
+                provider_failures[backend] = 0
+                for result in results:
+                    merge_search_result(candidate_map, platform, query, backend, result)
+                result_count += len(results)
+                print(f"[DDGS/{backend}] {len(results)} results")
+            except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+                provider_failures[backend] += 1
+                error = f"{type(exc).__name__}: {exc}"
+                search_errors.append({
+                    "language": lang,
+                    "platform": platform,
+                    "query": query,
+                    "backend": backend,
+                    "error": error,
+                })
+                print(f"[WARN] DDGS/{backend}: {error}")
+                if provider_failures[backend] >= PROVIDER_ERROR_LIMIT:
+                    provider_disabled.add(backend)
+                    print(f"[WARN] Disabling DDGS/{backend} after repeated failures.")
+
+        if result_count == 0:
+            print("[WARN] No search results from active backends.")
+        time.sleep(SEARCH_DELAY)
+
+    print(f"DDGS backends disabled: {sorted(provider_disabled)}")
+    print(f"Search errors recorded: {len(search_errors)}")
 
     # Stronger discovery signal first: domains seen in multiple independent queries.
     hits = sorted(
@@ -862,9 +917,11 @@ def main() -> int:
                     "accepted_count": 0,
                     "trusted_candidate_count": trusted_candidate_count,
                     "trusted_source_names": trusted_source_names,
+                    "verified_web_seed_count": seed_candidate_count,
                     "github_discovered_candidate_count": github_candidate_count,
-                    "searxng_instances_used": 0,
-                    "search_strategy": "maintained registries + GitHub repository/README discovery; public search-engine scraping disabled",
+                    "search_backends": SEARCH_BACKENDS,
+                    "disabled_backends": sorted(provider_disabled),
+                    "search_strategy": "maintained registries + GitHub + DDGS multi-engine search; each backend queried separately",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -877,7 +934,7 @@ def main() -> int:
         return 0
 
     OUTPUT.write_text(
-        "# Generated from maintained frontend registries + GitHub discovery + page validation.\n"
+        "# Generated from maintained frontend registries + GitHub + DDGS multi-engine search + page validation.\n"
         "# Only newly discovered domains are included; domains already in blocklist.txt are omitted.\n"
         + "\n".join(f"||{e.domain}^" for e in accepted)
         + "\n",
@@ -886,12 +943,13 @@ def main() -> int:
 
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "search_queries": len(search_queries),
-        "google_html_scraping_disabled": True,
+        "search_queries": len(query_specs),
+        "search_backends": SEARCH_BACKENDS,
+        "disabled_backends": sorted(provider_disabled),
+        "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
-        "searxng_instances_used": 0,
-        "search_strategy": "maintained registries + GitHub repository/README discovery; public search-engine scraping disabled",
+        "search_strategy": "maintained registries + GitHub + DDGS multi-engine search; each backend queried separately",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),

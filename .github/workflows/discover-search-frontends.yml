@@ -65,6 +65,42 @@ jobs:
           )
           assert ("twitter", "example.com") in candidates
           assert candidates[("twitter", "example.com")].providers == ["bing-rss"]
+
+          noisy = {}
+          discovery.merge_search_result(
+              noisy,
+              "twitter",
+              "twitter viewer without login",
+              "bing-rss",
+              {
+                  "href": "https://noise.example/restaurant",
+                  "title": "Restaurant Milano",
+                  "body": "Hotel, restaurant and booking information",
+              },
+          )
+          assert not noisy
+
+          encoded = discovery.sanitize_request_url(
+              "https://example.com/user/Son Goku?q=hello world"
+          )
+          assert encoded == "https://example.com/user/Son%20Goku?q=hello%20world"
+
+          malformed = {}
+          discovery.merge_search_result(
+              malformed,
+              "reddit",
+              "reddit viewer without login",
+              "bing-rss",
+              {
+                  "href": "https://example.com/user/Son Goku",
+                  "title": "Reddit viewer",
+                  "body": "Reddit viewer for public posts",
+              },
+          )
+          assert malformed[("reddit", "example.com")].urls == [
+              "https://example.com/user/Son%20Goku"
+          ]
+
           queries = discovery.build_queries()
           assert queries
           assert len(discovery.active_search_languages()) == 4
@@ -113,7 +149,7 @@ jobs:
                   "example-viewer.test",
                   "reddit",
                   ["reddit viewer without login"],
-                  ["https://example-viewer.test/"],
+                  ["https://example-viewer.test/reddit-viewer"],
                   [],
                   ["bing-rss"],
                   ["bing-rss:reddit viewer without login"],
@@ -121,6 +157,19 @@ jobs:
               regression = discovery.safe_evaluate_candidate(regression_hit, set())
               assert regression.reason != "candidate validation crashed safely"
               assert regression.accepted, regression.reason
+
+              analyzer_hit = discovery.SearchHit(
+                  "example-analyzer.test",
+                  "reddit",
+                  ["reddit profile analyzer"],
+                  ["https://example-analyzer.test/"],
+                  [],
+                  ["bing-rss"],
+                  ["bing-rss:reddit profile analyzer"],
+              )
+              analyzer = discovery.safe_evaluate_candidate(analyzer_hit, set())
+              assert analyzer.reason == "non-frontend service/tool page"
+              assert not analyzer.accepted
           finally:
               discovery.fetch_html = original_fetch_html
               discovery.fetch_jina_text = original_fetch_jina_text

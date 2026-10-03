@@ -1145,7 +1145,6 @@ def main() -> int:
                 continue
             try:
                 results = search_with_ddgs(searcher, query, region, backend)
-                provider_failures[backend] = 0
                 for result in results:
                     merge_search_result(candidate_map, platform, query, backend, result)
                 result_count += len(results)

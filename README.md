@@ -84,15 +84,17 @@ Aviso
 Esta lista se genera automáticamente y depende de la disponibilidad y del formato de las fuentes externas. Si una fuente cambia su estructura, el workflow puede necesitar modificaciones.
 
 
-## Descubrimiento adicional mediante Google
+## Descubrimiento adicional de frontends
 
 Además de las fuentes de instancias conocidas, existe un segundo descubridor independiente:
 
 `scripts/discover_search_frontends.py`
 
-El descubridor realiza búsquedas en Google en 10 idiomas (inglés, español, francés, alemán, ruso, chino, japonés, coreano, hindi y árabe), recoge dominios candidatos y visita las páginas encontradas para validar que realmente parezcan frontends/viewers de Twitter/X, Reddit o Tumblr.
+El descubridor combina registros mantenidos de instancias con GitHub, fuentes públicas de índices, Common Crawl, URLScan cuando se configura su API key y búsquedas acotadas de Bing. Las consultas rotan por familias y por idiomas para ampliar la cobertura sin multiplicar indefinidamente el número de peticiones.
 
-La validación no se basa en una coincidencia única. Combina términos de plataforma, términos funcionales (viewer, frontend, mirror, proxy, instancia, etc.), términos de contenido (perfil, usuario, tweet, subreddit, post, blog, etc.), presencia de señales de interfaz y repetición del dominio en búsquedas independientes. También descarta motores de búsqueda, dominios oficiales y páginas de artículos/noticias, y no publica un dominio si la comprobación de Google produce un resultado insuficiente.
+Los candidatos no se aceptan por una sola coincidencia. La validación combina señales de plataforma, frontend/viewer, identidad de contenido, rutas de servicio, controles de interfaz, metadata y señales ligeras de aplicaciones JavaScript. También descarta motores de búsqueda, dominios oficiales y páginas claramente editoriales o de herramientas ajenas al frontend.
+
+Los candidatos fuertes que temporalmente no pueden validarse se conservan con estado y backoff de reintento. El informe también registra puntuación de descubrimiento, candidatos cercanos, fuentes utilizadas y errores de validación, para que una caída temporal no haga perder una posible instancia.
 
 La salida se publica por separado:
 
@@ -108,7 +110,7 @@ El descubrimiento se ejecuta por separado mediante:
 
 `.github/workflows/discover-search-frontends.yml`
 
-Ese workflow se ejecuta manualmente y una vez al día. Se mantiene separado del workflow principal de actualización cada 6 horas para no bombardear Google con peticiones innecesarias.
+Ese workflow se ejecuta manualmente y una vez al día, manteniendo una carga acotada y evitando interferir con el workflow principal.
 
 ## Listas publicadas
 

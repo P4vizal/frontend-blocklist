@@ -28,7 +28,7 @@ PAGE_TIMEOUT = 10
 MAX_PAGE_BYTES = 1_500_000
 MAX_CRAWL_PAGES = 3
 MAX_CANDIDATES = 180
-MIN_ACCEPTED = 1
+MIN_ACCEPTED = 2
 WORKERS = 12
 
 USER_AGENT = (
@@ -98,6 +98,7 @@ PLATFORMS = {
             "{platform} {service1} nitter",
             "{platform} {service2} {object} nitter",
         ],
+        "query_object": "profile",
         "identity_extra": ["tweet", "tweets", "user", "profile", "post"],
     },
     "reddit": {
@@ -107,6 +108,7 @@ PLATFORMS = {
             "{platform} {service1} redlib libreddit",
             "{platform} {service2} {object} teddit",
         ],
+        "query_object": "subreddit",
         "identity_extra": ["subreddit", "subreddits", "comment", "comments", "post", "posts", "user", "profile"],
     },
     "tumblr": {
@@ -116,6 +118,7 @@ PLATFORMS = {
             "{platform} {service1} priviblur",
             "{platform} {service2} {object} priviblur",
         ],
+        "query_object": "blog",
         "identity_extra": ["blog", "blogs", "post", "posts", "user", "profile"],
     },
 }
@@ -321,7 +324,7 @@ def build_queries() -> list[tuple[str, str, str]]:
         for platform, pcfg in PLATFORMS.items():
             service1 = cfg["service"][0]
             service2 = cfg["service"][1]
-            object_term = cfg["identity"][0]
+            object_term = pcfg.get("query_object", cfg["identity"][0])
             for template in pcfg["queries"]:
                 queries.append(
                     (

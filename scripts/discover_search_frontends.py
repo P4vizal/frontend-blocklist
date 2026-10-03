@@ -29,12 +29,14 @@ GOOGLE_DELAY = 2.5
 FALLBACK_DELAY = 2.0
 GOOGLE_RESULTS = 10
 PAGE_TIMEOUT = 10
+FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
 MAX_CRAWL_PAGES = 3
 MAX_CANDIDATES = 180
 MAX_CONSECUTIVE_SEARCH_ERRORS = 3
 MIN_ACCEPTED = 2
-WORKERS = 12
+WORKERS = 6
+VALIDATION_DELAY = 0.35
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
@@ -445,24 +447,32 @@ def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
         "User-Agent": USER_AGENT,
         "Accept": "text/html,application/xhtml+xml",
         "Accept-Language": "en,es;q=0.7,*;q=0.3",
+        "Connection": "close",
     }
-    for scheme_url in (url, url.replace("http://", "https://", 1) if url.startswith("http://") else None):
-        if not scheme_url:
-            continue
-        try:
-            req = Request(scheme_url, headers=headers)
-            with urlopen(req, timeout=PAGE_TIMEOUT) as response:
-                content_type = response.headers.get("Content-Type", "")
-                if "html" not in content_type.lower() and content_type:
-                    return None, {"error": f"non-html content-type: {content_type}"}
-                raw = response.read(MAX_PAGE_BYTES)
-                charset = response.headers.get_content_charset() or "utf-8"
-                text = raw.decode(charset, errors="replace")
-                final_url = response.geturl()
-            return text, {"final_url": final_url}
-        except (HTTPError, URLError, TimeoutError, ValueError) as exc:
-            last_error = f"{type(exc).__name__}: {exc}"
-    return None, {"error": last_error if "last_error" in locals() else "fetch failed"}
+
+    variants = [url]
+    if url.startswith("http://"):
+        variants.append(url.replace("http://", "https://", 1))
+
+    last_error = "fetch failed"
+    for scheme_url in dict.fromkeys(variants):
+        for attempt in range(1, FETCH_RETRIES + 1):
+            try:
+                req = Request(scheme_url, headers=headers)
+                with urlopen(req, timeout=PAGE_TIMEOUT) as response:
+                    content_type = response.headers.get("Content-Type", "")
+                    if "html" not in content_type.lower() and content_type:
+                        return None, {"error": f"non-html content-type: {content_type}"}
+                    raw = response.read(MAX_PAGE_BYTES)
+                    charset = response.headers.get_content_charset() or "utf-8"
+                    text = raw.decode(charset, errors="replace")
+                    final_url = response.geturl()
+                return text, {"final_url": final_url}
+            except (HTTPError, URLError, TimeoutError, ValueError, OSError) as exc:
+                last_error = f"{type(exc).__name__}: {exc}"
+                if attempt < FETCH_RETRIES:
+                    time.sleep(0.5 * attempt)
+    return None, {"error": last_error}
 
 
 def page_evidence(url: str, html_text: str) -> dict:
@@ -656,6 +666,22 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     )
 
 
+def safe_evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
+    try:
+        return evaluate_candidate(hit, existing)
+    except Exception as exc:
+        return Evaluation(
+            hit.domain,
+            hit.platform,
+            False,
+            0,
+            len(hit.queries),
+            hit.urls[0] if hit.urls else "",
+            {},
+            "candidate validation crashed safely",
+            f"{type(exc).__name__}: {exc}",
+        )
+
 def main() -> int:
     existing = read_existing_domains()
     query_specs = build_queries()
@@ -736,9 +762,10 @@ def main() -> int:
 
     evaluations: list[Evaluation] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as executor:
-        futures = [executor.submit(evaluate_candidate, hit, existing) for hit in hits]
+        futures = [executor.submit(safe_evaluate_candidate, hit, existing) for hit in hits]
         for completed in concurrent.futures.as_completed(futures):
             evaluations.append(completed.result())
+            time.sleep(VALIDATION_DELAY)
 
     evaluations.sort(key=lambda e: (-e.accepted, -e.score, e.domain))
 
@@ -802,6 +829,7 @@ def main() -> int:
     )
 
     print(f"[OK] Validated new domains: {len(accepted)}")
+    print(f"[OK] Validation workers: {WORKERS}; fetch retries: {FETCH_RETRIES}")
     for e in accepted:
         print(f"[ACCEPT] {e.domain} | {e.platform} | {e.reason}")
 

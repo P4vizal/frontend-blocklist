@@ -90,6 +90,54 @@ jobs:
               ["bing-rss:reddit 查看器 用于浏览 subreddit"],
           )
           assert discovery.search_result_has_strong_service_evidence(multilingual)
+
+          original_fetch_html = discovery.fetch_html
+          original_fetch_jina_text = discovery.fetch_jina_text
+
+          def fake_fetch_html(url):
+              return (
+                  "<html><head><title>Reddit Viewer</title>"
+                  "<meta name='description' content='Browse Reddit subreddits and posts without login'>"
+                  "</head><body>"
+                  "<h1>Reddit Viewer</h1>"
+                  "<input placeholder='Search subreddit'>"
+                  "<button>View</button>"
+                  "</body></html>",
+                  {"final_url": url},
+              )
+
+          discovery.fetch_html = fake_fetch_html
+          discovery.fetch_jina_text = lambda url: (None, {"error": "not needed"})
+          try:
+              regression_hit = discovery.SearchHit(
+                  "example-viewer.test",
+                  "reddit",
+                  ["reddit viewer without login"],
+                  ["https://example-viewer.test/"],
+                  [],
+                  ["bing-rss"],
+                  ["bing-rss:reddit viewer without login"],
+              )
+              regression = discovery.safe_evaluate_candidate(regression_hit, set())
+              assert regression.reason != "candidate validation crashed safely"
+              assert regression.accepted, regression.reason
+          finally:
+              discovery.fetch_html = original_fetch_html
+              discovery.fetch_jina_text = original_fetch_jina_text
+
+          seeded = discovery.SearchHit(
+              "example-viewer.test",
+              "reddit",
+              ["SEED:https://example-viewer.test/"],
+              ["https://example-viewer.test/"],
+              ["Web-verified seed 2026-10-03"],
+              [],
+              [],
+          )
+          assert discovery.pending_candidate_has_strong_signal(seeded)
+          assert discovery.search_pages_for(
+              "en", "view Twitter profiles without login"
+          ) == (1, 2)
           assert discovery.DISCOVERY_MODE == "daily"
           print("Runtime smoke test passed.")
           PY

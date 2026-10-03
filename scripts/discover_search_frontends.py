@@ -1,9 +1,3 @@
-# CI: verified shell delimiter retest.
-# CI: final here-doc retest.
-# CI: final shell here-doc verification retest.
-# CI: shell verification hardening retest.
-# CI: retest after disabling Python bytecode writes in Actions.
-# CI: syntax validation is deliberately side-effect free.
 # CI trigger: keep discovery workflow immediately testable without touching stable blocklist files.
 #!/usr/bin/env python3
 from __future__ import annotations
@@ -47,7 +41,9 @@ SEARCH_PAGES = (1, 2)
 SEARCH_TIMEOUT = 7
 SEARCH_DELAY = 0.2
 SEARCH_RETRIES = 0
-SEARCH_PAGE2_LANGS = {"en", "es"}
+
+# Keep the daily search bounded, but let service-intent queries in every
+# configured language reach the second results page.
 
 DISCOVERY_MODE = os.environ.get("DISCOVERY_MODE", "daily").strip().lower()
 if DISCOVERY_MODE not in {"daily", "deep", "all"}:
@@ -585,12 +581,16 @@ def active_search_languages() -> tuple[str, ...]:
 
 
 def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
-    day_index = int(time.time() // 86400)
-    rotating_page2_lang = LANGUAGE_ROTATION[(day_index * 2) % len(LANGUAGE_ROTATION)]
-    if lang not in SEARCH_PAGE2_LANGS and lang != rotating_page2_lang:
+    if lang not in LANGUAGES:
         return (1,)
     q = fold(query)
-    deep_terms = ("viewer", "frontend", "alternative", "similar", "visor", "visualizador")
+    deep_terms = tuple(dict.fromkeys(
+        (
+            "viewer", "frontend", "alternative", "similar", "anonymous",
+            "browser", "slideshow", "gallery", "content browser", "web client",
+        )
+        + tuple(LANGUAGES[lang]["service"])
+    ))
     return SEARCH_PAGES if any(term_present(term, q) for term in deep_terms) else (1,)
 
 
@@ -604,73 +604,73 @@ def build_queries() -> list[tuple[str, str, str]]:
             '"{platform} viewer" "without login"',
             '"{platform} viewer" "without account"',
             '"{platform} frontend" "without login"',
-            '"{platform} reader" "without account"',
+            '"{platform} anonymous viewer"',
         ],
         "es": [
             '"{platform} visor" "sin iniciar sesión"',
             '"{platform} visor" "sin cuenta"',
             '"{platform} frontend" "sin iniciar sesión"',
-            '"{platform} lector" "sin cuenta"',
+            '"{platform} visor anónimo"',
         ],
         "fr": [
             '"{platform} visionneuse" "sans connexion"',
             '"{platform} visionneuse" "sans compte"',
             '"{platform} interface alternative" "sans connexion"',
-            '"{platform} lecteur" "sans compte"',
+            '"{platform} visionneuse anonyme"',
         ],
         "de": [
             '"{platform} Betrachter" "ohne Anmeldung"',
             '"{platform} Betrachter" "ohne Konto"',
             '"{platform} Frontend" "ohne Anmeldung"',
-            '"{platform} Leser" "ohne Konto"',
+            '"{platform} anonymer Betrachter"',
         ],
         "zh": [
             '"{platform} 查看器" "无登录"',
             '"{platform} 查看器" "无需账户"',
             '"{platform} 替代前端"',
-            '"{platform} 阅读器" "无需账户"',
+            '"{platform} 匿名 查看器"',
         ],
         "ja": [
             '"{platform} ビューア" "ログインなし"',
             '"{platform} ビューア" "アカウントなし"',
             '"{platform} フロントエンド"',
-            '"{platform} リーダー" "アカウントなし"',
+            '"{platform} 匿名 ビューア"',
         ],
         "ko": [
             '"{platform} 뷰어" "로그인 없이"',
             '"{platform} 뷰어" "계정 없이"',
             '"{platform} 프론트엔드"',
-            '"{platform} 리더" "계정 없이"',
+            '"{platform} 익명 뷰어"',
         ],
         "hi": [
             '"{platform} व्यूअर" "बिना लॉगिन"',
             '"{platform} व्यूअर" "बिना अकाउंट"',
             '"{platform} फ्रंटएंड"',
-            '"{platform} रीडर" "बिना अकाउंट"',
+            '"{platform} अनाम व्यूअर"',
         ],
         "ru": [
             '"{platform} просмотрщик" "без входа"',
             '"{platform} просмотрщик" "без аккаунта"',
             '"{platform} фронтенд" "без входа"',
-            '"{platform} читалка" "без аккаунта"',
+            '"{platform} анонимный просмотрщик"',
         ],
         "ar": [
             '"{platform} عارض" "بدون تسجيل دخول"',
             '"{platform} عارض" "بدون حساب"',
             '"{platform} واجهة بديلة"',
-            '"{platform} قارئ" "بدون حساب"',
+            '"{platform} عارض مجهول"',
         ],
         "pt": [
             '"{platform} visualizador" "sem login"',
             '"{platform} visualizador" "sem conta"',
             '"{platform} frontend" "sem login"',
-            '"{platform} leitor" "sem conta"',
+            '"{platform} visualizador anônimo"',
         ],
         "it": [
             '"{platform} visualizzatore" "senza accesso"',
             '"{platform} visualizzatore" "senza account"',
             '"{platform} frontend" "senza accesso"',
-            '"{platform} lettore" "senza account"',
+            '"{platform} visualizzatore anonimo"',
         ],
     }
 
@@ -678,18 +678,21 @@ def build_queries() -> list[tuple[str, str, str]]:
         "twitter": [
             '"Twitter profile viewer" -news -article -guide -review',
             '"tweet viewer" -news -article -guide -review',
+            '"X profile viewer" "no login" -news -article -guide -review',
             '"Twitter browser" "public profiles" -news -article -guide',
             '"view Twitter profiles" "without login" -news -article -guide',
         ],
         "reddit": [
             '"Reddit post viewer" -news -article -guide -review',
             '"Reddit profile viewer" -news -article -guide -review',
+            '"Reddit anonymous viewer" -news -article -guide -review',
             '"subreddit viewer" -news -article -guide -review',
             '"Reddit browser" "without login" -news -article -guide',
         ],
         "tumblr": [
             '"Tumblr blog viewer" -news -article -guide -review',
             '"Tumblr profile viewer" -news -article -guide -review',
+            '"Tumblr anonymous viewer" -news -article -guide -review',
             '"Tumblr post viewer" -news -article -guide -review',
             '"Tumblr browser" "without login" -news -article -guide',
         ],

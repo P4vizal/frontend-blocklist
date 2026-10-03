@@ -114,6 +114,16 @@ LANGUAGES = {
         "service": ["عارض", "واجهة بديلة", "مرآة", "وكيل", "واجهة أمامية", "مثيل"],
         "identity": ["ملف شخصي", "مستخدم", "منشور", "مشاركة"],
     },
+    "pt": {
+        "hl": "pt-BR", "gl": "br",
+        "service": ["visualizador", "frontend alternativo", "espelho", "proxy", "ver sem login"],
+        "identity": ["perfil", "usuário", "post", "publicação"],
+    },
+    "it": {
+        "hl": "it", "gl": "it",
+        "service": ["visualizzatore", "frontend alternativo", "specchio", "proxy", "vedere senza login"],
+        "identity": ["profilo", "utente", "post", "pubblicazione"],
+    },
 }
 
 PLATFORMS = {

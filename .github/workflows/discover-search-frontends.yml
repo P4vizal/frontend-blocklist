@@ -1,4 +1,4 @@
-name: Discover frontend domains via Google
+name: Discover frontend domains
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   discover:
-    name: Google frontend discovery
+    name: Frontend discovery
     runs-on: ubuntu-24.04
     timeout-minutes: 25
 
@@ -52,7 +52,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: update Google-discovered frontend domains"
+          git commit -m "chore: update discovered frontend domains"
 
           for attempt in 1 2 3 4 5; do
             git fetch origin main

@@ -1,3 +1,4 @@
+# CI: final here-doc retest.
 # CI: final shell here-doc verification retest.
 # CI: shell verification hardening retest.
 # CI: retest after disabling Python bytecode writes in Actions.

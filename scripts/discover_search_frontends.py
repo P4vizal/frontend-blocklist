@@ -651,7 +651,12 @@ def read_pending_verification() -> list[dict]:
             "domain": domain,
             "platform": platform,
             "queries": [q for q in item.get("queries", []) if isinstance(q, str)][:12],
-            "urls": [u for u in item.get("urls", []) if isinstance(u, str)][:12],
+            "urls": [
+                safe_url for url in item.get("urls", [])
+                if isinstance(url, str)
+                for safe_url in [sanitize_request_url(url)]
+                if safe_url
+            ][:12],
             "sources": [s for s in item.get("sources", []) if isinstance(s, str)][:8],
             "providers": [p for p in item.get("providers", []) if isinstance(p, str)][:8],
             "search_evidence": [
@@ -1575,7 +1580,10 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
 
 
 def fetch_jina_text(url: str) -> tuple[str, dict] | tuple[None, dict]:
-    jina_url = "https://r.jina.ai/" + url
+    safe_url = sanitize_request_url(url)
+    if not safe_url:
+        return None, {"error": "invalid candidate URL"}
+    jina_url = "https://r.jina.ai/" + safe_url
     req = Request(
         jina_url,
         headers={
@@ -1618,6 +1626,10 @@ def page_evidence_from_text(url: str, text: str) -> dict:
 
 
 def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
+    safe_url = sanitize_request_url(url)
+    if not safe_url:
+        return None, {"error": "invalid candidate URL"}
+
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": "text/html,application/xhtml+xml",
@@ -1625,9 +1637,9 @@ def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
         "Connection": "close",
     }
 
-    variants = [url]
-    if url.startswith("http://"):
-        variants.append(url.replace("http://", "https://", 1))
+    variants = [safe_url]
+    if safe_url.startswith("http://"):
+        variants.append(safe_url.replace("http://", "https://", 1))
 
     last_error = "fetch failed"
     for scheme_url in dict.fromkeys(variants):

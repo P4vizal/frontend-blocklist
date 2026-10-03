@@ -1589,47 +1589,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     article_structure_hint = any(
         p.get("article_count", 0) >= 1 for p in all_pages
     )
-    article_like = bool(
-        content_path_hint
-        or (
-            content_title_hits
-            and not service_path_hint
-            and not host_service_hint
-            and not header_service_identity_hint
-        )
-        or (
-            article_structure_hint
-            and not (
-                ui_signal
-                or service_path_hint
-                or host_service_hint
-                or header_service_identity_hint
-            )
-        )
-        or (
-            len(editorial_marker_hits) >= 2
-            and not (
-                ui_signal
-                or service_path_hint
-                or host_service_hint
-                or header_service_identity_hint
-            )
-        )
-    )
-    if article_like:
-        return Evaluation(
-            hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
-            {
-                "content_path_hint": content_path_hint,
-                "content_title_hits": content_title_hits,
-                "editorial_marker_hits": editorial_marker_hits,
-                "service_path_hint": service_path_hint,
-                "host_service_hint": host_service_hint,
-                "article_structure_hint": article_structure_hint,
-            },
-            "article/content page, not a frontend endpoint"
-        )
-
     platform_hits = [
         t for t in pcfg["platform_terms"]
         if term_present(t, total)
@@ -1686,6 +1645,47 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         marker for marker in EDITORIAL_PAGE_MARKERS
         if term_present(marker, header_text)
     ]
+
+    article_like = bool(
+        content_path_hint
+        or (
+            content_title_hits
+            and not service_path_hint
+            and not host_service_hint
+            and not header_service_identity_hint
+        )
+        or (
+            article_structure_hint
+            and not (
+                ui_signal
+                or service_path_hint
+                or host_service_hint
+                or header_service_identity_hint
+            )
+        )
+        or (
+            len(editorial_marker_hits) >= 2
+            and not (
+                ui_signal
+                or service_path_hint
+                or host_service_hint
+                or header_service_identity_hint
+            )
+        )
+    )
+    if article_like:
+        return Evaluation(
+            hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
+            {
+                "content_path_hint": content_path_hint,
+                "content_title_hits": content_title_hits,
+                "editorial_marker_hits": editorial_marker_hits,
+                "service_path_hint": service_path_hint,
+                "host_service_hint": host_service_hint,
+                "article_structure_hint": article_structure_hint,
+            },
+            "article/content page, not a frontend endpoint"
+        )
 
     action_hits = [t for t in (
         "paste", "enter", "search", "browse", "view", "open", "load",
@@ -2220,7 +2220,7 @@ def main() -> int:
                     "validated_candidates": len(evaluations),
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
-                    "search_strategy": "maintained registries + GitHub; daily rotated search; deep workflow adds Codeberg/GitLab/Common Crawl/optional URLScan; shared page validation",
+                    "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",

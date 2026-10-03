@@ -27,7 +27,7 @@ PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
 MAX_CANDIDATES = 320
-MIN_ACCEPTED = 2
+MIN_ACCEPTED = 1
 SEARCH_WORKERS = 5
 WORKERS = 10
 VALIDATION_DELAY = 0.0
@@ -61,6 +61,8 @@ URLSCAN_DELAY = 1.0
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
+    ("tumblr", "https://cascadr.co/"),
+    ("tumblr", "https://www.tumviews.com/"),
     ("twitter", "https://twitterviewer.net/"),
     ("twitter", "https://tweetviewer.com/"),
     ("twitter", "https://www.sotwe.com/"),
@@ -71,9 +73,9 @@ CONTENT_HOST_SUFFIXES = (
     ".wixsite.com", ".weebly.com",
 )
 SEARCH_SERVICE_HOST_RE = re.compile(
-    r"(viewer|frontend|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
+    r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|
     r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
-    r"priviblur|tumblrviewer|zoomblr)",
+    r"priviblur|tumblrviewer|tumlook|tumviews|zoomblr)",
     re.IGNORECASE,
 )
 
@@ -234,6 +236,7 @@ BAD_PATH_MARKERS = (
     "/category/", "/categories/", "/tag/", "/tags/", "/topics/",
     "/post/", "/posts/", "/topic/", "/topics/", "/thread/", "/threads/",
     "/discussion/", "/discussions/", "/resource/", "/resources/",
+    "/company/", "/companies/", "/app/", "/apps/",
     "/self-hosted-apps/", "/alternatives/", "/subreddits/", "/what-is-",
 )
 
@@ -586,7 +589,7 @@ def seed_candidates() -> dict[tuple[str, str], SearchHit]:
             [url],
             ["Web-verified seed 2026-10-03"],
             [],
-            [f"Human-verified viewer seed: {url}"],
+            [f"Web-verified viewer seed: {url}"],
         )
     return found
 
@@ -1462,6 +1465,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     ))
     service_terms = list(dict.fromkeys(
         sum((cfg["service"] for cfg in LANGUAGES.values()), [])
+        + ["browser", "slideshow", "reader", "gallery", "content browser"]
     ))
     identity_hits = [t for t in identity_terms if term_present(t, total)]
     service_hits = [t for t in service_terms if term_present(t, total)]
@@ -1537,7 +1541,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or seed_candidate and platform_hits
     )
     strong_service_terms = (
-        "viewer", "alternative frontend",
+        "viewer", "frontend", "alternative frontend", "browser", "slideshow",
+        "reader", "gallery", "content browser",
         "visor", "visualizador", "visionneuse", "betrachter",
         "ビューア", "просмотрщик", "visualizzatore",
         "查看器", "뷰어", "व्यूअर", "عارض"
@@ -1557,11 +1562,26 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or (ui_signal and any(term_present(t, body[:7000]) for t in identity_terms))
     )
 
-    strong_service_page = (
+    # Many modern viewers are client-rendered and expose little/no form/button
+    # markup to a plain HTML fetch. Header-level service identity is therefore
+    # accepted when the page itself clearly names the platform and service.
+    header_service_identity = bool(
         page_platform_ok
-        and page_service_ok
-        and page_identity_ok
-        and ui_signal
+        and strong_header_service_hits
+        and header_identity_hits
+    )
+    header_service_discovery = bool(
+        page_platform_ok
+        and strong_header_service_hits
+        and (search_confirmed or seed_candidate)
+    )
+    strong_service_page = bool(
+        page_platform_ok
+        and (
+            (page_service_ok and page_identity_ok and ui_signal)
+            or header_service_identity
+            or header_service_discovery
+        )
     )
 
     # Seeds: published only after page validation, with Jina as a fallback when
@@ -1904,6 +1924,8 @@ def main() -> int:
                     "validation_crash_count": validation_crash_count,
                     "candidates_discovered": len(candidate_map),
                     "validated_candidates": len(evaluations),
+                    "retained_historical_count": len(historical),
+                    "retained_total_count": len(historical),
                     "search_strategy": "maintained registries + GitHub; daily rotated search; deep workflow adds Codeberg/GitLab/Common Crawl/optional URLScan; shared page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,

@@ -116,6 +116,7 @@
 ||www.hatpublic.com^
 ||www.journaldufreenaute.fr^
 ||www.mujico.org^
+||www.osfinder.net^
 ||www.peekstr.com^
 ||www.rapidseedbox.com^
 ||www.subredditviewer.com^

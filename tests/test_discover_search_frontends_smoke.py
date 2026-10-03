@@ -289,6 +289,8 @@ assert discovery.search_pages_for(
     "en", "view Twitter profiles without login"
 ) == (1, 2)
 assert discovery.DISCOVERY_MODE == "daily"
+assert discovery.GITHUB_REPOSITORY_CATALOG_LIMIT == 48
+assert discovery.REPORT_SCHEMA_VERSION == 2
 print("Runtime smoke test passed.")
 
 # Regression: repository catalog pages must never qualify as frontend endpoints.

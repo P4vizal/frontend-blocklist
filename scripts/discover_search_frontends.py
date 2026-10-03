@@ -5,6 +5,7 @@ import concurrent.futures
 import html
 import ipaddress
 import json
+import os
 import re
 import sys
 import time
@@ -20,14 +21,11 @@ from urllib.request import Request, urlopen
 OUTPUT = Path("search-discovered-blocklist.txt")
 REPORT = Path("search-discovered-report.json")
 
-SEARCH_ENGINES = {
-    "google": "https://www.google.com/search",
-    "bing": "https://www.bing.com/search",
-    "ddg": "https://html.duckduckgo.com/html/",
-}
-GOOGLE_DELAY = 2.5
-FALLBACK_DELAY = 2.0
-GOOGLE_RESULTS = 10
+SEARXSPACE_INSTANCES_URL = "https://searx.space/data/instances.json"
+SEARX_INSTANCE_LIMIT = 12
+SEARX_ACTIVE_INSTANCES = 3
+SEARX_REQUEST_TIMEOUT = 10
+DISCOVERY_SEARCH_DELAY = 0.8
 PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
@@ -38,7 +36,7 @@ MIN_ACCEPTED = 2
 WORKERS = 6
 VALIDATION_DELAY = 0.35
 
-USER_AGENT = (
+USER_AGENT = (USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/140.0 Safari/537.36 frontend-blocklist-discovery/1.0"
@@ -139,14 +137,15 @@ TRUSTED_SOURCES = [
     ("Redlib", "json", "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json"),
     ("Libreddit", "json", "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json"),
     ("Priviblur", "text", "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md"),
-    ("Nitter wiki", "html", "https://github.com/zedeus/nitter/wiki/Instances"),
     ("Alternative frontends 1", "text", "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md"),
-    ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/main/README.md"),
+    ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md"),
     ("Alternative frontends 3", "text", "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md"),
-    ("Alternative frontends 4", "text", "https://raw.githubusercontent.com/mendel5/alternative-front-ends/master/README.md"),
+    ("Alternative frontends 4", "text", "https://raw.githubusercontent.com/mendel5/alternative-front-ends/main/README.md"),
 ]
 
-FARSIDE_PLATFORM_TYPES = {
+DIRECT_TRUSTED_SOURCES = {"Farside", "Redlib", "Libreddit", "Priviblur"}
+
+FARSIDE_PLATFORM_TYPES = {FARSIDE_PLATFORM_TYPES = {
     "twitter": {"nitter", "xcancel"},
     "reddit": {"redlib", "libreddit", "teddit", "eddrit", "troddit"},
     "tumblr": {"priviblur"},
@@ -383,85 +382,77 @@ def build_queries() -> list[tuple[str, str, str]]:
     return queries
 
 
-def search_engine(engine: str, query: str, hl: str, gl: str) -> list[str]:
-    if engine == "google":
-        params = {
-            "q": query,
-            "num": str(GOOGLE_RESULTS),
-            "hl": hl,
-            "gl": gl,
-            "filter": "0",
-            "gbv": "1",
-        }
-    elif engine == "bing":
-        params = {
-            "q": query,
-            "count": str(GOOGLE_RESULTS),
-            "setlang": hl,
-            "cc": gl.upper(),
-        }
-    else:
-        params = {
-            "q": query,
-            "kl": f"{gl}-{hl.split('-')[0]}" if gl else "wt-wt",
-        }
-
-    base = SEARCH_ENGINES[engine]
-    url = base + "?" + "&".join(
+def search_searxng(base: str, query: str, language: str) -> list[str]:
+    params = {
+        "q": query,
+        "format": "json",
+        "language": language,
+        "safesearch": "1",
+        "categories": "general",
+    }
+    url = base.rstrip("/") + "/search?" + "&".join(
         f"{quote_plus(k)}={quote_plus(v)}" for k, v in params.items()
     )
     req = Request(
         url,
         headers={
             "User-Agent": USER_AGENT,
-            "Accept": "text/html,application/xhtml+xml",
-            "Accept-Language": f"{hl},en;q=0.7",
-            "Cache-Control": "no-cache",
+            "Accept": "application/json",
+            "Accept-Language": f"{language},en;q=0.7",
+            "Connection": "close",
         },
     )
-    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
+    with urlopen(req, timeout=SEARX_REQUEST_TIMEOUT) as response:
         raw = response.read(MAX_PAGE_BYTES)
         charset = response.headers.get_content_charset() or "utf-8"
         text = raw.decode(charset, errors="replace")
-
-    lower = fold(text)
-    challenge_markers = (
-        "our systems have detected unusual traffic",
-        "unusual traffic",
-        "captcha",
-        "verify you are human",
-        "automated queries",
-    )
-    if any(marker in lower for marker in challenge_markers):
-        raise RuntimeError(f"{engine} returned a bot/challenge page")
-
-    parser = SearchResultParser()
-    parser.feed(text)
-    raw_hrefs = list(parser.hrefs)
-
-    # Google/Bing/other result pages can encode destination URLs in HTML.
-    raw_hrefs.extend(URL_IN_HTML_RE.findall(html.unescape(text)))
-    raw_hrefs.extend(unquote(u) for u in ENCODED_URL_RE.findall(text))
-
+    data = json.loads(text)
     urls: list[str] = []
-    for href in raw_hrefs:
-        href = html.unescape(href)
-        if engine == "google" and (href.startswith("/url?") or href.startswith("https://www.google.com/url?")):
-            parsed = urlparse(href)
-            qs = parse_qs(parsed.query)
-            href = (qs.get("q") or qs.get("url") or [""])[0]
-        elif href.startswith("//"):
-            href = "https:" + href
-        if not href.startswith(("http://", "https://")):
+    for item in data.get("results", []):
+        if not isinstance(item, dict):
             continue
-        host = normalize_host(href)
-        if host:
-            urls.append(href)
-
+        target = item.get("url")
+        if isinstance(target, str) and normalize_host(target):
+            urls.append(target)
     urls = list(dict.fromkeys(urls))
     if not urls:
-        raise RuntimeError(f"{engine} returned no parseable external results")
+        raise RuntimeError("SearXNG returned no external results")
     return urls
+
+
+def discover_searxng_instances() -> list[str]:
+    data = json.loads(fetch_text(SEARXSPACE_INSTANCES_URL))
+    raw_strings: list[str] = []
+
+    def walk(node):
+        if isinstance(node, dict):
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+        elif isinstance(node, str):
+            raw_strings.append(node)
+
+    walk(data)
+    hosts: list[str] = []
+    for value in raw_strings:
+        host = normalize_host(value)
+        if host and host not in hosts:
+            hosts.append(host)
+
+    active: list[str] = []
+    for host in hosts[:SEARX_INSTANCE_LIMIT]:
+        base = f"https://{host}"
+        try:
+            search_searxng(base, "alternative frontend", "en")
+            active.append(base)
+            print(f"[SEARX] active {base}")
+        except Exception as exc:
+            print(f"[SEARX] skip {base}: {type(exc).__name__}: {exc}")
+        if len(active) >= SEARX_ACTIVE_INSTANCES:
+            break
+    return active
 
 
 def fetch_text(url: str) -> str:
@@ -503,15 +494,31 @@ def extract_farside(text: str, platform: str) -> set[str]:
 
 
 def extract_section_urls(text: str, platform: str) -> set[str]:
-    section_re = {
-        "twitter": r"(?ims)^##\s+Twitter\s*$(.*?)(?=^##\s+|\Z)",
-        "reddit": r"(?ims)^##\s+Reddit\s*$(.*?)(?=^##\s+|\Z)",
-        "tumblr": r"(?ims)^##\s+Tumblr\s*$(.*?)(?=^##\s+|\Z)",
+    aliases = {
+        "twitter": {"twitter", "x"},
+        "reddit": {"reddit"},
+        "tumblr": {"tumblr"},
     }
-    match = re.search(section_re[platform], text)
-    section = match.group(1) if match else text
+    section_lines: list[str] = []
+    section_level: int | None = None
+    in_section = False
+
+    for line in text.splitlines():
+        heading = re.match(r"^\s*(#{2,6})\s+(.+?)\s*#*\s*$", line)
+        if heading:
+            level = len(heading.group(1))
+            title = fold(heading.group(2))
+            if in_section and section_level is not None and level <= section_level:
+                break
+            if any(term_present(alias, title) for alias in aliases[platform]):
+                in_section = True
+                section_level = level
+                continue
+        if in_section:
+            section_lines.append(line)
+
     out: set[str] = set()
-    for raw_url in URL_IN_HTML_RE.findall(section):
+    for raw_url in URL_IN_HTML_RE.findall("\n".join(section_lines)):
         host = normalize_host(html.unescape(raw_url))
         if host:
             out.add(host)
@@ -524,7 +531,7 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
     def add(platform: str, host: str, source_name: str):
         key = (platform, host)
         if key not in found:
-            found[key] = SearchHit(host, platform, [], [])
+            found[key] = SearchHit(host, platform, [], [], [])
         hit = found[key]
         if source_name not in hit.sources:
             hit.sources.append(source_name)
@@ -625,8 +632,21 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
 
     first_url = hit.urls[0]
+    direct_trusted = bool(set(hit.sources) & DIRECT_TRUSTED_SOURCES)
     html_text, fetch_meta = fetch_html(first_url)
     if html_text is None:
+        if direct_trusted:
+            score = 12 + 2 * len(hit.sources)
+            return Evaluation(
+                hit.domain, hit.platform, True, score, len(hit.queries), first_url,
+                {
+                    "trusted_sources": hit.sources,
+                    "source_validated": True,
+                    "live_page_fetch": False,
+                    "fetch_error": fetch_meta.get("error", "fetch failed"),
+                },
+                "trusted instance registry; live page unavailable"
+            )
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), first_url,
             {}, "", fetch_meta.get("error", "fetch failed")
@@ -757,10 +777,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     repeated_search = len([q for q in hit.queries if not q.startswith("SOURCE:")]) >= 2
     trusted_repeat = len(hit.sources) >= 2
     accepted = (
-        (strong_brand and (service_hits or identity_hits) and score >= 10 and ui_signal)
+        (
+            direct_trusted
+            and len(hit.sources) >= 1
+            and not any(marker in total[:12000] for marker in CHALLENGE_MARKERS)
+        )
+        or (strong_brand and (service_hits or identity_hits) and score >= 10 and ui_signal)
         or (structured_combo and (repeated_search or trusted_repeat) and score >= 11 and ui_signal)
         or (structured_combo and len(hit.urls) >= 2 and score >= 11 and ui_signal)
     )
+    if direct_trusted:
+        score += 6
 
     reason_parts = [
         f"platform={','.join(platform_hits) or '-'}",
@@ -786,6 +813,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "ui_signal": ui_signal,
         "crawled_pages": len(all_pages),
         "query_urls": hit.urls[:10],
+        "direct_trusted": direct_trusted,
     }
 
     return Evaluation(
@@ -823,11 +851,10 @@ def main() -> int:
     candidate_map: dict[tuple[str, str], SearchHit] = {}
     search_errors: list[dict] = []
 
-    # Seed the candidate pool from maintained instance registries and curated
-    # alternative-frontend lists before using search engines.
     trusted = trusted_candidates()
     for key, hit in trusted.items():
         candidate_map[key] = hit
+
     trusted_candidate_count = len(trusted)
     trusted_source_names = sorted({
         source
@@ -836,52 +863,43 @@ def main() -> int:
     })
     print(f"Trusted-source candidates: {trusted_candidate_count}")
 
-    consecutive_errors = 0
-    google_disabled = False
+    # Direct Google/Bing/DDG HTML scraping is disabled. The 2026-10-03 run
+    # showed Google returning no parseable external URLs and Bing leaking
+    # internal cache/telemetry URLs. SearXNG provides structured JSON results,
+    # and searx.space maintains the public-instance directory.
+    try:
+        searx_instances = discover_searxng_instances()
+    except Exception as exc:
+        searx_instances = []
+        search_errors.append({
+            "stage": "searx-instance-discovery",
+            "error": f"{type(exc).__name__}: {exc}",
+        })
+        print(f"[WARN] SearXNG instance discovery failed: {exc}")
 
     for index, (lang, platform, query) in enumerate(query_specs, start=1):
         cfg = LANGUAGES[lang]
         print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
-
-        engines = ["bing", "ddg"] if google_disabled else ["google", "bing", "ddg"]
         urls: list[str] = []
-        used_engine = None
         engine_errors: list[str] = []
 
-        for engine in engines:
+        for base in searx_instances:
             try:
-                urls = search_engine(engine, query, cfg["hl"], cfg["gl"])
-                if not urls:
-                    raise RuntimeError(f"{engine} returned zero external results")
-                used_engine = engine
-                if engine != "google" and not google_disabled:
-                    print(f"[INFO] Fallback search engine used: {engine}")
+                urls = search_searxng(base, query, cfg["hl"])
+                print(f"[SEARX] {base} -> {len(urls)} results")
                 break
             except Exception as exc:
-                error_text = f"{type(exc).__name__}: {exc}"
-                engine_errors.append(f"{engine}: {error_text}")
-                if engine == "google" and (
-                    "429" in error_text or "bot/challenge" in error_text.lower()
-                ):
-                    google_disabled = True
-                    print("[WARN] Google is rate-limited/challenged; disabling Google for the rest of this run and using fallbacks.")
-                elif engine == "google":
-                    print(f"[WARN] Google failed: {exc}")
+                engine_errors.append(f"{base}: {type(exc).__name__}: {exc}")
 
-        if used_engine is None:
-            consecutive_errors += 1
+        if not urls:
             search_errors.append({
                 "language": lang,
                 "platform": platform,
                 "query": query,
-                "error": " | ".join(engine_errors),
+                "error": " | ".join(engine_errors) or "no live SearXNG instances",
             })
-            print(f"[WARN] All search engines failed ({consecutive_errors}/{MAX_CONSECUTIVE_SEARCH_ERRORS})")
-            if consecutive_errors >= MAX_CONSECUTIVE_SEARCH_ERRORS:
-                print("[WARN] Stopping discovery after consecutive search failures.")
-                break
+            print("[WARN] No usable SearXNG results for this query.")
         else:
-            consecutive_errors = 0
             for url in urls:
                 domain = normalize_host(url)
                 if not domain:
@@ -895,7 +913,7 @@ def main() -> int:
                 if url not in hit.urls:
                     hit.urls.append(url)
 
-        time.sleep(GOOGLE_DELAY if used_engine == "google" else FALLBACK_DELAY)
+        time.sleep(DISCOVERY_SEARCH_DELAY)
 
     # Stronger discovery signal first: domains seen in multiple independent queries.
     hits = sorted(
@@ -938,6 +956,8 @@ def main() -> int:
                     "accepted_count": 0,
                     "trusted_candidate_count": trusted_candidate_count,
                     "trusted_source_names": trusted_source_names,
+                    "searxng_instances_used": len(searx_instances),
+                    "search_strategy": "trusted registries + SearXNG JSON; Google/Bing/DDG HTML scraping disabled",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -950,7 +970,7 @@ def main() -> int:
         return 0
 
     OUTPUT.write_text(
-        "# Generated from Google discovery + page validation.\n"
+        "# Generated from trusted frontend registries + SearXNG discovery + page validation.\n"
         "# Only newly discovered domains are included; domains already in blocklist.txt are omitted.\n"
         + "\n".join(f"||{e.domain}^" for e in accepted)
         + "\n",
@@ -960,8 +980,10 @@ def main() -> int:
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "search_queries": len(query_specs),
-        "google_disabled_during_run": google_disabled,
+        "google_disabled_during_run": True,
         "trusted_candidate_count": trusted_candidate_count,
+        "searxng_instances_used": len(searx_instances),
+        "search_strategy": "trusted registries + SearXNG JSON; Google/Bing/DDG HTML scraping disabled",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),

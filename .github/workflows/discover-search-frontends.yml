@@ -147,6 +147,17 @@ jobs:
           original_fetch_jina_text = discovery.fetch_jina_text
 
           def fake_fetch_html(url):
+              if "analyzer" in url:
+                  return (
+                      "<html><head><title>Reddit profile analyzer</title>"
+                      "<meta name='description' content='Analyze Reddit users and account statistics'>"
+                      "</head><body>"
+                      "<h1>Reddit profile analyzer</h1>"
+                      "<input placeholder='Username'>"
+                      "<button>Analyze</button>"
+                      "</body></html>",
+                      {"final_url": url},
+                  )
               return (
                   "<html><head><title>Reddit Viewer</title>"
                   "<meta name='description' content='Browse Reddit subreddits and posts without login'>"

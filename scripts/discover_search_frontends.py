@@ -2071,6 +2071,10 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     header_service_hits = [t for t in service_terms if term_present(t, header_text)]
     body_identity_hits = [t for t in identity_terms if term_present(t, body[:20000])]
     body_service_hits = [t for t in STRONG_SERVICE_TERMS if term_present(t, body[:20000])]
+    strong_service_terms = STRONG_SERVICE_TERMS
+    strong_header_service_hits = [
+        t for t in strong_service_terms if term_present(t, header_text)
+    ]
     non_frontend_service_hits = [
         t for t in NON_FRONTEND_SERVICE_TERMS if term_present(t, header_text)
     ]
@@ -2220,10 +2224,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     # Strong service identity from the hostname is useful, but not enough
     # without page-level evidence.
-    strong_service_terms = STRONG_SERVICE_TERMS
-    strong_header_service_hits = [
-        t for t in strong_service_terms if term_present(t, header_text)
-    ]
     page_platform_ok = bool(
         header_platform_hits
         or (

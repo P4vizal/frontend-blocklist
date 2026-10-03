@@ -1,32 +1,8 @@
 {
-  "generated": "2026-10-03T16:43:01Z",
-  "search_queries": 98,
-  "search_backend": "fallback",
-  "search_backends": [
-    "bing",
-    "startpage"
-  ],
-  "search_pages": [
-    1,
-    2
-  ],
-  "search_backend_disabled": false,
-  "search_pages_succeeded": 14,
-  "search_queries_with_results": 12,
-  "search_queries_without_results": 86,
-  "search_backend_failures": 52,
-  "source_candidate_counts": {
-    "github": 4,
-    "gitlab": 0,
-    "codeberg": 0,
-    "common_crawl": 0,
-    "urlscan": 0
-  },
-  "validation_crash_count": 0,
-  "verified_web_seed_count": 7,
+  "status": "no_update",
+  "accepted": [],
+  "accepted_count": 0,
   "trusted_candidate_count": 56,
-  "github_discovered_candidate_count": 4,
-  "search_strategy": "maintained registries + GitHub + rotated search + sequential backend fallback + parallel validation",
   "trusted_source_names": [
     "Alternative frontends 1",
     "Alternative frontends 3",
@@ -36,673 +12,100 @@
     "Libreddit",
     "Redlib"
   ],
-  "candidates_discovered": 33,
-  "validated_candidates": 33,
-  "accepted_count": 2,
-  "newly_accepted_count": 2,
-  "retained_historical_count": 115,
-  "retained_total_count": 117,
-  "already_covered_count": 46,
-  "already_discovered_count": 47,
-  "known_candidates_skipped_before_validation": 65,
-  "search_results_seen": 79,
-  "search_errors": [
-    {
-      "language": "pt",
-      "platform": "tumblr",
-      "query": "tumblr visualizador",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "pt",
-      "platform": "tumblr",
-      "query": "tumblr sem conta",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "pt",
-      "platform": "tumblr",
-      "query": "tumblr visualizador alternatives to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "pt",
-      "platform": "tumblr",
-      "query": "tumblr frontend alternativo blog viewer similar to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "twitter visualizzatore",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "twitter frontend",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "twitter senza accesso",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "twitter senza account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "twitter visualizzatore alternative to nitter",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "twitter frontend alternativo profile viewer similar to nitter",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "twitter",
-      "query": "x twitter viewer alternatives to xcancel twiiit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "reddit",
-      "query": "reddit visualizzatore",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "reddit",
-      "query": "reddit senza accesso",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "reddit",
-      "query": "reddit senza account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "reddit",
-      "query": "reddit visualizzatore alternatives to redlib libreddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "reddit",
-      "query": "reddit frontend alternativo subreddit viewer similar to teddit troddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "tumblr",
-      "query": "tumblr visualizzatore",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "tumblr",
-      "query": "tumblr frontend",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "tumblr",
-      "query": "tumblr senza account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "tumblr",
-      "query": "tumblr visualizzatore alternatives to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "it",
-      "platform": "tumblr",
-      "query": "tumblr frontend alternativo blog viewer similar to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter viewer alternatives to nitter",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter frontend alternatives to nitter",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter frontend alternatives to nitter",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter viewer alternative to xcancel",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter frontend similar to twiiit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter frontend similar to twiiit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter viewer similar to nitter",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "alternative twitter viewer without login not nitter",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit frontend alternatives to libreddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit frontend alternatives to libreddit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit viewer alternative to teddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit viewer alternative to teddit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit frontend similar to troddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "alternative reddit viewer without login not redlib",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "alternative reddit viewer without login not redlib",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr frontend alternative to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr viewer similar to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter alternative frontend viewer -nitter -xcancel -twiiit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter alternative frontend viewer -nitter -xcancel -twiiit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "alternative tumblr viewer without account not priviblur",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr alternative frontend viewer -priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr alternative frontend viewer -priviblur",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit browser without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "X viewer without account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "X viewer without account",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "tweet viewer without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "tweet viewer without login",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit viewer without account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr browser without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr viewer without account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    }
+  "verified_web_seed_count": 7,
+  "github_discovered_candidate_count": 4,
+  "search_backend": "fallback",
+  "discovery_mode": "daily",
+  "active_search_languages": [
+    "en",
+    "es",
+    "pt",
+    "it"
   ],
-  "accepted": [
+  "search_backends": [
+    "bing",
+    "startpage"
+  ],
+  "search_pages": [
+    1,
+    2
+  ],
+  "search_backend_disabled": false,
+  "search_pages_succeeded": 15,
+  "search_queries_with_results": 13,
+  "search_queries_without_results": 85,
+  "search_backend_failures": 48,
+  "source_candidate_counts": {
+    "github": 4,
+    "gitlab": 0,
+    "codeberg": 0,
+    "common_crawl": 0,
+    "urlscan": 0
+  },
+  "validation_crash_count": 0,
+  "candidates_discovered": 100,
+  "validated_candidates": 36,
+  "retained_historical_count": 117,
+  "retained_total_count": 117,
+  "search_strategy": "maintained registries + GitHub; daily rotated search; deep workflow adds Codeberg/GitLab/Common Crawl/optional URLScan; shared page validation",
+  "candidates": [
     {
-      "domain": "discuss.privacyguides.net",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 21,
-      "query_count": 2,
-      "final_url": "https://discuss.privacyguides.net/t/recommend-xcancel-com-twitter-frontend/21177",
+      "domain": "kalilinuxtutorials.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://kalilinuxtutorials.com/redlib/",
       "evidence": {
         "platform_hits": [
-          "twitter",
-          "nitter"
+          "reddit"
         ],
         "brand_hits": [
-          "nitter",
-          "xcancel"
+          "redlib",
+          "libreddit",
+          "teddit"
         ],
         "header_platform_hits": [
-          "twitter",
-          "nitter"
+          "reddit"
         ],
         "header_brand_hits": [
-          "nitter",
-          "xcancel"
+          "redlib"
         ],
-        "header_service_hits": [
-          "frontend"
-        ],
-        "header_identity_hits": [],
-        "service_hits": [
-          "frontend"
-        ],
-        "identity_hits": [],
-        "ui_signal": true,
-        "inputs": 4,
-        "forms": 1,
-        "buttons": 0,
-        "interactive_target_hits": [
-          "username"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:recommend xcancel.com (twitter frontend) - tool suggestions ... sep 29, 2024 · a lot of interesting people are still on twitter and haven’t yet moved to mastodon, and xcancel.com is probably the only private way to view content posted on twitter."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://discuss.privacyguides.net/t/recommend-xcancel-com-twitter-frontend/21177"
-        ]
-      },
-      "reason": "platform=twitter/nitter; service=frontend; identity=-; search_intent=1; providers=1; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "www.peekstr.com",
-      "platform": "reddit",
-      "accepted": true,
-      "score": 15,
-      "query_count": 0,
-      "final_url": "https://www.peekstr.com/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "slideshow",
-          "gallery"
-        ],
+        "header_service_hits": [],
         "header_identity_hits": [
-          "subreddit",
-          "subreddits"
+          "user"
         ],
         "service_hits": [
-          "browser",
-          "slideshow",
-          "gallery",
-          "content browser"
+          "browser"
         ],
         "identity_hits": [
-          "subreddit",
-          "subreddits",
-          "post",
-          "posts"
+          "user"
         ],
         "ui_signal": true,
-        "inputs": 2,
-        "forms": 2,
-        "buttons": 3,
-        "interactive_target_hits": [
-          "subreddit",
-          "reddit"
-        ],
-        "service_path_hint": false,
+        "inputs": 13,
+        "forms": 5,
+        "buttons": 0,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "search_intent_hits": 0,
         "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://www.peekstr.com/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.peekstr.com/"
-        ]
-      },
-      "reason": "platform=reddit; service=slideshow/gallery; identity=subreddit/subreddits; search_intent=0; providers=0; queries=0",
-      "error": ""
-    }
-  ],
-  "rejected_sample": [
-    {
-      "domain": "redditvisor.app",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 14,
-      "query_count": 1,
-      "final_url": "https://redditvisor.app/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "visor"
-        ],
-        "header_identity_hits": [
-          "post"
-        ],
-        "service_hits": [
-          "visor"
-        ],
-        "identity_hits": [
-          "post"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
         "distinct_queries": 1,
         "search_providers": [
           "bing"
         ],
         "search_evidence": [
-          "bing:reddit visor reddit visor - live reddit post monitor"
+          "bing:redlib : a private, fast, and secure reddit front-end feb 11, 2025 · redlib is an innovative private front-end for reddit, designed to provide a seamless browsing experience without compromising user privacy. inspired by libreddit, redlib takes the concept of alternative front-ends to a new level by focusing on speed, security, and a lightweight design. here’s an overview of its key features and functionalities."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "query_urls": [
-          "https://redditvisor.app/"
+          "https://kalilinuxtutorials.com/redlib/"
         ]
       },
-      "reason": "platform=reddit; service=visor; identity=post; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=browser; identity=user; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -829,12 +232,12 @@
       "error": ""
     },
     {
-      "domain": "visor.vin",
+      "domain": "akashrajpurohit.com",
       "platform": "reddit",
       "accepted": false,
-      "score": 8,
+      "score": 6,
       "query_count": 1,
-      "final_url": "https://visor.vin/",
+      "final_url": "https://akashrajpurohit.com/",
       "evidence": {
         "platform_hits": [
           "reddit"
@@ -842,39 +245,100 @@
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
-        "header_service_hits": [
-          "visor"
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "posts"
         ],
-        "header_identity_hits": [],
         "service_hits": [
-          "visor"
+          "proxy"
         ],
-        "identity_hits": [],
-        "ui_signal": true,
-        "inputs": 24,
-        "forms": 6,
-        "buttons": 228,
+        "identity_hits": [
+          "post",
+          "posts",
+          "user"
+        ],
+        "ui_signal": false,
+        "inputs": 1,
+        "forms": 0,
+        "buttons": 12,
         "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
+        "search_intent_hits": 1,
+        "search_provider_hits": [
+          "bing"
+        ],
         "distinct_queries": 1,
         "search_providers": [
           "bing"
         ],
         "search_evidence": [
-          "bing:visor | see the whole market 5 days ago · see the whole market, not just pages of listings."
+          "bing:redlib — self-hosted reddit browsing without the bloat sep 18, 2025 · redlib is a blazing-fast, privacy-first alternative frontend for reddit built in rust. born from the ashes of libreddit's rate limiting issues, it provides a clean, ad-free reddit browsing experience while keeping your data private and secure."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "query_urls": [
-          "https://visor.vin/"
+          "https://akashrajpurohit.com/blog/redlib-selfhosted-reddit-browsing-without-the-bloat/"
         ]
       },
-      "reason": "platform=reddit; service=visor; identity=-; search_intent=0; providers=0; queries=1",
+      "reason": "platform=reddit; service=proxy; identity=posts; search_intent=1; providers=1; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "theme404.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://theme404.com/",
+      "evidence": {
+        "platform_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "user"
+        ],
+        "service_hits": [
+          "browser"
+        ],
+        "identity_hits": [
+          "user"
+        ],
+        "ui_signal": false,
+        "inputs": 3,
+        "forms": 1,
+        "buttons": 3,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "search_intent_hits": 1,
+        "search_provider_hits": [
+          "bing"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing"
+        ],
+        "search_evidence": [
+          "bing:meet fritter – top nitter alternative for a better twitter ... jun 17, 2024 · nitter was a free and open-source alternative viewer for twitter that focused on privacy and performance. it was designed to provide a minimalist interface similar to the classic twitter desktop layout and relied on a glitch in twitter’s system to fetch content without requiring a user account.",
+          "bing:i miss nitter: 4 alternatives to try - theme404.com jan 9, 2024 · explore top nitter alternatives for a safe, privacy-focused twitter experience. find the best option tailored to your needs!"
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://theme404.com/blog/fritter-the-best-alternative-to-nitter/",
+          "https://theme404.com/blog/i-miss-nitter-alternatives-to-try/"
+        ]
+      },
+      "reason": "platform=twitter; service=browser; identity=user; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
@@ -921,6 +385,56 @@
         ]
       },
       "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "getbootstrap.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 5,
+      "query_count": 1,
+      "final_url": "https://getbootstrap.com/2.0.2/",
+      "evidence": {
+        "platform_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "tweet",
+          "user"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "search_intent_hits": 0,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing"
+        ],
+        "search_evidence": [
+          "bing:twitter bootstrap unlike other front-end toolkits, bootstrap was designed first and foremost as a styleguide to document not only our features, but best practices and living, coded examples."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://getbootstrap.com/2.0.2/"
+        ]
+      },
+      "reason": "platform=twitter; service=-; identity=tweet/user; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -1014,57 +528,6 @@
       "error": ""
     },
     {
-      "domain": "theme404.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://theme404.com/",
-      "evidence": {
-        "platform_hits": [
-          "twitter"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "service_hits": [
-          "browser"
-        ],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 3,
-        "forms": 1,
-        "buttons": 3,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:i miss nitter: 4 alternatives to try - theme404.com jan 9, 2024 · explore top nitter alternatives for a safe, privacy-focused twitter experience. find the best option tailored to your needs!"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://theme404.com/blog/i-miss-nitter-alternatives-to-try/"
-        ]
-      },
-      "reason": "platform=twitter; service=browser; identity=user; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
       "domain": "nextjs.org",
       "platform": "reddit",
       "accepted": false,
@@ -1113,6 +576,49 @@
         ]
       },
       "reason": "platform=-; service=frontend/proxy/browser/gallery; identity=post/user/profile; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "dribbble.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 1,
+      "query_count": 1,
+      "final_url": "https://dribbble.com/",
+      "evidence": {
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "search_intent_hits": 0,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing"
+        ],
+        "search_evidence": [
+          "bing:dribbble - discover the world’s top designers & creative ... find top designers & creative professionals on dribbble. we are where designers gain inspiration, feedback, community, and jobs. your best resource to discover and connect with designers worldwide."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://dribbble.com/"
+        ]
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -1239,20 +745,62 @@
       "error": ""
     },
     {
-      "domain": "chrome-stats.com",
+      "domain": "appmus.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://appmus.com/alternatives-to/tumblr",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "best ",
+          "top ",
+          "comparison",
+          "alternatives"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "boostmeup.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://boostmeup.com/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to ",
+          "best ",
+          "top "
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "footprintiq.app",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://chrome-stats.com/d/toxcancel",
+      "final_url": "https://footprintiq.app/twitter-search-without-account",
       "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is "
         ],
-        "fetch_error": "fetch failed"
+        "service_path_hint": false,
+        "host_service_hint": false
       },
-      "reason": "page unavailable",
+      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -1277,8 +825,19 @@
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 3,
+      "query_count": 2,
       "final_url": "https://greycoder.com/alternative-interfaces-to-twitter-that-are-currently-working-and-reasonably-fast/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "greycoder.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://greycoder.com/two-lightweight-private-interfaces-to-reddit/",
       "evidence": {},
       "reason": "challenge/parked page detected",
       "error": ""
@@ -1301,11 +860,22 @@
       "error": ""
     },
     {
+      "domain": "news.ycombinator.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://news.ycombinator.com/item?id=36144211",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
       "domain": "nitter.app",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 1,
+      "query_count": 3,
       "final_url": "https://nitter.app/about",
       "evidence": {
         "trusted_sources": [],
@@ -1315,35 +885,6 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "niuproxy.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://niuproxy.com/",
-      "evidence": {},
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "ourculturemag.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://ourculturemag.com/2026/04/02/best-twitter-viewer-tools-in-2026-which-ones-still-work/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -1361,6 +902,24 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "sr.ht",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://sr.ht/~jamesponddotco/awesome-privacy-front-ends/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "list of "
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -1398,29 +957,11 @@
       "error": ""
     },
     {
-      "domain": "tinygrab.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://tinygrab.com/how-to-look-at-tumblr-without-an-account/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "tweetdelete.net",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 2,
+      "query_count": 1,
       "final_url": "https://tweetdelete.net/",
       "evidence": {
         "content_path_hint": false,
@@ -1456,59 +997,51 @@
       "error": ""
     },
     {
-      "domain": "www.clrn.org",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.clrn.org/how-to-look-at-tumblr-without-an-account/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.makeuseof.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.makeuseof.com/reddit-clients-apps-browse-reddit-on-desktops-browsers/",
-      "evidence": {
-        "content_host": true
-      },
-      "reason": "content/publishing host, not a service host",
-      "error": ""
-    },
-    {
-      "domain": "www.quora.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.quora.com/What-is-the-best-way-to-browse-Tumblr-without-an-account",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.socialfetch.dev",
+      "domain": "www.analyticsinsight.net",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://www.socialfetch.dev/use-cases/nitter-alternative",
+      "final_url": "https://www.analyticsinsight.net/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to ",
+          "best ",
+          "top ",
+          "explained"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.claudeskills.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.claudeskills.org/docs/skills-cases/frontend-design",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.ghacks.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.ghacks.net/2023/04/20/how-to-access-reddit-on-mobile-without-signing-in-or-using-the-reddit-app/",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [
@@ -1538,6 +1071,46 @@
       "error": ""
     },
     {
+      "domain": "www.typingmind.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.typingmind.com/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "best "
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.volumn.ai",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.volumn.ai/view-x-without-account",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to ",
+          "best ",
+          "top ",
+          "explained",
+          "comparison"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
       "domain": "www.wired.com",
       "platform": "twitter",
       "accepted": false,
@@ -1557,5 +1130,440 @@
       "reason": "article/content page, not a frontend endpoint",
       "error": ""
     }
-  ]
+  ],
+  "search_errors": [
+    {
+      "language": "pt",
+      "platform": "tumblr",
+      "query": "tumblr sem login",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "DDGSException: DecodeError: DecodeError('error decoding response body > request or response body error > error sending request > connection reset', None)"
+    },
+    {
+      "language": "pt",
+      "platform": "tumblr",
+      "query": "tumblr visualizador alternatives to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter visualizzatore",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter frontend",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter visualizzatore alternative to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter senza account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter frontend alternativo profile viewer similar to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "x twitter viewer alternatives to xcancel twiiit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit visualizzatore",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit frontend",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit senza accesso",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit senza account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit visualizzatore alternatives to redlib libreddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit frontend alternativo subreddit viewer similar to teddit troddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr frontend",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr senza accesso",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr visualizzatore",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr frontend alternativo blog viewer similar to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr visualizzatore alternatives to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer alternatives to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend alternatives to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend alternatives to nitter",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend similar to twiiit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer alternative to xcancel",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer alternative to xcancel",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://search.yahoo.com/search;_ylt=EXaThlRUMD5YR-rTK-D9u48H;_ylu=Sd50vJFufXIkaEfy4XvpC9DtRQlaq-UwGzyMrK3k0OApoNc?p=twitter+viewer+alternative+to+xcancel&b=8) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer similar to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer similar to nitter",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit frontend alternatives to libreddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "alternative twitter viewer without login not nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer alternative to teddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer alternative to teddit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr frontend alternative to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit frontend similar to troddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit frontend similar to troddit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "alternative reddit viewer without login not redlib",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "alternative tumblr viewer without account not priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr viewer similar to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter alternative frontend viewer -nitter -xcancel -twiiit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr alternative frontend viewer -priviblur",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "X viewer without account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "tweet viewer without login",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "tweet viewer without login",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr browser without login",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer without account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer without account",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr viewer without account",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    }
+  ],
+  "note": "Publish guard triggered; output list was not replaced."
 }

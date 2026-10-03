@@ -35,12 +35,22 @@ VALIDATION_DELAY = 0.0
 # Use resilient single-engine fallback instead of DDGS auto fan-out. This avoids
 # unstable providers (notably DuckDuckGo HTML) and avoids DDGS multi-backend
 # result-loss behavior when one provider fails.
-SEARCH_BACKENDS = ("bing", "brave", "mojeek")
+# Probe engines one at a time. These are supported as individual text backends
+# by DDGS 9.16.0; the fallback records which engine actually returned results.
+SEARCH_BACKENDS = ("bing", "yahoo", "startpage")
 SEARCH_BACKEND = "fallback"
 SEARCH_MAX_RESULTS = 15
 SEARCH_PAGES = (1, 2)
 SEARCH_TIMEOUT = 10
 SEARCH_DELAY = 0.25
+SEARCH_RETRIES = 1
+
+# External discovery sources are deliberately low-rate and fail-soft.
+REPOSITORY_SOURCE_LIMIT = 12
+COMMON_CRAWL_LIMIT = 40
+COMMON_CRAWL_DELAY = 2.0
+URLSCAN_MAX_RESULTS = 20
+URLSCAN_DELAY = 1.0
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
@@ -587,26 +597,34 @@ def run_search_spec(
         page_backend = ""
 
         for backend in SEARCH_BACKENDS:
-            try:
-                results = search_with_ddgs(searcher, query, region, page, backend)
-                if results:
-                    page_results = results
-                    page_backend = backend
+            for attempt in range(SEARCH_RETRIES + 1):
+                try:
+                    results = search_with_ddgs(searcher, query, region, page, backend)
+                    if results:
+                        page_results = results
+                        page_backend = backend
+                        break
+                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+                    message = str(exc)
+                    if isinstance(exc, DDGSException) and "No results found" in message:
+                        pass
+                    else:
+                        errors.append({
+                            "language": lang,
+                            "platform": platform,
+                            "query": query,
+                            "backend": backend,
+                            "page": page,
+                            "attempt": attempt + 1,
+                            "error": f"{type(exc).__name__}: {exc}",
+                        })
+                if page_results:
                     break
-            except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                message = str(exc)
-                if isinstance(exc, DDGSException) and "No results found" in message:
-                    pass
-                else:
-                    errors.append({
-                        "language": lang,
-                        "platform": platform,
-                        "query": query,
-                        "backend": backend,
-                        "page": page,
-                        "error": f"{type(exc).__name__}: {exc}",
-                    })
+                if attempt < SEARCH_RETRIES and SEARCH_DELAY:
+                    time.sleep(SEARCH_DELAY * (attempt + 1))
 
+            if page_results:
+                break
             if SEARCH_DELAY:
                 time.sleep(SEARCH_DELAY)
 

@@ -1,12 +1,13 @@
-# Generated from maintained frontend registries + GitHub + DDGS auto search + page validation.
-# Append-only discovery history: previously accepted domains are never removed.
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
+# Append-only discovery history: previously accepted domains are never removed.
+# Generated from maintained frontend registries + GitHub + DDGS auto search + page validation.
 ||alternativeto.net^
 ||api.sorsa.io^
 ||bai.tools^
 ||beebom.com^
 ||bettermode.com^
 ||carryfeed.com^
+||cascadr.co^
 ||deletedby.com^
 ||dopingconsomme.blogspot.com^
 ||finderlaunch.com^
@@ -37,6 +38,7 @@
 ||painonsocial.com^
 ||parental-control.flashget.com^
 ||pc.mogeringo.com^
+||peekstr.com^
 ||peekvault.com^
 ||peerpush.com^
 ||profilepictureviewer.com^
@@ -105,6 +107,7 @@
 ||www.rapidseedbox.com^
 ||www.tech2geek.net^
 ||www.troddit.com^
+||www.tumviews.com^
 ||www.tweetbinder.com^
 ||www.tweeteraser.com^
 ||www.twitterviewer.io^
@@ -112,3 +115,4 @@
 ||xapis.dev^
 ||xnspy.com^
 ||xtwitterviewer.com^
+||zoomblr.com^

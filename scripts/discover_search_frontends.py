@@ -1530,6 +1530,42 @@ def search_result_has_strong_service_evidence(hit: SearchHit) -> bool:
     return False
 
 
+def query_has_service_intent(platform: str, query: str) -> bool:
+    """Return True when the query itself expresses platform + service intent."""
+    if query.startswith(("SOURCE:", "SEED:")):
+        return False
+    q = fold(query)
+
+    if platform == "twitter":
+        platform_ok = any(term_present(t, q) for t in ("twitter", "tweet", "nitter", "x"))
+    elif platform == "reddit":
+        platform_ok = any(
+            term_present(t, q)
+            for t in ("reddit", "subreddit", "redlib", "libreddit", "teddit")
+        )
+    else:
+        platform_ok = any(term_present(t, q) for t in ("tumblr", "priviblur"))
+
+    if not platform_ok:
+        return False
+
+    service_terms = tuple(dict.fromkeys(
+        (
+            "viewer", "frontend", "browser", "slideshow", "gallery", "reader",
+            "anonymous", "content browser", "web client", "visor", "visualizador",
+        )
+        + sum((cfg["service"] for cfg in LANGUAGES.values()), [])
+    ))
+    return any(term_present(term, q) for term in service_terms)
+
+
+def search_query_intent_hits(hit: SearchHit) -> int:
+    return sum(
+        1 for query in hit.queries
+        if query_has_service_intent(hit.platform, query)
+    )
+
+
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
     strong_search_evidence_hint = search_result_has_strong_service_evidence(hit)
@@ -1881,6 +1917,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # mentions both the target platform and a service concept.
     search_intent_hits = 0
     search_provider_hits: set[str] = set()
+    query_intent_hits = search_query_intent_hits(hit)
     for evidence in hit.search_evidence:
         if not isinstance(evidence, str):
             continue
@@ -1928,11 +1965,16 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # without page-level evidence.
     page_platform_ok = bool(
         header_platform_hits
-        or host_service_hint and any(
-            term_present(t, header_text)
-            for t in pcfg["platform_terms"] if t != "x"
+        or (
+            platform_hits
+            and (
+                header_service_hits
+                or strong_header_service_hits
+                or service_path_hint
+                or host_service_hint
+                or ui_signal
+            )
         )
-        or (ui_signal and platform_hits)
         or seed_candidate and platform_hits
     )
     strong_service_terms = STRONG_SERVICE_TERMS
@@ -1943,13 +1985,16 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         strong_header_service_hits
         or brand_hits
         or service_path_hint
-        or host_service_hint and strong_header_service_hits
+        or host_service_hint
         or (ui_signal and body_service_hits)
         or seed_candidate and any(term_present(t, body[:7000]) for t in strong_service_terms)
     )
     page_identity_ok = bool(
         header_identity_hits
-        or (ui_signal and body_identity_hits)
+        or (
+            body_identity_hits
+            and (ui_signal or service_path_hint or host_service_hint)
+        )
     )
 
     # Many modern viewers are client-rendered and expose little/no form/button
@@ -1962,8 +2007,12 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     )
     strong_service_page = bool(
         page_platform_ok
+        and page_service_ok
+        and page_identity_ok
         and (
-            (page_service_ok and page_identity_ok and ui_signal)
+            ui_signal
+            or service_path_hint
+            or host_service_hint
             or header_service_identity
         )
     )
@@ -1979,14 +2028,12 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # Search candidates: require actual search-intent evidence plus an
     # independent signal from the hostname, service route, or repeated
     # discovery. A single generic article result is not enough.
+    search_signal_hits = search_intent_hits + query_intent_hits
     strong_search_evidence = (
-        search_intent_hits >= 1
+        search_signal_hits >= 1
         and (
             host_service_hint
-            or (
-                service_path_hint
-                and distinct_queries >= 2
-            )
+            or service_path_hint
             or distinct_queries >= 2
         )
     )
@@ -1995,7 +2042,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # negative when search engines surface /twitter-viewer or /reddit-viewer
     # only once.
     single_query_service_ok = bool(
-        search_intent_hits >= 1
+        (search_intent_hits >= 1 or query_intent_hits >= 1)
         and service_path_hint
         and page_service_ok
         and page_identity_ok
@@ -2009,6 +2056,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # by content path/title/structure checks above.
     header_verified_search_service_ok = bool(
         distinct_queries >= 1
+        and (query_intent_hits >= 1 or search_intent_hits >= 1)
         and header_platform_hits
         and strong_header_service_hits
         and header_identity_hits
@@ -2104,6 +2152,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "single_query_service_ok": single_query_service_ok,
         "header_verified_search_service_ok": header_verified_search_service_ok,
         "search_intent_hits": search_intent_hits,
+        "query_intent_hits": query_intent_hits,
+        "search_signal_hits": search_intent_hits + query_intent_hits,
         "strong_search_evidence_hint": strong_search_evidence_hint,
         "search_provider_hits": sorted(search_provider_hits),
         "distinct_queries": distinct_queries,

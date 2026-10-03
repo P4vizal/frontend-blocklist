@@ -182,8 +182,10 @@ jobs:
                   ["bing-rss:reddit viewer without login"],
               )
               regression = discovery.safe_evaluate_candidate(regression_hit, set())
-              assert regression.reason != "candidate validation crashed safely"
-              assert regression.accepted, regression.reason
+              assert regression.reason != "candidate validation crashed safely", (
+                  f"{regression.reason}: {regression.error} | {regression.evidence}"
+              )
+              assert regression.accepted, f"{regression.reason}: {regression.evidence}"
 
               analyzer_hit = discovery.SearchHit(
                   "example-analyzer.test",

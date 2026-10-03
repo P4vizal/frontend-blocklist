@@ -597,6 +597,11 @@ def read_pending_verification() -> list[dict]:
         if last_attempt_epoch and last_attempt_epoch < cutoff:
             continue
 
+        try:
+            attempts = max(0, int(item.get("attempts", 0) or 0))
+        except (TypeError, ValueError):
+            attempts = 0
+
         out.append({
             "domain": domain,
             "platform": platform,
@@ -610,7 +615,7 @@ def read_pending_verification() -> list[dict]:
             "first_seen": str(item.get("first_seen", "")),
             "last_attempt": str(item.get("last_attempt", "")),
             "last_attempt_epoch": last_attempt_epoch,
-            "attempts": int(item.get("attempts", 0) or 0),
+            "attempts": attempts,
         })
 
     out.sort(key=lambda item: (
@@ -664,6 +669,18 @@ def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
         (
             "viewer", "frontend", "alternative", "similar", "anonymous",
             "browser", "slideshow", "gallery", "content browser", "web client",
+            "without login", "without account", "no login", "no account",
+            "sin iniciar sesión", "sin cuenta",
+            "sans connexion", "sans compte",
+            "ohne anmeldung", "ohne konto",
+            "без входа", "без аккаунта",
+            "로그인 없이", "계정 없이",
+            "ログインなし", "アカウントなし",
+            "无登录", "无需账户",
+            "sem login", "sem conta",
+            "senza accesso", "senza account",
+            "بدون تسجيل دخول", "بدون حساب",
+            "बिना लॉगिन", "बिना अकाउंट",
         )
         + tuple(LANGUAGES[lang]["service"])
     ))
@@ -1650,7 +1667,10 @@ def pending_candidate_has_strong_signal(hit: SearchHit) -> bool:
     """Keep only candidates with independent service evidence worth retrying."""
     if is_seed_candidate(hit):
         return True
-    if set(hit.sources) & DIRECT_TRUSTED_SOURCES:
+    source_names = {source for source in hit.sources if isinstance(source, str)}
+    if source_names & DIRECT_TRUSTED_SOURCES:
+        return True
+    if len(source_names) >= 2:
         return True
     if SEARCH_SERVICE_HOST_RE.search(hit.domain):
         return True
@@ -2440,8 +2460,14 @@ def main() -> int:
 
     # Prioritise maintained registries and GitHub-discovered instances so the
     # validation cap cannot crowd them out with noisy search-engine results.
+    seed_keys = set(seeds)
     priority_hits = sorted(
-        [h for h in candidate_map.values() if h.sources and h.domain not in known_domains],
+        [
+            h for h in candidate_map.values()
+            if h.sources
+            and h.domain not in known_domains
+            and (h.platform, h.domain) not in seed_keys
+        ],
         key=lambda h: (
             -len(h.sources),
             -len(h.search_evidence),
@@ -2453,6 +2479,7 @@ def main() -> int:
         h for h in candidate_map.values()
         if not h.sources
         and h.domain not in known_domains
+        and (h.platform, h.domain) not in seed_keys
         and (h.platform, h.domain) in pending_keys
     ]
     search_hits = sorted(
@@ -2460,6 +2487,7 @@ def main() -> int:
             h for h in candidate_map.values()
             if not h.sources
             and h.domain not in known_domains
+            and (h.platform, h.domain) not in seed_keys
             and (h.platform, h.domain) not in pending_keys
         ],
         key=lambda h: (
@@ -2510,7 +2538,6 @@ def main() -> int:
 
     evaluations.sort(key=lambda e: (-e.accepted, -e.score, e.domain))
 
-    seed_keys = set(seeds)
     seed_evaluations = {
         (e.platform, e.domain): e
         for e in evaluations

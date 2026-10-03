@@ -40,6 +40,29 @@ jobs:
       - name: Validate Python syntax
         run: python -m py_compile scripts/discover_search_frontends.py
 
+      - name: Runtime smoke test
+        run: |
+          python - <<'PY'
+          import scripts.discover_search_frontends as discovery
+
+          candidates = {}
+          discovery.merge_search_result(
+              candidates,
+              "twitter",
+              "twitter viewer alternative to nitter",
+              "bing",
+              {
+                  "href": "https://example.com/view",
+                  "title": "Twitter viewer",
+                  "body": "viewer",
+              },
+          )
+          assert ("twitter", "example.com") in candidates
+          assert candidates[("twitter", "example.com")].providers == ["bing"]
+          assert discovery.build_queries()
+          print("Runtime smoke test passed.")
+          PY
+
       - name: Discover and validate domains
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

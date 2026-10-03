@@ -4,6 +4,7 @@
 ||alternativeto.net^
 ||anonymousamericans.com^
 ||api.sorsa.io^
+||arctic-shift.photon-reddit.com^
 ||bai.tools^
 ||beebom.com^
 ||bettermode.com^

@@ -56,6 +56,8 @@ URLSCAN_DELAY = 1.0
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("reddit", "https://tryadlicio.com/tools/reddit-viewer"),
+    ("reddit", "https://viewanonymous.com/tools/reddit/link/"),
+    ("reddit", "https://redditprofile.com/reddit-profile-viewer"),
     ("tumblr", "https://zoomblr.com/"),
     ("tumblr", "https://cascadr.co/"),
     ("tumblr", "https://www.tumviews.com/"),
@@ -63,6 +65,7 @@ WEB_VERIFIED_SEEDS = [
     ("twitter", "https://tweetviewer.com/"),
     ("twitter", "https://www.sotwe.com/"),
     ("twitter", "https://www.twitter-viewer.com/twitter-profile-viewer"),
+    ("twitter", "https://ilo.so/twitter-viewer"),
 ]
 
 CONTENT_HOST_SUFFIXES = (

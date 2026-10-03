@@ -39,6 +39,7 @@ anonoverflow.frontendfriendly.xyz
 anonoverflow.moonshadow.dev
 anonpaste.org
 anonsearch.win
+anonymousamericans.com
 anonymousoverflow.catsarch.com
 anonymousoverflow.privacyfucking.rocks
 anonymousoverflow.privacyredirect.com
@@ -51,6 +52,7 @@ ao.rootdo.com
 ao.vern.cc
 aohub.httpjames.space
 api.sorsa.io
+arctic-shift.photon-reddit.com
 art.bloat.cat
 ask.habedieeh.re
 ask.sudovanilla.org
@@ -87,6 +89,7 @@ bn.opnxng.com
 bonus01.hwb0307.com
 booruview.com
 br.bloat.cat
+brantaq.com
 bras-base-otwaon0906w-grc-28-184-147-148-190.dsl.bell.ca
 breeze.hostux.net
 breeze.mint.lgbt
@@ -121,6 +124,7 @@ deggo.fyi
 deletedby.com
 dev.co
 dev.to
+digitarae.com
 discuss.privacyguides.net
 dns.sev.monster
 docs.searxng.org
@@ -301,6 +305,7 @@ neuters.de
 nitter.anoxinon.de
 nitter.ca
 nitter.catsarch.com
+nitter.cf
 nitter.click
 nitter.freedit.eu
 nitter.jaydenha.uk
@@ -440,6 +445,7 @@ redd.it
 reddit-viewer.vercel.app
 reddit.com
 reddit.lol
+redditprofile.com
 redlib.catsarch.com
 redlib.cow.rip
 redlib.freedit.eu
@@ -447,6 +453,7 @@ redlib.nadeko.net
 redlib.privacyredirect.com
 redlib.privadency.com
 redlib.r4fo.com
+redlibinstances.com
 redlite.app
 registry.kantan.cat
 rentry.co
@@ -712,14 +719,17 @@ twitee.co
 twitter.com
 twitterviewer.net
 twitviewer.net
+unifapi.com
 unredacted.org
 unsubbed.co
 upload.nolog.cz
 v2202410236833289134.ultrasrv.de
 v2202609218911521413.hotsrv.de
 velia.net
+viewanonymous.com
 viewari.com
 viewri.com
+viiewerr.com
 vojk.au
 vps-31677213.vps.ovh.ca
 vps-773e829a.vps.ovh.ca
@@ -779,11 +789,13 @@ www.searx.tiekoetter.net
 www.searxng.site
 www.searxng.tiekoetter.com
 www.searxng.tiekoetter.net
+www.subredditviewer.com
 www.tech2geek.net
 www.troddit.com
 www.tumviews.com
 www.tweetbinder.com
 www.tweeteraser.com
+www.twitter-viewer.com
 www.twitterviewer.io
 www.webshare.io
 www.xka.cz

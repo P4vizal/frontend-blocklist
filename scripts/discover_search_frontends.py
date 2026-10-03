@@ -335,6 +335,10 @@ SERVICE_COMPOUND_RE = re.compile(
     r"^(?:twitter|x|reddit|tumblr)[_-](?:viewer|browser|frontend)$",
     re.IGNORECASE,
 )
+REPOSITORY_BROWSE_PATH_RE = re.compile(
+    r"/(?:repos?|repositories)/(?:github|gitlab|codeberg)(?:/|$)",
+    re.IGNORECASE,
+)
 
 
 def sanitize_request_url(value: str) -> str | None:
@@ -360,6 +364,14 @@ def sanitize_request_url(value: str) -> str | None:
     safe_path = quote(parsed.path, safe="/:@-._~%")
     safe_query = quote(parsed.query, safe="=&/?:@-._~%")
     return urlunparse(parsed._replace(path=safe_path, query=safe_query, fragment=""))
+
+
+def repository_browse_path_hint(path: str) -> bool:
+    return bool(REPOSITORY_BROWSE_PATH_RE.search(path or ""))
+
+
+def is_audited_false_positive(domain: str) -> bool:
+    return domain in AUDITED_FALSE_POSITIVE_HOSTS
 
 
 def path_looks_like_service(path: str) -> bool:

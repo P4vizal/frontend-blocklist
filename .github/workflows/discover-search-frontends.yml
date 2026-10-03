@@ -34,9 +34,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install search engine client
-        run: python -m pip install --disable-pip-version-check --no-input "ddgs==9.16.0"
-
       - name: Validate Python syntax
         run: python -m py_compile scripts/discover_search_frontends.py
 
@@ -50,7 +47,7 @@ jobs:
               candidates,
               "twitter",
               "twitter viewer alternative to nitter",
-              "bing",
+              "bing-rss",
               {
                   "href": "https://example.com/view",
                   "title": "Twitter viewer",

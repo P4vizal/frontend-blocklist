@@ -12,8 +12,7 @@ import time
 import unicodedata
 from dataclasses import dataclass, asdict
 from html.parser import HTMLParser
-from ddgs import DDGS
-from ddgs.exceptions import DDGSException, RatelimitException, TimeoutException
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, quote_plus, unquote, urljoin, urlparse
@@ -26,23 +25,19 @@ REPORT = Path("search-discovered-report.json")
 PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
-MAX_CANDIDATES = 320
+MAX_CANDIDATES = 360
 MIN_ACCEPTED = 1
-SEARCH_WORKERS = 3
+SEARCH_WORKERS = 4
 WORKERS = 10
 VALIDATION_DELAY = 0.0
 
-# Use resilient single-engine fallback instead of DDGS auto fan-out. This avoids
-# unstable providers (notably DuckDuckGo HTML) and avoids DDGS multi-backend
-# result-loss behavior when one provider fails.
-# Probe engines one at a time. These are supported as individual text backends
-# by DDGS 9.16.0; the fallback records which engine actually returned results.
-SEARCH_BACKENDS = ("bing", "startpage")
-SEARCH_BACKEND = "fallback"
+# Prefer Bing public RSS search; keep Bing HTML as the deterministic fallback.
+SEARCH_BACKENDS = ("bing-rss", "bing-html")
+SEARCH_BACKEND = "bing-rss-fallback"
 SEARCH_MAX_RESULTS = 10
 SEARCH_PAGES = (1,)
-SEARCH_TIMEOUT = 6
-SEARCH_DELAY = 0.15
+SEARCH_TIMEOUT = 7
+SEARCH_DELAY = 0.2
 SEARCH_RETRIES = 0
 SEARCH_PAGE2_LANGS: set[str] = set()
 
@@ -72,6 +67,17 @@ CONTENT_HOST_SUFFIXES = (
     ".blogspot.com", ".wordpress.com", ".medium.com", ".substack.com",
     ".wixsite.com", ".weebly.com",
 )
+
+EDITORIAL_HOSTS = {
+    "aiseesoft.com", "www.aiseesoft.com",
+    "techtactician.com", "www.techtactician.com",
+    "techbii.com", "www.techbii.com",
+    "tuffermagazine.com", "www.tuffermagazine.com",
+    "begindot.com", "www.begindot.com",
+    "journaldufreenaute.fr", "www.journaldufreenaute.fr",
+    "painonsocial.com", "www.painonsocial.com",
+}
+
 SEARCH_SERVICE_HOST_RE = re.compile(
     r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
     r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
@@ -252,6 +258,12 @@ CONTENT_TITLE_MARKERS = (
     "what is ", "what are ", "how to ", "best ", "top ",
     "guide", "explained", "comparison", "review",
     "list of ", "methods for ",
+)
+
+EDITORIAL_PAGE_MARKERS = (
+    "published", "last updated", "read time", "reading time",
+    "author", "byline", "table of contents", "pros and cons",
+    "subscribe", "newsletter",
 )
 
 STRONG_SERVICE_TERMS = (
@@ -620,22 +632,94 @@ def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
-def search_with_ddgs(
-    searcher: DDGS,
-    query: str,
-    region: str,
-    page: int,
-    backend: str,
-) -> list[dict]:
-    results = searcher.text(
-        query,
-        region=region,
-        safesearch="moderate",
-        max_results=SEARCH_MAX_RESULTS,
-        page=page,
-        backend=backend,
+def search_with_bing_rss(query: str, cfg: dict, page: int) -> list[dict]:
+    if page != 1:
+        return []
+    url = (
+        "https://www.bing.com/search?format=rss"
+        f"&q={quote_plus(query)}"
+        f"&setlang={quote_plus(cfg['hl'])}"
+        f"&cc={quote_plus(cfg['gl'])}"
     )
-    return [r for r in results if isinstance(r, dict)]
+    req = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "application/rss+xml, application/xml, text/xml, */*",
+            "Accept-Language": cfg["hl"],
+            "Connection": "close",
+        },
+    )
+    with urlopen(req, timeout=SEARCH_TIMEOUT) as response:
+        raw = response.read(MAX_PAGE_BYTES)
+        charset = response.headers.get_content_charset() or "utf-8"
+        payload = raw.decode(charset, errors="replace")
+
+    root = ET.fromstring(payload)
+    results: list[dict] = []
+    for item in root.iter():
+        if item.tag.rsplit("}", 1)[-1].lower() != "item":
+            continue
+        fields: dict[str, str] = {}
+        for child in list(item):
+            key = child.tag.rsplit("}", 1)[-1].lower()
+            value = "".join(child.itertext()).strip()
+            if value:
+                fields[key] = html.unescape(value)
+        href = fields.get("link", "")
+        if not href:
+            continue
+        results.append({
+            "href": href,
+            "title": fields.get("title", ""),
+            "body": fields.get("description", ""),
+        })
+        if len(results) >= SEARCH_MAX_RESULTS:
+            break
+    return results
+
+
+def search_with_bing_html(query: str, cfg: dict, page: int) -> list[dict]:
+    if page != 1:
+        return []
+    url = (
+        "https://www.bing.com/search?"
+        f"q={quote_plus(query)}&count={SEARCH_MAX_RESULTS}"
+        f"&setlang={quote_plus(cfg['hl'])}&cc={quote_plus(cfg['gl'])}"
+    )
+    req = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml,*/*",
+            "Accept-Language": cfg["hl"],
+            "Connection": "close",
+        },
+    )
+    with urlopen(req, timeout=SEARCH_TIMEOUT) as response:
+        raw = response.read(MAX_PAGE_BYTES)
+        charset = response.headers.get_content_charset() or "utf-8"
+        payload = raw.decode(charset, errors="replace")
+    parser = SearchResultParser()
+    parser.feed(payload)
+    results: list[dict] = []
+    seen: set[str] = set()
+    for href in parser.hrefs:
+        if href in seen:
+            continue
+        seen.add(href)
+        results.append({"href": href, "title": "", "body": ""})
+        if len(results) >= SEARCH_MAX_RESULTS:
+            break
+    return results
+
+
+def search_with_backend(query: str, cfg: dict, page: int, backend: str) -> list[dict]:
+    if backend == "bing-rss":
+        return search_with_bing_rss(query, cfg, page)
+    if backend == "bing-html":
+        return search_with_bing_html(query, cfg, page)
+    raise ValueError(f"Unsupported search backend: {backend}")
 
 
 def run_search_spec(
@@ -653,11 +737,9 @@ def run_search_spec(
     int,
 ]:
     cfg = LANGUAGES[lang]
-    region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
     results_by_page: list[tuple[int, str, list[dict]]] = []
     errors: list[dict] = []
     fallback_count = 0
-    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
 
     for page in search_pages_for(lang, query):
         page_results: list[dict] = []
@@ -665,50 +747,37 @@ def run_search_spec(
         page_attempt_errors: list[dict] = []
 
         for backend in SEARCH_BACKENDS:
-            for attempt in range(SEARCH_RETRIES + 1):
-                try:
-                    results = search_with_ddgs(searcher, query, region, page, backend)
-                    if results:
-                        page_results = results
-                        page_backend = backend
-                        if page_attempt_errors:
-                            fallback_count += 1
-                        break
-                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                    message = str(exc)
-                    if isinstance(exc, DDGSException) and "No results found" in message:
-                        continue
-                    page_attempt_errors.append({
-                        "language": lang,
-                        "platform": platform,
-                        "query": query,
-                        "backend": backend,
-                        "page": page,
-                        "attempt": attempt + 1,
-                        "error": f"{type(exc).__name__}: {exc}",
-                    })
-                if page_results:
+            try:
+                results = search_with_backend(query, cfg, page, backend)
+                if results:
+                    page_results = results
+                    page_backend = backend
+                    if page_attempt_errors:
+                        fallback_count += 1
                     break
-                if attempt < SEARCH_RETRIES and SEARCH_DELAY:
-                    time.sleep(SEARCH_DELAY * (attempt + 1))
-
-            if page_results:
-                break
+            except (HTTPError, URLError, OSError, ValueError, ET.ParseError) as exc:
+                page_attempt_errors.append({
+                    "language": lang,
+                    "platform": platform,
+                    "query": query,
+                    "backend": backend,
+                    "page": page,
+                    "attempt": 1,
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
             if SEARCH_DELAY:
                 time.sleep(SEARCH_DELAY)
 
         if page_results:
             results_by_page.append((page, page_backend, page_results))
         elif page_attempt_errors:
-            # Only a full page miss is a search error. A failed first engine
-            # followed by a successful fallback is telemetry, not a failed
-            # search, so it doesn't pollute the error count.
             errors.extend(page_attempt_errors)
 
         if SEARCH_DELAY:
             time.sleep(SEARCH_DELAY)
 
     return index, lang, platform, query, results_by_page, errors, fallback_count
+
 
 
 def merge_search_result(
@@ -749,6 +818,7 @@ def merge_search_result(
         marker = f"{backend}:{evidence[:900]}"
         if marker not in hit.search_evidence:
             hit.search_evidence.append(marker)
+
 
 
 def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
@@ -1475,6 +1545,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     content_host = (
         hit.domain.endswith(CONTENT_HOST_SUFFIXES)
+        or hit.domain in EDITORIAL_HOSTS
         or hit.domain in {
             "alternativeto.net", "www.alternativeto.net",
             "beebom.com", "www.beebom.com",
@@ -1528,8 +1599,21 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
         or (
             article_structure_hint
-            and not host_service_hint
-            and not header_service_identity_hint
+            and not (
+                ui_signal
+                or service_path_hint
+                or host_service_hint
+                or header_service_identity_hint
+            )
+        )
+        or (
+            len(editorial_marker_hits) >= 2
+            and not (
+                ui_signal
+                or service_path_hint
+                or host_service_hint
+                or header_service_identity_hint
+            )
         )
     )
     if article_like:
@@ -1538,6 +1622,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {
                 "content_path_hint": content_path_hint,
                 "content_title_hits": content_title_hits,
+                "editorial_marker_hits": editorial_marker_hits,
                 "service_path_hint": service_path_hint,
                 "host_service_hint": host_service_hint,
                 "article_structure_hint": article_structure_hint,
@@ -1596,6 +1681,11 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or interactive_target_hits
         or (header_service_hits and input_count)
     )
+
+    editorial_marker_hits = [
+        marker for marker in EDITORIAL_PAGE_MARKERS
+        if term_present(marker, header_text)
+    ]
 
     action_hits = [t for t in (
         "paste", "enter", "search", "browse", "view", "open", "load",
@@ -1767,6 +1857,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     trusted_accept = (
         direct_trusted
         and strong_service_page
+        and (ui_signal or service_path_hint or host_service_hint)
         and bool(platform_hits)
         and bool(header_platform_hits or brand_hits)
     )
@@ -1774,6 +1865,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     source_accept = bool(
         hit.sources
         and strong_service_page
+        and (ui_signal or service_path_hint or host_service_hint)
         and bool(platform_hits)
         and bool(header_platform_hits or brand_hits)
     )
@@ -1815,6 +1907,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "host_service_hint": host_service_hint,
         "content_path_hint": content_path_hint,
         "content_title_hits": content_title_hits,
+        "editorial_marker_hits": editorial_marker_hits,
         "header_service_identity_hint": header_service_identity_hint,
         "single_query_service_ok": single_query_service_ok,
         "header_verified_search_service_ok": header_verified_search_service_ok,

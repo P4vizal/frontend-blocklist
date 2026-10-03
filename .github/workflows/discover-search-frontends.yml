@@ -34,6 +34,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/discover_search_frontends.py
+
       - name: Discover and validate domains
         run: python scripts/discover_search_frontends.py
 

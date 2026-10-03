@@ -486,8 +486,12 @@ def active_search_languages() -> tuple[str, ...]:
     return ("en", "es", *extras)
 
 
-def search_pages_for(lang: str) -> tuple[int, ...]:
-    return SEARCH_PAGES if lang in SEARCH_PAGE2_LANGS else (1,)
+def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
+    if lang not in SEARCH_PAGE2_LANGS:
+        return (1,)
+    q = fold(query)
+    deep_terms = ("viewer", "frontend", "alternative", "similar", "visor", "visualizador")
+    return SEARCH_PAGES if any(term_present(term, q) for term in deep_terms) else (1,)
 
 
 def build_queries() -> list[tuple[str, str, str]]:
@@ -617,7 +621,7 @@ def run_search_spec(
     errors: list[dict] = []
     searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
 
-    for page in search_pages_for(lang):
+    for page in search_pages_for(lang, query):
         page_results: list[dict] = []
         page_backend = ""
 
@@ -1829,7 +1833,7 @@ def main() -> int:
     print(f"Candidates discovered: {len(candidate_map)}")
     print(f"Candidates selected for validation: {len(hits)}")
     print(f"Previously known candidates skipped: {already_known_candidates}")
-    expected_search_pages = sum(len(search_pages_for(lang)) for lang, _, _ in query_specs)
+    expected_search_pages = sum(len(search_pages_for(lang, query)) for lang, _, query in query_specs)
     print(f"Search mode: {DISCOVERY_MODE}; active languages: {', '.join(active_search_languages()) or 'none'}")
     print(f"Search pages succeeded: {search_pages_succeeded}/{expected_search_pages}")
     print(f"Search queries with at least one page: {search_queries_with_results}/{len(query_specs)}")

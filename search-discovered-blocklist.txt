@@ -1,4 +1,4 @@
-# Generated from trusted frontend registries + SearXNG discovery + page validation.
+# Generated from maintained frontend registries + GitHub discovery + page validation.
 # Only newly discovered domains are included; domains already in blocklist.txt are omitted.
 ||teddit.net^
 ||nitter.net^
@@ -9,6 +9,7 @@
 ||nitter.space^
 ||rdt.trom.tf^
 ||reddit.lol^
+||redlib.freedit.eu^
 ||snoo.ioens.is^
 ||td.vern.cc^
 ||teddit.adminforge.de^

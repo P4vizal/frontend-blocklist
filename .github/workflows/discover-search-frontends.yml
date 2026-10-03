@@ -155,12 +155,15 @@ jobs:
                   old_output.add(line[2:-1])
 
           new_output = set()
+          bad = []
           for line_no, raw in enumerate(output_path.read_text(encoding="utf-8").splitlines(), 1):
               line = raw.strip()
               if not line or line.startswith("#"):
                   continue
               if not re.fullmatch(r"\|\|[^\^/\s]+\^", line):
                   bad.append((line_no, raw))
+              else:
+                  new_output.add(line[2:-1])
           assert not bad, f"Malformed discovery output lines: {bad[:5]}"
           audited_false_positives = set(report.get("audited_false_positive_domains", []))
           removed = old_output - new_output

@@ -229,7 +229,7 @@ TRUSTED_SOURCES = [
     ("Libreddit", "json", "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json"),
     ("LibRedirect", "json", "https://raw.githubusercontent.com/libredirect/instances/main/data.json"),
     ("Priviblur", "text", "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md"),
-    ("Alternative frontends 8", "text", "https://raw.githubusercontent.com/techietwintoes/alt-front-ends/main/README.md"),
+    ("Alternative frontends 8", "text", "https://raw.githubusercontent.com/techietwintoes/alt-front-ends/web/README.md"),
     ("Alternative frontends 1", "text", "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md"),
     ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md"),
     ("Alternative frontends 3", "text", "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md"),

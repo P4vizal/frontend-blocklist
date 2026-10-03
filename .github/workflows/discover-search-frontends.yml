@@ -63,7 +63,7 @@ jobs:
           assert discovery.search_pages_for("fr", "twitter viewer") == (1,)
           parser = discovery.PageParser()
           parser.feed(
-              '<html><head><title>Reddit <span>Viewer</span></title></head>'
+              '<html><head><title>Reddit Viewer</title></head>'
               '<body><h1>Reddit <span>Viewer</span></h1>'
               '<div role="textbox" aria-label="Search subreddit"></div>'
               '<article>post</article></body></html>'

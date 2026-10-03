@@ -1,38 +1,838 @@
 {
-  "generated": "2026-10-03T11:28:06Z",
-  "search_queries": 9,
-  "google_html_scraping_disabled": true,
+  "generated": "2026-10-03T11:44:23Z",
+  "search_queries": 51,
+  "search_backends": [
+    "brave",
+    "duckduckgo",
+    "bing",
+    "google",
+    "mojeek",
+    "yahoo"
+  ],
+  "disabled_backends": [
+    "brave",
+    "duckduckgo",
+    "google",
+    "mojeek"
+  ],
+  "verified_web_seed_count": 5,
   "trusted_candidate_count": 56,
-  "github_discovered_candidate_count": 0,
-  "searxng_instances_used": 0,
-  "search_strategy": "maintained registries + GitHub repository/README discovery; public search-engine scraping disabled",
+  "github_discovered_candidate_count": 4,
+  "search_strategy": "maintained registries + GitHub + DDGS multi-engine search; each backend queried separately",
   "trusted_source_names": [
     "Alternative frontends 1",
     "Alternative frontends 3",
     "Alternative frontends 4",
     "Farside",
+    "GitHub:digitalblossom/alternative-frontends",
     "Libreddit",
     "Redlib"
   ],
-  "candidates_discovered": 56,
-  "validated_candidates": 56,
-  "accepted_count": 28,
+  "candidates_discovered": 160,
+  "validated_candidates": 160,
+  "accepted_count": 82,
   "already_covered_count": 17,
-  "search_errors": [],
+  "search_errors": [
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter viewer\"",
+      "backend": "brave",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter viewer\"",
+      "backend": "google",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter viewer\"",
+      "backend": "mojeek",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter alternative frontend\"",
+      "backend": "brave",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter alternative frontend\"",
+      "backend": "duckduckgo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter alternative frontend\"",
+      "backend": "google",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter alternative frontend\"",
+      "backend": "mojeek",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "\"twitter mirror\"",
+      "backend": "duckduckgo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "es",
+      "platform": "twitter",
+      "query": "\"twitter interfaz alternativa\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "es",
+      "platform": "twitter",
+      "query": "\"twitter interfaz alternativa\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "es",
+      "platform": "tumblr",
+      "query": "\"tumblr interfaz alternativa\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "es",
+      "platform": "tumblr",
+      "query": "\"tumblr interfaz alternativa\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "fr",
+      "platform": "twitter",
+      "query": "\"twitter interface alternative\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "fr",
+      "platform": "twitter",
+      "query": "\"twitter interface alternative\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "fr",
+      "platform": "tumblr",
+      "query": "\"tumblr interface alternative\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "fr",
+      "platform": "tumblr",
+      "query": "\"tumblr interface alternative\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "de",
+      "platform": "twitter",
+      "query": "\"twitter alternative Oberfläche\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "de",
+      "platform": "twitter",
+      "query": "\"twitter alternative Oberfläche\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "de",
+      "platform": "tumblr",
+      "query": "\"tumblr alternative Oberfläche\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "de",
+      "platform": "tumblr",
+      "query": "\"tumblr alternative Oberfläche\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ja",
+      "platform": "reddit",
+      "query": "\"reddit 代替フロントエンド\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ja",
+      "platform": "reddit",
+      "query": "\"reddit 代替フロントエンド\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ja",
+      "platform": "tumblr",
+      "query": "\"tumblr 代替フロントエンド\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ja",
+      "platform": "tumblr",
+      "query": "\"tumblr 代替フロントエンド\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ru",
+      "platform": "twitter",
+      "query": "\"twitter альтернативный интерфейс\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ru",
+      "platform": "twitter",
+      "query": "\"twitter альтернативный интерфейс\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ru",
+      "platform": "reddit",
+      "query": "\"reddit альтернативный интерфейс\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ru",
+      "platform": "reddit",
+      "query": "\"reddit альтернативный интерфейс\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ru",
+      "platform": "tumblr",
+      "query": "\"tumblr альтернативный интерфейс\"",
+      "backend": "bing",
+      "error": "DDGSException: No results found."
+    },
+    {
+      "language": "ru",
+      "platform": "tumblr",
+      "query": "\"tumblr альтернативный интерфейс\"",
+      "backend": "yahoo",
+      "error": "DDGSException: No results found."
+    }
+  ],
   "accepted": [
+    {
+      "domain": "twiiit.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 26,
+      "query_count": 2,
+      "final_url": "https://twiiit.com/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter",
+          "twiiit"
+        ],
+        "platform_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter",
+          "twiiit"
+        ],
+        "header_brand_hits": [
+          "nitter",
+          "twiiit"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "frontend",
+          "proxy",
+          "alternative frontend",
+          "instance"
+        ],
+        "identity_hits": [
+          "tweet",
+          "profile"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "alternative frontend",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "profile"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/status"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://twiiit.com/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:twiiit redirecting proxy for nitter. enter a twitter username and press \"go\" to be redirected to a nitter instance serving that profile. there are currently 8 instances online. nitter is an alternative frontend for twitter. there are many public nitter instances which have varying levels of uptime. some instances are rate limited, presumably due to high demand.",
+          "yahoo:twiiit redirecting proxy for nitter. enter a twitter username and press \"go\" to be redirected to a nitter instance serving that profile. there are currently 8 instances online. nitter is an alternative frontend for twitter. there are many public nitter instances which have varying levels of uptime. some instances are rate limited, presumably due to high demand."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,nitter; brands=nitter,twiiit; service=frontend,proxy,alternative frontend,instance; identity=tweet,profile; queries=2; score=26",
+      "error": ""
+    },
+    {
+      "domain": "twitterviewer.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 26,
+      "query_count": 7,
+      "final_url": "https://twitterviewer.net/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "service_hits": [
+          "viewer",
+          "frontend"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "frontend"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://twitterviewer.net/",
+          "https://twitterviewer.net/ja"
+        ],
+        "search_providers": [
+          "duckduckgo",
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "Human-verified viewer seed: https://twitterviewer.net/",
+          "duckduckgo:free twitter/x viewer — view tweets, profiles & replies without an account a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x.",
+          "bing:free twitter/x viewer — view tweets, profiles & replies ... view tweets and replies without an account – just paste a twitter or x url. we do not track you or collect personal data. an anonymous twitter viewer that keeps you secure. enjoy a distraction-free, mobile-friendly design inspired by the classic twitter look. see complete tweet content, user profiles, replies, images, and videos (when available).",
+          "yahoo:free twitter/x viewer — view tweets, profiles & replies ... view tweets and replies without an account – just paste a twitter or x url. we do not track you or collect personal data. an anonymous twitter viewer that keeps you secure. enjoy a distraction-free, mobile-friendly design inspired by the classic twitter look. see complete tweet content, user profiles, replies, images, and videos (when available).",
+          "bing:free twitter/x viewer — view tweets, profiles & replies ... browse and read public tweets, user profiles, and replies without logging in to twitter / x. since twitter's policy changes removed anonymous access, tools like our anonymous twitter viewer fill this gap — providing a seamless, secure way to see tweets and search twitter without an account.",
+          "yahoo:free twitter/x viewer — view tweets, profiles & replies ... browse and read public tweets, user profiles, and replies without logging in to twitter / x. since twitter's policy changes removed anonymous access, tools like our anonymous twitter viewer fill this gap — providing a seamless, secure way to see tweets and search twitter without an account.",
+          "bing:ツイッターをログインなしで見るだけ — 無料 twitter/x ビューア アカウント登録もログインも不要。ツイッターを見るだけで使える無料の twitter/x ビューアです。公開ツイート・プロフィール・返信をそのまま表示し、動画のダウンロードにも対応。相手に通知は届かず、足跡も残りません。",
+          "yahoo:ツイッターをログインなしで見るだけ — 無料 twitter/x ビューア アカウント登録もログインも不要。ツイッターを見るだけで使える無料の twitter/x ビューアです。公開ツイート・プロフィール・返信をそのまま表示し、動画のダウンロードにも対応。相手に通知は届かず、足跡も残りません。",
+          "bing:free twitter/x viewer — view tweets, profiles & replies ... what is a twitter viewer? a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x.",
+          "yahoo:free twitter/x viewer — view tweets, profiles & replies ... what is a twitter viewer? a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter; service=viewer,frontend; identity=tweet,tweets,user,profile,post; queries=7; score=26",
+      "error": ""
+    },
+    {
+      "domain": "dopingconsomme.blogspot.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 24,
+      "query_count": 1,
+      "final_url": "https://dopingconsomme.blogspot.com/2026/09/nitter.html",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter",
+          "xcancel"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter",
+          "xcancel"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "instance",
+          "代替フロントエンド",
+          "プロキシ",
+          "フロントエンド",
+          "インスタンス"
+        ],
+        "identity_hits": [
+          "tweets",
+          "プロフィール",
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "instance",
+          "代替フロントエンド",
+          "プロキシ",
+          "フロントエンド",
+          "インスタンス"
+        ],
+        "body_identity_hits": [
+          "tweets",
+          "プロフィール",
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 3,
+        "app_path_hits": [
+          "/blog",
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://dopingconsomme.blogspot.com/2026/09/nitter.html"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitterとxcancelが法的助言を受けてサービスを再開 #九07 #2019四11ni... sep 7, 2026 · nitterはプライバシーとパフォーマンスに重点を置いた、twitterの代替フロントエンドであり、オープンソースで無料で利用できるプロジェクトである。2026年8月24日にx社からnitterインスタンスとリポジトリの恒久的な削除を求める差し止め通知が送られたが、法的助言を受けた結果、プロジェクト ...",
+          "yahoo:nitterとxcancelが法的助言を受けてサービスを再開 #九07 #2019四11ni... sep 7, 2026 · nitterはプライバシーとパフォーマンスに重点を置いた、twitterの代替フロントエンドであり、オープンソースで無料で利用できるプロジェクトである。2026年8月24日にx社からnitterインスタンスとリポジトリの恒久的な削除を求める差し止め通知が送られたが、法的助言を受けた結果、プロジェクト ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter,xcancel; service=instance,代替フロントエンド,プロキシ,フロントエンド,インスタンス; identity=tweets,プロフィール,ユーザー,投稿; queries=1; score=24",
+      "error": ""
+    },
+    {
+      "domain": "peekvault.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 24,
+      "query_count": 2,
+      "final_url": "https://peekvault.com/nitter-alternative",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter",
+          "xcancel",
+          "twiiit"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter",
+          "xcancel",
+          "twiiit"
+        ],
+        "header_brand_hits": [
+          "nitter",
+          "xcancel"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "mirror",
+          "instance"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "mirror",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/tweet",
+          "/view"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://peekvault.com/nitter-alternative",
+          "https://peekvault.com/tweet-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitter alternatives that still work (updated september 2026) peekvault puts those two sources behind one input. it is a smaller window than nitter was, and it is one that does not close. mirror means the service fetches x.com and re-serves it: live content, high risk. redirector means it forwards you to whichever mirror is alive right now.",
+          "yahoo:nitter alternatives that still work (updated september 2026) peekvault puts those two sources behind one input. it is a smaller window than nitter was, and it is one that does not close. mirror means the service fetches x.com and re-serves it: live content, high risk. redirector means it forwards you to whichever mirror is alive right now.",
+          "bing:tweet viewer – open any public tweet link without logging in every tweet has an official embed. it is the card you see inside news articles, and x generates it from a public endpoint that does not check whether you are logged in. the tweet viewer sends your link to that endpoint, gets back the card, and shows it. nothing on x.com is fetched, nothing is scraped, and nothing is stored on this site.",
+          "yahoo:tweet viewer – open any public tweet link without logging in every tweet has an official embed. it is the card you see inside news articles, and x generates it from a public endpoint that does not check whether you are logged in. the tweet viewer sends your link to that endpoint, gets back the card, and shows it. nothing on x.com is fetched, nothing is scraped, and nothing is stored on this site."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter,xcancel,twiiit; service=viewer,mirror,instance; identity=tweet,tweets,user,profile,post; queries=2; score=24",
+      "error": ""
+    },
+    {
+      "domain": "rentry.co",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 23,
+      "query_count": 2,
+      "final_url": "https://rentry.co/redditwebclients",
+      "evidence": {
+        "core_hits": [
+          "reddit",
+          "libreddit",
+          "teddit",
+          "eddrit",
+          "troddit",
+          "kddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [
+          "libreddit",
+          "teddit",
+          "eddrit",
+          "troddit",
+          "kddit"
+        ],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "frontend",
+          "instance"
+        ],
+        "identity_hits": [
+          "subreddits",
+          "comment",
+          "comments",
+          "posts",
+          "user"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "subreddits",
+          "comment",
+          "comments",
+          "posts",
+          "user"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://rentry.co/redditwebclients"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit web clients - rentry.co here's the full list of alternative reddit web clients that i could find. they're all pretty lightweight (at least moreso than the official reddit web clients), so they're all workable alternatives to some degree. the catch is that their feature sets differ.",
+          "yahoo:reddit web clients - rentry.co here's the full list of alternative reddit web clients that i could find. they're all pretty lightweight (at least moreso than the official reddit web clients), so they're all workable alternatives to some degree. the catch is that their feature sets differ.",
+          "bing:reddit web clients - rentry.co reddit web clients here's the full list of alternative reddit web clients that i could find. they're all pretty lightweight (at least moreso than the official reddit web clients), so they're all workable alternatives to some degree. the catch is that their feature sets differ. some just let you see posts, others let you see posts and comments, yet others let you login and see your subreddits ...",
+          "yahoo:reddit web clients - rentry.co reddit web clients here's the full list of alternative reddit web clients that i could find. they're all pretty lightweight (at least moreso than the official reddit web clients), so they're all workable alternatives to some degree. the catch is that their feature sets differ. some just let you see posts, others let you see posts and comments, yet others let you login and see your subreddits ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=libreddit,teddit,eddrit,troddit,kddit; service=frontend,instance; identity=subreddits,comment,comments,posts,user; queries=2; score=23",
+      "error": ""
+    },
+    {
+      "domain": "www.getxapi.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 23,
+      "query_count": 4,
+      "final_url": "https://www.getxapi.com/tools/twitter-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter",
+          "xcancel"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter",
+          "xcancel"
+        ],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "proxy"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog",
+          "/blogs",
+          "/search",
+          "/status"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.getxapi.com/tools/twitter-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:free twitter (x) viewer: view profiles without an account sep 13, 2026 · read any public profile's posts or search x without logging in. free, no signup, no login wall. public posts only. powered by the getxapi timeline and search endpoints; results are cached for a few minutes.",
+          "yahoo:free twitter (x) viewer: view profiles without an account sep 13, 2026 · read any public profile's posts or search x without logging in. free, no signup, no login wall. public posts only. powered by the getxapi timeline and search endpoints; results are cached for a few minutes.",
+          "bing:free twitter (x) viewer: view profiles without an account sep 13, 2026 · free twitter / x viewer. read any public profile's posts or search x without logging in or creating an account. latest and top results, media, reply counts.",
+          "yahoo:free twitter (x) viewer: view profiles without an account sep 13, 2026 · free twitter / x viewer. read any public profile's posts or search x without logging in or creating an account. latest and top results, media, reply counts."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter,xcancel; service=viewer,proxy; identity=tweet,tweets,user,profile,post; queries=4; score=23",
+      "error": ""
+    },
+    {
+      "domain": "labmemo.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 22,
+      "query_count": 1,
+      "final_url": "https://labmemo.com/nitter-cease-and-desist-x-corp-shutdown-2026/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter",
+          "twiiit"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter",
+          "twiiit"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "instance",
+          "代替フロントエンド",
+          "フロントエンド",
+          "インスタンス"
+        ],
+        "identity_hits": [
+          "tweet",
+          "profile",
+          "post",
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "instance",
+          "代替フロントエンド",
+          "フロントエンド",
+          "インスタンス"
+        ],
+        "body_identity_hits": [
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 3,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://labmemo.com/nitter-cease-and-desist-x-corp-shutdown-2026/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitterがx corp.のcease and desistで全面停止へ:7年続いた「ログイ... aug 26, 2026 · 2026年8月24日、 x corp.がオープンソースのtwitter代替フロントエンド「nitter」の開発者に対し、cease and desist (内容証明による中止要求)を送付した ことが明らかになりました。",
+          "yahoo:nitterがx corp.のcease and desistで全面停止へ:7年続いた「ログイ... aug 26, 2026 · 2026年8月24日、 x corp.がオープンソースのtwitter代替フロントエンド「nitter」の開発者に対し、cease and desist (内容証明による中止要求)を送付した ことが明らかになりました。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter,twiiit; service=instance,代替フロントエンド,フロントエンド,インスタンス; identity=tweet,profile,post,ユーザー,投稿; queries=1; score=22",
+      "error": ""
+    },
+    {
+      "domain": "nlnet.nl",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 22,
+      "query_count": 1,
+      "final_url": "https://nlnet.nl/project/Nitter/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://nlnet.nl/project/Nitter/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitter - nlnet nitter is an open source alternative twitter front-end that prioritizes privacy and performance. it acts like a proxy by requesting data on the server using internal twitter apis, and serving a lightweight front-end without javascript or ads, as well as rss feeds.",
+          "yahoo:nitter - nlnet nitter is an open source alternative twitter front-end that prioritizes privacy and performance. it acts like a proxy by requesting data on the server using internal twitter apis, and serving a lightweight front-end without javascript or ads, as well as rss feeds."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,nitter; brands=nitter; service=proxy; identity=tweet,tweets; queries=1; score=22",
+      "error": ""
+    },
     {
       "domain": "teddit.net",
       "platform": "reddit",
       "accepted": true,
-      "score": 20,
-      "query_count": 4,
+      "score": 22,
+      "query_count": 5,
       "final_url": "https://teddit.net/",
       "evidence": {
         "trusted_sources": [
           "Farside",
           "Alternative frontends 1",
           "Alternative frontends 3",
-          "Alternative frontends 4"
+          "Alternative frontends 4",
+          "GitHub:digitalblossom/alternative-frontends"
         ],
         "source_validated": true,
         "live_page_fetch": false,
@@ -42,17 +842,551 @@
       "error": ""
     },
     {
+      "domain": "www.journaldufreenaute.fr",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 22,
+      "query_count": 1,
+      "final_url": "https://www.journaldufreenaute.fr/nitter-visionneuse-alternative-gratuite/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy",
+          "instance",
+          "visionneuse"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "utilisateur"
+        ],
+        "body_service_hits": [
+          "proxy",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "utilisateur"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.journaldufreenaute.fr/nitter-visionneuse-alternative-gratuite/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitter, une visionneuse alternative gratuite journal du freenaute jan 9, 2026 · nitter est une visionneuse alternative gratuite pour twitter, respectant la confidentialité sans publicités ni javascript requis, offrant une interface réactive et sécurisée.",
+          "yahoo:nitter, une visionneuse alternative gratuite journal du freenaute jan 9, 2026 · nitter est une visionneuse alternative gratuite pour twitter, respectant la confidentialité sans publicités ni javascript requis, offrant une interface réactive et sécurisée."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,nitter; brands=nitter; service=proxy,instance,visionneuse; identity=tweet,tweets,utilisateur; queries=1; score=22",
+      "error": ""
+    },
+    {
+      "domain": "www.tech2geek.net",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 22,
+      "query_count": 1,
+      "final_url": "https://www.tech2geek.net/redlib-the-open-source-alternative-to-browse-reddit-without-tracking/",
+      "evidence": {
+        "core_hits": [
+          "reddit",
+          "redlib",
+          "libreddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [
+          "redlib",
+          "libreddit"
+        ],
+        "header_brand_hits": [
+          "redlib"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "frontend",
+          "instance"
+        ],
+        "identity_hits": [
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "forms": 11,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.tech2geek.net/redlib-the-open-source-alternative-to-browse-reddit-without-tracking/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:redlib: the open-source alternative to browse reddit without ... oct 1, 2025 · thanks to redlib, a privacy-focused, open-source reddit frontend built in rust, you can enjoy reddit’s content without being spied on. no account required, no ads, no javascript, no trackers. just swap reddit.com with redlib.tiekoetter.com in any reddit url, and you’ll instantly get the same threads—minus the surveillance. why does redlib exist?",
+          "yahoo:redlib: the open-source alternative to browse reddit without ... oct 1, 2025 · thanks to redlib, a privacy-focused, open-source reddit frontend built in rust, you can enjoy reddit’s content without being spied on. no account required, no ads, no javascript, no trackers. just swap reddit.com with redlib.tiekoetter.com in any reddit url, and you’ll instantly get the same threads—minus the surveillance. why does redlib exist?"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=redlib,libreddit; service=frontend,instance; identity=comment,comments,post,posts,user,profile; queries=1; score=22",
+      "error": ""
+    },
+    {
+      "domain": "carryfeed.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 21,
+      "query_count": 3,
+      "final_url": "https://carryfeed.com/twitter-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://carryfeed.com/twitter-viewer",
+          "https://carryfeed.com/twitter-profile-viewer"
+        ],
+        "search_providers": [
+          "duckduckgo",
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "duckduckgo:twitter viewer without account | public x posts and profiles twitter viewer · no x login required twitter viewer paste a handle, profile, post, thread, or x article link. read the public source with its context intact, then use it for content research, planning, or your x growth workflow.",
+          "bing:twitter viewer without account | public x posts and profiles twitter viewer · no x login required twitter viewer paste a handle, profile, post, thread, or x article link. read the public source with its context intact, then use it for content research, planning, or your x growth workflow.",
+          "yahoo:twitter viewer without account | public x posts and profiles twitter viewer · no x login required twitter viewer paste a handle, profile, post, thread, or x article link. read the public source with its context intact, then use it for content research, planning, or your x growth workflow.",
+          "bing:twitter viewer without account | public x posts and profiles compare twitter viewer tools in detail see which option fits profiles, posts, media, and occasional no-login reading.",
+          "bing:twitter profile viewer | view public x profiles paste an @handle or profile url to open the public account details, profile images, recent posts, and gallery items carryfeed can retrieve. start with @username, x.com/username, or twitter.com/username. the result stays tied to that public profile. see the account, not an entire timeline.",
+          "yahoo:twitter viewer without account | public x posts and profiles compare twitter viewer tools in detail see which option fits profiles, posts, media, and occasional no-login reading.",
+          "yahoo:twitter profile viewer | view public x profiles paste an @handle or profile url to open the public account details, profile images, recent posts, and gallery items carryfeed can retrieve. start with @username, x.com/username, or twitter.com/username. the result stays tied to that public profile. see the account, not an entire timeline."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter; service=viewer; identity=tweet,tweets,user,profile,post; queries=3; score=21",
+      "error": ""
+    },
+    {
+      "domain": "tweetviewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 21,
+      "query_count": 2,
+      "final_url": "https://tweetviewer.com/",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog",
+          "/tweet"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://tweetviewer.com/",
+          "https://tweetviewer.com/es"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "Human-verified viewer seed: https://tweetviewer.com/",
+          "bing:visor de twitter — mira tuits y cronologías sin iniciar ... how do i view or download a video from twitter (x)? to view any post, paste its link into the box above and press the arrow. to download it, use our hd mp4 downloader, which reads the post, lists every available mp4 quality (up to 1080p hd), and saves the file directly to your device in a few seconds.",
+          "yahoo:visor de twitter — mira tuits y cronologías sin iniciar ... how do i view or download a video from twitter (x)? to view any post, paste its link into the box above and press the arrow. to download it, use our hd mp4 downloader, which reads the post, lists every available mp4 quality (up to 1080p hd), and saves the file directly to your device in a few seconds."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer; identity=tweet,tweets,user,profile,post; queries=2; score=21",
+      "error": ""
+    },
+    {
+      "domain": "twitee.co",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 21,
+      "query_count": 5,
+      "final_url": "https://twitee.co/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter",
+          "xcancel"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter",
+          "xcancel"
+        ],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "profile",
+          "post"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/search",
+          "/tweet"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://twitee.co/"
+        ],
+        "search_providers": [
+          "duckduckgo",
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "duckduckgo:free twitter/x viewer | browse posts & country trends | twitee use twitter viewer to search public posts and profiles, read replies, browse country trends, and download available media without signing in.",
+          "bing:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · use twitter viewer to search public posts and profiles, read replies, browse country trends, and download available media without signing in.",
+          "yahoo:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · use twitter viewer to search public posts and profiles, read replies, browse country trends, and download available media without signing in.",
+          "bing:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · what is a twitter/x viewer? twitee lets you view public twitter/x posts and profiles without signing in to x. read available replies, browse media, and download available videos from public posts. protected accounts are unavailable, and public content may be delayed or incomplete. use a public @username or profile url.",
+          "yahoo:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · what is a twitter/x viewer? twitee lets you view public twitter/x posts and profiles without signing in to x. read available replies, browse media, and download available videos from public posts. protected accounts are unavailable, and public content may be delayed or incomplete. use a public @username or profile url.",
+          "bing:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · what is a twitter/x viewer? twitee lets you view public twitter/x posts and profiles without signing in to x. read available replies, browse media, and download available videos from public posts.",
+          "yahoo:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · what is a twitter/x viewer? twitee lets you view public twitter/x posts and profiles without signing in to x. read available replies, browse media, and download available videos from public posts.",
+          "bing:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · browse public posts, profiles, trends, and media in one clean view. twitter search? try @handle. what is a twitter/x viewer? twitee lets you view public twitter/x posts and profiles without signing in to x. read available replies, browse media, and download available videos from public posts.",
+          "yahoo:free twitter/x viewer | browse posts & country trends | twitee 22 hours ago · browse public posts, profiles, trends, and media in one clean view. twitter search? try @handle. what is a twitter/x viewer? twitee lets you view public twitter/x posts and profiles without signing in to x. read available replies, browse media, and download available videos from public posts."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter,xcancel; service=viewer; identity=tweet,profile,post; queries=5; score=21",
+      "error": ""
+    },
+    {
+      "domain": "www.funkyspacemonkey.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 21,
+      "query_count": 1,
+      "final_url": "https://www.funkyspacemonkey.com/foss-front-ends-and-alternatives-for-twitter-instagram-reddit-youtube-and-more",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "frontend",
+          "instance"
+        ],
+        "identity_hits": [
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://www.funkyspacemonkey.com/foss-front-ends-and-alternatives-for-twitter-instagram-reddit-youtube-and-more"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:foss front-ends and alternatives for twitter, instagram ... nitter is a free and open source alternative twitter front-end focused on privacy. users can follow friends and discover new ones. on mastodon, users can publish anything. they want: links, pictures, text, video.",
+          "yahoo:foss front-ends and alternatives for twitter, instagram ... nitter is a free and open source alternative twitter front-end focused on privacy. users can follow friends and discover new ones. on mastodon, users can publish anything. they want: links, pictures, text, video."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,nitter; brands=nitter; service=frontend,instance; identity=user,profile,post; queries=1; score=21",
+      "error": ""
+    },
+    {
+      "domain": "www.tweeteraser.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 21,
+      "query_count": 1,
+      "final_url": "https://www.tweeteraser.com/de/resources/twitter-alternative-viewer-viewing-x-with-a-third-eye/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "betrachter"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "profil",
+          "beitrag"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "betrachter"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "profil",
+          "beitrag"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.tweeteraser.com/de/resources/twitter-alternative-viewer-viewing-x-with-a-third-eye/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:twitter alternative viewer: x anders erforschen | tweeteraser jul 15, 2024 · startseite / ressourcen / alternativer twitter-betrachter: x mit einem dritten auge sehen",
+          "yahoo:twitter alternative viewer: x anders erforschen | tweeteraser jul 15, 2024 · startseite / ressourcen / alternativer twitter-betrachter: x mit einem dritten auge sehen"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter; service=viewer,betrachter; identity=tweet,tweets,profile,profil,beitrag; queries=1; score=21",
+      "error": ""
+    },
+    {
+      "domain": "xtwitterviewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 21,
+      "query_count": 2,
+      "final_url": "https://xtwitterviewer.com/fr",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "visionneuse"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "profil",
+          "utilisateur"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "visionneuse"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "profil",
+          "utilisateur"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://xtwitterviewer.com/fr",
+          "https://xtwitterviewer.com/ja"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:gratuit visionneuse twitter – voir twitter sans compte qu’est-ce que visionneuse twitter ? visionneuse twitter est un service gratuit en ligne permettant de consulter twitter (x) sans compte : profils, tweets, vidéos et images.",
+          "yahoo:gratuit visionneuse twitter – voir twitter sans compte qu’est-ce que visionneuse twitter ? visionneuse twitter est un service gratuit en ligne permettant de consulter twitter (x) sans compte : profils, tweets, vidéos et images.",
+          "bing:無料 twitterビューアー – アカウント不要でtwitterを閲覧 twitterビューアーは、twitter(x)のプロフィール、ツイート、動画、画像をアカウントなしで匿名閲覧できる無料のwebビューアです。",
+          "yahoo:無料 twitterビューアー – アカウント不要でtwitterを閲覧 twitterビューアーは、twitter(x)のプロフィール、ツイート、動画、画像をアカウントなしで匿名閲覧できる無料のwebビューアです。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer,visionneuse; identity=tweet,tweets,user,profile,post,profil; queries=2; score=21",
+      "error": ""
+    },
+    {
       "domain": "nitter.net",
       "platform": "twitter",
       "accepted": true,
-      "score": 18,
-      "query_count": 3,
+      "score": 20,
+      "query_count": 4,
       "final_url": "https://nitter.net/",
       "evidence": {
         "trusted_sources": [
           "Farside",
           "Alternative frontends 1",
-          "Alternative frontends 4"
+          "Alternative frontends 4",
+          "GitHub:digitalblossom/alternative-frontends"
         ],
         "source_validated": true,
         "live_page_fetch": false,
@@ -62,11 +1396,774 @@
       "error": ""
     },
     {
+      "domain": "xnspy.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 20,
+      "query_count": 1,
+      "final_url": "https://xnspy.com/blog/de/best-twitter-anonymous-viewer.html",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "profil",
+          "benutzer",
+          "beitrag"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "profil",
+          "benutzer",
+          "beitrag"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://xnspy.com/blog/de/best-twitter-anonymous-viewer.html"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:die 7 besten tools zum anonymen betrachten von twitter: ein ... jun 1, 2026 · ein anonymer twitter-betrachter ruft öffentlich verfügbare inhalte über seine eigenen server ab, sodass x (twitter) den datenverkehr vom tool und nicht von ihrem gerät registriert. die 4 tools in diesem handbuch sind vollständig browserbasiert und erfordern keinerlei installation.",
+          "yahoo:die 7 besten tools zum anonymen betrachten von twitter: ein ... jun 1, 2026 · ein anonymer twitter-betrachter ruft öffentlich verfügbare inhalte über seine eigenen server ab, sodass x (twitter) den datenverkehr vom tool und nicht von ihrem gerät registriert. die 4 tools in diesem handbuch sind vollständig browserbasiert und erfordern keinerlei installation."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter; service=viewer; identity=tweet,tweets,profile,profil,benutzer,beitrag; queries=1; score=20",
+      "error": ""
+    },
+    {
+      "domain": "alternativeto.net",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://alternativeto.net/software/tumblr/?platform=self-hosted",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "frontend",
+          "alternative frontend",
+          "instance"
+        ],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "alternative frontend",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "user"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog",
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://alternativeto.net/software/tumblr/?platform=self-hosted"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tumblr alternatives: top 12 self-hosted blog publishing tools mar 14, 2026 · if that doesn't suit you, our users have ranked more than 100 alternatives to tumblr and many of them are available as a self-hosted solution so hopefully you can find a suitable replacement. other interesting self-hosted alternatives to tumblr are wordpress, pixelfed, pleroma and misskey.",
+          "yahoo:tumblr alternatives: top 12 self-hosted blog publishing tools mar 14, 2026 · if that doesn't suit you, our users have ranked more than 100 alternatives to tumblr and many of them are available as a self-hosted solution so hopefully you can find a suitable replacement. other interesting self-hosted alternatives to tumblr are wordpress, pixelfed, pleroma and misskey."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=frontend,alternative frontend,instance; identity=blog,blogs,post,posts,user,profile; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "api.sorsa.io",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://api.sorsa.io/playground/tweet-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "mirror"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog",
+          "/post",
+          "/profile",
+          "/search",
+          "/tweet",
+          "/tweets",
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://api.sorsa.io/playground/tweet-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tweet viewer & analytics: see any post’s views and stats ... tweet viewer and analytics for any x post paste a link to any public x (twitter) post to view it without logging in, with every number x makes public: views, likes, reposts, quotes, replies and bookmarks. it adds engagement rates, the exact posting time and a comparison with the author’s usual reach.",
+          "yahoo:tweet viewer & analytics: see any post’s views and stats ... tweet viewer and analytics for any x post paste a link to any public x (twitter) post to view it without logging in, with every number x makes public: views, likes, reposts, quotes, replies and bookmarks. it adds engagement rates, the exact posting time and a comparison with the author’s usual reach."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer,mirror; identity=tweet,tweets,user,profile,post; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "fr.xtwitt.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://fr.xtwitt.com/tumblr-profile-viewer-downloader/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "visionneuse"
+        ],
+        "identity_hits": [
+          "post",
+          "profile",
+          "profil",
+          "utilisateur"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "visionneuse"
+        ],
+        "body_identity_hits": [
+          "post",
+          "profile",
+          "profil",
+          "utilisateur"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://fr.xtwitt.com/tumblr-profile-viewer-downloader/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tumblr visionneur de profils – voir les profils anonyme – xtwitt voir les profils tumblr anonymement sans se connecter. parcourir le contenu, voir les messages, et explorer les profils en privé avec xtwitt.com",
+          "yahoo:tumblr visionneur de profils – voir les profils anonyme – xtwitt voir les profils tumblr anonymement sans se connecter. parcourir le contenu, voir les messages, et explorer les profils en privé avec xtwitt.com"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=viewer,visionneuse; identity=post,profile,profil,utilisateur; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "iamprovider.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 2,
+      "final_url": "https://iamprovider.com/fr/x-public-profile-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "visionneuse"
+        ],
+        "identity_hits": [
+          "tweets",
+          "profil",
+          "utilisateur",
+          "publication"
+        ],
+        "body_service_hits": [
+          "visionneuse"
+        ],
+        "body_identity_hits": [
+          "tweets",
+          "profil",
+          "utilisateur",
+          "publication"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog",
+          "/tweet"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://iamprovider.com/fr/x-public-profile-viewer",
+          "https://iamprovider.com/fr/x-posts-viewer",
+          "https://iamprovider.com/de/x-posts-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:x (twitter) visionneuse de profils publics | je suis fournisseur que fait le visualiseur de profils publics x (twitter) ? consultez en un seul endroit les informations publiques disponibles concernant un profil ou une chaîne twitter. vérifiez son nom, son identité, sa description et le nombre de vues avant d'utiliser le lien du profil dans votre travail.",
+          "bing:x (twitter) visionneuse de publications récentes | je suis ... comment utiliser x (twitter) : visionneuse de publications récentes saisissez la cible dans le formulaire ci-dessus. choisissez entre 1 et 60 résultats ; la valeur par défaut est 10. sélectionnez « rechercher une seule fois ». si une vérification est demandée, effectuez-la ; la recherche se poursuit automatiquement.",
+          "yahoo:x (twitter) visionneuse de profils publics | je suis fournisseur que fait le visualiseur de profils publics x (twitter) ? consultez en un seul endroit les informations publiques disponibles concernant un profil ou une chaîne twitter. vérifiez son nom, son identité, sa description et le nombre de vues avant d'utiliser le lien du profil dans votre travail.",
+          "yahoo:x (twitter) visionneuse de publications récentes | je suis ... comment utiliser x (twitter) : visionneuse de publications récentes saisissez la cible dans le formulaire ci-dessus. choisissez entre 1 et 60 résultats ; la valeur par défaut est 10. sélectionnez « rechercher une seule fois ». si une vérification est demandée, effectuez-la ; la recherche se poursuit automatiquement.",
+          "bing:x (twitter) aktuelle beiträge | ich bin anbieter kostenlose öffentliche nachschreibung x (twitter) betrachter der neuesten beiträge",
+          "yahoo:x (twitter) aktuelle beiträge | ich bin anbieter kostenlose öffentliche nachschreibung x (twitter) betrachter der neuesten beiträge"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=visionneuse; identity=tweets,profil,utilisateur,publication; queries=2; score=19",
+      "error": ""
+    },
+    {
+      "domain": "instag.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 19,
+      "query_count": 2,
+      "final_url": "https://instag.com/tumblr-profile-viewer-downloader/?lang=es",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "visor"
+        ],
+        "identity_hits": [
+          "post",
+          "profile",
+          "perfil",
+          "usuario",
+          "publicación"
+        ],
+        "body_service_hits": [
+          "visor"
+        ],
+        "body_identity_hits": [
+          "post",
+          "profile",
+          "perfil",
+          "usuario",
+          "publicación"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://instag.com/tumblr-profile-viewer-downloader/?lang=es",
+          "https://instag.com/tumblr-profile-viewer-downloader/?lang=ru"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tumblr visor de perfil - examinar fácilmente los perfiles de ... buscar tumblr perfiles de forma anónima con instag es sencillo y completamente privado. esto es lo que hacer: 1. introduzca el nombre de usuario o url. simplemente escriba el nombre de usuario tumblr o url de perfil que desea ver en el campo de búsqueda. 2. explorar perfiles y contenidos.",
+          "yahoo:tumblr visor de perfil - examinar fácilmente los perfiles de ... buscar tumblr perfiles de forma anónima con instag es sencillo y completamente privado. esto es lo que hacer: 1. introduzca el nombre de usuario o url. simplemente escriba el nombre de usuario tumblr o url de perfil que desea ver en el campo de búsqueda. 2. explorar perfiles y contenidos.",
+          "bing:tumblr просмотрщик профилей — анонимный просмотр профилей просматривайте профили tumblr анонимно с помощью instag. просматривайте профили, истории и контент без входа в систему.",
+          "yahoo:tumblr просмотрщик профилей — анонимный просмотр профилей просматривайте профили tumblr анонимно с помощью instag. просматривайте профили, истории и контент без входа в систему."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=visor; identity=post,profile,perfil,usuario,publicación; queries=2; score=19",
+      "error": ""
+    },
+    {
+      "domain": "parental-control.flashget.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://parental-control.flashget.com/ja/tumblr-viewer-guide",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "ビューア",
+          "ミラー"
+        ],
+        "identity_hits": [
+          "blog",
+          "プロフィール",
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "ビューア",
+          "ミラー"
+        ],
+        "body_identity_hits": [
+          "プロフィール",
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 3,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://parental-control.flashget.com/ja/tumblr-viewer-guide"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tumblr ビューア ガイド: ログインせずにアバター、プロフィール、画... tumblr ビューアとは何ですか? tumblr ビューアは非常に基本的ですが、非常に効果的なツールであり、このツールを使用すると、完全な匿名性で、この web サイトのアカウントを必要とせずにブログ プラットフォームをサーフィンできるようになります。",
+          "yahoo:tumblr ビューア ガイド: ログインせずにアバター、プロフィール、画... tumblr ビューアとは何ですか? tumblr ビューアは非常に基本的ですが、非常に効果的なツールであり、このツールを使用すると、完全な匿名性で、この web サイトのアカウントを必要とせずにブログ プラットフォームをサーフィンできるようになります。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=viewer,ビューア,ミラー; identity=blog,プロフィール,ユーザー,投稿; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "profileri.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 2,
+      "final_url": "https://profileri.com/twitter/x-profile-viewer/",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "publication"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "publication"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog",
+          "/post",
+          "/profile",
+          "/subreddit"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://profileri.com/twitter/x-profile-viewer/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:x profile viewer – view twitter or x account anonymously ... use profileri’s twitter profile viewer to explore publicly available account information through one organized dashboard. enter a twitter/x username or profile url to view the profile card, biography, follower statistics, public tweets, photos, videos, and other accessible account details.",
+          "yahoo:x profile viewer – view twitter or x account anonymously ... use profileri’s twitter profile viewer to explore publicly available account information through one organized dashboard. enter a twitter/x username or profile url to view the profile card, biography, follower statistics, public tweets, photos, videos, and other accessible account details."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer; identity=tweet,tweets,user,profile,post,publication; queries=2; score=19",
+      "error": ""
+    },
+    {
+      "domain": "redlite.app",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 19,
+      "query_count": 3,
+      "final_url": "https://redlite.app/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "posts"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "posts"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/r/"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://redlite.app/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:redlite - online reddit viewer | browse subreddits privately redlite is a free reddit web viewer that lets you read any subreddit without an account. use our reddit viewer online to explore posts, images, and videos — fast, private, and ad-free.",
+          "yahoo:redlite - online reddit viewer | browse subreddits privately redlite is a free reddit web viewer that lets you read any subreddit without an account. use our reddit viewer online to explore posts, images, and videos — fast, private, and ad-free.",
+          "bing:redlite - online reddit viewer | browse subreddits privately redlite is a free online reddit viewer. browse any subreddit privately without an account — fast, clean, and ad-free.",
+          "yahoo:redlite - online reddit viewer | browse subreddits privately redlite is a free online reddit viewer. browse any subreddit privately without an account — fast, clean, and ad-free."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=viewer; identity=subreddit,subreddits,posts; queries=3; score=19",
+      "error": ""
+    },
+    {
+      "domain": "ru.dicloak.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://ru.dicloak.com/blog-detail/best-twitter-viewer-tools-in-2026-how-to-view-x-content-safely-and-anonymously",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "proxy",
+          "просмотрщик",
+          "прокси"
+        ],
+        "identity_hits": [
+          "user",
+          "профиль",
+          "пользователь",
+          "пост"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "просмотрщик",
+          "прокси"
+        ],
+        "body_identity_hits": [
+          "user",
+          "профиль",
+          "пользователь",
+          "пост"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog",
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://ru.dicloak.com/blog-detail/best-twitter-viewer-tools-in-2026-how-to-view-x-content-safely-and-anonymously",
+          "https://ru.dicloak.com/blog-detail/best-twitter-profile-viewer-tools-in-2026"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:1 - лучшие инструменты просмотра twitter в 2026 году: как ... apr 23, 2026 · в этом руководстве вы узнаете, что может сделать зритель twitter в 2026 году, каких ограничений ожидать, как выбрать безопасный инструмент и какие варианты стоит попробовать. что такое twitter viewer и почему люди им пользуются?",
+          "bing:1 - лучшие инструменты для просмотра профилей в twitter в ... jul 13, 2026 · просмотрщик профилей в twitter — это инструмент, который помогает получить доступ к общедоступной информации о twitter/x без прямого использования платформы. эти инструменты работают только с публичными данными, поэтому важно понимать их пределы перед использованием.",
+          "yahoo:1 - лучшие инструменты просмотра twitter в 2026 году: как ... apr 23, 2026 · в этом руководстве вы узнаете, что может сделать зритель twitter в 2026 году, каких ограничений ожидать, как выбрать безопасный инструмент и какие варианты стоит попробовать. что такое twitter viewer и почему люди им пользуются?",
+          "yahoo:1 - лучшие инструменты для просмотра профилей в twitter в ... jul 13, 2026 · просмотрщик профилей в twitter — это инструмент, который помогает получить доступ к общедоступной информации о twitter/x без прямого использования платформы. эти инструменты работают только с публичными данными, поэтому важно понимать их пределы перед использованием."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer,proxy,просмотрщик,прокси; identity=user,профиль,пользователь,пост; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "snaplytics.io",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 10,
+      "final_url": "https://snaplytics.io/twitter-viewer/",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://snaplytics.io/twitter-viewer/",
+          "https://snaplytics.io/twitter-viewer/es/",
+          "https://snaplytics.io/twitter-viewer/fr/",
+          "https://snaplytics.io/twitter-viewer/ja/",
+          "https://snaplytics.io/twitter-viewer/ru/"
+        ],
+        "search_providers": [
+          "duckduckgo",
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "duckduckgo:x / twitter viewer - view twitter without account | snaplytics view twitter profiles, search users and view tweets for free without login anonymously with our x / twitter viewer.",
+          "bing:x / twitter viewer - view twitter without account | snaplytics our twitter viewer allows you to browse twitter content completely anonymously. simply select your viewing option (profile, search, or tweet), enter the relevant information, and access the content without any login requirements.",
+          "yahoo:x / twitter viewer - view twitter without account | snaplytics our twitter viewer allows you to browse twitter content completely anonymously. simply select your viewing option (profile, search, or tweet), enter the relevant information, and access the content without any login requirements.",
+          "bing:x / twitter viewer - view twitter without account | snaplytics looking for a way to view twitter without an account? our comprehensive twitter viewer is the perfect solution for accessing x/twitter content anonymously. whether you want to view profiles, search for users, or check out specific tweets, our tool provides everything you need without requiring login credentials.",
+          "yahoo:x / twitter viewer - view twitter without account | snaplytics looking for a way to view twitter without an account? our comprehensive twitter viewer is the perfect solution for accessing x/twitter content anonymously. whether you want to view profiles, search for users, or check out specific tweets, our tool provides everything you need without requiring login credentials.",
+          "bing:visor de twitter / x | snaplytics aprende cómo ver twitter sin una cuenta usando nuestra herramienta de visualización integral. descarga videos de publicaciones de x/twitter en varias calidades. guarda fotos de alta calidad de publicaciones de x/twitter. descarga gifs animados de publicaciones de x/twitter. descarga fotos de perfil de x/twitter en tamaño completo.",
+          "yahoo:visor de twitter / x | snaplytics aprende cómo ver twitter sin una cuenta usando nuestra herramienta de visualización integral. descarga videos de publicaciones de x/twitter en varias calidades. guarda fotos de alta calidad de publicaciones de x/twitter. descarga gifs animados de publicaciones de x/twitter. descarga fotos de perfil de x/twitter en tamaño completo.",
+          "bing:x / twitter visionneuse | snaplytics x / twitter visionneuse affichez facilement et anonymement les profils twitter/x, recherchez des utilisateurs, ou affichez des tweets.",
+          "yahoo:x / twitter visionneuse | snaplytics x / twitter visionneuse affichez facilement et anonymement les profils twitter/x, recherchez des utilisateurs, ou affichez des tweets.",
+          "bing:x / twitter viewer - view twitter without account | snaplytics view twitter profiles, search users and view tweets for free without login anonymously with our x / twitter viewer.",
+          "yahoo:x / twitter viewer - view twitter without account | snaplytics view twitter profiles, search users and view tweets for free without login anonymously with our x / twitter viewer.",
+          "bing:x / twitter ビューア | snaplytics 当社のtwitterビューアを使用すると、twitterコンテンツを完全に匿名で閲覧できます。 表示オプション (プロフィール、検索、またはツイート) を選択し、関連情報を入力するだけで、ログイン要件なしにコンテンツにアクセスできます。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer; identity=tweet,tweets,user,profile; queries=10; score=19",
+      "error": ""
+    },
+    {
+      "domain": "techbii.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 3,
+      "final_url": "https://techbii.com/5-top-twitter-viewer-sites-for-effortless-exploration/",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "post"
+        ],
+        "forms": 15,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://techbii.com/5-top-twitter-viewer-sites-for-effortless-exploration/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:5 top twitter (x) viewer sites for effortless browsing - techbii oct 11, 2023 · is it legal to use twitter viewer sites? reading public content anonymously is not illegal in itself, and these sites operate in a grey zone of x's terms of service rather than outside the law.",
+          "yahoo:5 top twitter (x) viewer sites for effortless browsing - techbii oct 11, 2023 · is it legal to use twitter viewer sites? reading public content anonymously is not illegal in itself, and these sites operate in a grey zone of x's terms of service rather than outside the law.",
+          "bing:5 top twitter (x) viewer sites for effortless browsing - techbii oct 11, 2023 · quick answer: for browsing public x content without an account, sotwe and twstalker remain the go-to profile viewers in 2026 — both are free but sometimes wobble under x's restrictions. for trends, trends24 and getdaytrends are the most reliable trackers, and twitter trends by rohit is a fast india-focused alternative.",
+          "yahoo:5 top twitter (x) viewer sites for effortless browsing - techbii oct 11, 2023 · quick answer: for browsing public x content without an account, sotwe and twstalker remain the go-to profile viewers in 2026 — both are free but sometimes wobble under x's restrictions. for trends, trends24 and getdaytrends are the most reliable trackers, and twitter trends by rohit is a fast india-focused alternative.",
+          "bing:5 top twitter (x) viewer sites for effortless browsing - techbii oct 11, 2023 · the 5 best twitter/x viewer sites in 2026: sotwe, twstalker, trends24, getdaytrends and trends by rohit - browse profiles and trends without an account.",
+          "yahoo:5 top twitter (x) viewer sites for effortless browsing - techbii oct 11, 2023 · the 5 best twitter/x viewer sites in 2026: sotwe, twstalker, trends24, getdaytrends and trends by rohit - browse profiles and trends without an account."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer; identity=tweet,tweets,profile,post; queries=3; score=19",
+      "error": ""
+    },
+    {
       "domain": "troddit.com",
       "platform": "reddit",
       "accepted": true,
-      "score": 15,
-      "query_count": 1,
+      "score": 19,
+      "query_count": 2,
       "final_url": "https://www.troddit.com/",
       "evidence": {
         "core_hits": [
@@ -83,7 +2180,8 @@
           "troddit"
         ],
         "trusted_sources": [
-          "Alternative frontends 1"
+          "Alternative frontends 1",
+          "GitHub:digitalblossom/alternative-frontends"
         ],
         "service_hits": [],
         "identity_hits": [
@@ -103,9 +2201,1501 @@
         "query_urls": [
           "https://troddit.com/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
-      "reason": "platform=reddit; brands=troddit; service=-; identity=subreddits,comment,post; queries=1; score=15",
+      "reason": "platform=reddit; brands=troddit; service=-; identity=subreddits,comment,post; queries=2; score=19",
+      "error": ""
+    },
+    {
+      "domain": "tryadlicio.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://tryadlicio.com/tools/reddit-viewer",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "visor",
+          "visualizador"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "visor",
+          "visualizador"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/blog",
+          "/subreddit"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://tryadlicio.com/tools/reddit-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit viewer: browse any subreddit, post or profile, no login free reddit viewer. read any public subreddit, post with comments, or user profile without a reddit account or app. search comments and export csv.",
+          "yahoo:reddit viewer: browse any subreddit, post or profile, no login free reddit viewer. read any public subreddit, post with comments, or user profile without a reddit account or app. search comments and export csv."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=viewer,visor,visualizador; identity=subreddit,subreddits,comment,comments,post,posts; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "twiewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://twiewer.com/",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "proxy"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 3,
+        "app_path_hits": [
+          "/blog",
+          "/post",
+          "/profile"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://twiewer.com/"
+        ],
+        "search_providers": [
+          "duckduckgo",
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "duckduckgo:twitter viewer - view public twitter profiles online twitter viewer by twiewer lets you explore public twitter profiles, posts, media, and updates in a clean, simple, and user-friendly browsing experience.",
+          "bing:twitter viewer - view public twitter profiles online three simple steps to browse any public twitter profile in a clean interface. enter a public twitter username or profile url in the search field. the system processes publicly available profile information in real time. browse profile details, posts, media, and videos in one unified dashboard.",
+          "yahoo:twitter viewer - view public twitter profiles online three simple steps to browse any public twitter profile in a clean interface. enter a public twitter username or profile url in the search field. the system processes publicly available profile information in real time. browse profile details, posts, media, and videos in one unified dashboard."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer,proxy; identity=tweet,tweets,user,profile,post; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "viewari.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://viewari.com/ja/reddit/third-party/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer",
+          "ビューア"
+        ],
+        "identity_hits": [
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "posts",
+          "user",
+          "profile"
+        ],
+        "forms": 5,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://viewari.com/ja/reddit/third-party/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:redditサードパーティビューア - シームレスなブラウジングのためのカ... デフォルトのレイアウトに飽きていませんか? それなら、最適化されたすっきりとした閲覧体験と、瞬時に読み込まれるスレッドを実現する、当社のサードパーティ製redditビューアに切り替えてみてください。",
+          "yahoo:redditサードパーティビューア - シームレスなブラウジングのためのカ... デフォルトのレイアウトに飽きていませんか? それなら、最適化されたすっきりとした閲覧体験と、瞬時に読み込まれるスレッドを実現する、当社のサードパーティ製redditビューアに切り替えてみてください。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=viewer,ビューア; identity=posts,user,profile; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "www.rapidseedbox.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://www.rapidseedbox.com/blog/twitter-proxy-services-tools",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy",
+          "instance"
+        ],
+        "identity_hits": [
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "proxy",
+          "instance"
+        ],
+        "body_identity_hits": [
+          "user",
+          "profile"
+        ],
+        "forms": 4,
+        "app_path_hits": [
+          "/blog",
+          "/post",
+          "/search",
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://www.rapidseedbox.com/blog/twitter-proxy-services-tools"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:twitter proxy: 10 best free & paid proxies for 2026 jan 12, 2026 · looking for a twitter proxy? compare the best free and paid twitter proxies to access twitter safely and manage accounts.",
+          "yahoo:twitter proxy: 10 best free & paid proxies for 2026 jan 12, 2026 · looking for a twitter proxy? compare the best free and paid twitter proxies to access twitter safely and manage accounts."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=proxy,instance; identity=user,profile; queries=1; score=19",
+      "error": ""
+    },
+    {
+      "domain": "nitter.ca",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 18,
+      "query_count": 1,
+      "final_url": "https://nitter.ca/",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweets"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "tweets"
+        ],
+        "forms": 4,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://nitter.ca/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitter: privacy-friendly twitter viewer without ads or tracking nitter is an open-source twitter front-end that lets you browse tweets without ads, tracking, or an account, focusing on speed and privacy.",
+          "yahoo:nitter: privacy-friendly twitter viewer without ads or tracking nitter is an open-source twitter front-end that lets you browse tweets without ads, tracking, or an account, focusing on speed and privacy."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,nitter; brands=nitter; service=viewer; identity=tweets; queries=1; score=18",
+      "error": ""
+    },
+    {
+      "domain": "beebom.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://beebom.com/reddit-alternatives/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "instance"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user"
+        ],
+        "body_service_hits": [
+          "instance"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://beebom.com/reddit-alternatives/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:12 best reddit alternatives you should try in 2026 | beebom mar 18, 2026 · so, that’s why people are looking for reddit alternatives that respects user privacy and doesn’t shove ads down user’s throat. we found that lemmy is the best reddit alternative in 2026 since its content structure and moderation is similar in many ways.",
+          "yahoo:12 best reddit alternatives you should try in 2026 | beebom mar 18, 2026 · so, that’s why people are looking for reddit alternatives that respects user privacy and doesn’t shove ads down user’s throat. we found that lemmy is the best reddit alternative in 2026 since its content structure and moderation is similar in many ways."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=instance; identity=subreddit,subreddits,comment,comments,post,posts; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "bettermode.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://bettermode.com/blog/reddit-alternatives",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "instance"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user"
+        ],
+        "body_service_hits": [
+          "instance"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog",
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://bettermode.com/blog/reddit-alternatives"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:10 best reddit alternatives in 2026 (all verified live) jul 30, 2026 · these reddit alternatives optimize for high quality discussion over volume, and their users like it that way.",
+          "yahoo:10 best reddit alternatives in 2026 (all verified live) jul 30, 2026 · these reddit alternatives optimize for high quality discussion over volume, and their users like it that way."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=instance; identity=subreddit,comment,comments,post,posts,user; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "floppydata.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://floppydata.com/use-case/reddit-proxy/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "subreddits",
+          "posts",
+          "user"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "subreddits",
+          "posts",
+          "user"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://floppydata.com/use-case/reddit-proxy/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit proxy, socks5, residential, unblocked ips for reddit ... our reddit proxy list features top service providers offering high-quality residential and mobile proxies specifically optimized for reddit.",
+          "yahoo:reddit proxy, socks5, residential, unblocked ips for reddit ... our reddit proxy list features top service providers offering high-quality residential and mobile proxies specifically optimized for reddit."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=proxy; identity=subreddits,posts,user; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "fr.facebo.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://fr.facebo.com/tumblr-profile-viewer-downloader/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "post",
+          "profile",
+          "profil",
+          "utilisateur"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "post",
+          "profile",
+          "profil",
+          "utilisateur"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://fr.facebo.com/tumblr-profile-viewer-downloader/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:visionneuse de profils tumblr – facebo facebo tumblr visionneuse de profils tumblr achetez votre domaine en quelques secondes — recherche 800+ fin à ns6.com supprimer les annonces avec pro →",
+          "yahoo:visionneuse de profils tumblr – facebo facebo tumblr visionneuse de profils tumblr achetez votre domaine en quelques secondes — recherche 800+ fin à ns6.com supprimer les annonces avec pro →"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=viewer; identity=post,profile,profil,utilisateur; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "geonode.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://geonode.com/proxies-for/reddit",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "post",
+          "user"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "post",
+          "user"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog",
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://geonode.com/proxies-for/reddit"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit proxy setup for pc, mac, iphone and android | geonode reddit proxy faq is a reddit web proxy safe? a web proxy site loads reddit on its own server and passes the page to you. its operator sees every page you open and everything you type, including your reddit password. don't log in to your account through one.",
+          "yahoo:reddit proxy setup for pc, mac, iphone and android | geonode reddit proxy faq is a reddit web proxy safe? a web proxy site loads reddit on its own server and passes the page to you. its operator sees every page you open and everything you type, including your reddit password. don't log in to your account through one."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=proxy; identity=subreddit,post,user; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "mediascroll.io",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://mediascroll.io/search",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "subreddits",
+          "posts"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "subreddits",
+          "posts"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://mediascroll.io/search"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:mediascroll - the ultimate reddit media browser browse images, videos, and galleries from your favorite subreddits and users with mediascroll. an independent reddit media viewer, not affiliated with or endorsed by reddit. content is sourced from reddit and links to the original posts.",
+          "yahoo:mediascroll - the ultimate reddit media browser browse images, videos, and galleries from your favorite subreddits and users with mediascroll. an independent reddit media viewer, not affiliated with or endorsed by reddit. content is sourced from reddit and links to the original posts."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=viewer; identity=subreddits,posts; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "nerdculture.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://nerdculture.com/reddit-alternatives/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "instance"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "instance"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "forms": 3,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://nerdculture.com/reddit-alternatives/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:15 reddit alternatives & apps like reddit for 2026 sep 13, 2026 · to make it easier to compare all of your options, we’ve broken the best reddit alternatives into communities with forum-style discussions, chat-based apps, question-answer sites, and social media apps with a feed. below is a breakdown of 15 of the best apps and sites similar to reddit in 2026.",
+          "yahoo:15 reddit alternatives & apps like reddit for 2026 sep 13, 2026 · to make it easier to compare all of your options, we’ve broken the best reddit alternatives into communities with forum-style discussions, chat-based apps, question-answer sites, and social media apps with a feed. below is a breakdown of 15 of the best apps and sites similar to reddit in 2026."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=instance; identity=subreddit,subreddits,comment,comments,post,posts; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "profilepictureviewer.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://profilepictureviewer.com/fr/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "comment",
+          "posts",
+          "profile",
+          "profil"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "comment",
+          "posts",
+          "profile",
+          "profil"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://profilepictureviewer.com/fr/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:profile picture viewer — voir et télécharger les photos de ... visionneuse gratuite de photos de profil pour instagram, tiktok, discord, twitter, facebook et plus. visualisez et téléchargez n'importe quelle photo de profil publique en taille réelle et en hd. sans connexion, sans installation d'application.",
+          "yahoo:profile picture viewer — voir et télécharger les photos de ... visionneuse gratuite de photos de profil pour instagram, tiktok, discord, twitter, facebook et plus. visualisez et téléchargez n'importe quelle photo de profil publique en taille réelle et en hd. sans connexion, sans installation d'application."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=viewer; identity=comment,posts,profile,profil; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "rankflo.io",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://rankflo.io/alternatives/tumblr",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "frontend"
+        ],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "user",
+          "publication"
+        ],
+        "body_service_hits": [
+          "frontend"
+        ],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "user",
+          "publication"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog",
+          "/search",
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://rankflo.io/alternatives/tumblr"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:best tumblr alternatives (2026) — 10 modern options | rankflo looking for a tumblr alternative? here are 10 modern options for replacing tumblr — ranked, compared, and explained. starting with rankflo.",
+          "yahoo:best tumblr alternatives (2026) — 10 modern options | rankflo looking for a tumblr alternative? here are 10 modern options for replacing tumblr — ranked, compared, and explained. starting with rankflo."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=frontend; identity=blog,blogs,post,posts,user,publication; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "rayobyte.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://rayobyte.com/blog/tumblr-proxies/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "publication"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "publication"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://rayobyte.com/blog/tumblr-proxies/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:what's a tumblr proxy? (and why you need to use one) - rayobyte mar 20, 2020 · today we’ll answer all your tumblr proxy questions, from defining what a proxy for tumblr is and how to use one to exploring the many ways how you can take advantage of the tumblr site using tumblr proxies.",
+          "yahoo:what's a tumblr proxy? (and why you need to use one) - rayobyte mar 20, 2020 · today we’ll answer all your tumblr proxy questions, from defining what a proxy for tumblr is and how to use one to exploring the many ways how you can take advantage of the tumblr site using tumblr proxies."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=proxy; identity=blog,blogs,post,posts,publication; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "rdx.overdevs.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://rdx.overdevs.com/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "subreddits"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/subreddit"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://rdx.overdevs.com/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:rdx for reddit - reddit viewer rdx for reddit is a fast, lightweight mobile web viewer for reddit app based on apollo. mobile friendly reader for reddit. browse rdx for reddit app without ads.",
+          "yahoo:rdx for reddit - reddit viewer rdx for reddit is a fast, lightweight mobile web viewer for reddit app based on apollo. mobile friendly reader for reddit. browse rdx for reddit app without ads."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=viewer; identity=subreddit,subreddits; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "rola-ip.co",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://rola-ip.co/solutions/twitter-proxy/",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "user",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "user",
+          "profile",
+          "post"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://rola-ip.co/solutions/twitter-proxy/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:twitter (x) proxies for ad verification & public data - rola-ip what is a twitter proxy? a twitter proxy routes authorized x traffic through a chosen region so teams can test localized experiences, validate campaigns, and research public conversations with consistent network controls.",
+          "yahoo:twitter (x) proxies for ad verification & public data - rola-ip what is a twitter proxy? a twitter proxy routes authorized x traffic through a chosen region so teams can test localized experiences, validate campaigns, and research public conversations with consistent network controls."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=proxy; identity=user,profile,post; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "snapany.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://snapany.com/ja/twitter-profile-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "ビューア"
+        ],
+        "identity_hits": [
+          "プロフィール",
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "ビューア"
+        ],
+        "body_identity_hits": [
+          "プロフィール",
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/tweet"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://snapany.com/ja/twitter-profile-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:twitter(x)プロフィールビューアー – xアカウント不要で匿名閲覧 ユーザー名を入力するだけで、twitter(x)の公開プロフィール・ツイート・写真をあなたのxアカウントなしで閲覧できます。xへのログインは不要で、足跡も残りません。ブラウザでそのまま使えます。",
+          "yahoo:twitter(x)プロフィールビューアー – xアカウント不要で匿名閲覧 ユーザー名を入力するだけで、twitter(x)の公開プロフィール・ツイート・写真をあなたのxアカウントなしで閲覧できます。xへのログインは不要で、足跡も残りません。ブラウザでそのまま使えます。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=ビューア; identity=プロフィール,ユーザー,投稿; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "tuta.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://tuta.com/ja/blog/twitter-alternatives",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "インスタンス"
+        ],
+        "identity_hits": [
+          "user",
+          "profile",
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "インスタンス"
+        ],
+        "body_identity_hits": [
+          "user",
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://tuta.com/ja/blog/twitter-alternatives"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:twitterの代替:xに代わる最高のソーシャルプラットフォーム | tuta oct 22, 2025 · twitterの代替:xに代わる最高のソーシャルプラットフォーム 否定的な見出し、フェイクニュース、grok aiの要約がxユーザーのフィードを埋め尽くし続けているのだから、マスクのプラットフォームを見捨てる人がいても不思議ではない。幸いなことに、代替手段がある。",
+          "yahoo:twitterの代替:xに代わる最高のソーシャルプラットフォーム | tuta oct 22, 2025 · twitterの代替:xに代わる最高のソーシャルプラットフォーム 否定的な見出し、フェイクニュース、grok aiの要約がxユーザーのフィードを埋め尽くし続けているのだから、マスクのプラットフォームを見捨てる人がいても不思議ではない。幸いなことに、代替手段がある。"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter; brands=-; service=インスタンス; identity=user,profile,ユーザー,投稿; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "www.begindot.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://www.begindot.com/de/Die-besten-Tumblr-Apps/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "profil",
+          "benutzer",
+          "beitrag"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "profil",
+          "benutzer",
+          "beitrag"
+        ],
+        "forms": 12,
+        "app_path_hits": [
+          "/blog",
+          "/post"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.begindot.com/de/Die-besten-Tumblr-Apps/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:22 beste tumblr-apps | begindot 17. tumblr-betrachter ein weiterer bildspeicherer und video-downloader, perfekt für ihren tumblr-account. eine unkomplizierte app, die bei tumblr-sitzungen wirklich hilfreich ist. das dashboard verfügt über eine nützliche registerkarte nur für videos. die anwendung sieht fantastisch aus, wenn sie immer mehr blogs verfolgen. 18. tbgallery",
+          "yahoo:22 beste tumblr-apps | begindot 17. tumblr-betrachter ein weiterer bildspeicherer und video-downloader, perfekt für ihren tumblr-account. eine unkomplizierte app, die bei tumblr-sitzungen wirklich hilfreich ist. das dashboard verfügt über eine nützliche registerkarte nur für videos. die anwendung sieht fantastisch aus, wenn sie immer mehr blogs verfolgen. 18. tbgallery"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=proxy; identity=blog,blogs,post,profil,benutzer,beitrag; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "www.webshare.io",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://www.webshare.io/blog/tumblr-proxy",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "posts"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "posts"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.webshare.io/blog/tumblr-proxy"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:how to use proxy with tumblr? mar 13, 2025 · using a proxy can help you bypass these restrictions, keep your browsing private, and access tumblr without limitations. but how do you set it up, and which proxy service is right for the job? read on to learn everything you should know about using a proxy with tumblr and how to get started!",
+          "yahoo:how to use proxy with tumblr? mar 13, 2025 · using a proxy can help you bypass these restrictions, keep your browsing private, and access tumblr without limitations. but how do you set it up, and which proxy service is right for the job? read on to learn everything you should know about using a proxy with tumblr and how to get started!"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=proxy; identity=blog,blogs,posts; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "xapis.dev",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://xapis.dev/tools/tweet-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user"
+        ],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://xapis.dev/tools/tweet-viewer"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tweet viewer — view tweets without an account | xapis view any public tweet without logging in to twitter (x). free tweet viewer with full text, engagement stats and media — just paste a tweet id.",
+          "yahoo:tweet viewer — view tweets without an account | xapis view any public tweet without logging in to twitter (x). free tweet viewer with full text, engagement stats and media — just paste a tweet id."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer; identity=tweet,tweets,user; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "status.d420.de",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 16,
+      "query_count": 2,
+      "final_url": "https://status.d420.de/",
+      "evidence": {
+        "core_hits": [
+          "nitter"
+        ],
+        "platform_hits": [
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [
+          "instance"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [
+          "instance"
+        ],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://status.d420.de/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:nitter instance health 2 days ago · please do not use these instances for scraping, host nitter yourself. nitter instance uptime and status tracker.",
+          "yahoo:nitter instance health 2 days ago · please do not use these instances for scraping, host nitter yourself. nitter instance uptime and status tracker."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=nitter; brands=nitter; service=instance; identity=-; queries=2; score=16",
+      "error": ""
+    },
+    {
+      "domain": "hiddenme.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 15,
+      "query_count": 1,
+      "final_url": "https://hiddenme.net/use-cases/unblock-twitter.html",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "proxy"
+        ],
+        "identity_hits": [
+          "tweets"
+        ],
+        "body_service_hits": [
+          "proxy"
+        ],
+        "body_identity_hits": [
+          "tweets"
+        ],
+        "forms": 3,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://hiddenme.net/use-cases/unblock-twitter.html"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:unblock twitter (x) — free twitter proxy | hiddenme access twitter (x) from anywhere with hiddenme's free proxy. read tweets, browse trends. encrypted, anonymous, no install.",
+          "yahoo:unblock twitter (x) — free twitter proxy | hiddenme access twitter (x) from anywhere with hiddenme's free proxy. read tweets, browse trends. encrypted, anonymous, no install."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=proxy; identity=tweets; queries=1; score=15",
+      "error": ""
+    },
+    {
+      "domain": "kawarimidoll.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 15,
+      "query_count": 1,
+      "final_url": "https://kawarimidoll.com/posts/202608072/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "ビューア"
+        ],
+        "identity_hits": [
+          "posts"
+        ],
+        "body_service_hits": [
+          "ビューア"
+        ],
+        "body_identity_hits": [
+          "posts"
+        ],
+        "forms": 0,
+        "app_path_hits": [
+          "/post",
+          "/posts",
+          "/tag",
+          "/tags"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://kawarimidoll.com/posts/202608072/",
+          "https://kawarimidoll.com/posts/202608072.md"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:redditのスレッドを実況できるtuiのoh-my-redditが良さげかも | kawar... aug 7, 2026 · 機能 oh-my-redditはライブ更新機能を持つbubbletea製のredditビューアtui。 サブレディットやスレッドのurlを渡すと、10秒ごとにコメントを取りに行って画面へ流し込んでくれるんだ。 あぁ! とりあえず使ってみる場合は oh-my-reddit demo だ。",
+          "bing:kawarimidoll.com oh-my-redditはライブ更新機能を持つbubbletea製のredditビューアtui。 サブレディットやスレッドのurlを渡すと、10秒ごとにコメントを取りに行って画面へ流し込んでくれるんだ。 あぁ! とりあえず使ってみる場合は`oh-my-reddit demo`だ。 ライトテーマのターミナル環境でも、強制的にダークモードに ...",
+          "yahoo:redditのスレッドを実況できるtuiのoh-my-redditが良さげかも | kawar... aug 7, 2026 · 機能 oh-my-redditはライブ更新機能を持つbubbletea製のredditビューアtui。 サブレディットやスレッドのurlを渡すと、10秒ごとにコメントを取りに行って画面へ流し込んでくれるんだ。 あぁ! とりあえず使ってみる場合は oh-my-reddit demo だ。",
+          "yahoo:kawarimidoll.com oh-my-redditはライブ更新機能を持つbubbletea製のredditビューアtui。 サブレディットやスレッドのurlを渡すと、10秒ごとにコメントを取りに行って画面へ流し込んでくれるんだ。 あぁ! とりあえず使ってみる場合は`oh-my-reddit demo`だ。 ライトテーマのターミナル環境でも、強制的にダークモードに ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=ビューア; identity=posts; queries=1; score=15",
+      "error": ""
+    },
+    {
+      "domain": "www.hatpublic.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 15,
+      "query_count": 1,
+      "final_url": "https://www.hatpublic.com/lsu-geaux-tigers-tumblr-visor-hat-p-3102582",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "visor"
+        ],
+        "identity_hits": [
+          "profile"
+        ],
+        "body_service_hits": [
+          "visor"
+        ],
+        "body_identity_hits": [
+          "profile"
+        ],
+        "forms": 17,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.hatpublic.com/lsu-geaux-tigers-tumblr-visor-hat-p-3102582",
+          "https://www.hatpublic.com/it-s-a-beautiful-day-for-learning-tumblr-visor-hat-p-1549155"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:lsu geaux tigers tumblr visor hat by designpulse - hatpublicit's a beautiful day for learning tumblr visor hat by ...tumblr visor de perfil - examinar fácilmente los perfiles de ... id 114553 the \"lsu geaux tigers tumblr\" by \"designpulse\" is a standout piece, available in a variety of eye-catching color options. with a clean and bold design, it's designed to capture the essence of modern style. perfect for you, this visor hat is a staple in your closet. id 46689 the \"it's a beautiful day for learning tumblr\" by \"tumblerdesignbyshophia\" is a standout piece, available in a variety of eye-catching color options. with a clean and bold design, it's designed to capture the essence of modern style. perfect for you, this visor hat is a staple in your closet. buscar tumblr perfiles de forma anónima con instag es sencillo y completamente privado. esto es lo que hacer: 1. introduzca el nombre de us",
+          "bing:it's a beautiful day for learning tumblr visor hat by ... id 46689 the \"it's a beautiful day for learning tumblr\" by \"tumblerdesignbyshophia\" is a standout piece, available in a variety of eye-catching color options. with a clean and bold design, it's designed to capture the essence of modern style. perfect for you, this visor hat is a staple in your closet.",
+          "yahoo:lsu geaux tigers tumblr visor hat by designpulse - hatpublicit's a beautiful day for learning tumblr visor hat by ...tumblr visor de perfil - examinar fácilmente los perfiles de ... id 114553 the \"lsu geaux tigers tumblr\" by \"designpulse\" is a standout piece, available in a variety of eye-catching color options. with a clean and bold design, it's designed to capture the essence of modern style. perfect for you, this visor hat is a staple in your closet. id 46689 the \"it's a beautiful day for learning tumblr\" by \"tumblerdesignbyshophia\" is a standout piece, available in a variety of eye-catching color options. with a clean and bold design, it's designed to capture the essence of modern style. perfect for you, this visor hat is a staple in your closet. buscar tumblr perfiles de forma anónima con instag es sencillo y completamente privado. esto es lo que hacer: 1. introduzca el nombre de us",
+          "yahoo:it's a beautiful day for learning tumblr visor hat by ... id 46689 the \"it's a beautiful day for learning tumblr\" by \"tumblerdesignbyshophia\" is a standout piece, available in a variety of eye-catching color options. with a clean and bold design, it's designed to capture the essence of modern style. perfect for you, this visor hat is a staple in your closet."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=visor; identity=profile; queries=1; score=15",
       "error": ""
     },
     {
@@ -150,6 +3740,8 @@
         "query_urls": [
           "https://www.troddit.com/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
       "reason": "platform=reddit; brands=troddit; service=-; identity=subreddits,comment,post; queries=1; score=15",
@@ -593,8 +4185,8 @@
       "domain": "nextjs.org",
       "platform": "reddit",
       "accepted": false,
-      "score": 14,
-      "query_count": 1,
+      "score": 18,
+      "query_count": 2,
       "final_url": "https://nextjs.org/",
       "evidence": {
         "core_hits": [],
@@ -602,7 +4194,8 @@
         "brand_hits": [],
         "header_brand_hits": [],
         "trusted_sources": [
-          "Alternative frontends 1"
+          "Alternative frontends 1",
+          "GitHub:digitalblossom/alternative-frontends"
         ],
         "service_hits": [
           "frontend",
@@ -631,9 +4224,1130 @@
         "query_urls": [
           "https://nextjs.org/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
-      "reason": "platform=-; brands=-; service=frontend,proxy; identity=post,user,profile; queries=1; score=14",
+      "reason": "platform=-; brands=-; service=frontend,proxy; identity=post,user,profile; queries=2; score=18",
+      "error": ""
+    },
+    {
+      "domain": "sikiapp.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://sikiapp.net/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "ビューア",
+          "プロキシ"
+        ],
+        "identity_hits": [
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "ビューア",
+          "プロキシ"
+        ],
+        "body_identity_hits": [
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://sikiapp.net/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:汎用掲示板ビューア siki - siki sikiの概念 電子掲示板 (bbs)はサイトによりいろいろな形態があるものの基本はスレッドの一覧があり、各スレッドに対してユーザーがレスを投稿するという形をとっています。sikiはこういった掲示板という概念を抽象化し共通項 (レスの名前、id、本文、いいねの数、レスの返信/被返信 etc.)を ...",
+          "yahoo:汎用掲示板ビューア siki - siki sikiの概念 電子掲示板 (bbs)はサイトによりいろいろな形態があるものの基本はスレッドの一覧があり、各スレッドに対してユーザーがレスを投稿するという形をとっています。sikiはこういった掲示板という概念を抽象化し共通項 (レスの名前、id、本文、いいねの数、レスの返信/被返信 etc.)を ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=ビューア,プロキシ; identity=ユーザー,投稿; queries=1; score=17",
+      "error": ""
+    },
+    {
+      "domain": "www.peekstr.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 17,
+      "query_count": 4,
+      "final_url": "https://www.peekstr.com/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "post",
+          "posts"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "post",
+          "posts"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/view"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://www.peekstr.com/",
+          "https://www.peekstr.com/view-reddit-without-login"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "Human-verified viewer seed: https://www.peekstr.com/",
+          "bing:peekstr - view any subreddit’s images & videos full-screen ... combine subreddits with the ai multi-reddit builder and browse galleries instantly.",
+          "yahoo:peekstr - view any subreddit’s images & videos full-screen ... combine subreddits with the ai multi-reddit builder and browse galleries instantly.",
+          "bing:peekstr - view any subreddit’s images & videos full-screen ... peekstr turns any subreddit into a full-screen image & video slideshow. no account, no app, no cookies. combine subreddits with the ai multi-reddit builder and browse galleries instantly.",
+          "yahoo:peekstr - view any subreddit’s images & videos full-screen ... peekstr turns any subreddit into a full-screen image & video slideshow. no account, no app, no cookies. combine subreddits with the ai multi-reddit builder and browse galleries instantly.",
+          "bing:view reddit without logging in, no account | peekstr peekstr gives you a clean, full-screen way to browse public reddit images and videos right in your browser. there is no account to create and no sign-in step, favorites and preferences stay on your own device, and there are no cookies.",
+          "yahoo:view reddit without logging in, no account | peekstr peekstr gives you a clean, full-screen way to browse public reddit images and videos right in your browser. there is no account to create and no sign-in step, favorites and preferences stay on your own device, and there are no cookies."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=subreddit,subreddits,post,posts; queries=4; score=17",
+      "error": ""
+    },
+    {
+      "domain": "ilo.so",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 15,
+      "query_count": 1,
+      "final_url": "https://ilo.so/twitter-viewer",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "post"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "profile",
+          "post"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/blog",
+          "/search",
+          "/tweet"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://ilo.so/twitter-viewer"
+        ],
+        "search_providers": [
+          "duckduckgo"
+        ],
+        "search_evidence": [
+          "duckduckgo:twitter viewer: public x profiles and posts without login | ilo use a twitter web viewer to open one public x profile or post without logging in. see recent posts, media, dates, and public engagement counts."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x; brands=-; service=viewer; identity=tweet,tweets,profile,post; queries=1; score=15",
+      "error": ""
+    },
+    {
+      "domain": "www.rankred.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 15,
+      "query_count": 2,
+      "final_url": "https://www.rankred.com/best-tumblr-alternatives/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts",
+          "user"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.rankred.com/best-tumblr-alternatives/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:15 best tumblr alternatives of 2026 - rankred aug 28, 2026 · if you’re considering a switch, we’ve compiled a list of the best tumblr alternatives where you can connect with like-minded communities and express your views. did you know? around 48% of tumblr users are gen z, while 30% are millennials, with a significant share aged 18 to 25.",
+          "yahoo:15 best tumblr alternatives of 2026 - rankred aug 28, 2026 · if you’re considering a switch, we’ve compiled a list of the best tumblr alternatives where you can connect with like-minded communities and express your views. did you know? around 48% of tumblr users are gen z, while 30% are millennials, with a significant share aged 18 to 25.",
+          "bing:15 best tumblr alternatives of 2026 - rankred if you’re considering a switch, we’ve compiled a list of the best tumblr alternatives where you can connect with like-minded communities and express your views. did you know? around 48% of tumblr users are gen z, while 30% are millennials, with a significant share aged 18 to 25.",
+          "yahoo:15 best tumblr alternatives of 2026 - rankred if you’re considering a switch, we’ve compiled a list of the best tumblr alternatives where you can connect with like-minded communities and express your views. did you know? around 48% of tumblr users are gen z, while 30% are millennials, with a significant share aged 18 to 25."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=-; identity=blog,blogs,post,posts,user; queries=2; score=15",
+      "error": ""
+    },
+    {
+      "domain": "apps.yunohost.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://apps.yunohost.org/app/nitter",
+      "evidence": {
+        "core_hits": [
+          "twitter",
+          "nitter"
+        ],
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://apps.yunohost.org/app/nitter"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:yunohost app store | nitter nitter is a free and open source alternative twitter front-end focused on privacy and performance. inspired by the invidious project. promotes or depends entirely on a non-free network service.",
+          "yahoo:yunohost app store | nitter nitter is a free and open source alternative twitter front-end focused on privacy and performance. inspired by the invidious project. promotes or depends entirely on a non-free network service."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter,x,nitter; brands=nitter; service=-; identity=-; queries=1; score=14",
+      "error": ""
+    },
+    {
+      "domain": "cascadr.co",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 13,
+      "query_count": 2,
+      "final_url": "https://cascadr.co/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "blog"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://cascadr.co/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:cascadr | a tumblr image viewer cascadr is a tumblr image viewer, a different way to view tumblr that allows you to easily and quickly scan through a blog to find the images that you want.",
+          "yahoo:cascadr | a tumblr image viewer cascadr is a tumblr image viewer, a different way to view tumblr that allows you to easily and quickly scan through a blog to find the images that you want."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=viewer; identity=blog; queries=2; score=13",
+      "error": ""
+    },
+    {
+      "domain": "f-droid.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 13,
+      "query_count": 2,
+      "final_url": "https://f-droid.org/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 3"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "user"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://f-droid.org/",
+          "https://f-droid.org/ja/packages/app.fedilab.nitterizemelite/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:untrackme lite | f-droid - 自由かつオープンソースのandroidアプリ... プライバシーに重点を置いた無料でオープンソースのtwitter代替フロントエンドです。 github プロジェクト: https://github.com/zedeus/nitter invidiousとは: youtubeの無料でオープンソースの代替フロントエンドです。 github プロジェクト: https://github.com/omarroth/invidious ...",
+          "yahoo:untrackme lite | f-droid - 自由かつオープンソースのandroidアプリ... プライバシーに重点を置いた無料でオープンソースのtwitter代替フロントエンドです。 github プロジェクト: https://github.com/zedeus/nitter invidiousとは: youtubeの無料でオープンソースの代替フロントエンドです。 github プロジェクト: https://github.com/omarroth/invidious ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=-; identity=user; queries=2; score=13",
+      "error": ""
+    },
+    {
+      "domain": "instag.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 13,
+      "query_count": 1,
+      "final_url": "https://instag.com/reddit-profile-viewer-downloader/?lang=ru",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "post",
+          "profile",
+          "профиль",
+          "пост"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "post",
+          "profile",
+          "профиль",
+          "пост"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://instag.com/reddit-profile-viewer-downloader/?lang=ru"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit просмотрщик профилей — анонимный просмотр профилей просматривайте профили reddit анонимно с помощью instag. просматривайте профили, истории и контент без входа в систему.",
+          "yahoo:reddit просмотрщик профилей — анонимный просмотр профилей просматривайте профили reddit анонимно с помощью instag. просматривайте профили, истории и контент без входа в систему."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=post,profile,профиль,пост; queries=1; score=13",
+      "error": ""
+    },
+    {
+      "domain": "jetblackcode.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 13,
+      "query_count": 1,
+      "final_url": "https://jetblackcode.com/TumblrOriginalPostFinder",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "post",
+          "posts"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://jetblackcode.com/TumblrOriginalPostFinder"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tumblr original post finder | tumblr popular posts and ... check that your blog is not set to 'hidden from web' in the tumblr settings. if not, chances are it's to do with high usage and coming back later should fix the problem. send me a message on tumblr if the problem continues, remember to include your tumblr username if possible.",
+          "yahoo:tumblr original post finder | tumblr popular posts and ... check that your blog is not set to 'hidden from web' in the tumblr settings. if not, chances are it's to do with high usage and coming back later should fix the problem. send me a message on tumblr if the problem continues, remember to include your tumblr username if possible."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=-; identity=blog,blogs,post,posts; queries=1; score=13",
+      "error": ""
+    },
+    {
+      "domain": "talk.shapes.inc",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 13,
+      "query_count": 1,
+      "final_url": "https://talk.shapes.inc/tumblr-alternatives",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "post",
+          "posts",
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "post",
+          "posts",
+          "user"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://talk.shapes.inc/tumblr-alternatives"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:the best tumblr alternatives in 2026 (ranked) | shapes for fandom, microblogging, and weird creative community — the best tumblr alternatives ranked, from pillowfort to bluesky to interactive ai fandom. tumblr is still beloved for fandom, but years of policy whiplash, monetization experiments, and uncertainty have people keeping a back-up plan.",
+          "yahoo:the best tumblr alternatives in 2026 (ranked) | shapes for fandom, microblogging, and weird creative community — the best tumblr alternatives ranked, from pillowfort to bluesky to interactive ai fandom. tumblr is still beloved for fandom, but years of policy whiplash, monetization experiments, and uncertainty have people keeping a back-up plan."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=-; identity=blog,post,posts,user; queries=1; score=13",
+      "error": ""
+    },
+    {
+      "domain": "wikiwiki.jp",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 13,
+      "query_count": 1,
+      "final_url": "https://wikiwiki.jp/siki-app/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "ビューア"
+        ],
+        "identity_hits": [
+          "ユーザー"
+        ],
+        "body_service_hits": [
+          "ビューア"
+        ],
+        "body_identity_hits": [
+          "ユーザー"
+        ],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://wikiwiki.jp/siki-app/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:汎用掲示板ビューアsikiまとめ wiki* - wikiwiki jul 24, 2026 · 汎用掲示板ビューアsikiまとめ wiki* お知らせ: 5chの移転 に伴い、当wiki内にあるリンクの5ch.netから5ch.ioへの修正作業を実施しました。本来修正すべきでない部分まで置換されている可能性があるので、お気づきの際は修正や 報告 にご協力ください。 2chライクなbbsや各種画像掲示板から ...",
+          "yahoo:汎用掲示板ビューアsikiまとめ wiki* - wikiwiki jul 24, 2026 · 汎用掲示板ビューアsikiまとめ wiki* お知らせ: 5chの移転 に伴い、当wiki内にあるリンクの5ch.netから5ch.ioへの修正作業を実施しました。本来修正すべきでない部分まで置換されている可能性があるので、お気づきの際は修正や 報告 にご協力ください。 2chライクなbbsや各種画像掲示板から ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=ビューア; identity=ユーザー; queries=1; score=13",
+      "error": ""
+    },
+    {
+      "domain": "www.spocket.co",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 13,
+      "query_count": 1,
+      "final_url": "https://www.spocket.co/de/blogs/reddit-alternativen",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "post",
+          "posts",
+          "benutzer"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "post",
+          "posts",
+          "benutzer"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/blog",
+          "/blogs"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://www.spocket.co/de/blogs/reddit-alternativen"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:die 15 besten reddit-alternativen für 2025 | entdecken sie ... may 14, 2025 · in diesem abschnitt werden wir uns mit den wichtigsten dezentralen alternativen befassen, die sich perfekt für e-commerce-unternehmer eignen, die ihr netzwerk erweitern und neue erkenntnisse von aktiven communities gewinnen möchten. 1. lemmy ist eine dezentrale open-source-alternative zu reddit.",
+          "yahoo:die 15 besten reddit-alternativen für 2025 | entdecken sie ... may 14, 2025 · in diesem abschnitt werden wir uns mit den wichtigsten dezentralen alternativen befassen, die sich perfekt für e-commerce-unternehmer eignen, die ihr netzwerk erweitern und neue erkenntnisse von aktiven communities gewinnen möchten. 1. lemmy ist eine dezentrale open-source-alternative zu reddit."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=subreddit,subreddits,post,posts,benutzer; queries=1; score=13",
+      "error": ""
+    },
+    {
+      "domain": "co.pinterest.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://co.pinterest.com/pin/tumblr-espejo--586805026433002697/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "espejo"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://co.pinterest.com/pin/tumblr-espejo--586805026433002697/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:tumblr espejo | espejos, tumblr - pinterest itscris_ perez descrubrió este pin. descubre (y guarda) tus propios pines en pinterest.",
+          "yahoo:tumblr espejo | espejos, tumblr - pinterest itscris_ perez descrubrió este pin. descubre (y guarda) tus propios pines en pinterest."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=espejo; identity=-; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "es.pinterest.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://es.pinterest.com/ideas/espejo-tumblr/901718365989/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "espejo"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [
+          "espejo"
+        ],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://es.pinterest.com/ideas/espejo-tumblr/901718365989/",
+          "https://es.pinterest.com/ideas/fotos-espejo-tumblr/956079022968/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:espejo tumblr - pinterest descubre las mejores ideas e inspiración de pinterest para espejo tumblr. inspírate y prueba cosas nuevas. encuentra y guarda ideas sobre espejo tumblr en pinterest.",
+          "bing:fotos espejo tumblr encuentra y guarda ideas sobre fotos espejo tumblr en pinterest.",
+          "yahoo:espejo tumblr - pinterest descubre las mejores ideas e inspiración de pinterest para espejo tumblr. inspírate y prueba cosas nuevas. encuentra y guarda ideas sobre espejo tumblr en pinterest.",
+          "yahoo:fotos espejo tumblr encuentra y guarda ideas sobre fotos espejo tumblr en pinterest."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=espejo; identity=-; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "mirrorscan.app",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://mirrorscan.app/domain/reddit.com",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "mirror"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [
+          "mirror"
+        ],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://mirrorscan.app/domain/reddit.com"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit.com official mirrors - mirrorscan | verified domain ... find official mirror domains for reddit.com. verified alternatives with real-time status monitoring when the main site is blocked or inaccessible.",
+          "yahoo:reddit.com official mirrors - mirrorscan | verified domain ... find official mirror domains for reddit.com. verified alternatives with real-time status monitoring when the main site is blocked or inaccessible."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=mirror; identity=-; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "note.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://note.com/murairo/n/n077eb2433f81",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [
+          "x"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "投稿"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "投稿"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://note.com/murairo/n/n077eb2433f81"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:もうx(旧ツイッター)は使わない!ツイッターの代わりとなるサイト一... mar 11, 2025 · x(ツイッター)の障害発生により何か代わりのサイトはないものかと不安になっている方は多いと思います。そこでツイッターの代わりとなるサイトを一覧化しました。blueskyが有名ですが、他にもいろいろあります。これは今後のビジネスなどにおける常識となっていくでしょう。 1.misseky 系 ...",
+          "yahoo:もうx(旧ツイッター)は使わない!ツイッターの代わりとなるサイト一... mar 11, 2025 · x(ツイッター)の障害発生により何か代わりのサイトはないものかと不安になっている方は多いと思います。そこでツイッターの代わりとなるサイトを一覧化しました。blueskyが有名ですが、他にもいろいろあります。これは今後のビジネスなどにおける常識となっていくでしょう。 1.misseky 系 ..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=x; brands=-; service=-; identity=投稿; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "redditvisor.app",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://redditvisor.app/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "visor"
+        ],
+        "identity_hits": [
+          "post"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://redditvisor.app/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:reddit visor loading posts...",
+          "yahoo:reddit visor loading posts..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=visor; identity=post; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "rosint.dev",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://rosint.dev/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "comments",
+          "posts"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://rosint.dev/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:rosint - view deleted reddit posts, comments & private profiles search any reddit username to view deleted posts, removed comments, and private or suspended profiles. free, no login required.",
+          "yahoo:rosint - view deleted reddit posts, comments & private profiles search any reddit username to view deleted posts, removed comments, and private or suspended profiles. free, no login required."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=comments,posts; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "visor.vin",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://visor.vin/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "visor"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [
+          "visor"
+        ],
+        "body_identity_hits": [],
+        "forms": 6,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://visor.vin/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:visor | see the whole market 5 days ago · visor plus takes your search to the next level. unlock advanced search tools like filtering manufacturer options, top features, view sold listings, and even track inventory over time. this allows visor to be supported by car buyers rather than car dealers. “ the site is awesome.",
+          "yahoo:visor | see the whole market 5 days ago · visor plus takes your search to the next level. unlock advanced search tools like filtering manufacturer options, top features, view sold listings, and even track inventory over time. this allows visor to be supported by car buyers rather than car dealers. “ the site is awesome."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=visor; identity=-; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "www.antena3.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://www.antena3.com/objetivotv/series/espejo-publico-estrena-cuenta-twitter-convierte-trending-topic_20110307579079304beb28989490c313.html",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "platform_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "espejo"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [
+          "espejo"
+        ],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.antena3.com/objetivotv/series/espejo-publico-estrena-cuenta-twitter-convierte-trending-topic_20110307579079304beb28989490c313.html",
+          "https://www.antena3.com/programas/espejo-publico/noticias/politologo-analiza-incompatibilidad-tuits-oscar-puente-cargo-perro-presa_202609246ab51bba82932a3cf91986c0.html"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:espejo público estrena cuenta en twitter y se convierte en ... mar 7, 2011 · espejo público estrena cuenta en twitter y se convierte en trending topic. antena 3 . nebulossa, apta eurovisión. actuaciones goya 2024. estreno madame web. shannen doherty y alyssa milano....",
+          "bing:un politólogo analiza la \"incompatibilidad\" de los tuits de ... sep 24, 2026 · el estilo del ministro de transportes, óscar puente, en la red social x llama la atención por la dureza de sus ataques. en espejo público, un experto político y en comunicación analiza su...",
+          "yahoo:espejo público estrena cuenta en twitter y se convierte en ... mar 7, 2011 · espejo público estrena cuenta en twitter y se convierte en trending topic. antena 3 . nebulossa, apta eurovisión. actuaciones goya 2024. estreno madame web. shannen doherty y alyssa milano....",
+          "yahoo:un politólogo analiza la \"incompatibilidad\" de los tuits de ... sep 24, 2026 · el estilo del ministro de transportes, óscar puente, en la red social x llama la atención por la dureza de sus ataques. en espejo público, un experto político y en comunicación analiza su..."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=twitter; brands=-; service=espejo; identity=-; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "www.deckshop.pro",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://www.deckshop.pro/es/best-decks/with/mirror",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "mirror",
+          "espejo",
+          "зеркало"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [
+          "mirror",
+          "espejo",
+          "зеркало"
+        ],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://www.deckshop.pro/es/best-decks/with/mirror"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:mejores mazos con espejo | ¡los mejores mazos, consejos ... ¡los mejores mazos de clash royale para todas las arenas! actualizado día a día. ¡encuentra tu nuevo mazo ahora!",
+          "yahoo:mejores mazos con espejo | ¡los mejores mazos, consejos ... ¡los mejores mazos de clash royale para todas las arenas! actualizado día a día. ¡encuentra tu nuevo mazo ahora!"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=mirror,espejo,зеркало; identity=-; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "www.heise.de",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://www.heise.de/select/ct/2016/10/1463050573721691",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [
+          "profil"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "profil"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.heise.de/select/ct/2016/10/1463050573721691"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:apps | news | c't | heise magazine derweil hat apple mehrere freie reddit-betrachter aus dem ios app store geworfen, darunter antenna, ialien, narwhal, baconreader und eggplant. narwhal wurde mittlerweile wieder zugelassen.",
+          "yahoo:apps | news | c't | heise magazine derweil hat apple mehrere freie reddit-betrachter aus dem ios app store geworfen, darunter antenna, ialien, narwhal, baconreader und eggplant. narwhal wurde mittlerweile wieder zugelassen."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=profil; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "www.pinterest.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://www.pinterest.com/vianneysamudio/espejo-tumblr/",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "platform_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [
+          "espejo"
+        ],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.pinterest.com/vianneysamudio/espejo-tumblr/",
+          "https://www.pinterest.com/ideas/fotos-hombres-tumblr-espejo/909010838251/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:espejo tumblr - pinterest 4 jul. 2022 - explora el tablero de vianney samudio \"espejo tumblr\" en pinterest. ver más ideas sobre fotos tumblr para imitar, fotos tumblr para instagram, foto pose.",
+          "bing:fotos hombres tumblr espejo - pinterest discover pinterest’s best ideas and inspiration for fotos hombres tumblr espejo. get inspired and try out new things. 62 people searched this · last updated 2w selfie poses instagram fotos hombres tumblr espejo and more",
+          "yahoo:espejo tumblr - pinterest 4 jul. 2022 - explora el tablero de vianney samudio \"espejo tumblr\" en pinterest. ver más ideas sobre fotos tumblr para imitar, fotos tumblr para instagram, foto pose.",
+          "yahoo:fotos hombres tumblr espejo - pinterest discover pinterest’s best ideas and inspiration for fotos hombres tumblr espejo. get inspired and try out new things. 62 people searched this · last updated 2w selfie poses instagram fotos hombres tumblr espejo and more"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=tumblr; brands=-; service=espejo; identity=-; queries=1; score=11",
       "error": ""
     },
     {
@@ -667,18 +5381,61 @@
         "query_urls": [
           "https://f-droid.org/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
       "reason": "platform=-; brands=-; service=-; identity=user; queries=2; score=10",
       "error": ""
     },
     {
-      "domain": "f-droid.org",
+      "domain": "photon-reddit.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 7,
+      "query_count": 1,
+      "final_url": "https://photon-reddit.com/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://photon-reddit.com/"
+        ],
+        "search_providers": [
+          "bing",
+          "yahoo"
+        ],
+        "search_evidence": [
+          "bing:photon photon is a clean, modern and open source reddit desktop client.",
+          "yahoo:photon photon is a clean, modern and open source reddit desktop client."
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=-; queries=1; score=7",
+      "error": ""
+    },
+    {
+      "domain": "fdroid.gitlab.io",
       "platform": "twitter",
       "accepted": false,
-      "score": 6,
+      "score": 4,
       "query_count": 1,
-      "final_url": "https://f-droid.org/",
+      "final_url": "https://fdroid.gitlab.io/",
       "evidence": {
         "core_hits": [],
         "platform_hits": [],
@@ -688,23 +5445,21 @@
           "Alternative frontends 3"
         ],
         "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
+        "identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [
-          "user"
-        ],
-        "forms": 2,
+        "body_identity_hits": [],
+        "forms": 0,
         "app_path_hits": [],
         "ui_signal": true,
         "crawled_pages": 1,
         "query_urls": [
-          "https://f-droid.org/"
+          "https://fdroid.gitlab.io/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
-      "reason": "platform=-; brands=-; service=-; identity=user; queries=1; score=6",
+      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=4",
       "error": ""
     },
     {
@@ -733,37 +5488,8 @@
         "query_urls": [
           "https://fdroid.gitlab.io/"
         ],
-        "direct_trusted": false
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "fdroid.gitlab.io",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://fdroid.gitlab.io/",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [
-          "Alternative frontends 3"
-        ],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://fdroid.gitlab.io/"
-        ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
       "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=4",
@@ -799,6 +5525,8 @@
         "query_urls": [
           "https://jpf-reddit.netlify.app/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
       "reason": "platform=reddit; brands=-; service=-; identity=-; queries=1; score=4",
@@ -830,10 +5558,78 @@
         "query_urls": [
           "https://www.xeddit.com/"
         ],
+        "search_providers": [],
+        "search_evidence": [],
         "direct_trusted": false
       },
       "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
       "error": ""
+    },
+    {
+      "domain": "aimultiple.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://aimultiple.com/twitter-proxies",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "bartproxies.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://bartproxies.com/proxies-by-site/tumblr",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "clashroyale.fandom.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://clashroyale.fandom.com/es/wiki/Espejo",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "fetcherx.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://fetcherx.com/search/twitter/espejo",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "flameproxies.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://flameproxies.com/use-cases/tumblr",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "fr.softonic.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://fr.softonic.com/telechargements/tumblr",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 406: Not Acceptable"
     },
     {
       "domain": "git.kalli.st",
@@ -847,6 +5643,28 @@
       "error": "RemoteDisconnected: Remote end closed connection without response"
     },
     {
+      "domain": "greycoder.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://greycoder.com/reddit-alternative-interface-that-are-currently-working-and-reasonably-fast/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "hidemium.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://hidemium.io/blog/top-10-best-proxies-for-reddit-in-2025/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
       "domain": "kddit.kalli.st",
       "platform": "reddit",
       "accepted": false,
@@ -856,6 +5674,28 @@
       "evidence": {},
       "reason": "",
       "error": "RemoteDisconnected: Remote end closed connection without response"
+    },
+    {
+      "domain": "lib.rs",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://lib.rs/crates/libreddit",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "mexela.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://mexela.com/blog/tumblr-proxy-safe-access/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
     },
     {
       "domain": "nitter.catsarch.com",
@@ -923,6 +5763,17 @@
       "error": ""
     },
     {
+      "domain": "pc.mogeringo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://pc.mogeringo.com/archives/78310",
+      "evidence": {},
+      "reason": "",
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
       "domain": "red.artemislena.eu",
       "platform": "reddit",
       "accepted": false,
@@ -934,6 +5785,17 @@
       },
       "reason": "already covered by blocklist.txt",
       "error": ""
+    },
+    {
+      "domain": "reddit-hd.de.softonic.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://reddit-hd.de.softonic.com/mac",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 406: Not Acceptable"
     },
     {
       "domain": "redlib.catsarch.com",
@@ -1014,6 +5876,17 @@
       "error": ""
     },
     {
+      "domain": "royaleapi.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://royaleapi.com/card/mirror?lang=es",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
       "domain": "safereddit.com",
       "platform": "reddit",
       "accepted": false,
@@ -1025,6 +5898,17 @@
       },
       "reason": "already covered by blocklist.txt",
       "error": ""
+    },
+    {
+      "domain": "socialwalls.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://socialwalls.com/fr/blog/twitter-viewer/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "domain": "stats.uptimerobot.com",
@@ -1090,6 +5974,94 @@
       "error": ""
     },
     {
+      "domain": "tweetgrok.ai",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://tweetgrok.ai/twitter-viewer",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "ufirst.jp",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://ufirst.jp/memo/2026/03/twitter（x）を軽量・プライバシー重視で閲覧できるフ/",
+      "evidence": {},
+      "reason": "",
+      "error": "UnicodeEncodeError: 'ascii' codec can't encode character '\\uff08' in position 25: ordinal not in range(128)"
+    },
+    {
+      "domain": "wap.yandex.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://wap.yandex.com/showcaptcha?cc=1&form-fb-hint=1.1&mt=EB855F797E63C0335E5C1BDE08DFCDAE2E1E4B6A88502BE5EA906BF330F341336781E0E1A2DB50C105178082634B4CEF448B88020BB1861210EF85D13B7611473D7731E2A3FF5E5CF8221B8496827F7274370E420BB81B10FD80EADEC2194F73419C55E15B1CBC9D6E2FE5821ABEDD7B30B1EEA700DACD1CCD36AA2FE235B16C98598F75EA9C079A8D09DD0DCEADC53B512A7E1F75431B1B5E575B6DCC600E58E469B13DC5F133190F3E3F252022E55267C94FC152DE4EB90E4A1CCB585DF95C089EBA200B12B24F83126CA9E245D283FE41DDEEC1B74D77DAC3F3AEF5F052FFDE6576376E1A201E54899D6BBF5DE9DB1D95&retpath=aHR0cHM6Ly93YXAueWFuZGV4LmNvbS9zZWFyY2g_dGV4dD10d2l0dGVyK3grZm9ydHJlc3NtYXh4aW5nK3J1c2xhbitoaW5rbGUmbHI9MjEyMDYmcD0x_c5a15b5df5c4df1d5e10b19d26a44e37&t=2%252F1791027839%252Fd75cd069d75c40864540fe3477649fa1&u=9513379271511509657&s=c5ec0d5db5517a2b0a73e6148eb523dc",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "www.guru99.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.guru99.com/fr/best-private-twitter-viewer-apps.html",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.redditmedia.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.redditmedia.com/r/virtualreality/comments/1flxino/immersed_visor_ceo_dodging_uncomfortable_questions/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Blocked"
+    },
+    {
+      "domain": "www.sotwe.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.sotwe.com/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.tumlook.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://www.tumlook.com/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.tumviews.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.tumviews.com/articles/how-to-view-tumblr-images-without-account",
+      "evidence": {},
+      "reason": "search result points to an article/news page",
+      "error": ""
+    },
+    {
       "domain": "xcancel.com",
       "platform": "twitter",
       "accepted": false,
@@ -1101,6 +6073,28 @@
       },
       "reason": "already covered by blocklist.txt",
       "error": ""
+    },
+    {
+      "domain": "zenn.dev",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://zenn.dev/jamesmitch_dev/articles/f049ddfcfdc3d9",
+      "evidence": {},
+      "reason": "search result points to an article/news page",
+      "error": ""
+    },
+    {
+      "domain": "zoomblr.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://zoomblr.com/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     }
   ]
 }

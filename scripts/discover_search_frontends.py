@@ -329,7 +329,7 @@ SERVICE_COMPOUND_RE = re.compile(
 
 
 def sanitize_request_url(value: str) -> str | None:
-    """Return an HTTP(S) URL safe for urllib requests, or None."""
+    """Return an HTTP(S) URL safe for urllib requests, quoting path and query safely."""
     if not isinstance(value, str):
         return None
     value = html.unescape(value).strip()

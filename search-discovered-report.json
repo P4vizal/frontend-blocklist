@@ -220,6 +220,7 @@
   ],
   "newly_discovered_count": 0,
   "github_discovered_candidate_count": 4,
+  "search_queries": 63,
   "search_backend": "bing-rss-fallback",
   "discovery_mode": "daily",
   "active_search_languages": [
@@ -263,8 +264,8 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 139,
-  "validated_candidates": 41,
+  "candidates_discovered": 135,
+  "validated_candidates": 37,
   "pending_verification_count": 9,
   "pending_status_counts": {
     "search_strong_but_page_unverified": 3,
@@ -287,14 +288,14 @@
       ],
       "providers": [],
       "search_evidence": [],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 6,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "kddit.kalli.st",
@@ -312,14 +313,14 @@
       ],
       "providers": [],
       "search_evidence": [],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 6,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "www.sotwe.com",
@@ -337,14 +338,14 @@
       "search_evidence": [
         "Web-verified viewer seed: https://www.sotwe.com/"
       ],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 3,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "teddit.no-logs.com",
@@ -360,14 +361,14 @@
       ],
       "providers": [],
       "search_evidence": [],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 12,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "nitter.app",
@@ -391,14 +392,14 @@
         "bing-rss:how to view twitter (x) without an account (2026 guide) five working ways to read twitter/x profiles and posts in 2026 with no account and no login: viewer sites, direct urls, search engines, rss, and email alerts.",
         "bing-rss:nitter using an instance of nitter (hosted on a vps for example), you can browse twitter without javascript while retaining your privacy. in addition to respecting your privacy, nitter is on average around 15 times lighter than twitter, and in most cases serves pages faster (eg. timelines load 2-4x faster)."
       ],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 23,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "www.postel.app",
@@ -416,14 +417,14 @@
       "search_evidence": [
         "bing-rss:twitter viewer | tweet viewer | twitter viewer without account | postel a twitter viewer is a tool that allows you to view twitter profiles and tweets without creating an account or logging in. this free twitter viewer provides anonymous access to publicly available twitter content, making it perfect for research, competitor analysis, or simply browsing when you don't have a twitter account."
       ],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 12,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "redlib.reallyaweso.me",
@@ -441,14 +442,14 @@
       "search_evidence": [
         "bing-rss:instance information - redlib.reallyaweso.me view on redlib, an alternative private front-end to reddit."
       ],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=-; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
       "discovery_score": 11,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "alexjenkins.tech",
@@ -466,14 +467,14 @@
       "search_evidence": [
         "bing-rss:priviblur: a private front-end for tumblr priviblur is a privacy-focused alternative front-end for tumblr that proxies requests so you can browse blogs without tracking or an account. agpl-3.0."
       ],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=tumblr; service=frontend/proxy/instance; identity=blogs/tags; search_intent=0; providers=0; queries=1",
       "discovery_score": 10,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     },
     {
       "domain": "fossy.dev",
@@ -491,14 +492,14 @@
       "search_evidence": [
         "bing-rss:priviblur - fossy - curated foss directory for community and discussion a self-hosted tool for blurring faces in images and videos"
       ],
-      "first_seen": "2026-10-03T22:47:19Z",
-      "last_attempt": "2026-10-03T22:47:19Z",
-      "last_attempt_epoch": 1791067639.1929567,
+      "first_seen": "2026-10-03T22:57:10Z",
+      "last_attempt": "2026-10-03T22:57:10Z",
+      "last_attempt_epoch": 1791068230.554027,
       "attempts": 1,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
       "discovery_score": 10,
-      "next_retry_epoch": 1791154039.1929567
+      "next_retry_epoch": 1791154630.554027
     }
   ],
   "near_miss_count": 8,
@@ -867,21 +868,20 @@
   ],
   "retained_historical_count": 130,
   "retained_total_count": 130,
+  "output_domain_count": 130,
   "append_only": true,
   "output_preserved": true,
   "rejection_reason_counts": {
     "page unavailable": 9,
-    "article/content page, not a frontend endpoint": 5,
+    "article/content page, not a frontend endpoint": 3,
     "challenge/parked page detected": 1,
     "non-frontend service/tool page": 1,
     "platform=-; service=frontend; identity=profile; search_intent=0; providers=0; queries=1": 1,
     "platform=tumblr; service=frontend/proxy/instance; identity=blogs/tags; search_intent=0; providers=0; queries=1": 1,
     "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=post/tag; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=post/media; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=post; search_intent=0; providers=0; queries=1": 1,
     "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0": 2,
     "platform=-; service=frontend; identity=profile; search_intent=0; providers=0; queries=0": 1,
+    "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=1": 1,
     "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0": 2,
     "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 4
   },
@@ -2485,228 +2485,6 @@
       "error": ""
     },
     {
-      "domain": "www.dictionary.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "https://www.dictionary.com/browse/public",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "post"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "post",
-          "tag"
-        ],
-        "ui_signal": true,
-        "inputs": 8,
-        "forms": 4,
-        "buttons": 28,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "view"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:public definition & meaning | dictionary.com public definition: of, relating to, or affecting a population or a community as a whole. see examples of public used in a sentence."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://www.dictionary.com/browse/public"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=-; identity=post/tag; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.dictionary.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "https://www.dictionary.com/browse/public",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "post",
-          "media"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "post",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 8,
-        "forms": 4,
-        "buttons": 28,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "view"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:public definition & meaning | dictionary.com public definition: of, relating to, or affecting a population or a community as a whole. see examples of public used in a sentence."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://www.dictionary.com/browse/public"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=-; identity=post/media; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.dictionary.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "https://www.dictionary.com/browse/public",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "post"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "post"
-        ],
-        "ui_signal": true,
-        "inputs": 8,
-        "forms": 4,
-        "buttons": 28,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "view"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:public definition & meaning | dictionary.com public definition: of, relating to, or affecting a population or a community as a whole. see examples of public used in a sentence."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://www.dictionary.com/browse/public"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=-; identity=post; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
       "domain": "f-droid.org",
       "platform": "reddit",
       "accepted": false,
@@ -2851,6 +2629,83 @@
         "discovery_score": 6
       },
       "reason": "platform=-; service=frontend; identity=profile; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "www.zhihu.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://www.zhihu.com/signin?next=%2F",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "frontend",
+          "browser"
+        ],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 4,
+        "forms": 2,
+        "buttons": 30,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:现在怎么才能登录whatsapp呢? - 知乎 i understand that whatsapp places a strong emphasis on user privacy and security, and i share these concerns as well. consequently, i have conscientiously refrained fromusing unofficial or third-party applications to ensure the protection of my communication data."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 1,
+        "query_urls": [
+          "https://www.zhihu.com/question/68113079"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -3062,28 +2917,6 @@
       "error": ""
     },
     {
-      "domain": "apps.apple.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://apps.apple.com/us/app/linkedin-community-network/id288429040",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best ",
-          "review"
-        ],
-        "editorial_marker_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": true,
-        "discovery_score": 6
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "footprintiq.app",
       "platform": "twitter",
       "accepted": false,
@@ -3151,27 +2984,6 @@
       "score": 0,
       "query_count": 2,
       "final_url": "https://nextjs.org/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
-        "editorial_marker_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": false,
-        "discovery_score": 6
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "pulcinella291.forumfree.it",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://pulcinella291.forumfree.it/",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [

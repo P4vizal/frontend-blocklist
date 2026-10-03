@@ -2200,6 +2200,11 @@ def main() -> int:
         key=lambda e: (-e.score, e.domain),
     )
 
+    rejection_reason_counts = {}
+    for evaluation in evaluations:
+        if not evaluation.accepted:
+            rejection_reason_counts[evaluation.reason] = rejection_reason_counts.get(evaluation.reason, 0) + 1
+
     verified_frontend_domains = [
         {
             "platform": item["platform"],
@@ -2238,7 +2243,12 @@ def main() -> int:
                     "verified_web_seed_count": seed_candidate_count,
                     "verified_seed_domains": seed_report,
                     "verified_frontend_count": len(verified_frontend_domains),
+                    "verified_existing_seed_count": sum(1 for item in seed_report if item["validation_accepted"]),
+                    "verified_existing_seeds": [
+                        item["domain"] for item in seed_report if item["validation_accepted"]
+                    ],
                     "verified_frontend_domains": verified_frontend_domains,
+                    "newly_discovered_count": 0,
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backend": SEARCH_BACKEND,
                     "discovery_mode": DISCOVERY_MODE,
@@ -2250,7 +2260,6 @@ def main() -> int:
                     "search_queries_with_results": search_queries_with_results,
                     "search_queries_without_results": len(query_specs) - search_queries_with_results,
                     "search_backend_failures": len(search_errors),
-        "search_fallbacks": search_fallbacks,
                     "search_fallbacks": search_fallbacks,
                     "source_candidate_counts": {
                         "github": len(github_sources),
@@ -2264,6 +2273,10 @@ def main() -> int:
                     "validated_candidates": len(evaluations),
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
+                    "append_only": True,
+                    "output_preserved": True,
+                    "newly_discovered_count": 0,
+                    "rejection_reason_counts": rejection_reason_counts,
                     "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
@@ -2288,6 +2301,14 @@ def main() -> int:
 
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "append_only": True,
+        "output_preserved": False,
+        "newly_discovered_count": len(accepted),
+        "verified_existing_seed_count": sum(1 for item in seed_report if item["validation_accepted"]),
+        "verified_existing_seeds": [
+            item["domain"] for item in seed_report if item["validation_accepted"]
+        ],
+        "rejection_reason_counts": rejection_reason_counts,
         "search_queries": len(query_specs),
         "search_backend": SEARCH_BACKEND,
         "search_backends": list(SEARCH_BACKENDS),

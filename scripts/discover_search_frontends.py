@@ -2062,6 +2062,27 @@ def main() -> int:
         accepted_by_domain.values(),
         key=lambda e: (-e.score, e.domain),
     )
+
+    verified_frontend_domains = [
+        {
+            "platform": item["platform"],
+            "domain": item["domain"],
+            "kind": "verified_seed",
+            "verified": True,
+        }
+        for item in seed_report
+        if item["validation_accepted"]
+    ]
+    verified_frontend_domains.extend(
+        {
+            "platform": evaluation.platform,
+            "domain": evaluation.domain,
+            "kind": "newly_discovered",
+            "verified": True,
+        }
+        for evaluation in accepted
+    )
+
     if len(accepted) < MIN_ACCEPTED:
         print("[WARN] No sufficient validated domains were found.")
         print("The previous search-discovered-blocklist.txt is intentionally left untouched.")
@@ -2079,6 +2100,8 @@ def main() -> int:
                     "trusted_source_names": trusted_source_names,
                     "verified_web_seed_count": seed_candidate_count,
                     "verified_seed_domains": seed_report,
+                    "verified_frontend_count": len(verified_frontend_domains),
+                    "verified_frontend_domains": verified_frontend_domains,
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backend": SEARCH_BACKEND,
                     "discovery_mode": DISCOVERY_MODE,
@@ -2150,6 +2173,8 @@ def main() -> int:
         ),
         "verified_web_seed_count": seed_candidate_count,
         "verified_seed_domains": seed_report,
+        "verified_frontend_count": len(verified_frontend_domains),
+        "verified_frontend_domains": verified_frontend_domains,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
         "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + low-concurrency rotated search + sequential backend fallback + parallel validation",

@@ -24,6 +24,8 @@ REPORT = Path("search-discovered-report.json")
 
 PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
+FETCH_TEXT_RETRIES = 2
+FETCH_TEXT_RETRY_MAX_SECONDS = 12
 MAX_PAGE_BYTES = 1_500_000
 RETRYABLE_HTTP_CODES = {408, 425, 429, 500, 502, 503, 504}
 MAX_CANDIDATES = 360
@@ -47,6 +49,8 @@ PENDING_VERIFICATION_MAX = 120
 PENDING_VERIFICATION_TTL_DAYS = 21
 NEAR_MISS_DISCOVERY_SCORE = 10
 MAX_INTERNAL_SERVICE_LINKS = 3
+REPORT_SCHEMA_VERSION = 2
+GITHUB_REPOSITORY_CATALOG_LIMIT = 48
 
 # Keep the daily search bounded, but let service-intent queries in every
 # configured language reach the second results page.
@@ -225,6 +229,7 @@ TRUSTED_SOURCES = [
     ("Libreddit", "json", "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json"),
     ("LibRedirect", "json", "https://raw.githubusercontent.com/libredirect/instances/main/data.json"),
     ("Priviblur", "text", "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md"),
+    ("Alternative frontends 8", "text", "https://raw.githubusercontent.com/techietwintoes/alt-front-ends/main/README.md"),
     ("Alternative frontends 1", "text", "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md"),
     ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md"),
     ("Alternative frontends 3", "text", "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md"),
@@ -298,6 +303,8 @@ EDITORIAL_PAGE_MARKERS = (
 STRONG_SERVICE_TERMS = (
     "viewer", "frontend", "front-end", "front end",
     "alternative frontend", "alternative front-end", "alternative front end",
+    "privacy frontend", "privacy front-end", "privacy front end",
+    "alternative client", "alternative web client",
     "private frontend", "private front-end", "private front end",
     "browser", "slideshow",
     "reader", "gallery", "content browser", "web client",
@@ -863,6 +870,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"X profile viewer" "no login" -news -article -guide -review',
                 '"Twitter alternative front-end" -news -article -guide -review',
                 '"Twitter private front-end" -news -article -guide -review',
+                '"Twitter public mirror viewer" -news -article -guide -review',
+                '"Twitter read-only client" -news -article -guide -review',
+                '"Twitter front-end instance" -news -article -guide -review',
             ],
             "reddit": [
                 '"Reddit post viewer" -news -article -guide -review',
@@ -870,6 +880,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Reddit anonymous viewer" -news -article -guide -review',
                 '"subreddit viewer" -news -article -guide -review',
                 '"Reddit private front-end" -news -article -guide -review',
+                '"Reddit public mirror viewer" -news -article -guide -review',
+                '"Reddit read-only client" -news -article -guide -review',
+                '"Reddit front-end instance" -news -article -guide -review',
             ],
             "tumblr": [
                 '"Tumblr blog viewer" -news -article -guide -review',
@@ -877,6 +890,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr anonymous viewer" -news -article -guide -review',
                 '"Tumblr post viewer" -news -article -guide -review',
                 '"Tumblr private front-end" -news -article -guide -review',
+                '"Tumblr public mirror viewer" -news -article -guide -review',
+                '"Tumblr read-only client" -news -article -guide -review',
+                '"Tumblr front-end instance" -news -article -guide -review',
             ],
         },
         {
@@ -886,6 +902,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"X anonymous viewer" profiles -news -article -guide -review',
                 '"Nitter alternative" viewer -news -article -guide -review',
                 '"Twitter frontend" privacy -news -article -guide -review',
+                '"Twitter privacy viewer" public -news -article -guide -review',
+                '"Twitter profile mirror" public -news -article -guide -review',
+                '"Twitter no-login browser" -news -article -guide -review',
             ],
             "reddit": [
                 '"Reddit web viewer" public posts -news -article -guide -review',
@@ -893,6 +912,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Reddit anonymous viewer" posts -news -article -guide -review',
                 '"Redlib alternative" viewer -news -article -guide -review',
                 '"Reddit frontend" privacy -news -article -guide -review',
+                '"Reddit privacy viewer" public -news -article -guide -review',
+                '"Reddit profile mirror" public -news -article -guide -review',
+                '"Reddit no-login browser" -news -article -guide -review',
             ],
             "tumblr": [
                 '"Tumblr web viewer" public blogs -news -article -guide -review',
@@ -900,6 +922,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr anonymous viewer" posts -news -article -guide -review',
                 '"Priviblur alternative" viewer -news -article -guide -review',
                 '"Tumblr frontend" privacy -news -article -guide -review',
+                '"Tumblr privacy viewer" public -news -article -guide -review',
+                '"Tumblr blog mirror" public -news -article -guide -review',
+                '"Tumblr no-login browser" -news -article -guide -review',
             ],
         },
         {
@@ -909,6 +934,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"X viewer" "without account" -news -article -guide -review',
                 '"Nitter frontend" alternative -news -article -guide -review',
                 '"Twitter viewer" "no account" -news -article -guide -review',
+                '"Twitter mirror" "without login" -news -article -guide -review',
+                '"Twitter web reader" public -news -article -guide -review',
+                '"Twitter anonymous client" -news -article -guide -review',
             ],
             "reddit": [
                 '"Reddit profile browser" -news -article -guide -review',
@@ -916,6 +944,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Reddit viewer" "without account" -news -article -guide -review',
                 '"Redlib frontend" alternative -news -article -guide -review',
                 '"Reddit viewer" "no account" -news -article -guide -review',
+                '"Reddit mirror" "without login" -news -article -guide -review',
+                '"Reddit web reader" public -news -article -guide -review',
+                '"Reddit anonymous client" -news -article -guide -review',
             ],
             "tumblr": [
                 '"Tumblr profile browser" -news -article -guide -review',
@@ -923,6 +954,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr viewer" "without account" -news -article -guide -review',
                 '"Priviblur frontend" alternative -news -article -guide -review',
                 '"Tumblr viewer" "no account" -news -article -guide -review',
+                '"Tumblr mirror" "without login" -news -article -guide -review',
+                '"Tumblr web reader" public -news -article -guide -review',
+                '"Tumblr anonymous client" -news -article -guide -review',
             ],
         },
         {
@@ -1269,6 +1303,27 @@ def merge_search_result(
 
 
 
+def http_retry_delay(exc: HTTPError, attempt: int) -> float | None:
+    """Return a bounded retry delay, honoring server-provided rate-limit hints."""
+    headers = getattr(exc, "headers", None)
+    retry_after = None
+    remaining = None
+    if headers is not None:
+        try:
+            retry_after = float(headers.get("Retry-After", "")) if headers.get("Retry-After") else None
+        except (TypeError, ValueError):
+            retry_after = None
+        remaining = headers.get("X-RateLimit-Remaining")
+
+    if remaining == "0":
+        return None
+    if retry_after is not None:
+        if retry_after < 0 or retry_after > FETCH_TEXT_RETRY_MAX_SECONDS:
+            return None
+        return retry_after
+    return min(FETCH_TEXT_RETRY_MAX_SECONDS, 0.8 * (2 ** max(0, attempt - 1)))
+
+
 def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
     headers = {
         "User-Agent": USER_AGENT,
@@ -1278,11 +1333,32 @@ def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
     }
     if extra_headers:
         headers.update(extra_headers)
-    req = Request(url, headers=headers)
-    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
-        raw = response.read(MAX_PAGE_BYTES)
-        charset = response.headers.get_content_charset() or "utf-8"
-        return raw.decode(charset, errors="replace")
+
+    last_error: Exception | None = None
+    for attempt in range(1, FETCH_TEXT_RETRIES + 1):
+        try:
+            req = Request(url, headers=headers)
+            with urlopen(req, timeout=PAGE_TIMEOUT) as response:
+                raw = response.read(MAX_PAGE_BYTES)
+                charset = response.headers.get_content_charset() or "utf-8"
+                return raw.decode(charset, errors="replace")
+        except HTTPError as exc:
+            last_error = exc
+            if exc.code not in RETRYABLE_HTTP_CODES or attempt >= FETCH_TEXT_RETRIES:
+                break
+            delay = http_retry_delay(exc, attempt)
+            if delay is None:
+                break
+            time.sleep(delay)
+        except (URLError, TimeoutError, ValueError, OSError) as exc:
+            last_error = exc
+            if attempt >= FETCH_TEXT_RETRIES:
+                break
+            time.sleep(min(FETCH_TEXT_RETRY_MAX_SECONDS, 0.8 * (2 ** (attempt - 1))))
+
+    if last_error is not None:
+        raise last_error
+    raise OSError(f"fetch_text failed: {url}")
 
 
 LIBREDIRECT_PLATFORM_KEYS = {
@@ -1416,7 +1492,7 @@ def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
                 if full_name.lower() != "p4vizal/frontend-blocklist":
                     repo_keys.add(f"{full_name}@{default_branch}")
 
-    for repo_key in sorted(repo_keys)[:36]:
+    for repo_key in sorted(repo_keys)[:GITHUB_REPOSITORY_CATALOG_LIMIT]:
         full_name, default_branch = repo_key.rsplit("@", 1)
         readme_url = (
             f"https://raw.githubusercontent.com/{full_name}/"
@@ -1733,8 +1809,9 @@ def urlscan_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
-def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
+def trusted_candidates() -> tuple[dict[tuple[str, str], SearchHit], dict[str, dict]]:
     found: dict[tuple[str, str], SearchHit] = {}
+    health: dict[str, dict] = {}
 
     def add(platform: str, host: str, source_name: str):
         key = (platform, host)
@@ -1749,6 +1826,7 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
             hit.urls.append(f"https://{host}/")
 
     for source_name, kind, url in TRUSTED_SOURCES:
+        before = len(found)
         try:
             if kind == "json":
                 text = fetch_text(url)
@@ -1761,31 +1839,40 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
                         hosts = set()
                     for host in hosts:
                         add(platform, host, source_name)
-                if source_name == "Redlib":
+                if source_name in {"Redlib", "Libreddit"}:
                     data = json.loads(text)
-                    for item in data.get("instances", []):
-                        if isinstance(item, dict):
-                            host = normalize_host(item.get("url", ""))
-                            if host:
-                                add("reddit", host, source_name)
-                elif source_name == "Libreddit":
-                    data = json.loads(text)
-                    for item in data.get("instances", []):
+                    instances = data.get("instances", []) if isinstance(data, dict) else []
+                    for item in instances:
                         if isinstance(item, dict):
                             host = normalize_host(item.get("url", ""))
                             if host:
                                 add("reddit", host, source_name)
             else:
-                text = fetch_text(url) if kind == "text" else fetch_html(url)[0]
+                text = fetch_text(url)
                 if text is None:
-                    continue
+                    raise OSError("empty source response")
                 for platform in PLATFORMS:
                     for host in extract_section_urls(text, platform):
                         add(platform, host, source_name)
+
+            health[source_name] = {
+                "status": "ok",
+                "kind": kind,
+                "url": url,
+                "candidate_count": len(found) - before,
+            }
         except Exception as exc:
+            health[source_name] = {
+                "status": "error",
+                "kind": kind,
+                "url": url,
+                "candidate_count": len(found) - before,
+                "error": f"{type(exc).__name__}: {exc}",
+                "http_status": getattr(exc, "code", None),
+            }
             print(f"[WARN] Trusted source {source_name} failed: {type(exc).__name__}: {exc}")
 
-    return found
+    return found, health
 
 
 def fetch_jina_text(url: str) -> tuple[str, dict] | tuple[None, dict]:
@@ -2928,7 +3015,7 @@ def main() -> int:
     seeds = seed_candidates()
     candidate_map.update(seeds)
 
-    trusted = trusted_candidates()
+    trusted, trusted_source_health = trusted_candidates()
     for key, hit in trusted.items():
         if key not in candidate_map:
             candidate_map[key] = hit
@@ -3318,6 +3405,7 @@ def main() -> int:
         REPORT.write_text(
             json.dumps(
                 {
+                    "report_schema_version": REPORT_SCHEMA_VERSION,
                     "status": "no_update",
                     "accepted": [],
                     "accepted_count": 0,
@@ -3325,6 +3413,7 @@ def main() -> int:
                     "audited_false_positive_domains": sorted(AUDITED_FALSE_POSITIVE_HOSTS),
                     "audited_false_positive_count": len(AUDITED_FALSE_POSITIVE_HOSTS),
                     "trusted_source_names": trusted_source_names,
+                    "trusted_source_health": trusted_source_health,
                     "verified_web_seed_count": seed_candidate_count,
                     "verified_seed_domains": seed_report,
                     "verified_frontend_count": len(verified_frontend_domains),
@@ -3400,6 +3489,7 @@ def main() -> int:
 
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "report_schema_version": REPORT_SCHEMA_VERSION,
         "append_only": True,
         "output_preserved": False,
         "newly_discovered_count": len(accepted),
@@ -3438,6 +3528,7 @@ def main() -> int:
         "github_discovered_candidate_count": github_candidate_count,
         "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded multilingual rotated search with language-aware page-2 expansion + query-level intent scoring + persistent pending verification + parallel validation",
         "trusted_source_names": trusted_source_names,
+        "trusted_source_health": trusted_source_health,
         "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),
         "pending_verification_count": len(pending_verification),

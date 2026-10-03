@@ -346,19 +346,9 @@ def sanitize_request_url(value: str) -> str | None:
     if any(ord(ch) < 32 or ord(ch) == 127 for ch in parsed.netloc):
         return None
 
-    safe_path = quote(parsed.path, safe="/:@!    safe_path = quote(parsed.path, safe="/:@!def path_looks_like_service(path: str) -> bool:
-'()*+,;=-._~%")
-    safe_query = quote(parsed.query, safe="/?:@!def path_looks_like_service(path: str) -> bool:
-'()*+,;=-._~%")
-'()*+,;=-._~%")
-    safe_query = quote(parsed.query, safe="/?:@!    safe_path = quote(parsed.path, safe="/:@!def path_looks_like_service(path: str) -> bool:
-'()*+,;=-._~%")
-    safe_query = quote(parsed.query, safe="/?:@!def path_looks_like_service(path: str) -> bool:
-'()*+,;=-._~%")
-'()*+,;=-._~%")
+    safe_path = quote(parsed.path, safe="/:@!$&'()*+,;=-._~%")
+    safe_query = quote(parsed.query, safe="/?:@!$&'()*+,;=-._~%")
     return urlunparse(parsed._replace(path=safe_path, query=safe_query, fragment=""))
-
-
 def path_looks_like_service(path: str) -> bool:
     parts = [unquote(part).strip().lower() for part in path.split("/") if part.strip()]
     for part in parts:

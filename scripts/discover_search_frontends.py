@@ -1485,9 +1485,25 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             "article/content page, not a frontend endpoint"
         )
 
-    platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, total)]
+    platform_hits = [
+        t for t in pcfg["platform_terms"]
+        if term_present(t, total)
+        and (
+            hit.platform != "twitter"
+            or t != "x"
+            or any(term_present(other, total) for other in ("twitter", "tweet", "nitter"))
+        )
+    ]
     brand_hits = [t for t in pcfg["brands"] if term_present(t, total)]
-    header_platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, header_text)]
+    header_platform_hits = [
+        t for t in pcfg["platform_terms"]
+        if term_present(t, header_text)
+        and (
+            hit.platform != "twitter"
+            or t != "x"
+            or any(term_present(other, header_text) for other in ("twitter", "tweet", "nitter"))
+        )
+    ]
     header_brand_hits = [t for t in pcfg["brands"] if term_present(t, header_text)]
 
     identity_terms = list(dict.fromkeys(
@@ -1535,12 +1551,22 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         if not isinstance(evidence, str):
             continue
         ev = fold(evidence)
-        platform_ok = any(term_present(t, ev) for t in (
-            ["twitter", "tweet", "nitter", "x"] if hit.platform == "twitter"
-            else ["reddit", "subreddit", "redlib", "libreddit", "teddit"]
-            if hit.platform == "reddit"
-            else ["tumblr", "priviblur", "blog"]
-        ))
+        if hit.platform == "twitter":
+            platform_ok = any(
+                term_present(t, ev) for t in ("twitter", "tweet", "nitter")
+            ) or (
+                term_present("x", ev)
+                and any(term_present(t, ev) for t in ("twitter", "tweet", "nitter"))
+            )
+        elif hit.platform == "reddit":
+            platform_ok = any(
+                term_present(t, ev)
+                for t in ("reddit", "subreddit", "redlib", "libreddit", "teddit")
+            )
+        else:
+            platform_ok = any(
+                term_present(t, ev) for t in ("tumblr", "priviblur", "blog")
+            )
         service_ok = any(term_present(t, ev) for t in (
             "viewer", "frontend", "alternative frontend", "browser", "slideshow",
             "reader", "gallery", "content browser", "visor", "visualizador",

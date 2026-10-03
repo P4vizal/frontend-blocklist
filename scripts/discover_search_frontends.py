@@ -1547,7 +1547,7 @@ def main() -> int:
 
     retained_domains = historical | {e.domain for e in accepted}
     OUTPUT.write_text(
-        "# Generated from maintained frontend registries + GitHub + DDGS auto search + page validation.\n"
+        "# Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.\n"
         "# Append-only discovery history: previously accepted domains are never removed.\n"
         "# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.\n"
         + "\n".join(f"||{domain}^" for domain in sorted(retained_domains))

@@ -1,27 +1,7 @@
 {
-  "status": "no_update",
-  "accepted": [],
-  "accepted_count": 0,
-  "trusted_candidate_count": 56,
-  "trusted_source_names": [
-    "Alternative frontends 1",
-    "Alternative frontends 3",
-    "Alternative frontends 4",
-    "Farside",
-    "GitHub:digitalblossom/alternative-frontends",
-    "Libreddit",
-    "Redlib"
-  ],
-  "verified_web_seed_count": 5,
-  "github_discovered_candidate_count": 4,
+  "generated": "2026-10-03T16:43:01Z",
+  "search_queries": 98,
   "search_backend": "fallback",
-  "discovery_mode": "daily",
-  "active_search_languages": [
-    "en",
-    "es",
-    "pt",
-    "it"
-  ],
   "search_backends": [
     "bing",
     "startpage"
@@ -31,10 +11,10 @@
     2
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 74,
-  "search_queries_with_results": 53,
-  "search_queries_without_results": 45,
-  "search_backend_failures": 9,
+  "search_pages_succeeded": 14,
+  "search_queries_with_results": 12,
+  "search_queries_without_results": 86,
+  "search_backend_failures": 52,
   "source_candidate_counts": {
     "github": 4,
     "gitlab": 0,
@@ -43,16 +23,506 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 179,
-  "validated_candidates": 95,
-  "search_strategy": "maintained registries + GitHub; daily rotated search; deep workflow adds Codeberg/GitLab/Common Crawl/optional URLScan; shared page validation",
-  "candidates": [
+  "verified_web_seed_count": 7,
+  "trusted_candidate_count": 56,
+  "github_discovered_candidate_count": 4,
+  "search_strategy": "maintained registries + GitHub + rotated search + sequential backend fallback + parallel validation",
+  "trusted_source_names": [
+    "Alternative frontends 1",
+    "Alternative frontends 3",
+    "Alternative frontends 4",
+    "Farside",
+    "GitHub:digitalblossom/alternative-frontends",
+    "Libreddit",
+    "Redlib"
+  ],
+  "candidates_discovered": 33,
+  "validated_candidates": 33,
+  "accepted_count": 2,
+  "newly_accepted_count": 2,
+  "retained_historical_count": 115,
+  "retained_total_count": 117,
+  "already_covered_count": 46,
+  "already_discovered_count": 47,
+  "known_candidates_skipped_before_validation": 65,
+  "search_results_seen": 79,
+  "search_errors": [
+    {
+      "language": "pt",
+      "platform": "tumblr",
+      "query": "tumblr visualizador",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "pt",
+      "platform": "tumblr",
+      "query": "tumblr sem conta",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "pt",
+      "platform": "tumblr",
+      "query": "tumblr visualizador alternatives to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "pt",
+      "platform": "tumblr",
+      "query": "tumblr frontend alternativo blog viewer similar to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter visualizzatore",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter frontend",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter senza accesso",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter senza account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter visualizzatore alternative to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "twitter frontend alternativo profile viewer similar to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "twitter",
+      "query": "x twitter viewer alternatives to xcancel twiiit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit visualizzatore",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit senza accesso",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit senza account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit visualizzatore alternatives to redlib libreddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "reddit",
+      "query": "reddit frontend alternativo subreddit viewer similar to teddit troddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr visualizzatore",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr frontend",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr senza account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr visualizzatore alternatives to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "it",
+      "platform": "tumblr",
+      "query": "tumblr frontend alternativo blog viewer similar to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer alternatives to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend alternatives to nitter",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend alternatives to nitter",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer alternative to xcancel",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend similar to twiiit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter frontend similar to twiiit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter viewer similar to nitter",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "alternative twitter viewer without login not nitter",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit frontend alternatives to libreddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit frontend alternatives to libreddit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer alternative to teddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer alternative to teddit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit frontend similar to troddit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "alternative reddit viewer without login not redlib",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "alternative reddit viewer without login not redlib",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr frontend alternative to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr viewer similar to priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter alternative frontend viewer -nitter -xcancel -twiiit",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "twitter alternative frontend viewer -nitter -xcancel -twiiit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "alternative tumblr viewer without account not priviblur",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr alternative frontend viewer -priviblur",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr alternative frontend viewer -priviblur",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit browser without login",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "X viewer without account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "X viewer without account",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "tweet viewer without login",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "twitter",
+      "query": "tweet viewer without login",
+      "backend": "bing",
+      "page": 2,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "reddit",
+      "query": "reddit viewer without account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr browser without login",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "tumblr viewer without account",
+      "backend": "bing",
+      "page": 1,
+      "attempt": 1,
+      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
+    }
+  ],
+  "accepted": [
     {
       "domain": "discuss.privacyguides.net",
       "platform": "twitter",
-      "accepted": false,
-      "score": 20,
-      "query_count": 1,
+      "accepted": true,
+      "score": 21,
+      "query_count": 2,
       "final_url": "https://discuss.privacyguides.net/t/recommend-xcancel-com-twitter-frontend/21177",
       "evidence": {
         "platform_hits": [
@@ -94,7 +564,7 @@
         "search_provider_hits": [
           "bing"
         ],
-        "distinct_queries": 1,
+        "distinct_queries": 2,
         "search_providers": [
           "bing"
         ],
@@ -107,575 +577,16 @@
           "https://discuss.privacyguides.net/t/recommend-xcancel-com-twitter-frontend/21177"
         ]
       },
-      "reason": "platform=twitter/nitter; service=frontend; identity=-; search_intent=1; providers=1; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "alexjenkins.tech",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 18,
-      "query_count": 2,
-      "final_url": "https://alexjenkins.tech/apps/priviblur/",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [
-          "priviblur"
-        ],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [
-          "priviblur"
-        ],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "blog",
-          "blogs",
-          "posts"
-        ],
-        "service_hits": [
-          "frontend",
-          "proxy",
-          "instance"
-        ],
-        "identity_hits": [
-          "blog",
-          "blogs",
-          "post",
-          "posts",
-          "user",
-          "profile"
-        ],
-        "ui_signal": true,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 12,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:priviblur: a private front-end for tumblr priviblur is a privacy-focused alternative front-end for tumblr that proxies requests so you can browse blogs without tracking or an account. agpl-3.0."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://alexjenkins.tech/apps/priviblur/"
-        ]
-      },
-      "reason": "platform=tumblr; service=frontend/proxy/instance; identity=blog/blogs/posts; search_intent=0; providers=0; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "abakada.org",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 17,
-      "query_count": 1,
-      "final_url": "https://abakada.org/tools/libreddit",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [
-          "libreddit"
-        ],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [
-          "libreddit"
-        ],
-        "header_service_hits": [
-          "frontend"
-        ],
-        "header_identity_hits": [],
-        "service_hits": [
-          "frontend"
-        ],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:libreddit: reddit frontend | abakada 1 day ago · libreddit is a free, open-source communication tool distributed under agpl-3.0. private front-end for reddit written in rust. a free, open-source alternative to reddit last reviewed 2026-10-02 · reviewed by ramon logan jr. for abakada. license agpl-3.0 platforms self-hosted category communication tags reddit, privacy, frontend, rust"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://abakada.org/tools/libreddit"
-        ]
-      },
-      "reason": "platform=reddit; service=frontend; identity=-; search_intent=1; providers=1; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "alexjenkins.tech",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 17,
-      "query_count": 1,
-      "final_url": "https://alexjenkins.tech/apps/redlib/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [
-          "redlib",
-          "libreddit"
-        ],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [
-          "redlib",
-          "libreddit"
-        ],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "posts"
-        ],
-        "service_hits": [
-          "proxy",
-          "instance"
-        ],
-        "identity_hits": [
-          "subreddits",
-          "post",
-          "posts"
-        ],
-        "ui_signal": true,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 12,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:redlib: a private front-end for reddit jul 24, 2026 · redlib is a private, lightweight alternative front-end for reddit in rust, the libreddit successor, with no javascript, ads or tracking. agpl-3.0."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://alexjenkins.tech/apps/redlib/"
-        ]
-      },
-      "reason": "platform=reddit; service=proxy/instance; identity=posts; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "frontendcs.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 16,
-      "query_count": 1,
-      "final_url": "https://frontendcs.com/companies/tumblr",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "frontend"
-        ],
-        "header_identity_hits": [],
-        "service_hits": [
-          "frontend",
-          "mirror",
-          "proxy"
-        ],
-        "identity_hits": [
-          "blog",
-          "blogs",
-          "post",
-          "posts",
-          "user",
-          "profile"
-        ],
-        "ui_signal": true,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "list of "
-        ],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:tumblr case studies - frontendcs.com a curated list of talks and articles about real-world frontend development"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://frontendcs.com/companies/tumblr"
-        ]
-      },
-      "reason": "platform=tumblr; service=frontend; identity=blog/blogs/post/posts/user/profile; search_intent=1; providers=1; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "cascadr.co",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 15,
-      "query_count": 2,
-      "final_url": "https://cascadr.co/dash",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "blog"
-        ],
-        "service_hits": [
-          "viewer"
-        ],
-        "identity_hits": [
-          "blog"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 2,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:cascadr | a tumblr image viewer cascadr is a tumblr image viewer, a different way to view tumblr that allows you to easily and quickly scan through a blog to find the images that you want.",
-          "bing:cascadr | a tumblr image viewer cascadr is ideal for exploring tumblr. quickly scan image thumbnails and click to see a full-size version. from the full-size version you can reblog the post or click through to the previous poster and continue to explore. with cascadr there is no limit to what you can find."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://cascadr.co/dash",
-          "https://cascadr.co/"
-        ]
-      },
-      "reason": "platform=tumblr; service=viewer; identity=blog; search_intent=2; providers=1; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "relatedrepos.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 15,
-      "query_count": 5,
-      "final_url": "https://relatedrepos.com/gh/syeopite/priviblur",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [
-          "priviblur"
-        ],
-        "header_platform_hits": [],
-        "header_brand_hits": [
-          "priviblur"
-        ],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [
-          "frontend",
-          "mirror",
-          "proxy",
-          "alternative frontend"
-        ],
-        "identity_hits": [
-          "post"
-        ],
-        "ui_signal": true,
-        "inputs": 4,
-        "forms": 4,
-        "buttons": 13,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "alternatives"
-        ],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 5,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:syeopite/priviblur alternatives and similar packages syeopite / priviblur view external linkslinks a privacy-focused alternative frontend to tumblr with a touch of modern design ☆147nov 24, 2025updated 2 months ago",
-          "bing:syeopite/priviblur alternatives and similar packages alternatives and similar repositories for priviblur users that are interested in priviblur are comparing it to the libraries listed below sorting: most relevant most stars recently updated ahwxorg / binternet view on github"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://relatedrepos.com/gh/syeopite/priviblur"
-        ]
-      },
-      "reason": "platform=tumblr; service=frontend/mirror/proxy/alternative frontend; identity=post; search_intent=1; providers=1; queries=5",
-      "error": ""
-    },
-    {
-      "domain": "www.tumviews.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 15,
-      "query_count": 4,
-      "final_url": "https://www.tumviews.com/",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "blogs"
-        ],
-        "service_hits": [
-          "viewer"
-        ],
-        "identity_hits": [
-          "blogs"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 4,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:how to view tumblr images without an account | tumviews browse any public tumblr blog as a grid of images without signing in. what works without an account, what does not, and what \"anonymous\" honestly means.",
-          "bing:how to view tumblr images without an account | tumviews browse any public tumblr blog as a grid of images without signing in. what works without an account, what does not, and what \"anonymous\" honestly means. to view tumblr without an account, type a blog name into the search box on the home page, or paste a tumblr url. the blog's images load as a grid. no sign-in, nothing installed."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.tumviews.com/articles/how-to-view-tumblr-images-without-account"
-        ]
-      },
-      "reason": "platform=tumblr; service=viewer; identity=blogs; search_intent=0; providers=0; queries=4",
-      "error": ""
-    },
-    {
-      "domain": "www.hitpaw.com.br",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 14,
-      "query_count": 1,
-      "final_url": "https://www.hitpaw.com.br/twitter-tips/ver-twitter-sem-conta.html",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "header_brand_hits": [
-          "nitter"
-        ],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "perfil"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "perfil",
-          "usuario",
-          "usuário",
-          "publicação"
-        ],
-        "ui_signal": false,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 6,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:como ver x (twitter) sem conta: 5 melhores maneiras em 2026 sep 14, 2026 · quer ver tweets, perfis ou hashtags do x (antigo twitter) sem fazer login? descubra 5 métodos atualizados para acessar o x sem conta."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.hitpaw.com.br/twitter-tips/ver-twitter-sem-conta.html"
-        ]
-      },
-      "reason": "platform=twitter/x/nitter; service=-; identity=tweet/tweets/perfil; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.libhunt.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 14,
-      "query_count": 1,
-      "final_url": "https://www.libhunt.com/r/troddit",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [
-          "libreddit",
-          "teddit",
-          "troddit"
-        ],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [
-          "troddit"
-        ],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [
-          "frontend",
-          "mirror"
-        ],
-        "identity_hits": [
-          "comments",
-          "post",
-          "posts",
-          "user"
-        ],
-        "ui_signal": true,
-        "inputs": 13,
-        "forms": 3,
-        "buttons": 1,
-        "interactive_target_hits": [
-          "post"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best ",
-          "alternatives"
-        ],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:troddit vs alternative-front-ends - compare differences and ... troddit vs alternative-front-ends compare troddit vs alternative-front-ends and see what are their differences. troddit a web client for reddit with authenticated logins and a variety of browsing options (by burhan-syed)",
-          "bing:troddit alternatives and reviews - libhunt which is the best alternative to troddit? based on common mentions it is: stylegan2-pytorch, lemmy, syncthing/syncthing-android, invidious or reddit-archive/reddit"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.libhunt.com/compare-troddit-vs-alternative-front-ends",
-          "https://www.libhunt.com/r/troddit"
-        ]
-      },
-      "reason": "platform=reddit; service=frontend/mirror; identity=comments/post/posts/user; search_intent=0; providers=0; queries=1",
+      "reason": "platform=twitter/nitter; service=frontend; identity=-; search_intent=1; providers=1; queries=2",
       "error": ""
     },
     {
       "domain": "www.peekstr.com",
       "platform": "reddit",
-      "accepted": false,
-      "score": 12,
-      "query_count": 8,
-      "final_url": "https://www.peekstr.com/view-reddit-without-login",
+      "accepted": true,
+      "score": 15,
+      "query_count": 0,
+      "final_url": "https://www.peekstr.com/",
       "evidence": {
         "platform_hits": [
           "reddit"
@@ -685,111 +596,173 @@
           "reddit"
         ],
         "header_brand_hits": [],
-        "header_service_hits": [],
+        "header_service_hits": [
+          "slideshow",
+          "gallery"
+        ],
         "header_identity_hits": [
           "subreddit",
-          "post"
+          "subreddits"
         ],
-        "service_hits": [],
+        "service_hits": [
+          "browser",
+          "slideshow",
+          "gallery",
+          "content browser"
+        ],
         "identity_hits": [
           "subreddit",
-          "comments",
+          "subreddits",
           "post",
-          "posts",
-          "profile"
+          "posts"
         ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 1,
-        "interactive_target_hits": [],
+        "ui_signal": true,
+        "inputs": 2,
+        "forms": 2,
+        "buttons": 3,
+        "interactive_target_hits": [
+          "subreddit",
+          "reddit"
+        ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "search_intent_hits": 0,
         "search_provider_hits": [],
-        "distinct_queries": 8,
-        "search_providers": [
-          "bing"
-        ],
+        "distinct_queries": 0,
+        "search_providers": [],
         "search_evidence": [
-          "Human-verified viewer seed: https://www.peekstr.com/",
-          "bing:peekstr - view any subreddit’s images & videos full-screen ... turn any subreddit into a full-screen image & video slideshow with an ai multi-reddit builder. no account, no app, no cookies.",
-          "bing:view reddit without logging in, no account | peekstr peekstr is a clean, full-screen way to browse public reddit images and videos in your browser. no account, no app, no cookies, and every post links back to its original reddit thread.",
-          "bing:peekstr - view any subreddit’s images & videos full-screen ... peekstr turns any subreddit into a full-screen image & video slideshow. no account, no app, no cookies. combine subreddits with the ai multi-reddit builder and browse galleries instantly."
+          "Web-verified viewer seed: https://www.peekstr.com/"
         ],
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
         ],
         "fetch_via": "direct",
         "query_urls": [
-          "https://www.peekstr.com/",
-          "https://www.peekstr.com/view-reddit-without-login"
+          "https://www.peekstr.com/"
         ]
       },
-      "reason": "platform=reddit; service=-; identity=subreddit/post; search_intent=0; providers=0; queries=8",
+      "reason": "platform=reddit; service=slideshow/gallery; identity=subreddit/subreddits; search_intent=0; providers=0; queries=0",
+      "error": ""
+    }
+  ],
+  "rejected_sample": [
+    {
+      "domain": "redditvisor.app",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://redditvisor.app/",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "visor"
+        ],
+        "header_identity_hits": [
+          "post"
+        ],
+        "service_hits": [
+          "visor"
+        ],
+        "identity_hits": [
+          "post"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "search_intent_hits": 1,
+        "search_provider_hits": [
+          "bing"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing"
+        ],
+        "search_evidence": [
+          "bing:reddit visor reddit visor - live reddit post monitor"
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://redditvisor.app/"
+        ]
+      },
+      "reason": "platform=reddit; service=visor; identity=post; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
-      "domain": "elartedelasredes.com",
+      "domain": "fritter.cc",
       "platform": "twitter",
       "accepted": false,
       "score": 11,
       "query_count": 1,
-      "final_url": "https://elartedelasredes.com/redes-sociales/twitter-x/como-entrar-a-x-sin-cuenta-las-claves-para-ver-contenido",
+      "final_url": "https://fritter.cc/",
       "evidence": {
         "platform_hits": [
           "twitter",
-          "x",
           "nitter"
         ],
         "brand_hits": [
           "nitter"
         ],
         "header_platform_hits": [
-          "x",
-          "nitter"
+          "twitter"
         ],
-        "header_brand_hits": [
-          "nitter"
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "frontend"
         ],
-        "header_service_hits": [],
         "header_identity_hits": [],
         "service_hits": [
-          "frontend",
-          "instancia"
+          "frontend"
         ],
         "identity_hits": [
           "tweet",
-          "perfil",
-          "usuario"
+          "tweets",
+          "profile"
         ],
         "ui_signal": false,
-        "inputs": 6,
-        "forms": 3,
-        "buttons": 5,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
         "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
+        "search_intent_hits": 1,
+        "search_provider_hits": [
+          "bing"
+        ],
         "distinct_queries": 1,
         "search_providers": [
           "bing"
         ],
         "search_evidence": [
-          "bing:cómo entrar a x sin cuenta: las claves para ver contenido aug 27, 2025 · redes sociales / x/twitter cómo entrar a x sin cuenta: las claves para ver contenido aprende a sortear las restricciones de x para ver perfiles, publicaciones y tendencias de forma anónima. descubre métodos efectivos usando google o visores externos que te permiten consultar contenido sin registrarte, con interacciones limitadas."
+          "bing:fritter: a privacy-friendly twitter frontend for mobile devices a privacy-friendly twitter frontend for mobile devices. fritter is an open source frontend for twitter, focusing on giving you the best experience and keeping your data private, local and in your hands."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "query_urls": [
-          "https://elartedelasredes.com/redes-sociales/twitter-x/como-entrar-a-x-sin-cuenta-las-claves-para-ver-contenido"
+          "https://fritter.cc/"
         ]
       },
-      "reason": "platform=x/nitter; service=frontend/instancia; identity=tweet/perfil/usuario; search_intent=0; providers=0; queries=1",
+      "reason": "platform=twitter; service=frontend; identity=tweet/tweets/profile; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
@@ -815,7 +788,8 @@
         "service_hits": [
           "viewer",
           "mirror",
-          "instance"
+          "instance",
+          "gallery"
         ],
         "identity_hits": [
           "blog",
@@ -851,629 +825,35 @@
           "https://grokipedia.com/page/Tumblr_Archive_Sites"
         ]
       },
-      "reason": "platform=tumblr; service=viewer/mirror/instance; identity=user; search_intent=0; providers=0; queries=1",
+      "reason": "platform=tumblr; service=viewer/mirror/instance/gallery; identity=user; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "pictame.com",
-      "platform": "tumblr",
+      "domain": "visor.vin",
+      "platform": "reddit",
       "accepted": false,
-      "score": 11,
+      "score": 8,
       "query_count": 1,
-      "final_url": "https://pictame.com/es/instagram-viewer",
+      "final_url": "https://visor.vin/",
       "evidence": {
-        "platform_hits": [],
+        "platform_hits": [
+          "reddit"
+        ],
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [
-          "viewer",
           "visor"
         ],
-        "header_identity_hits": [
-          "blog",
-          "perfil",
-          "usuario"
-        ],
-        "service_hits": [
-          "viewer",
-          "visor"
-        ],
-        "identity_hits": [
-          "blog",
-          "user",
-          "perfil",
-          "usuario",
-          "publicación"
-        ],
-        "ui_signal": true,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 44,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:visor de instagram - ver perfiles de forma anónima | pictame ver perfiles de instagram, stories, reels y publicaciones de forma anónima. sin necesidad de iniciar sesión. visor de instagram anónimo y gratuito con protección completa de privacidad."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://pictame.com/es/instagram-viewer"
-        ]
-      },
-      "reason": "platform=-; service=viewer/visor; identity=blog/perfil/usuario; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "tweetdelete.net",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 11,
-      "query_count": 5,
-      "final_url": "https://tweetdelete.net/es/recursos/browse-twitter-without-an-account-easy-access-outside-x/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "usuario",
-          "publicación"
-        ],
-        "service_hits": [
-          "visor"
-        ],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "profile",
-          "perfil",
-          "usuario",
-          "publicación"
-        ],
-        "ui_signal": false,
-        "inputs": 1,
-        "forms": 0,
-        "buttons": 2,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 5,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:navegar por twitter sin cuenta | tweetdelete saber cómo navegar por twitter sin una cuenta te permite acceder a los tweets sin identificarte como usuario. a continuación te explicamos cómo hacerlo.",
-          "bing:navegar por twitter sin cuenta | tweetdelete aprende a acceder a algunas funciones de twitter sin una cuenta registrada, como ver perfiles, explorar y buscar tweets. también descubre las limitaciones y los trucos para navegar por twitter sin una cuenta.",
-          "bing:visualizzare twitter senza account | tweetedelete apr 24, 2025 · visualizzare twitter senza account: è ancora possibile? è ancora possibile visualizzare twitter senza un account sulla piattaforma di social media? non è più possibile a causa di una modifica introdotta da x nel luglio 2023. twitter ha introdotto dei limiti di velocità per contrastare gli strumenti di intelligenza artificiale (ai) che raschiano i dati dalla piattaforma. c'erano anche ...",
-          "bing:nitter twitter | third-party alternative for x | tweetdelete mar 20, 2025 · are you looking for the best third-party alternative to access x, formerly twitter? this guide will teach you how to use nitter twitter.",
-          "bing:view twitter without account | tweetedelete - tweet delete apr 24, 2025 · are you aware of the three simple techniques to view twitter without account? find out how you can do this easily in this guide."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://tweetdelete.net/es/recursos/browse-twitter-without-an-account-easy-access-outside-x/",
-          "https://tweetdelete.net/it/resources/view-twitter-without-account-3-solutions-that-still-work/",
-          "https://tweetdelete.net/resources/nitter-twitter/",
-          "https://tweetdelete.net/resources/view-twitter-without-account-3-solutions-that-still-work/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=visor; identity=tweet/tweets/usuario/publicación; search_intent=0; providers=0; queries=5",
-      "error": ""
-    },
-    {
-      "domain": "it.androidayuda.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 9,
-      "query_count": 2,
-      "final_url": "https://it.androidayuda.com/androide/Tutoriales/come-accedere-a-Twitter-senza-registrarsi/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweet"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "tweet",
-          "post",
-          "profilo",
-          "utente",
-          "pubblicazione"
-        ],
-        "ui_signal": false,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:come visualizzare twitter (x) senza un account: trucchi e ... scopri come usare twitter/x senza registrarti: visualizza tweet, cerca profili e tendenze con metodi, trucchi e strumenti esterni facili da usare.",
-          "bing:come usare twitter (x) senza registrarsi: metodi, trucchi e ... scopri come usare twitter/x senza registrarti: visualizza tweet, cerca profili e tendenze con metodi, trucchi e strumenti esterni facili da usare."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://it.androidayuda.com/androide/Tutoriales/come-accedere-a-Twitter-senza-registrarsi/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=-; identity=tweet; search_intent=0; providers=0; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "it.androidguias.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://it.androidguias.com/come-accedere-a-Twitter-senza-registrarsi/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweet"
-        ],
-        "service_hits": [
-          "proxy"
-        ],
-        "identity_hits": [
-          "tweet",
-          "post",
-          "profilo",
-          "utente",
-          "pubblicazione"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 2,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:come visualizzare twitter senza account o registrazione ... apr 27, 2025 · scopri come visualizzare e navigare su twitter senza un account, una registrazione o un accesso. metodi ufficiali, estensioni e trucchi per accedere a x in modo anonimo."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://it.androidguias.com/come-accedere-a-Twitter-senza-registrarsi/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=proxy; identity=tweet; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "it.androidsis.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://it.androidsis.com/come-accedere-a-Twitter-senza-registrarsi/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweet",
-          "utente"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "tweet",
-          "post",
-          "profilo",
-          "utente",
-          "pubblicazione"
-        ],
-        "ui_signal": false,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:come visualizzare twitter (x) senza un account: guida ... molti utenti cercano modi per registrarsi su twitter (ora formalmente noto come x) senza un account per accedere alla piattaforma dove nascono la maggior parte delle controversie e delle notizie più importanti del web. tuttavia, è fondamentale comprendere che un account twitter è sempre necessario per l'accesso ufficiale , in quanto si tratta di un requisito di base per la sicurezza e la ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://it.androidsis.com/come-accedere-a-Twitter-senza-registrarsi/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=-; identity=tweet/utente; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "nonspace.dev",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://nonspace.dev/",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "blog",
-          "posts"
-        ],
-        "service_hits": [
-          "mirror"
-        ],
-        "identity_hits": [
-          "blog",
-          "blogs",
-          "post",
-          "posts"
-        ],
-        "ui_signal": false,
-        "inputs": 8,
-        "forms": 2,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:nonspace themes hi, i'm nonspace. i'm a self-taught front-end developer. sometimes i make and share tumblr themes."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://nonspace.dev/"
-        ]
-      },
-      "reason": "platform=tumblr; service=mirror; identity=blog/posts; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "pt.androidguias.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://pt.androidguias.com/como-fazer-login-no-twitter-sem-se-registrar/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweets"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "perfil",
-          "usuário"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 2,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:como visualizar o twitter sem uma conta ou registro: todos os ... aprenda a visualizar e navegar no twitter sem uma conta, registro ou login. métodos oficiais, extensões e truques para acessar o x anonimamente."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://pt.androidguias.com/como-fazer-login-no-twitter-sem-se-registrar/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=-; identity=tweets; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "socialix.io",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://socialix.io/x-search",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweets",
-          "profile"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "tweets",
-          "user",
-          "profile"
-        ],
-        "ui_signal": false,
-        "inputs": 3,
-        "forms": 3,
-        "buttons": 60,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:x search - twitter advanced search without account | socialix.io the advanced x and twitter search engine. search tweets, profiles, and threads without an account."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://socialix.io/x-search"
-        ]
-      },
-      "reason": "platform=twitter/x; service=-; identity=tweets/profile; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "trickybird.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://trickybird.com/it/unblock/reddit",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "subreddit"
-        ],
-        "service_hits": [
-          "proxy"
-        ],
-        "identity_hits": [
-          "subreddit"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 5,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:sblocca reddit, old.reddit nel browser | trickybird sblocchi reddit dove i social sono filtrati. trickybird apre subreddit e commenti nel layout old.reddit in una scheda del browser. senza vpn e senza account."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://trickybird.com/it/unblock/reddit"
-        ]
-      },
-      "reason": "platform=reddit; service=proxy; identity=subreddit; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "whileint.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://whileint.com/pt/tech/gretchen/how-to-browse-reddit-anonymously/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
         "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "perfil",
-          "utilisateur",
-          "usuário"
+        "service_hits": [
+          "visor"
         ],
+        "identity_hits": [],
         "ui_signal": true,
-        "inputs": 11,
-        "forms": 4,
-        "buttons": 17,
-        "interactive_target_hits": [
-          "post",
-          "account"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:como ficar anônimo no reddit para navegar anonimamente aug 11, 2023 · o reddit possui aplicativos para desktop e dispositivos móveis, mas apenas o aplicativo móvel possui uma maneira nativa de navegar anonimamente. a melhor parte é que você nem precisa de uma conta para fazer isso."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://whileint.com/pt/tech/gretchen/how-to-browse-reddit-anonymously/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=perfil/utilisateur/usuário; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.digitaltrends.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://www.digitaltrends.com/social-media/reddit-is-ending-anonymous-browsing-on-old-reddit-and-longtime-users-are-not-happy/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "post"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "comment",
-          "comments",
-          "post",
-          "posts"
-        ],
-        "ui_signal": false,
-        "inputs": 48,
+        "inputs": 24,
         "forms": 6,
-        "buttons": 41,
+        "buttons": 228,
         "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
@@ -1486,431 +866,15 @@
           "bing"
         ],
         "search_evidence": [
-          "bing:reddit is ending anonymous browsing on old reddit, and ... jul 1, 2026 · reddit is ending anonymous browsing on old reddit, and longtime users are not happy reddit's old interface is getting a login requirement, and its long term future looks uncertain."
+          "bing:visor | see the whole market 5 days ago · see the whole market, not just pages of listings."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "query_urls": [
-          "https://www.digitaltrends.com/social-media/reddit-is-ending-anonymous-browsing-on-old-reddit-and-longtime-users-are-not-happy/"
+          "https://visor.vin/"
         ]
       },
-      "reason": "platform=reddit; service=-; identity=post; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "akashrajpurohit.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 7,
-      "query_count": 2,
-      "final_url": "https://akashrajpurohit.com/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "posts"
-        ],
-        "service_hits": [
-          "proxy"
-        ],
-        "identity_hits": [
-          "post",
-          "posts",
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 1,
-        "forms": 0,
-        "buttons": 12,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:redlib — self-hosted reddit browsing without the bloat sep 18, 2025 · redlib is a blazing-fast, privacy-first alternative frontend for reddit built in rust. born from the ashes of libreddit's rate limiting issues, it provides a clean, ad-free reddit browsing experience while keeping your data private and secure."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://akashrajpurohit.com/blog/redlib-selfhosted-reddit-browsing-without-the-bloat/"
-        ]
-      },
-      "reason": "platform=reddit; service=proxy; identity=posts; search_intent=1; providers=1; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "simple-web.org",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 7,
-      "query_count": 1,
-      "final_url": "https://simple-web.org/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "instance"
-        ],
-        "header_identity_hits": [],
-        "service_hits": [
-          "frontend",
-          "alternative frontend",
-          "instance"
-        ],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 1,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 1,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:teddit vs redlib: which reddit frontend should you use? apr 2, 2026 · compare teddit and redlib side by side to decide which reddit privacy frontend best fits your browsing habits and privacy requirements."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://simple-web.org/guides/teddit-vs-redlib-which-reddit-frontend-should-you-use-2026"
-        ]
-      },
-      "reason": "platform=-; service=instance; identity=-; search_intent=1; providers=1; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "theme404.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 7,
-      "query_count": 2,
-      "final_url": "https://theme404.com/",
-      "evidence": {
-        "platform_hits": [
-          "twitter"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 3,
-        "forms": 1,
-        "buttons": 3,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 2,
-        "search_provider_hits": [
-          "bing"
-        ],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:meet fritter - top nitter alternative for a better twitter ... jun 17, 2024 · nitter was a free and open-source alternative viewer for twitter that focused on privacy and performance. it was designed to provide a minimalist interface similar to the classic twitter desktop layout and relied on a glitch in twitter’s system to fetch content without requiring a user account.",
-          "bing:i miss nitter: 4 alternatives to try - theme404.com jan 9, 2024 · explore top nitter alternatives for a safe, privacy-focused twitter experience. find the best option tailored to your needs!",
-          "bing:meet fritter – top nitter alternative for a better twitter ... jun 17, 2024 · nitter was a free and open-source alternative viewer for twitter that focused on privacy and performance. it was designed to provide a minimalist interface similar to the classic twitter desktop layout and relied on a glitch in twitter’s system to fetch content without requiring a user account."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://theme404.com/blog/fritter-the-best-alternative-to-nitter/",
-          "https://theme404.com/blog/i-miss-nitter-alternatives-to-try/"
-        ]
-      },
-      "reason": "platform=twitter; service=-; identity=user; search_intent=2; providers=1; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "www.airdroid.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 7,
-      "query_count": 3,
-      "final_url": "https://www.airdroid.com/es/app-tips/how-to-see-twitter-x-without-account/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "post",
-          "perfil",
-          "usuario"
-        ],
-        "ui_signal": false,
-        "inputs": 11,
-        "forms": 1,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 3,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:¿cómo ver twitter/x sin cuenta? - airdroid aug 10, 2026 · parte 3. alternativas para ver twitter sin iniciar sesión si los métodos anteriores no te funcionan, aquí tienes dos alternativas más para acceder a twitter sin enfrentarte a restricciones de inicio de sesión. 1 crear una cuenta temporal de twitter si necesitas navegar por twitter con frecuencia, la mejor solución es crear una cuenta temporal. es gratis, rápido y te da acceso completo a ...",
-          "bing:¿cómo ver twitter/x sin cuenta? - airdroid aug 10, 2026 · ¿quieres aprender a ver twitter sin cuenta? aquí tienes una guía detallada con instrucciones paso a paso para ayudarte.",
-          "bing:como ver o twitter/x sem conta? - airdroid aug 7, 2026 · está querendo saber como ver o twitter sem conta? aqui está um guia detalhado com instruções passo a passo para ajudá-lo."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.airdroid.com/es/app-tips/how-to-see-twitter-x-without-account/",
-          "https://www.airdroid.com/pt/app-tips/how-to-see-twitter-x-without-account/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=-; identity=post/perfil/usuario; search_intent=0; providers=0; queries=3",
-      "error": ""
-    },
-    {
-      "domain": "www.hollyland.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 7,
-      "query_count": 1,
-      "final_url": "https://www.hollyland.com/",
-      "evidence": {
-        "platform_hits": [
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user",
-          "post"
-        ],
-        "ui_signal": true,
-        "inputs": 18,
-        "forms": 4,
-        "buttons": 6,
-        "interactive_target_hits": [
-          "blog"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:4 maneiras de pesquisar o twitter (x) sem uma conta - hollyland oct 31, 2023 · anteriormente conhecido como twitter, o x é uma plataforma popular para acessar informações relevantes sobre acontecimentos globais. os usuários publicam texto, links, imagens e vídeos para se comunicar com outros usuários nesta plataforma de mídia social. para usar a plataforma, os usuários precisam criar uma conta para acessar todos os..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.hollyland.com/pt-br/blog/tips/search-twitter-x-without-an-account"
-        ]
-      },
-      "reason": "platform=x; service=-; identity=user; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "photon-reddit.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 2,
-      "final_url": "https://photon-reddit.com/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:photon - an open source reddit client photon is a clean, modern and open source reddit desktop client."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://photon-reddit.com/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "reedditapp.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 2,
-      "final_url": "https://reedditapp.com/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "subreddits"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:reeddit elastic, minimal reddit web-app reader client. frontpage all pics iama askreddit worldnews todayilearned tech science reactiongifs books explainlikeimfive videos adviceanimals funny aww earthporn"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://reedditapp.com/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=subreddits; search_intent=0; providers=0; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "uforio.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 2,
-      "final_url": "http://uforio.com/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "subreddits",
-          "comments",
-          "posts"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:uforio - alternative reddit client hide already read posts or nsfw-content you can hide already read posts or nsfw-content to make your work with reddit even more comfortable."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://uforio.com/",
-          "http://uforio.com/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=subreddits/comments/posts; search_intent=0; providers=0; queries=2",
+      "reason": "platform=reddit; service=visor; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -2005,158 +969,6 @@
       "error": ""
     },
     {
-      "domain": "olhardigital.com.br",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 5,
-      "query_count": 1,
-      "final_url": "https://olhardigital.com.br/2021/04/07/dicas-e-tutoriais/saiba-como-acessar-o-reddit-sem-precisar-ter-uma-conta-na-plataforma/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "subreddits",
-          "comments",
-          "posts",
-          "profile",
-          "perfil",
-          "usuário"
-        ],
-        "ui_signal": false,
-        "inputs": 4,
-        "forms": 4,
-        "buttons": 13,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:saiba como usar o reddit sem ter uma conta na plataforma ... apr 7, 2021 · interessado nas comunidades do reddit? saiba como entrar na rede social sem precisar ter uma conta no aplicativo"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://olhardigital.com.br/2021/04/07/dicas-e-tutoriais/saiba-como-acessar-o-reddit-sem-precisar-ter-uma-conta-na-plataforma/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=subreddits/comments/posts/profile/perfil/usuário; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "skimit.app",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 5,
-      "query_count": 1,
-      "final_url": "https://skimit.app/about/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 1,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:skimit - reddit without the noise skimit is an open-source, read-only, quieter way to browse reddit. built for simplicity and without ads, distractions, or engagement prompts. read-only: no voting, commenting, or posting, just browsing. minimal & fast: lightweight and free of bloated ui features. ad-free & open-source: no ads, no tracking, and open for community contributions."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://skimit.app/about/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.mondoandroid.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 5,
-      "query_count": 1,
-      "final_url": "https://www.mondoandroid.com/2026/09/12/app-alternative-a-reddit-ne-ho-provate-4-ma-una-mi-ha-convinto-a-cambiare/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "subreddit",
-          "post",
-          "utente"
-        ],
-        "ui_signal": false,
-        "inputs": 11,
-        "forms": 3,
-        "buttons": 5,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:app alternative a reddit: ne ho provate 4, ma una mi ha ... sep 12, 2026 · nel complesso, redreader propone meno contenuti superflui e più libertà di configurazione. non costituisce una sostituzione perfetta dell’app ufficiale, ma offre una soluzione leggera, senza pubblicità e senza abbonamento per chi desidera un accesso a reddit più controllabile."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.mondoandroid.com/2026/09/12/app-alternative-a-reddit-ne-ho-provate-4-ma-una-mi-ha-convinto-a-cambiare/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=subreddit/post/utente; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
       "domain": "f-droid.org",
       "platform": "twitter",
       "accepted": false,
@@ -2202,6 +1014,57 @@
       "error": ""
     },
     {
+      "domain": "theme404.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://theme404.com/",
+      "evidence": {
+        "platform_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "user"
+        ],
+        "service_hits": [
+          "browser"
+        ],
+        "identity_hits": [
+          "user"
+        ],
+        "ui_signal": false,
+        "inputs": 3,
+        "forms": 1,
+        "buttons": 3,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "search_intent_hits": 0,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing"
+        ],
+        "search_evidence": [
+          "bing:i miss nitter: 4 alternatives to try - theme404.com jan 9, 2024 · explore top nitter alternatives for a safe, privacy-focused twitter experience. find the best option tailored to your needs!"
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://theme404.com/blog/i-miss-nitter-alternatives-to-try/"
+        ]
+      },
+      "reason": "platform=twitter; service=browser; identity=user; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
       "domain": "nextjs.org",
       "platform": "reddit",
       "accepted": false,
@@ -2217,7 +1080,9 @@
         "header_identity_hits": [],
         "service_hits": [
           "frontend",
-          "proxy"
+          "proxy",
+          "browser",
+          "gallery"
         ],
         "identity_hits": [
           "post",
@@ -2247,48 +1112,7 @@
           "https://nextjs.org/"
         ]
       },
-      "reason": "platform=-; service=frontend/proxy; identity=post/user/profile; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "fdroid.gitlab.io",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 1,
-      "query_count": 0,
-      "final_url": "https://fdroid.gitlab.io/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://fdroid.gitlab.io/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
+      "reason": "platform=-; service=frontend/proxy/browser/gallery; identity=post/user/profile; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -2333,12 +1157,12 @@
       "error": ""
     },
     {
-      "domain": "www.geelark.com",
+      "domain": "fdroid.gitlab.io",
       "platform": "reddit",
       "accepted": false,
       "score": 1,
-      "query_count": 1,
-      "final_url": "https://www.geelark.com/pt/blog-pt/navegar-no-reddit-anonimamente/",
+      "query_count": 0,
+      "final_url": "https://fdroid.gitlab.io/",
       "evidence": {
         "platform_hits": [],
         "brand_hits": [],
@@ -2359,20 +1183,18 @@
         "content_title_hits": [],
         "search_intent_hits": 0,
         "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [],
+        "trusted_sources": [
+          "Alternative frontends 3"
         ],
-        "search_evidence": [
-          "bing:como navegar no reddit anonimamente: dicas para uma navegação ... descubra maneiras seguras de navegar no reddit anonimamente. aprenda a explorar a plataforma livremente, visualizar e interagir com posts sem ser rastreado, e manter sua privacidade."
-        ],
-        "trusted_sources": [],
         "fetch_via": "direct",
         "query_urls": [
-          "https://www.geelark.com/pt/blog-pt/navegar-no-reddit-anonimamente/"
+          "https://fdroid.gitlab.io/"
         ]
       },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -2417,12 +1239,12 @@
       "error": ""
     },
     {
-      "domain": "allaboutcookies.org",
-      "platform": "reddit",
+      "domain": "chrome-stats.com",
+      "platform": "twitter",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://allaboutcookies.org/bypass-reddit-age-verification",
+      "final_url": "https://chrome-stats.com/d/toxcancel",
       "evidence": {
         "trusted_sources": [],
         "search_providers": [
@@ -2431,137 +1253,6 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "appmus.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://appmus.com/alternatives-to/tumblr",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best ",
-          "top ",
-          "comparison",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "apps.apple.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://apps.apple.com/us/app/multitab-for-tumblr/id1071533778",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "aurascience.blog",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://aurascience.blog/how-to-look-at-tumblr-without-account",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "buddyxtheme.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://buddyxtheme.com/nitter-alternatives-and-competitors/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "dev.to",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://dev.to/tommy_91/nitter-and-xcancel-are-back-which-twitter-viewer-should-you-use-in-2026-49be",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "en.paperblog.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://en.paperblog.com/10-best-nitter-alternatives-and-competitors-8101271/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "best ",
-          "top ",
-          "comparison",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "footprintiq.app",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 3,
-      "final_url": "https://footprintiq.app/twitter-search-without-account",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -2583,42 +1274,13 @@
     },
     {
       "domain": "greycoder.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 8,
-      "final_url": "https://greycoder.com/a-list-of-working-alternative-interfaces-to-various-social-media-sites/",
-      "evidence": {},
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "greycoder.com",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 4,
-      "final_url": "https://greycoder.com/a-list-of-working-alternative-interfaces-to-various-social-media-sites/",
+      "query_count": 3,
+      "final_url": "https://greycoder.com/alternative-interfaces-to-twitter-that-are-currently-working-and-reasonably-fast/",
       "evidence": {},
       "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "jetblackcode.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://jetblackcode.com/TumblrOriginalPostFinder",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -2639,40 +1301,12 @@
       "error": ""
     },
     {
-      "domain": "lib.rs",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://lib.rs/crates/libreddit",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "news.ycombinator.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://news.ycombinator.com/item?id=36144211",
-      "evidence": {},
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
       "domain": "nitter.app",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 10,
-      "final_url": "https://nitter.app/guides/nitter-vs-other-twitter-viewers",
+      "query_count": 1,
+      "final_url": "https://nitter.app/about",
       "evidence": {
         "trusted_sources": [],
         "search_providers": [
@@ -2695,26 +1329,6 @@
       "error": ""
     },
     {
-      "domain": "onstipe.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://onstipe.com/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "what are ",
-          "best "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "ourculturemag.com",
       "platform": "twitter",
       "accepted": false,
@@ -2733,30 +1347,12 @@
       "error": ""
     },
     {
-      "domain": "parties365.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://parties365.com/xcancel-alternatives/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "reddit-viewer.com",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://reddit-viewer.com/",
+      "final_url": "https://reddit-viewer.com/about",
       "evidence": {
         "trusted_sources": [],
         "search_providers": [
@@ -2765,81 +1361,6 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "reddvu.app",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://reddvu.app/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "reditr.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "http://reditr.com/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "scihub.help",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://scihub.help/nitter-net-mirrors-nitter-alternatives",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "what are ",
-          "how to ",
-          "best ",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "sr.ht",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://sr.ht/~jamesponddotco/awesome-privacy-front-ends/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "list of "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -2854,23 +1375,6 @@
           "Alternative frontends 3"
         ],
         "search_providers": [],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "support.reddithelp.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://support.reddithelp.com/hc/en-us/articles/28620245447572-How-do-I-log-in-and-out-of-my-Reddit-account",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
@@ -2912,36 +1416,16 @@
       "error": ""
     },
     {
-      "domain": "tweetdeleter.com",
+      "domain": "tweetdelete.net",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 1,
-      "final_url": "https://tweetdeleter.com/",
+      "query_count": 2,
+      "final_url": "https://tweetdelete.net/",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [
-          "how to ",
-          "guide"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "viiewerr.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://viiewerr.com/it/reddit/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "guide"
+          "review"
         ],
         "service_path_hint": false,
         "host_service_hint": false
@@ -2954,7 +1438,7 @@
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 6,
+      "query_count": 1,
       "final_url": "https://wbcomdesigns.com/nitter-alternatives-and-competitors/",
       "evidence": {
         "content_path_hint": false,
@@ -2972,69 +1456,11 @@
       "error": ""
     },
     {
-      "domain": "webapps.stackexchange.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://webapps.stackexchange.com/questions/182503/how-do-i-view-old-reddit-logged-out-as-of-july-2026",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.analyticsinsight.net",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.analyticsinsight.net/apps/how-to-use-twitter-x-without-an-account",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to ",
-          "best "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.bitbrowser.net",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.bitbrowser.net/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to ",
-          "best ",
-          "top ",
-          "guide",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "www.clrn.org",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
-      "query_count": 5,
+      "query_count": 1,
       "final_url": "https://www.clrn.org/how-to-look-at-tumblr-without-an-account/",
       "evidence": {
         "trusted_sources": [],
@@ -3044,54 +1470,6 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.ghacks.net",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 3,
-      "final_url": "https://www.ghacks.net/2020/12/05/teddit-browse-reddit-in-a-privacy-preserving-way/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.glorycloud.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.glorycloud.com/",
-      "evidence": {},
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "www.libhunt.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://www.libhunt.com/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "top ",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -3105,61 +1483,6 @@
         "content_host": true
       },
       "reason": "content/publishing host, not a service host",
-      "error": ""
-    },
-    {
-      "domain": "www.pcmag.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://www.pcmag.com/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to ",
-          "guide",
-          "explained",
-          "review"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.producthunt.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.producthunt.com/products/tumlook",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.quora.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.quora.com/Are-there-any-websites-that-will-display-mirror-reddit-or-other-websites-using-a-different-front-end-UI",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
       "error": ""
     },
     {
@@ -3180,25 +1503,6 @@
       "error": ""
     },
     {
-      "domain": "www.rankred.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://www.rankred.com/best-tumblr-alternatives/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best ",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "www.socialfetch.dev",
       "platform": "twitter",
       "accepted": false,
@@ -3209,27 +1513,6 @@
         "content_path_hint": false,
         "content_title_hits": [
           "how to "
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.softwaretestinghelp.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.softwaretestinghelp.com/sotwe-alternatives/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best ",
-          "top ",
-          "review",
-          "alternatives"
         ],
         "service_path_hint": false,
         "host_service_hint": false
@@ -3255,50 +1538,11 @@
       "error": ""
     },
     {
-      "domain": "www.tumlook.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 9,
-      "final_url": "https://www.tumlook.com/about",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.wappkit.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.wappkit.com/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to ",
-          "best ",
-          "top ",
-          "guide",
-          "alternatives"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
       "domain": "www.wired.com",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 2,
+      "query_count": 1,
       "final_url": "https://www.wired.com/story/nitter-twitter-remove-ads-for-you-promoted-tweets/",
       "evidence": {
         "content_path_hint": false,
@@ -3312,109 +1556,6 @@
       },
       "reason": "article/content page, not a frontend endpoint",
       "error": ""
-    },
-    {
-      "domain": "zoomblr.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 13,
-      "final_url": "https://zoomblr.com/how-to-view-any-tumblr-profile-without-an-account",
-      "evidence": {
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "search_providers": [
-          "bing"
-        ],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
     }
-  ],
-  "search_errors": [
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter frontend similar to twiiit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter frontend similar to twiiit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr frontend alternative to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr frontend alternative to priviblur",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr viewer similar to priviblur",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "alternative tumblr viewer without account not priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter alternative frontend viewer -nitter -xcancel -twiiit",
-      "backend": "bing",
-      "page": 2,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit browser without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr alternative frontend viewer -priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    }
-  ],
-  "note": "Publish guard triggered; output list was not replaced."
+  ]
 }

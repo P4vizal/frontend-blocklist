@@ -1,6 +1,6 @@
-# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
+# Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.
 # Append-only discovery history: previously accepted domains are never removed.
-# Generated from maintained frontend registries + GitHub + DDGS auto search + page validation.
+# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
 ||alternativeto.net^
 ||api.sorsa.io^
 ||bai.tools^
@@ -9,6 +9,7 @@
 ||carryfeed.com^
 ||cascadr.co^
 ||deletedby.com^
+||discuss.privacyguides.net^
 ||dopingconsomme.blogspot.com^
 ||finderlaunch.com^
 ||floppydata.com^
@@ -104,6 +105,7 @@
 ||www.hatpublic.com^
 ||www.journaldufreenaute.fr^
 ||www.mujico.org^
+||www.peekstr.com^
 ||www.rapidseedbox.com^
 ||www.tech2geek.net^
 ||www.troddit.com^

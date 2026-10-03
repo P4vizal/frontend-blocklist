@@ -305,14 +305,14 @@ NON_FRONTEND_SERVICE_TERMS = (
     "profil tracker", "konto-analyse", "profil-analyse",
 )
 
-SEARCH_RESULT_SERVICE_TERMS = STRONG_SERVICE_TERMS + (
-    "search", "public profiles", "public posts", "anonymous",
-    "without login", "without account", "no login", "no account",
-    "sin iniciar sesión", "sin cuenta", "anónimo",
-    "sans connexion", "sans compte", "anonyme",
-    "ohne anmeldung", "ohne konto", "anonym",
-    "sem login", "sem conta", "anônimo",
-    "senza accesso", "senza account", "anonimo",
+SEARCH_RESULT_SERVICE_TERMS = STRONG_SERVICE_TERMS
+
+SEARCH_RESULT_EDITORIAL_MARKERS = (
+    "what is ", "what are ", "how to ", "best ", "top ",
+    "guide", "comparison", "review", "published", "byline",
+    "read time", "reading time", "newsletter", "restaurant",
+    "hotel", "calculator", "dictionary", "definition", "jobs",
+    "career", "travel", "tourism",
 )
 
 PERMANENT_FETCH_ERROR_CODES = {404, 410, 451}
@@ -1034,9 +1034,14 @@ def run_search_spec(
 
 
 
-def search_result_is_relevant(platform: str, query: str, evidence: str) -> bool:
-    """Reject obvious search-engine noise while preserving ambiguous viewer results."""
-    if not evidence:
+def search_result_is_relevant(
+    platform: str,
+    query: str,
+    evidence: str,
+    href: str = "",
+) -> bool:
+    """Reject obvious search noise while preserving service-shaped candidates."""
+    if not evidence and not href:
         return True
 
     pcfg = PLATFORMS[platform]
@@ -1058,12 +1063,34 @@ def search_result_is_relevant(platform: str, query: str, evidence: str) -> bool:
         term_present(term, evidence) for term in SEARCH_RESULT_SERVICE_TERMS
     )
     brand_ok = any(term_present(term, evidence) for term in pcfg["brands"])
+    identity_ok = any(
+        term_present(term, evidence)
+        for term in pcfg["identity_extra"]
+    )
+    query_service = query_has_service_intent(platform, query)
 
-    if platform_ok and service_ok:
-        return True
+    safe_href = sanitize_request_url(href) if href else None
+    url_service_hint = bool(
+        safe_href
+        and (
+            SEARCH_SERVICE_HOST_RE.search(normalize_host(safe_href) or "")
+            or path_looks_like_service(urlparse(safe_href).path.lower())
+        )
+    )
+    editorial_evidence = any(
+        term_present(term, evidence)
+        for term in SEARCH_RESULT_EDITORIAL_MARKERS
+    )
+
     if brand_ok:
         return True
-    if query_has_service_intent(platform, query) and service_ok:
+    if url_service_hint and query_service:
+        return True
+    if platform_ok and service_ok:
+        return True
+    if query_service and service_ok:
+        return True
+    if query_service and identity_ok and not editorial_evidence:
         return True
     return False
 
@@ -1082,7 +1109,7 @@ def merge_search_result(
         return
 
     evidence = fold(f"{result.get('title', '')} {result.get('body', '')}")
-    if evidence and not search_result_is_relevant(platform, query, evidence):
+    if evidence and not search_result_is_relevant(platform, query, evidence, safe_href):
         return
 
     domain = normalize_host(safe_href)

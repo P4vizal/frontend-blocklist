@@ -307,7 +307,7 @@ farside_sample = [
         "instances": ["https://redlib.example/a|https://api.example"],
     }
 ]
-assert discovery.extract_farside(__import__("json").dumps(farside_sample), "reddit") == {"redlib.example"}
+assert discovery.extract_farside(__import__("json").dumps(farside_sample), "reddit") == {"redlib.example", "api.example"}
 
 assert discovery.extract_libredirect(
     __import__("json").dumps({"redlib": {"clearnet": ["https://redlib.example"], "tor": ["http://x.onion"]}}),

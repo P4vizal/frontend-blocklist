@@ -634,16 +634,26 @@ def run_search_spec(
     lang: str,
     platform: str,
     query: str,
-) -> tuple[int, str, str, str, list[tuple[int, str, list[dict]]], list[dict]]:
+) -> tuple[
+    int,
+    str,
+    str,
+    str,
+    list[tuple[int, str, list[dict]]],
+    list[dict],
+    int,
+]:
     cfg = LANGUAGES[lang]
     region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
     results_by_page: list[tuple[int, str, list[dict]]] = []
     errors: list[dict] = []
+    fallback_count = 0
     searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
 
     for page in search_pages_for(lang, query):
         page_results: list[dict] = []
         page_backend = ""
+        page_attempt_errors: list[dict] = []
 
         for backend in SEARCH_BACKENDS:
             for attempt in range(SEARCH_RETRIES + 1):
@@ -652,21 +662,22 @@ def run_search_spec(
                     if results:
                         page_results = results
                         page_backend = backend
+                        if page_attempt_errors:
+                            fallback_count += 1
                         break
                 except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
                     message = str(exc)
                     if isinstance(exc, DDGSException) and "No results found" in message:
-                        pass
-                    else:
-                        errors.append({
-                            "language": lang,
-                            "platform": platform,
-                            "query": query,
-                            "backend": backend,
-                            "page": page,
-                            "attempt": attempt + 1,
-                            "error": f"{type(exc).__name__}: {exc}",
-                        })
+                        continue
+                    page_attempt_errors.append({
+                        "language": lang,
+                        "platform": platform,
+                        "query": query,
+                        "backend": backend,
+                        "page": page,
+                        "attempt": attempt + 1,
+                        "error": f"{type(exc).__name__}: {exc}",
+                    })
                 if page_results:
                     break
                 if attempt < SEARCH_RETRIES and SEARCH_DELAY:
@@ -679,11 +690,16 @@ def run_search_spec(
 
         if page_results:
             results_by_page.append((page, page_backend, page_results))
+        elif page_attempt_errors:
+            # Only a full page miss is a search error. A failed first engine
+            # followed by a successful fallback is telemetry, not a failed
+            # search, so it doesn't pollute the error count.
+            errors.extend(page_attempt_errors)
 
         if SEARCH_DELAY:
             time.sleep(SEARCH_DELAY)
 
-    return index, lang, platform, query, results_by_page, errors
+    return index, lang, platform, query, results_by_page, errors, fallback_count
 
 
 def merge_search_result(
@@ -1827,6 +1843,7 @@ def main() -> int:
     search_results_seen = 0
     search_pages_succeeded = 0
     search_queries_with_results = 0
+    search_fallbacks = 0
 
     seeds = seed_candidates()
     candidate_map.update(seeds)
@@ -1903,7 +1920,16 @@ def main() -> int:
                 for index, (lang, platform, query) in enumerate(query_specs, start=1)
             ]
             for future in concurrent.futures.as_completed(futures):
-                index, lang, platform, query, results_by_page, errors = future.result()
+                (
+                    index,
+                    lang,
+                    platform,
+                    query,
+                    results_by_page,
+                    errors,
+                    fallback_count,
+                ) = future.result()
+                search_fallbacks += fallback_count
                 if results_by_page:
                     search_queries_with_results += 1
                 for page, backend, results in results_by_page:
@@ -1918,8 +1944,8 @@ def main() -> int:
                 for error in errors:
                     search_errors.append(error)
                     print(
-                        f"[WARN] DDGS/{error['backend']} {lang}/{platform} "
-                        f"page={error['page']}: {error['error']}"
+                        f"[WARN] search page failed after fallback "
+                        f"{lang}/{platform} page={error['page']}: {error['error']}"
                     )
 
     # Prioritise maintained registries and GitHub-discovered instances so the
@@ -1961,7 +1987,8 @@ def main() -> int:
     print(f"Search queries with at least one page: {search_queries_with_results}/{len(query_specs)}")
     print(f"Search queries without any page: {len(query_specs) - search_queries_with_results}")
     print(f"Search results seen: {search_results_seen}")
-    print(f"Search-engine backend failures: {len(search_errors)}")
+    print(f"Search pages with fallback recovery: {search_fallbacks}")
+    print(f"Search pages with no backend result: {len(search_errors)}")
 
     evaluations: list[Evaluation] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as executor:
@@ -2035,6 +2062,8 @@ def main() -> int:
                     "search_queries_with_results": search_queries_with_results,
                     "search_queries_without_results": len(query_specs) - search_queries_with_results,
                     "search_backend_failures": len(search_errors),
+        "search_fallbacks": search_fallbacks,
+                    "search_fallbacks": search_fallbacks,
                     "source_candidate_counts": {
                         "github": len(github_sources),
                         "gitlab": len(gitlab_sources),

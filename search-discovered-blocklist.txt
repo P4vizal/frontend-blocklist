@@ -1,10 +1,26 @@
-# Generated from maintained frontend registries + GitHub + DDGS multi-engine search + page validation.
+# Generated from maintained frontend registries + GitHub + DDGS auto metasearch + page validation.
 # Only newly discovered domains are included; domains already in blocklist.txt are omitted.
 ||twitterviewer.net^
-||twiewer.com^
-||carryfeed.com^
-||ilo.so^
-||snaplytics.io^
-||tweetgrok.ai^
-||twitee.co^
 ||tweetviewer.com^
+||twiiit.com^
+||redlite.app^
+||snaplytics.io^
+||tryadlicio.com^
+||tweetgrok.ai^
+||twiewer.com^
+||twitee.co^
+||viewri.com^
+||www.getxapi.com^
+||xtwitterviewer.com^
+||lessie.ai^
+||rebloq.app^
+||carryfeed.com^
+||lessie.cn^
+||mediascroll.io^
+||parental-control.flashget.com^
+||profileri.com^
+||snapany.com^
+||tuffermagazine.com^
+||www.tweetbinder.com^
+||rdx.overdevs.com^
+||bai.tools^

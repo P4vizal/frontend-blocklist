@@ -15,7 +15,7 @@ from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import parse_qs, quote_plus, unquote, urljoin, urlparse
+from urllib.parse import parse_qs, quote, quote_plus, unquote, urljoin, urlparse, urlunparse
 from urllib.request import Request, urlopen
 
 
@@ -296,6 +296,26 @@ STRONG_SERVICE_TERMS = (
     "查看器", "뷰어", "व्यूअर", "عارض",
 )
 
+NON_FRONTEND_SERVICE_TERMS = (
+    "analyzer", "analyser", "analytics", "tracker", "tracking",
+    "account analyzer", "profile analyzer", "account tracker",
+    "profile tracker", "karma analyzer", "statistics", "stats dashboard",
+    "suivi de profil", "analyseur de profil",
+    "profil tracker", "konto-analyse", "profil-analyse",
+)
+
+SEARCH_RESULT_SERVICE_TERMS = STRONG_SERVICE_TERMS + (
+    "search", "public profiles", "public posts", "anonymous",
+    "without login", "without account", "no login", "no account",
+    "sin iniciar sesión", "sin cuenta", "anónimo",
+    "sans connexion", "sans compte", "anonyme",
+    "ohne anmeldung", "ohne konto", "anonym",
+    "sem login", "sem conta", "anônimo",
+    "senza accesso", "senza account", "anonimo",
+)
+
+PERMANENT_FETCH_ERROR_CODES = {404, 410, 451}
+
 SERVICE_PATH_SEGMENTS = {
     "viewer", "view", "browse", "browser", "search", "nitter", "xcancel",
     "redlib", "libreddit", "teddit", "troddit", "priviblur",
@@ -305,6 +325,32 @@ SERVICE_COMPOUND_RE = re.compile(
     r"^(?:twitter|x|reddit|tumblr)[_-](?:viewer|browser|frontend)$",
     re.IGNORECASE,
 )
+
+
+def sanitize_request_url(value: str) -> str | None:
+    """Return an HTTP(S) URL safe for urllib requests, or None."""
+    if not isinstance(value, str):
+        return None
+    value = html.unescape(value).strip()
+    if not value:
+        return None
+    try:
+        parsed = urlparse(value)
+        host = parsed.hostname
+    except ValueError:
+        return None
+    if parsed.scheme.lower() not in {"http", "https"} or not parsed.netloc or not host:
+        return None
+    if parsed.username or parsed.password:
+        return None
+    if any(ord(ch) < 32 or ord(ch) == 127 for ch in parsed.netloc):
+        return None
+
+    safe_path = quote(parsed.path, safe="/:@!def path_looks_like_service(path: str) -> bool:
+'()*+,;=-._~%")
+    safe_query = quote(parsed.query, safe="/?:@!def path_looks_like_service(path: str) -> bool:
+'()*+,;=-._~%")
+    return urlunparse(parsed._replace(path=safe_path, query=safe_query, fragment=""))
 
 
 def path_looks_like_service(path: str) -> bool:
@@ -696,73 +742,73 @@ def build_queries() -> list[tuple[str, str, str]]:
         "en": [
             '"{platform} viewer" "without login"',
             '"{platform} viewer" "without account"',
-            '"{platform} frontend" "without login"',
+            '"{platform} web viewer" "without login"',
             '"{platform} anonymous viewer"',
         ],
         "es": [
             '"{platform} visor" "sin iniciar sesión"',
             '"{platform} visor" "sin cuenta"',
-            '"{platform} frontend" "sin iniciar sesión"',
+            '"{platform} visor web" "sin iniciar sesión"',
             '"{platform} visor anónimo"',
         ],
         "fr": [
             '"{platform} visionneuse" "sans connexion"',
             '"{platform} visionneuse" "sans compte"',
-            '"{platform} interface alternative" "sans connexion"',
+            '"{platform} visionneuse web" "sans connexion"',
             '"{platform} visionneuse anonyme"',
         ],
         "de": [
             '"{platform} Betrachter" "ohne Anmeldung"',
             '"{platform} Betrachter" "ohne Konto"',
-            '"{platform} Frontend" "ohne Anmeldung"',
+            '"{platform} Web-Betrachter" "ohne Anmeldung"',
             '"{platform} anonymer Betrachter"',
         ],
         "zh": [
             '"{platform} 查看器" "无登录"',
             '"{platform} 查看器" "无需账户"',
-            '"{platform} 替代前端"',
+            '"{platform} 网页查看器"',
             '"{platform} 匿名 查看器"',
         ],
         "ja": [
             '"{platform} ビューア" "ログインなし"',
             '"{platform} ビューア" "アカウントなし"',
-            '"{platform} フロントエンド"',
+            '"{platform} Webビューア"',
             '"{platform} 匿名 ビューア"',
         ],
         "ko": [
             '"{platform} 뷰어" "로그인 없이"',
             '"{platform} 뷰어" "계정 없이"',
-            '"{platform} 프론트엔드"',
+            '"{platform} 웹 뷰어"',
             '"{platform} 익명 뷰어"',
         ],
         "hi": [
             '"{platform} व्यूअर" "बिना लॉगिन"',
             '"{platform} व्यूअर" "बिना अकाउंट"',
-            '"{platform} फ्रंटएंड"',
+            '"{platform} वेब व्यूअर"',
             '"{platform} अनाम व्यूअर"',
         ],
         "ru": [
             '"{platform} просмотрщик" "без входа"',
             '"{platform} просмотрщик" "без аккаунта"',
-            '"{platform} фронтенд" "без входа"',
+            '"{platform} веб-просмотрщик" "без входа"',
             '"{platform} анонимный просмотрщик"',
         ],
         "ar": [
             '"{platform} عارض" "بدون تسجيل دخول"',
             '"{platform} عارض" "بدون حساب"',
-            '"{platform} واجهة بديلة"',
+            '"{platform} عارض ويب"',
             '"{platform} عارض مجهول"',
         ],
         "pt": [
             '"{platform} visualizador" "sem login"',
             '"{platform} visualizador" "sem conta"',
-            '"{platform} frontend" "sem login"',
+            '"{platform} visualizador web" "sem login"',
             '"{platform} visualizador anônimo"',
         ],
         "it": [
             '"{platform} visualizzatore" "senza accesso"',
             '"{platform} visualizzatore" "senza account"',
-            '"{platform} frontend" "senza accesso"',
+            '"{platform} visualizzatore web" "senza accesso"',
             '"{platform} visualizzatore anonimo"',
         ],
     }
@@ -984,6 +1030,40 @@ def run_search_spec(
 
 
 
+def search_result_is_relevant(platform: str, query: str, evidence: str) -> bool:
+    """Reject obvious search-engine noise while preserving ambiguous viewer results."""
+    if not evidence:
+        return True
+
+    pcfg = PLATFORMS[platform]
+    if platform == "twitter":
+        platform_ok = any(
+            term_present(term, evidence) for term in ("twitter", "tweet", "nitter")
+        )
+    elif platform == "reddit":
+        platform_ok = any(
+            term_present(term, evidence)
+            for term in ("reddit", "subreddit", "redlib", "libreddit", "teddit")
+        )
+    else:
+        platform_ok = any(
+            term_present(term, evidence) for term in ("tumblr", "priviblur")
+        )
+
+    service_ok = any(
+        term_present(term, evidence) for term in SEARCH_RESULT_SERVICE_TERMS
+    )
+    brand_ok = any(term_present(term, evidence) for term in pcfg["brands"])
+
+    if platform_ok and service_ok:
+        return True
+    if brand_ok:
+        return True
+    if query_has_service_intent(platform, query) and service_ok:
+        return True
+    return False
+
+
 def merge_search_result(
     candidate_map: dict[tuple[str, str], SearchHit],
     platform: str,
@@ -991,9 +1071,17 @@ def merge_search_result(
     backend: str,
     result: dict,
 ) -> None:
-    """Merge one search result into the deduplicated candidate map."""
+    """Merge one relevant search result into the deduplicated candidate map."""
     href = result.get("href") or result.get("url") or ""
-    domain = normalize_host(href)
+    safe_href = sanitize_request_url(href)
+    if not safe_href:
+        return
+
+    evidence = fold(f"{result.get('title', '')} {result.get('body', '')}")
+    if evidence and not search_result_is_relevant(platform, query, evidence):
+        return
+
+    domain = normalize_host(safe_href)
     if not domain:
         return
 
@@ -1012,12 +1100,11 @@ def merge_search_result(
     hit = candidate_map[key]
     if query not in hit.queries:
         hit.queries.append(query)
-    if href not in hit.urls:
-        hit.urls.append(href)
+    if safe_href not in hit.urls:
+        hit.urls.append(safe_href)
     if backend not in hit.providers:
         hit.providers.append(backend)
 
-    evidence = fold(f"{result.get('title', '')} {result.get('body', '')}")
     if evidence:
         marker = f"{backend}:{evidence[:900]}"
         if marker not in hit.search_evidence:
@@ -1682,6 +1769,16 @@ def pending_candidate_has_strong_signal(hit: SearchHit) -> bool:
     return search_result_has_strong_service_evidence(hit)
 
 
+def fetch_error_is_permanent(error: str) -> bool:
+    if not isinstance(error, str):
+        return False
+    return bool(re.search(
+        r"HTTP Error (?:" + "|".join(str(code) for code in sorted(PERMANENT_FETCH_ERROR_CODES)) + r")\\b",
+        error,
+        re.IGNORECASE,
+    ))
+
+
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
     strong_search_evidence_hint = search_result_has_strong_service_evidence(hit)
@@ -1754,11 +1851,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # HTTP fetch. Use Jina only for high-signal service URLs/hosts (and seeds),
     # not for arbitrary search results, to improve recall without turning
     # editorial pages into accepted domains.
+    query_intent_hits = search_query_intent_hits(hit)
+    distinct_service_queries = len({
+        query for query in hit.queries
+        if query_has_service_intent(hit.platform, query)
+    })
     jina_eligible = (
         seed_candidate
         or strong_search_evidence_hint
         or bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
         or any(path_looks_like_service(urlparse(url).path.lower()) for url in candidate_urls[:3])
+        or distinct_service_queries >= 2
     )
     if html_text is None and jina_eligible:
         for jina_url in candidate_urls[:4]:
@@ -1956,6 +2059,9 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     header_service_hits = [t for t in service_terms if term_present(t, header_text)]
     body_identity_hits = [t for t in identity_terms if term_present(t, body[:20000])]
     body_service_hits = [t for t in STRONG_SERVICE_TERMS if term_present(t, body[:20000])]
+    non_frontend_service_hits = [
+        t for t in NON_FRONTEND_SERVICE_TERMS if term_present(t, header_text)
+    ]
 
     input_count = sum(p["inputs"] for p in all_pages)
     form_count = sum(p["forms"] for p in all_pages)
@@ -1980,6 +2086,29 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         marker for marker in EDITORIAL_PAGE_MARKERS
         if term_present(marker, header_text)
     ]
+
+    frontend_signal_hint = bool(
+        strong_header_service_hits
+        or service_path_hint
+        or host_service_hint
+        or brand_hits
+    )
+    non_frontend_only = bool(
+        non_frontend_service_hits
+        and not frontend_signal_hint
+    )
+    if non_frontend_only:
+        return Evaluation(
+            hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
+            {
+                "non_frontend_service_hits": non_frontend_service_hits,
+                "frontend_signal_hint": frontend_signal_hint,
+                "header_service_hits": strong_header_service_hits,
+                "service_path_hint": service_path_hint,
+                "host_service_hint": host_service_hint,
+            },
+            "non-frontend service/tool page"
+        )
 
     article_like = bool(
         content_path_hint
@@ -2280,6 +2409,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "content_path_hint": content_path_hint,
         "content_title_hits": content_title_hits,
         "editorial_marker_hits": editorial_marker_hits,
+        "non_frontend_service_hits": non_frontend_service_hits,
+        "service_kind": (
+            "viewer/frontend+tool"
+            if non_frontend_service_hits and frontend_signal_hint
+            else "viewer/frontend"
+            if frontend_signal_hint
+            else "unknown"
+        ),
         "header_service_identity_hint": header_service_identity_hint,
         "single_query_service_ok": single_query_service_ok,
         "header_verified_search_service_ok": header_verified_search_service_ok,
@@ -2491,6 +2628,8 @@ def main() -> int:
             and (h.platform, h.domain) not in pending_keys
         ],
         key=lambda h: (
+            -int(search_result_has_strong_service_evidence(h)),
+            -search_query_intent_hits(h),
             -len(h.providers),
             -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
             -len(h.search_evidence),
@@ -2577,6 +2716,7 @@ def main() -> int:
     pending_state = {
         (item["platform"], item["domain"]): item
         for item in pending_entries
+        if (item["platform"], item["domain"]) in pending_hits
     }
     now_epoch = time.time()
     now_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
@@ -2594,6 +2734,11 @@ def main() -> int:
             continue
 
         if source_hit is None:
+            continue
+
+        fetch_error = evaluation.evidence.get("fetch_error", "")
+        if fetch_error_is_permanent(fetch_error):
+            pending_state.pop(key, None)
             continue
 
         meaningful_signal = pending_candidate_has_strong_signal(source_hit)

@@ -915,8 +915,12 @@ def repository_service_urls(text: str, platform: str) -> set[str]:
 
 def gitlab_repository_candidates() -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
+    token = os.environ.get("GITLAB_TOKEN", "").strip()
+    if not token:
+        print("[INFO] GITLAB_TOKEN not configured; GitLab repository discovery skipped.")
+        return found
     repo_keys: set[str] = set()
-    headers = {"Accept": "application/json", "User-Agent": USER_AGENT}
+    headers = {"Accept": "application/json", "User-Agent": USER_AGENT, "PRIVATE-TOKEN": token}
 
     for query in REPOSITORY_SEARCH_QUERIES:
         url = (
@@ -1010,8 +1014,8 @@ def common_crawl_candidates() -> dict[tuple[str, str], SearchHit]:
     try:
         collections = json.loads(fetch_text("https://index.commoncrawl.org/collinfo.json"))
         latest = collections[0]
-        cdx_api = latest["cdx-api"]
         collection_id = latest["id"]
+        cdx_api = f"https://index.commoncrawl.org/{collection_id}-index"
     except Exception as exc:
         print(f"[WARN] Common Crawl collection discovery failed: {type(exc).__name__}: {exc}")
         return found

@@ -147,7 +147,7 @@ CHALLENGE_MARKERS = (
 )
 
 BAD_PATH_MARKERS = (
-    "/news/", "/article/", "/articles/", "/press/", "/blog/",
+    "/news/", "/article/", "/articles/", "/press/",
 )
 
 DOMAIN_RE = re.compile(
@@ -443,15 +443,22 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     final_url = fetch_meta["final_url"]
     final_host = normalize_host(final_url)
-    if final_host is None or final_host != hit.domain:
+    candidate_base = hit.domain[4:] if hit.domain.startswith("www.") else hit.domain
+    final_base = final_host[4:] if final_host and final_host.startswith("www.") else final_host
+    if final_host is None or final_base != candidate_base:
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
             {"redirect_host": final_host}, "redirected outside candidate host"
         )
 
+    if any(marker in urlparse(first_url).path.lower() for marker in BAD_PATH_MARKERS):
+        return Evaluation(
+            hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
+            {}, "search result points to an article/news page"
+        )
+
     first = page_evidence(final_url, html_text)
     all_pages = [first]
-    base = f"{urlparse(final_url).scheme}://{final_host}"
 
     # Follow a small number of relevant same-origin links to strengthen validation.
     relevant = []
@@ -516,6 +523,21 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     body_identity_hits = [t for t in identity_terms if term_present(t, body)]
     body_service_hits = [t for t in service_terms if term_present(t, body)]
 
+    app_path_markers = (
+        "/search", "/profile", "/user", "/users/", "/u/", "/r/",
+        "/subreddit", "/post", "/posts", "/tweet", "/tweets", "/status",
+        "/blog", "/blogs", "/tag", "/tags", "/view",
+    )
+    app_path_hits = sorted({
+        marker
+        for page in all_pages
+        for href, label in page["links"]
+        if urlparse(urljoin(final_url, href)).hostname == final_host
+        for marker in app_path_markers
+        if marker in urlparse(urljoin(final_url, href)).path.lower()
+    })
+    ui_signal = bool(app_path_hits or sum(p["forms"] for p in all_pages) or len(first["links"]) >= 3)
+
     score = 0
     if header_hits:
         score += 5
@@ -537,14 +559,16 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         score += 2
     if any(term_present(b, url_text) for b in pcfg["brands"]):
         score += 2
+    if ui_signal:
+        score += 2
 
     structured_combo = bool(core_hits and service_hits and identity_hits)
     strong_brand = bool(brand_hits and header_hits)
     repeated_search = len(hit.queries) >= 2
     accepted = (
-        (strong_brand and (service_hits or identity_hits) and score >= 10)
-        or (structured_combo and repeated_search and score >= 12)
-        or (structured_combo and len(hit.urls) >= 2 and score >= 12)
+        (strong_brand and (service_hits or identity_hits) and score >= 10 and ui_signal)
+        or (structured_combo and repeated_search and score >= 12 and ui_signal)
+        or (structured_combo and len(hit.urls) >= 2 and score >= 12 and ui_signal)
     )
 
     reason_parts = [
@@ -564,6 +588,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "body_service_hits": body_service_hits,
         "body_identity_hits": body_identity_hits,
         "forms": sum(p["forms"] for p in all_pages),
+        "app_path_hits": app_path_hits,
+        "ui_signal": ui_signal,
         "crawled_pages": len(all_pages),
         "query_urls": hit.urls[:10],
     }
@@ -631,7 +657,17 @@ def main() -> int:
 
     evaluations.sort(key=lambda e: (-e.accepted, -e.score, e.domain))
 
-    accepted = [e for e in evaluations if e.accepted and e.domain not in existing]
+    accepted_by_domain: dict[str, Evaluation] = {}
+    for evaluation in evaluations:
+        if evaluation.accepted and evaluation.domain not in existing:
+            current = accepted_by_domain.get(evaluation.domain)
+            if current is None or evaluation.score > current.score:
+                accepted_by_domain[evaluation.domain] = evaluation
+
+    accepted = sorted(
+        accepted_by_domain.values(),
+        key=lambda e: (-e.score, e.domain),
+    )
     if len(accepted) < MIN_ACCEPTED:
         print("[ERROR] No sufficient validated domains were found.")
         print("The previous search-discovered-blocklist.txt is intentionally left untouched.")

@@ -34,7 +34,7 @@ WORKERS = 6
 VALIDATION_DELAY = 0.35
 
 SEARCH_BACKENDS = ["duckduckgo", "bing", "yahoo", "brave", "google", "mojeek", "startpage", "yandex"]
-SEARCH_MAX_RESULTS = 8
+SEARCH_MAX_RESULTS = 10
 SEARCH_TIMEOUT = 8
 SEARCH_DELAY = 0.25
 SEARCH_AUTO_FALLBACK = True
@@ -398,6 +398,8 @@ def build_queries() -> list[tuple[str, str, str]]:
         "de": ["Betrachter", "alternative Oberfläche"],
         "ja": ["ビューア", "代替フロントエンド"],
         "ru": ["просмотрщик", "альтернативный интерфейс"],
+        "pt": ["visualizador", "frontend alternativo", "ver sem login"],
+        "it": ["visualizzatore", "frontend alternativo", "vedere senza login"],
     }
     queries: list[tuple[str, str, str]] = []
     for lang, terms in intents.items():
@@ -434,7 +436,8 @@ def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
-def search_with_ddgs(searcher: DDGS, query: str, region: str, backend: str) -> list[dict]:
+def search_with_ddgs(query: str, region: str, backend: str) -> list[dict]:
+    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
     results = searcher.text(
         query,
         region=region,
@@ -1132,41 +1135,85 @@ def main() -> int:
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
     provider_disabled: set[str] = set()
-    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
+    search_executor = concurrent.futures.ThreadPoolExecutor(
+        max_workers=len(SEARCH_BACKENDS)
+    )
 
-    for index, (lang, platform, query) in enumerate(query_specs, start=1):
-        cfg = LANGUAGES[lang]
-        region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
-        print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
-        result_count = 0
+    try:
+        for index, (lang, platform, query) in enumerate(query_specs, start=1):
+            cfg = LANGUAGES[lang]
+            region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
+            print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
 
-        for backend in SEARCH_BACKENDS:
-            if backend in provider_disabled:
-                continue
-            try:
-                results = search_with_ddgs(searcher, query, region, backend)
-                for result in results:
-                    merge_search_result(candidate_map, platform, query, backend, result)
-                result_count += len(results)
-                print(f"[DDGS/{backend}] {len(results)} results")
-            except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                error = f"{type(exc).__name__}: {exc}"
-                search_errors.append({
-                    "language": lang,
-                    "platform": platform,
-                    "query": query,
-                    "backend": backend,
-                    "error": error,
-                })
-                print(f"[WARN] DDGS/{backend}: {error}")
-                message_lower = error.lower()
-                if isinstance(exc, (RatelimitException, TimeoutException)) or "429" in message_lower or "403" in message_lower:
-                    provider_disabled.add(backend)
-                    print(f"[WARN] Disabling DDGS/{backend} after a rate-limit/block response.")
+            active_backends = [b for b in SEARCH_BACKENDS if b not in provider_disabled]
+            futures = {
+                search_executor.submit(search_with_ddgs, query, region, backend): backend
+                for backend in active_backends
+            }
 
-        if result_count == 0:
-            print("[WARN] No search results from active backends.")
-        time.sleep(SEARCH_DELAY)
+            result_count = 0
+            successful_backend = False
+            for future in concurrent.futures.as_completed(futures):
+                backend = futures[future]
+                try:
+                    results = future.result()
+                    successful_backend = True
+                    for result in results:
+                        merge_search_result(candidate_map, platform, query, backend, result)
+                    result_count += len(results)
+                    print(f"[DDGS/{backend}] {len(results)} results")
+                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+                    error = f"{type(exc).__name__}: {exc}"
+                    search_errors.append({
+                        "language": lang,
+                        "platform": platform,
+                        "query": query,
+                        "backend": backend,
+                        "error": error,
+                    })
+                    print(f"[WARN] DDGS/{backend}: {error}")
+                    message_lower = error.lower()
+                    if (
+                        isinstance(exc, (RatelimitException, TimeoutException))
+                        or "429" in message_lower
+                        or "403" in message_lower
+                    ):
+                        provider_disabled.add(backend)
+                        print(f"[WARN] Disabling DDGS/{backend} after a rate-limit/block response.")
+
+            # DDGS auto mode is a final per-query fallback when all explicit
+            # providers fail. This lets the library choose a temporarily healthy
+            # backend without replacing the independent-provider evidence above.
+            if result_count == 0 and SEARCH_AUTO_FALLBACK:
+                try:
+                    results = searcher.text(
+                        query,
+                        region=region,
+                        safesearch="moderate",
+                        max_results=SEARCH_MAX_RESULTS,
+                        page=1,
+                        backend="auto",
+                    )
+                    for result in results:
+                        merge_search_result(candidate_map, platform, query, "auto", result)
+                    result_count = len(results)
+                    print(f"[DDGS/auto] {len(results)} results")
+                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+                    error = f"{type(exc).__name__}: {exc}"
+                    search_errors.append({
+                        "language": lang,
+                        "platform": platform,
+                        "query": query,
+                        "backend": "auto",
+                        "error": error,
+                    })
+                    print(f"[WARN] DDGS/auto: {error}")
+
+            if result_count == 0:
+                print("[WARN] No search results from active backends.")
+            time.sleep(SEARCH_DELAY)
+    finally:
+        search_executor.shutdown(wait=True)
 
     print(f"DDGS backends disabled: {sorted(provider_disabled)}")
     print(f"Search errors recorded: {len(search_errors)}")

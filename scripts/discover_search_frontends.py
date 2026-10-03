@@ -1512,7 +1512,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             else ["tumblr", "priviblur", "blog"]
         ))
         service_ok = any(term_present(t, ev) for t in (
-            "viewer", "frontend", "alternative frontend", "visor", "visualizador",
+            "viewer", "frontend", "alternative frontend", "browser", "slideshow",
+            "reader", "gallery", "content browser", "visor", "visualizador",
             "visionneuse", "betrachter", "ビューア", "просмотрщик",
         ))
         if platform_ok and service_ok:
@@ -1570,17 +1571,11 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         and strong_header_service_hits
         and header_identity_hits
     )
-    header_service_discovery = bool(
-        page_platform_ok
-        and strong_header_service_hits
-        and (search_confirmed or seed_candidate)
-    )
     strong_service_page = bool(
         page_platform_ok
         and (
             (page_service_ok and page_identity_ok and ui_signal)
             or header_service_identity
-            or header_service_discovery
         )
     )
 

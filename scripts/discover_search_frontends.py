@@ -1727,10 +1727,16 @@ def main() -> int:
                     current.urls.append(url)
 
     github_sources = github_repository_candidates()
-    gitlab_sources = gitlab_repository_candidates()
-    codeberg_sources = codeberg_repository_candidates()
-    common_crawl_sources = common_crawl_candidates()
-    urlscan_sources = urlscan_candidates()
+    if DISCOVERY_MODE in {"deep", "all"}:
+        gitlab_sources = gitlab_repository_candidates()
+        codeberg_sources = codeberg_repository_candidates()
+        common_crawl_sources = common_crawl_candidates()
+        urlscan_sources = urlscan_candidates()
+    else:
+        gitlab_sources = {}
+        codeberg_sources = {}
+        common_crawl_sources = {}
+        urlscan_sources = {}
 
     source_maps = (
         github_sources,
@@ -1768,30 +1774,31 @@ def main() -> int:
     })
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=SEARCH_WORKERS) as executor:
-        futures = [
-            executor.submit(run_search_spec, index, lang, platform, query)
-            for index, (lang, platform, query) in enumerate(query_specs, start=1)
-        ]
-        for future in concurrent.futures.as_completed(futures):
-            index, lang, platform, query, results_by_page, errors = future.result()
-            if results_by_page:
-                search_queries_with_results += 1
-            for page, backend, results in results_by_page:
-                search_pages_succeeded += 1
-                search_results_seen += len(results)
-                for result in results:
-                    merge_search_result(candidate_map, platform, query, backend, result)
-                print(
-                    f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query} "
-                    f"backend={backend} page={page} results={len(results)}"
-                )
-            for error in errors:
-                search_errors.append(error)
-                print(
-                    f"[WARN] DDGS/{error['backend']} {lang}/{platform} "
-                    f"page={error['page']}: {error['error']}"
-                )
+    if DISCOVERY_MODE != "deep":
+        with concurrent.futures.ThreadPoolExecutor(max_workers=SEARCH_WORKERS) as executor:
+            futures = [
+                executor.submit(run_search_spec, index, lang, platform, query)
+                for index, (lang, platform, query) in enumerate(query_specs, start=1)
+            ]
+            for future in concurrent.futures.as_completed(futures):
+                index, lang, platform, query, results_by_page, errors = future.result()
+                if results_by_page:
+                    search_queries_with_results += 1
+                for page, backend, results in results_by_page:
+                    search_pages_succeeded += 1
+                    search_results_seen += len(results)
+                    for result in results:
+                        merge_search_result(candidate_map, platform, query, backend, result)
+                    print(
+                        f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query} "
+                        f"backend={backend} page={page} results={len(results)}"
+                    )
+                for error in errors:
+                    search_errors.append(error)
+                    print(
+                        f"[WARN] DDGS/{error['backend']} {lang}/{platform} "
+                        f"page={error['page']}: {error['error']}"
+                    )
 
     # Prioritise maintained registries and GitHub-discovered instances so the
     # validation cap cannot crowd them out with noisy search-engine results.
@@ -1822,7 +1829,9 @@ def main() -> int:
     print(f"Candidates discovered: {len(candidate_map)}")
     print(f"Candidates selected for validation: {len(hits)}")
     print(f"Previously known candidates skipped: {already_known_candidates}")
-    print(f"Search pages succeeded: {search_pages_succeeded}/{len(query_specs) * len(SEARCH_PAGES)}")
+    expected_search_pages = sum(len(search_pages_for(lang)) for lang, _, _ in query_specs)
+    print(f"Search mode: {DISCOVERY_MODE}; active languages: {', '.join(active_search_languages()) or 'none'}")
+    print(f"Search pages succeeded: {search_pages_succeeded}/{expected_search_pages}")
     print(f"Search queries with at least one page: {search_queries_with_results}/{len(query_specs)}")
     print(f"Search queries without any page: {len(query_specs) - search_queries_with_results}")
     print(f"Search results seen: {search_results_seen}")
@@ -1870,6 +1879,10 @@ def main() -> int:
                     "verified_web_seed_count": seed_candidate_count,
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backend": SEARCH_BACKEND,
+        "discovery_mode": DISCOVERY_MODE,
+        "active_search_languages": list(active_search_languages()),
+                    "discovery_mode": DISCOVERY_MODE,
+                    "active_search_languages": list(active_search_languages()),
                     "search_backends": list(SEARCH_BACKENDS),
                     "search_pages": list(SEARCH_PAGES),
                     "search_backend_disabled": False,
@@ -1887,7 +1900,7 @@ def main() -> int:
                     "validation_crash_count": validation_crash_count,
                     "candidates_discovered": len(candidate_map),
                     "validated_candidates": len(evaluations),
-                    "search_strategy": "maintained registries + GitHub/Codeberg/GitLab repositories + Common Crawl + optional URLScan + resilient single-backend fallback + pages 1-2 + page validation",
+                    "search_strategy": "maintained registries + GitHub; daily rotated search; deep workflow adds Codeberg/GitLab/Common Crawl/optional URLScan; shared page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -1934,7 +1947,7 @@ def main() -> int:
         "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
-        "search_strategy": "maintained registries + GitHub + resilient single-backend fallback + parallel query jobs + prioritized validation",
+        "search_strategy": "maintained registries + GitHub + rotated search + sequential backend fallback + parallel validation",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),

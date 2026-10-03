@@ -145,7 +145,7 @@ TRUSTED_SOURCES = [
 
 DIRECT_TRUSTED_SOURCES = {"Farside", "Redlib", "Libreddit", "Priviblur"}
 
-FARSIDE_PLATFORM_TYPES = {FARSIDE_PLATFORM_TYPES = {
+FARSIDE_PLATFORM_TYPES = {
     "twitter": {"nitter", "xcancel"},
     "reddit": {"redlib", "libreddit", "teddit", "eddrit", "troddit"},
     "tumblr": {"priviblur"},

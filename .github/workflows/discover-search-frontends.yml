@@ -37,7 +37,7 @@ jobs:
 
       - name: Validate Python syntax
         run: |
-          python - <<'PY'
+          python - <<PY
           import ast
           from pathlib import Path
 
@@ -138,8 +138,11 @@ jobs:
             fi
           done < "$snapshot"
 
-          mapfile -t changed < <(git status --porcelain=v1 | awk '{print $2}')
-          for path in "${changed[@]}"; do
+          find . -type d -name "__pycache__" -prune -exec rm -rf {} +
+
+          mapfile -t changed < <(git status --porcelain=v1 --untracked-files=all)
+          for entry in "${changed[@]}"; do
+            path="${entry:3}"
             case "$path" in
               search-discovered-blocklist.txt|search-discovered-report.json) ;;
               "")
@@ -150,8 +153,6 @@ jobs:
                 ;;
             esac
           done
-
-          find . -type d -name "__pycache__" -prune -exec rm -rf {} +
 
           git diff --check
 

@@ -98,6 +98,7 @@
 ||twitee.co^
 ||twitterviewer.net^
 ||twitviewer.net^
+||unifapi.com^
 ||unsubbed.co^
 ||viewanonymous.com^
 ||viewari.com^
@@ -114,6 +115,7 @@
 ||www.mujico.org^
 ||www.peekstr.com^
 ||www.rapidseedbox.com^
+||www.subredditviewer.com^
 ||www.tech2geek.net^
 ||www.troddit.com^
 ||www.tumviews.com^

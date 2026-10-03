@@ -821,6 +821,13 @@ def main() -> int:
     candidate_map: dict[tuple[str, str], SearchHit] = {}
     search_errors: list[dict] = []
 
+    # Seed the candidate pool from maintained instance registries and curated
+    # alternative-frontend lists before using search engines.
+    trusted = trusted_candidates()
+    for key, hit in trusted.items():
+        candidate_map[key] = hit
+    print(f"Trusted-source candidates: {len(trusted)}")
+
     consecutive_errors = 0
     google_disabled = False
 

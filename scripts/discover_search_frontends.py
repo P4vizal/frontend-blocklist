@@ -132,6 +132,8 @@ PLATFORMS = {
         "query_object": "blog",
         "identity_extra": ["blog", "blogs", "post", "posts", "user", "profile"],
     },
+}
+
 TRUSTED_SOURCES = [
     ("Farside", "json", "https://raw.githubusercontent.com/benbusby/farside/main/services-full.json"),
     ("Redlib", "json", "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json"),
@@ -148,8 +150,6 @@ FARSIDE_PLATFORM_TYPES = {
     "twitter": {"nitter", "xcancel"},
     "reddit": {"redlib", "libreddit", "teddit", "eddrit", "troddit"},
     "tumblr": {"priviblur"},
-}
-
 }
 
 EXCLUDED_HOSTS = {

@@ -1186,14 +1186,7 @@ def main() -> int:
             # backend without replacing the independent-provider evidence above.
             if result_count == 0 and SEARCH_AUTO_FALLBACK:
                 try:
-                    results = searcher.text(
-                        query,
-                        region=region,
-                        safesearch="moderate",
-                        max_results=SEARCH_MAX_RESULTS,
-                        page=1,
-                        backend="auto",
-                    )
+                    results = search_with_ddgs(query, region, "auto")
                     for result in results:
                         merge_search_result(candidate_map, platform, query, "auto", result)
                     result_count = len(results)

@@ -25,6 +25,7 @@ REPORT = Path("search-discovered-report.json")
 PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
+RETRYABLE_HTTP_CODES = {408, 425, 429, 500, 502, 503, 504}
 MAX_CANDIDATES = 360
 MIN_ACCEPTED = 1
 SEARCH_WORKERS = 4
@@ -1450,7 +1451,14 @@ def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
                     text = raw.decode(charset, errors="replace")
                     final_url = response.geturl()
                 return text, {"final_url": final_url}
-            except (HTTPError, URLError, TimeoutError, ValueError, OSError) as exc:
+            except HTTPError as exc:
+                last_error = f"{type(exc).__name__}: {exc}"
+                # Permanent responses do not benefit from a second request.
+                if exc.code not in RETRYABLE_HTTP_CODES:
+                    break
+                if attempt < FETCH_RETRIES:
+                    time.sleep(0.5 * attempt)
+            except (URLError, TimeoutError, ValueError, OSError) as exc:
                 last_error = f"{type(exc).__name__}: {exc}"
                 if attempt < FETCH_RETRIES:
                     time.sleep(0.5 * attempt)

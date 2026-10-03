@@ -37,10 +37,6 @@ SEARCH_MAX_RESULTS = 15
 SEARCH_PAGES = (1, 2)
 SEARCH_TIMEOUT = 10
 SEARCH_DELAY = 0.15
-CORROBORATION_BACKENDS = ("google", "brave", "mojeek")
-CORROBORATION_WORKERS = 12
-CORROBORATION_CANDIDATES = 80
-CORROBORATION_TIMEOUT = 8
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
@@ -328,6 +324,7 @@ class PageParser(HTMLParser):
         self.forms = 0
         self.inputs = 0
         self.buttons = 0
+        self.control_parts: list[str] = []
         self.current_tag: str | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -347,8 +344,16 @@ class PageParser(HTMLParser):
             self.forms += 1
         elif tag in {"input", "textarea", "select"}:
             self.inputs += 1
+            for key in ("type", "name", "placeholder", "aria-label", "value"):
+                value = attrs_map.get(key)
+                if value:
+                    self.control_parts.append(value)
         elif tag == "button":
             self.buttons += 1
+            for key in ("name", "aria-label", "value"):
+                value = attrs_map.get(key)
+                if value:
+                    self.control_parts.append(value)
         elif tag == "a":
             href = attrs_map.get("href") or ""
             self.links.append((href, ""))
@@ -388,6 +393,7 @@ class PageParser(HTMLParser):
             "forms": self.forms,
             "inputs": self.inputs,
             "buttons": self.buttons,
+            "controls": " ".join(self.control_parts),
         }
 
 
@@ -400,8 +406,6 @@ class SearchHit:
     sources: list[str]
     providers: list[str]
     search_evidence: list[str]
-    corroboration_providers: list[str] = None
-    corroboration_evidence: list[str] = None
 
 
 @dataclass
@@ -585,42 +589,6 @@ def run_search_spec(
             time.sleep(SEARCH_DELAY)
 
     return index, lang, platform, query, results_by_page, errors
-
-
-def ensure_corroboration_fields(hit: SearchHit) -> None:
-    if hit.corroboration_providers is None:
-        hit.corroboration_providers = []
-    if hit.corroboration_evidence is None:
-        hit.corroboration_evidence = []
-
-
-def merge_search_result(
-    candidate_map: dict[tuple[str, str], SearchHit],
-    platform: str,
-    query: str,
-    backend: str,
-    result: dict,
-) -> None:
-    href = result.get("href") or result.get("url") or ""
-    domain = normalize_host(href)
-    if not domain:
-        return
-    key = (platform, domain)
-    if key not in candidate_map:
-        candidate_map[key] = SearchHit(domain, platform, [], [], [], [], [])
-    hit = candidate_map[key]
-    ensure_corroboration_fields(hit)
-    if query not in hit.queries:
-        hit.queries.append(query)
-    if href not in hit.urls:
-        hit.urls.append(href)
-    if backend not in hit.providers:
-        hit.providers.append(backend)
-    evidence = fold(f"{result.get('title', '')} {result.get('body', '')}")
-    if evidence:
-        marker = f"{backend}:{evidence[:900]}"
-        if marker not in hit.search_evidence:
-            hit.search_evidence.append(marker)
 
 
 def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
@@ -855,6 +823,7 @@ def page_evidence_from_text(url: str, text: str) -> dict:
         "forms": 0,
         "inputs": 0,
         "buttons": 0,
+        "controls": "",
         "url_text": f"{parsed.netloc} {parsed.path}",
         "visible": body,
         "link_text": "",
@@ -1122,10 +1091,20 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     input_count = sum(p["inputs"] for p in all_pages)
     form_count = sum(p["forms"] for p in all_pages)
     button_count = sum(p["buttons"] for p in all_pages)
+    control_text = fold(" ".join(p.get("controls", "") for p in all_pages))
+    interactive_terms = (
+        "username", "user", "profile", "handle", "tweet", "post",
+        "subreddit", "blog", "tumblr", "twitter", "reddit", "search url",
+        "enter url", "paste url", "paste", "account", "view",
+    )
+    interactive_target_hits = [
+        term for term in interactive_terms if term_present(term, control_text)
+    ]
     ui_signal = bool(
-        input_count
-        or host_service_hint
-        or (service_path_hint and button_count)
+        host_service_hint
+        or (service_path_hint and (input_count or button_count))
+        or interactive_target_hits
+        or (header_service_hits and input_count)
     )
 
     action_hits = [t for t in (
@@ -1232,14 +1211,15 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or bool(brand_hits)
     )
     search_interactive_ok = bool(
-        input_count > 0
-        or host_service_hint
-        or (service_path_hint and button_count > 0)
-    )
-    cross_engine_ok = (
         host_service_hint
-        or bool(header_brand_hits)
-        or len(hit.corroboration_providers) >= 2
+        or (service_path_hint and (input_count or button_count))
+        or interactive_target_hits
+    )
+    # The same domain must be surfaced by at least two distinct search queries
+    # unless its hostname is itself an unmistakable viewer/frontend name.
+    independent_query_ok = (
+        distinct_queries >= 2
+        or host_service_hint
     )
     search_accept = (
         not seed_candidate
@@ -1247,7 +1227,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         and search_intent_hits >= 1
         and search_quality_ok
         and search_interactive_ok
-        and cross_engine_ok
+        and independent_query_ok
     )
 
     trusted_accept = (
@@ -1286,6 +1266,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "inputs": input_count,
         "forms": form_count,
         "buttons": button_count,
+        "interactive_target_hits": interactive_target_hits,
         "service_path_hint": service_path_hint,
         "host_service_hint": host_service_hint,
         "content_path_hint": content_path_hint,
@@ -1295,8 +1276,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "distinct_queries": distinct_queries,
         "search_providers": hit.providers,
         "search_evidence": hit.search_evidence[:12],
-        "corroboration_providers": sorted(hit.corroboration_providers),
-        "corroboration_evidence": hit.corroboration_evidence[:8],
         "trusted_sources": hit.sources,
         "fetch_via": via,
         "query_urls": hit.urls[:10],
@@ -1316,66 +1295,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         f"search_intent={search_intent_hits}; providers={len(search_provider_hits)}; "
         f"queries={distinct_queries}",
     )
-
-
-def focused_corroboration_queries(hit: SearchHit) -> list[str]:
-    platform_terms = {
-        "twitter": "twitter viewer frontend",
-        "reddit": "reddit viewer frontend",
-        "tumblr": "tumblr viewer frontend",
-    }
-    phrase = platform_terms.get(hit.platform, f"{hit.platform} viewer frontend")
-    return [
-        f'"{hit.domain}" {phrase}',
-        f'site:{hit.domain} {phrase}',
-    ]
-
-
-def corroborate_candidate(hit: SearchHit) -> SearchHit:
-    ensure_corroboration_fields(hit)
-    # Search each engine independently. This avoids DDGS multi-backend
-    # aggregation failures where one backend can discard successful results.
-    for backend in CORROBORATION_BACKENDS:
-        confirmed = False
-        evidence: list[str] = []
-        try:
-            searcher = DDGS(timeout=CORROBORATION_TIMEOUT, verify=True)
-            for query in focused_corroboration_queries(hit):
-                try:
-                    results = searcher.text(
-                        query,
-                        region="us-en",
-                        safesearch="moderate",
-                        max_results=8,
-                        page=1,
-                        backend=backend,
-                    )
-                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError):
-                    continue
-                for result in results:
-                    if not isinstance(result, dict):
-                        continue
-                    href = result.get("href") or result.get("url") or ""
-                    result_host = normalize_host(href)
-                    text_blob = fold(
-                        f"{result.get('title', '')} {result.get('body', '')}"
-                    )
-                    exact_domain = fold(hit.domain) in text_blob
-                    if result_host == hit.domain or exact_domain:
-                        confirmed = True
-                        marker = f"{backend}:{text_blob[:700]}"
-                        if marker not in evidence:
-                            evidence.append(marker)
-        except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError):
-            pass
-
-        if confirmed:
-            hit.corroboration_providers.append(backend)
-            for item in evidence:
-                if item not in hit.corroboration_evidence:
-                    hit.corroboration_evidence.append(item)
-
-    return hit
 
 
 def safe_evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
@@ -1452,9 +1371,9 @@ def main() -> int:
     })
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
-    # DDGS auto mode performs internal fallback across engines available in the
-    # installed release. Run independent query jobs in parallel, but reuse one
-    # DDGS session for both result pages of each query.
+    # DDGS auto mode is the only search backend used here. Quality is enforced
+    # by multi-query agreement and direct page validation, without reviving
+    # unstable individual search engines.
     with concurrent.futures.ThreadPoolExecutor(max_workers=SEARCH_WORKERS) as executor:
         futures = [
             executor.submit(run_search_spec, index, lang, platform, query)
@@ -1500,21 +1419,6 @@ def main() -> int:
         ),
     )
     hits = (priority_hits + search_hits)[:MAX_CANDIDATES]
-
-    # Independently corroborate the strongest search-only candidates across
-    # multiple engines. Only the top subset is checked to keep the scheduled job
-    # bounded in time.
-    corroboration_targets = [
-        hit for hit in search_hits
-        if not hit.sources and hit.domain not in known_domains
-    ][:CORROBORATION_CANDIDATES]
-    with concurrent.futures.ThreadPoolExecutor(max_workers=CORROBORATION_WORKERS) as executor:
-        future_map = {
-            executor.submit(corroborate_candidate, hit): hit
-            for hit in corroboration_targets
-        }
-        for future in concurrent.futures.as_completed(future_map):
-            future.result()
 
     already_known_candidates = sum(
         1 for h in candidate_map.values() if h.domain in known_domains

@@ -61,6 +61,18 @@ jobs:
           assert len(discovery.active_search_languages()) == 4
           assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1,)
           assert discovery.search_pages_for("fr", "twitter viewer") == (1,)
+          parser = discovery.PageParser()
+          parser.feed(
+              '<html><head><title>Reddit <span>Viewer</span></title></head>'
+              '<body><h1>Reddit <span>Viewer</span></h1>'
+              '<div role="textbox" aria-label="Search subreddit"></div>'
+              '<article>post</article></body></html>'
+          )
+          parsed = parser.result()
+          assert "reddit viewer" in parsed["title"].lower()
+          assert "reddit viewer" in parsed["headings"].lower()
+          assert parsed["inputs"] >= 1
+          assert parsed["article_count"] == 1
           assert discovery.DISCOVERY_MODE == "daily"
           print("Runtime smoke test passed.")
           PY

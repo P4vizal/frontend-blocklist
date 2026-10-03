@@ -1,25 +1,10 @@
 # Generated from maintained frontend registries + GitHub + DDGS multi-engine search + page validation.
 # Only newly discovered domains are included; domains already in blocklist.txt are omitted.
 ||twitterviewer.net^
-||nitter.ca^
-||peekvault.com^
-||www.tech2geek.net^
-||twiiit.com^
-||redlite.app^
-||snaplytics.io^
 ||twiewer.com^
-||twitee.co^
-||www.getxapi.com^
-||xtwitterviewer.com^
-||instag.com^
-||www.journaldufreenaute.fr^
-||iamprovider.com^
-||ilo.so^
-||rayobyte.com^
-||tryadlicio.com^
-||tweetviewer.com^
-||hiddenme.net^
 ||carryfeed.com^
-||profileri.com^
-||floppydata.com^
-||rola-ip.co^
+||ilo.so^
+||snaplytics.io^
+||tweetgrok.ai^
+||twitee.co^
+||tweetviewer.com^

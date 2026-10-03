@@ -26,7 +26,6 @@ REPORT = Path("search-discovered-report.json")
 PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
-MAX_CRAWL_PAGES = 3
 MAX_CANDIDATES = 320
 MIN_ACCEPTED = 2
 SEARCH_WORKERS = 4
@@ -412,44 +411,71 @@ def read_discovered_domains() -> set[str]:
     return out
 
 
-def quote_term(term: str) -> str:
-    return '"' + term.replace('"', ' ') + '"'
+def cfg_lang_service(lang: str, index: int) -> str:
+    terms = LANGUAGES[lang]["service"]
+    return terms[min(index, len(terms) - 1)]
 
 
 def build_queries() -> list[tuple[str, str, str]]:
-    # Deliberately use the same unquoted wording a human types:
-    # "reddit viewer", "tumblr viewer", "twitter viewer", etc.
-    # Quoted exact-phrase searches were too restrictive and biased results
-    # toward a small number of SEO pages.
+    # Combine natural-language searches with platform-specific project and
+    # instance names. The platform-specific templates were previously defined
+    # but never used, which reduced discovery quality.
     intents = {
-        "en": ["viewer", "frontend", "without login"],
-        "es": ["visor", "frontend", "sin iniciar sesión"],
-        "fr": ["visionneuse", "frontend", "sans connexion"],
-        "de": ["Betrachter", "Frontend", "ohne Anmeldung"],
-        "ja": ["ビューア", "フロントエンド", "ログインなし"],
-        "ru": ["просмотрщик", "фронтенд", "без входа"],
-        "pt": ["visualizador", "frontend", "sem login"],
-        "it": ["visualizzatore", "frontend", "senza accesso"],
+        "en": ["viewer", "frontend", "without login", "without account"],
+        "es": ["visor", "frontend", "sin iniciar sesión", "sin cuenta"],
+        "fr": ["visionneuse", "frontend", "sans connexion", "sans compte"],
+        "de": ["Betrachter", "Frontend", "ohne Anmeldung", "ohne Konto"],
+        "zh": ["查看器", "替代前端", "无登录", "无需账户"],
+        "ja": ["ビューア", "フロントエンド", "ログインなし", "アカウントなし"],
+        "ko": ["뷰어", "프론트엔드", "로그인 없이", "계정 없이"],
+        "hi": ["व्यूअर", "फ्रंटएंड", "बिना लॉगिन", "बिना अकाउंट"],
+        "ru": ["просмотрщик", "фронтенд", "без входа", "без аккаунта"],
+        "ar": ["عارض", "واجهة بديلة", "بدون تسجيل دخول", "بدون حساب"],
+        "pt": ["visualizador", "frontend", "sem login", "sem conta"],
+        "it": ["visualizzatore", "frontend", "senza accesso", "senza account"],
     }
     queries: list[tuple[str, str, str]] = []
+
     for lang, terms in intents.items():
-        for platform in PLATFORMS:
+        for platform, cfg in PLATFORMS.items():
             for intent in terms:
                 queries.append((lang, platform, f"{platform} {intent}"))
 
-    # High-yield English variants that closely match real-world search phrasing.
+            service1 = cfg_lang_service(lang, 0)
+            service2 = cfg_lang_service(lang, 1)
+            for template in cfg["queries"]:
+                queries.append((
+                    lang,
+                    platform,
+                    template.format(
+                        platform=platform,
+                        service1=service1,
+                        service2=service2,
+                        object=cfg["query_object"],
+                    ),
+                ))
+
+    # Branded/instance searches have much higher signal than generic
+    # "frontend" searches and should surface fresh deployments.
     queries.extend([
-        ("en", "twitter", "X viewer"),
-        ("en", "twitter", "X profile viewer"),
-        ("en", "twitter", "tweet viewer"),
-        ("en", "reddit", "reddit alternative frontend"),
-        ("en", "reddit", "reddit without account"),
-        ("en", "reddit", "reddit viewer without login"),
-        ("en", "tumblr", "tumblr alternative frontend"),
-        ("en", "tumblr", "tumblr without account"),
-        ("en", "tumblr", "tumblr viewer without login"),
+        ("en", "twitter", "twitter nitter instance"),
+        ("en", "twitter", "twitter xcancel instance"),
+        ("en", "twitter", "twitter twiiit instance"),
+        ("en", "twitter", "nitter alternative twitter viewer"),
+        ("en", "reddit", "reddit redlib instance"),
+        ("en", "reddit", "reddit libreddit instance"),
+        ("en", "reddit", "reddit teddit instance"),
+        ("en", "reddit", "reddit troddit instance"),
+        ("en", "tumblr", "tumblr priviblur instance"),
+        ("en", "tumblr", "priviblur alternative tumblr"),
+        ("en", "twitter", "X viewer without account"),
+        ("en", "twitter", "tweet viewer without login"),
+        ("en", "reddit", "reddit viewer without account"),
+        ("en", "reddit", "reddit browser without login"),
+        ("en", "tumblr", "tumblr viewer without account"),
+        ("en", "tumblr", "tumblr browser without login"),
     ])
-    return queries
+    return list(dict.fromkeys(queries))
 
 
 def is_seed_candidate(hit: SearchHit) -> bool:
@@ -1013,8 +1039,11 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     service_path_hint = any(
         marker in first_path
-        for marker in ("/viewer", "/frontend", "/view", "/profile", "/tweet",
-                       "/tweets", "/status", "/subreddit", "/r/", "/user")
+        for marker in (
+            "/viewer", "/frontend", "/view", "/browser", "/browse",
+            "/search", "/tool/", "/tools/", "/nitter", "/xcancel",
+            "/redlib", "/libreddit", "/teddit", "/troddit", "/priviblur",
+        )
     )
     host_service_hint = bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
 
@@ -1073,15 +1102,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or seed_candidate and platform_hits
     )
     strong_service_terms = (
-        "viewer", "frontend", "alternative frontend",
+        "viewer", "alternative frontend",
         "visor", "visualizador", "visionneuse", "betrachter",
-        "ビューア", "просмотрщик", "visualizzatore"
+        "ビューア", "просмотрщик", "visualizzatore",
+        "查看器", "뷰어", "व्यूअर", "عارض"
     )
     strong_header_service_hits = [
         t for t in strong_service_terms if term_present(t, header_text)
     ]
     page_service_ok = bool(
         strong_header_service_hits
+        or brand_hits
         or service_path_hint
         or host_service_hint and strong_header_service_hits
         or seed_candidate and any(term_present(t, body[:7000]) for t in strong_service_terms)
@@ -1108,11 +1139,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     # Search candidates: require actual search-intent evidence plus independent
     # corroboration, unless the hostname itself is a very strong service name.
+    strong_search_evidence = (
+        search_intent_hits >= 1
+        and (
+            distinct_queries >= 2
+            or host_service_hint
+            or service_path_hint
+        )
+    )
     search_quality_ok = (
-        len(hit.providers) >= 2
-        or distinct_queries >= 2
-        or host_service_hint
-        or service_path_hint
+        strong_search_evidence
+        or bool(brand_hits)
     )
     search_accept = (
         not seed_candidate
@@ -1258,8 +1295,6 @@ def main() -> int:
         for source in hit.sources
     })
     print(f"GitHub-discovered candidates: {github_candidate_count}")
-
-    provider_disabled: set[str] = set()
 
     # DDGS auto mode performs internal fallback across engines available in the
     # installed release. Run independent query jobs in parallel, but reuse one

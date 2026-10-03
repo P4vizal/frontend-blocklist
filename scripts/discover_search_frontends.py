@@ -55,12 +55,14 @@ URLSCAN_MAX_RESULTS = 20
 URLSCAN_DELAY = 1.0
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
+    ("reddit", "https://tryadlicio.com/tools/reddit-viewer"),
     ("tumblr", "https://zoomblr.com/"),
     ("tumblr", "https://cascadr.co/"),
     ("tumblr", "https://www.tumviews.com/"),
     ("twitter", "https://twitterviewer.net/"),
     ("twitter", "https://tweetviewer.com/"),
     ("twitter", "https://www.sotwe.com/"),
+    ("twitter", "https://www.twitter-viewer.com/twitter-profile-viewer"),
 ]
 
 CONTENT_HOST_SUFFIXES = (
@@ -530,84 +532,126 @@ def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
 
 
 def build_queries() -> list[tuple[str, str, str]]:
-    # Combine natural-language searches with platform-specific project and
-    # instance names. The platform-specific templates were previously defined
-    # but never used, which reduced discovery quality.
+    # Keep the daily search bounded and high-signal. EN/ES run every day;
+    # two additional languages rotate through the remaining locales.
+    query_specs: list[tuple[str, str, str]] = []
+
     intents = {
-        "en": ["viewer", "frontend", "without login", "without account"],
-        "es": ["visor", "frontend", "sin iniciar sesión", "sin cuenta"],
-        "fr": ["visionneuse", "frontend", "sans connexion", "sans compte"],
-        "de": ["Betrachter", "Frontend", "ohne Anmeldung", "ohne Konto"],
-        "zh": ["查看器", "替代前端", "无登录", "无需账户"],
-        "ja": ["ビューア", "フロントエンド", "ログインなし", "アカウントなし"],
-        "ko": ["뷰어", "프론트엔드", "로그인 없이", "계정 없이"],
-        "hi": ["व्यूअर", "फ्रंटएंड", "बिना लॉगिन", "बिना अकाउंट"],
-        "ru": ["просмотрщик", "фронтенд", "без входа", "без аккаунта"],
-        "ar": ["عارض", "واجهة بديلة", "بدون تسجيل دخول", "بدون حساب"],
-        "pt": ["visualizador", "frontend", "sem login", "sem conta"],
-        "it": ["visualizzatore", "frontend", "senza accesso", "senza account"],
+        "en": [
+            '"{platform} viewer" "without login"',
+            '"{platform} viewer" "without account"',
+            '"{platform} frontend" "without login"',
+            '"{platform} reader" "without account"',
+        ],
+        "es": [
+            '"{platform} visor" "sin iniciar sesión"',
+            '"{platform} visor" "sin cuenta"',
+            '"{platform} frontend" "sin iniciar sesión"',
+            '"{platform} lector" "sin cuenta"',
+        ],
+        "fr": [
+            '"{platform} visionneuse" "sans connexion"',
+            '"{platform} visionneuse" "sans compte"',
+            '"{platform} interface alternative" "sans connexion"',
+            '"{platform} lecteur" "sans compte"',
+        ],
+        "de": [
+            '"{platform} Betrachter" "ohne Anmeldung"',
+            '"{platform} Betrachter" "ohne Konto"',
+            '"{platform} Frontend" "ohne Anmeldung"',
+            '"{platform} Leser" "ohne Konto"',
+        ],
+        "zh": [
+            '"{platform} 查看器" "无登录"',
+            '"{platform} 查看器" "无需账户"',
+            '"{platform} 替代前端"',
+            '"{platform} 阅读器" "无需账户"',
+        ],
+        "ja": [
+            '"{platform} ビューア" "ログインなし"',
+            '"{platform} ビューア" "アカウントなし"',
+            '"{platform} フロントエンド"',
+            '"{platform} リーダー" "アカウントなし"',
+        ],
+        "ko": [
+            '"{platform} 뷰어" "로그인 없이"',
+            '"{platform} 뷰어" "계정 없이"',
+            '"{platform} 프론트엔드"',
+            '"{platform} 리더" "계정 없이"',
+        ],
+        "hi": [
+            '"{platform} व्यूअर" "बिना लॉगिन"',
+            '"{platform} व्यूअर" "बिना अकाउंट"',
+            '"{platform} फ्रंटएंड"',
+            '"{platform} रीडर" "बिना अकाउंट"',
+        ],
+        "ru": [
+            '"{platform} просмотрщик" "без входа"',
+            '"{platform} просмотрщик" "без аккаунта"',
+            '"{platform} фронтенд" "без входа"',
+            '"{platform} читалка" "без аккаунта"',
+        ],
+        "ar": [
+            '"{platform} عارض" "بدون تسجيل دخول"',
+            '"{platform} عارض" "بدون حساب"',
+            '"{platform} واجهة بديلة"',
+            '"{platform} قارئ" "بدون حساب"',
+        ],
+        "pt": [
+            '"{platform} visualizador" "sem login"',
+            '"{platform} visualizador" "sem conta"',
+            '"{platform} frontend" "sem login"',
+            '"{platform} leitor" "sem conta"',
+        ],
+        "it": [
+            '"{platform} visualizzatore" "senza accesso"',
+            '"{platform} visualizzatore" "senza account"',
+            '"{platform} frontend" "senza accesso"',
+            '"{platform} lettore" "senza account"',
+        ],
     }
-    queries: list[tuple[str, str, str]] = []
 
-    active_languages = set(active_search_languages())
-    for lang, terms in intents.items():
-        if lang not in active_languages:
+    platform_queries = {
+        "twitter": [
+            '"Twitter viewer" "Nitter alternative" -news -article -guide -review',
+            '"X viewer" "without account" -news -article -guide',
+            '"tweet viewer" "without login" -news -article -guide',
+            '"Twitter web viewer" "public profiles" -news -article',
+        ],
+        "reddit": [
+            '"Reddit viewer" "without account" -news -article -guide',
+            '"Reddit frontend" "without login" -news -article -guide',
+            '"Reddit reader" "subreddit" "without account" -news -article',
+            '"Reddit viewer" "paste a subreddit" -news -article',
+        ],
+        "tumblr": [
+            '"Tumblr viewer" "without account" -news -article -guide',
+            '"Tumblr image viewer" "without login" -news -article',
+            '"Tumblr frontend" "without account" -news -article',
+            '"Tumblr reader" "paste a Tumblr URL" -news -article',
+        ],
+    }
+
+    active = set(active_search_languages())
+    for lang in active:
+        for platform in PLATFORMS:
+            for template in intents[lang]:
+                query_specs.append(
+                    (
+                        lang,
+                        platform,
+                        template.format(platform=platform),
+                    )
+                )
+
+    # These are deliberately about *alternative services*, not instance lists
+    # that the maintained registries already cover.
+    for platform, templates in platform_queries.items():
+        if "en" not in active:
             continue
-        for platform, cfg in PLATFORMS.items():
-            for intent in terms:
-                queries.append((lang, platform, f"{platform} {intent}"))
+        query_specs.extend(("en", platform, q) for q in templates)
 
-            service1 = cfg_lang_service(lang, 0)
-            service2 = cfg_lang_service(lang, 1)
-            for template in cfg["queries"]:
-                queries.append((
-                    lang,
-                    platform,
-                    template.format(
-                        platform=platform,
-                        service1=service1,
-                        service2=service2,
-                        object=cfg["query_object"],
-                    ),
-                ))
-
-    # Maintained registries already cover known Nitter/XCancel/Twiiit,
-    # Redlib/Libreddit/Teddit/Troddit and Priviblur instances. Search should
-    # therefore discover *similar/alternative* frontends rather than repeat
-    # instance-hunting queries for those known projects.
-    queries.extend([
-        ("en", "twitter", "twitter viewer alternatives to nitter"),
-        ("en", "twitter", "twitter frontend alternatives to nitter"),
-        ("en", "twitter", "twitter viewer alternative to xcancel"),
-        ("en", "twitter", "twitter frontend similar to twiiit"),
-        ("en", "twitter", "twitter viewer similar to nitter"),
-        ("en", "twitter", "alternative twitter viewer without login not nitter"),
-        ("en", "twitter", "twitter web client without login -nitter -xcancel -twiiit"),
-        ("en", "twitter", "tweet viewer site without login -nitter -xcancel"),
-        ("en", "reddit", "reddit viewer alternatives to redlib libreddit"),
-        ("en", "reddit", "reddit frontend alternatives to libreddit"),
-        ("en", "reddit", "reddit viewer alternative to teddit"),
-        ("en", "reddit", "reddit frontend similar to troddit"),
-        ("en", "reddit", "alternative reddit viewer without login not redlib"),
-        ("en", "reddit", "reddit web client without login -redlib -libreddit -teddit -troddit"),
-        ("en", "reddit", "reddit web viewer site -redlib -libreddit"),
-        ("en", "tumblr", "tumblr viewer alternatives to priviblur"),
-        ("en", "tumblr", "tumblr frontend alternative to priviblur"),
-        ("en", "tumblr", "tumblr viewer similar to priviblur"),
-        ("en", "tumblr", "alternative tumblr viewer without account not priviblur"),
-        ("en", "tumblr", "tumblr web viewer without account -priviblur"),
-        ("en", "tumblr", "tumblr reader site without account -priviblur"),
-        ("en", "twitter", "twitter alternative frontend viewer -nitter -xcancel -twiiit"),
-        ("en", "reddit", "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit"),
-        ("en", "tumblr", "tumblr alternative frontend viewer -priviblur"),
-        ("en", "twitter", "X viewer without account"),
-        ("en", "twitter", "tweet viewer without login"),
-        ("en", "reddit", "reddit viewer without account"),
-        ("en", "reddit", "reddit browser without login"),
-        ("en", "tumblr", "tumblr viewer without account"),
-        ("en", "tumblr", "tumblr browser without login"),
-    ])
-    return list(dict.fromkeys(queries))
+    return list(dict.fromkeys(query_specs))
 
 
 def is_seed_candidate(hit: SearchHit) -> bool:

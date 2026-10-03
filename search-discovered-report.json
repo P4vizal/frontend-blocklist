@@ -2,16 +2,107 @@
   "status": "no_update",
   "accepted": [],
   "accepted_count": 0,
-  "trusted_candidate_count": 0,
-  "trusted_source_names": [],
+  "trusted_candidate_count": 7,
+  "trusted_source_names": [
+    "Libreddit",
+    "Redlib"
+  ],
   "searxng_instances_used": 0,
   "search_strategy": "trusted registries + SearXNG JSON; Google/Bing/DDG HTML scraping disabled",
-  "candidates": [],
-  "search_errors": [
+  "candidates": [
     {
-      "stage": "searx-instance-discovery",
-      "error": "NameError: name 'fetch_text' is not defined"
+      "domain": "redlib.catsarch.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://redlib.catsarch.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
     },
+    {
+      "domain": "redlib.cow.rip",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://redlib.cow.rip/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.nadeko.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://redlib.nadeko.net/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.privacyredirect.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://redlib.privacyredirect.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.privadency.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://redlib.privadency.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.r4fo.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://redlib.r4fo.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "safereddit.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://safereddit.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    }
+  ],
+  "search_errors": [
     {
       "language": "en",
       "platform": "twitter",

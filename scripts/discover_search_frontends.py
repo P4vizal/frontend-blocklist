@@ -1035,7 +1035,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     trusted_accept = (
         direct_trusted
         and strong_service_page
-        and bool(platform_hits and service_hits)
+        and bool(platform_hits)
+        and bool(header_platform_hits or brand_hits)
     )
 
     accepted = bool(seed_accept or search_accept or trusted_accept)
@@ -1167,60 +1168,42 @@ def main() -> int:
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
     provider_disabled: set[str] = set()
-    search_executor = concurrent.futures.ThreadPoolExecutor(
-        max_workers=len(SEARCH_BACKENDS)
-    )
+    search_errors: list[dict] = []
 
-    try:
-        for index, (lang, platform, query) in enumerate(query_specs, start=1):
-            cfg = LANGUAGES[lang]
-            region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
-            print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
+    # DDGS auto mode internally falls back across the engines available in
+    # the installed release. This is intentionally one call per query: asking
+    # for many named backends separately created hundreds of "No results found"
+    # errors even when one of the providers returned usable results.
+    for index, (lang, platform, query) in enumerate(query_specs, start=1):
+        cfg = LANGUAGES[lang]
+        region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
+        print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
+        result_count = 0
 
-            active_backends = [b for b in SEARCH_BACKENDS if b not in provider_disabled]
-            futures = {
-                search_executor.submit(search_with_ddgs, query, region, backend): backend
-                for backend in active_backends
-            }
+        for page in SEARCH_PAGES:
+            try:
+                results = search_with_ddgs(query, region, page)
+                for result in results:
+                    merge_search_result(candidate_map, platform, query, SEARCH_BACKEND, result)
+                result_count += len(results)
+                print(f"[DDGS/{SEARCH_BACKEND}] page={page} results={len(results)}")
+            except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+                search_errors.append({
+                    "language": lang,
+                    "platform": platform,
+                    "query": query,
+                    "backend": SEARCH_BACKEND,
+                    "page": page,
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
+                print(
+                    f"[WARN] DDGS/{SEARCH_BACKEND} page={page}: "
+                    f"{type(exc).__name__}: {exc}"
+                )
 
-            result_count = 0
-            successful_backend = False
-            for future in concurrent.futures.as_completed(futures):
-                backend = futures[future]
-                try:
-                    results = future.result()
-                    successful_backend = True
-                    for result in results:
-                        merge_search_result(candidate_map, platform, query, backend, result)
-                    result_count += len(results)
-                    print(f"[DDGS/{backend}] {len(results)} results")
-                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                    error = f"{type(exc).__name__}: {exc}"
-                    search_errors.append({
-                        "language": lang,
-                        "platform": platform,
-                        "query": query,
-                        "backend": backend,
-                        "error": error,
-                    })
-                    print(f"[WARN] DDGS/{backend}: {error}")
-                    message_lower = error.lower()
-                    if (
-                        isinstance(exc, (RatelimitException, TimeoutException))
-                        or "429" in message_lower
-                        or "403" in message_lower
-                    ):
-                        provider_disabled.add(backend)
-                        print(f"[WARN] Disabling DDGS/{backend} after a rate-limit/block response.")
-
-            if result_count == 0:
-                print("[WARN] No search results from active backends.")
-            time.sleep(SEARCH_DELAY)
-    finally:
-        search_executor.shutdown(wait=True)
-
-    print(f"DDGS backends disabled: {sorted(provider_disabled)}")
-    print(f"Search errors recorded: {len(search_errors)}")
+        if result_count == 0:
+            print("[WARN] No results from DDGS auto mode for this query.")
+        time.sleep(SEARCH_DELAY)
 
     # Stronger discovery signal first: domains seen in multiple independent queries.
     hits = sorted(
@@ -1271,9 +1254,10 @@ def main() -> int:
                     "trusted_source_names": trusted_source_names,
                     "verified_web_seed_count": seed_candidate_count,
                     "github_discovered_candidate_count": github_candidate_count,
-                    "search_backends": SEARCH_BACKENDS,
-                    "disabled_backends": sorted(provider_disabled),
-                    "search_strategy": "maintained registries + GitHub repository discovery + Bing/Yandex search via DDGS + page validation",
+                    "search_backend": SEARCH_BACKEND,
+                    "search_pages": list(SEARCH_PAGES),
+                    "search_backend_disabled": False,
+                    "search_strategy": "maintained registries + GitHub repository discovery + DDGS auto metasearch + pages 1-2 + page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -1296,8 +1280,9 @@ def main() -> int:
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "search_queries": len(query_specs),
-        "search_backends": SEARCH_BACKENDS,
-        "disabled_backends": sorted(provider_disabled),
+        "search_backend": SEARCH_BACKEND,
+        "search_pages": list(SEARCH_PAGES),
+        "search_backend_disabled": False,
         "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,

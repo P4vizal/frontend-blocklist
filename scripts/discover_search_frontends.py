@@ -1630,7 +1630,11 @@ def query_has_service_intent(platform: str, query: str) -> bool:
             "viewer", "frontend", "browser", "slideshow", "gallery", "reader",
             "anonymous", "content browser", "web client", "visor", "visualizador",
         )
-        + sum((cfg["service"] for cfg in LANGUAGES.values()), ())
+        + tuple(
+            term
+            for cfg in LANGUAGES.values()
+            for term in cfg["service"]
+        )
     ))
     return any(term_present(term, q) for term in service_terms)
 

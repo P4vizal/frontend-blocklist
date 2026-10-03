@@ -131,9 +131,9 @@ PLATFORMS = {
         "core": ["twitter", "nitter", "xcancel", "twiiit"],
         "brands": ["nitter", "xcancel", "twiiit"],
         "queries": [
-            "{platform} {service1} nitter",
-            "{platform} {service2} {object} nitter",
-            "x viewer twitter nitter",
+            "{platform} {service1} alternative to nitter",
+            "{platform} {service2} {object} viewer similar to nitter",
+            "x twitter viewer alternatives to xcancel twiiit",
         ],
         "query_object": "profile",
         "identity_extra": ["tweet", "tweets", "user", "profile", "post"],
@@ -143,8 +143,8 @@ PLATFORMS = {
         "core": ["reddit", "redlib", "libreddit", "teddit", "eddrit", "troddit", "kddit"],
         "brands": ["redlib", "libreddit", "teddit", "eddrit", "troddit", "kddit"],
         "queries": [
-            "{platform} {service1} redlib libreddit",
-            "{platform} {service2} {object} teddit",
+            "{platform} {service1} alternatives to redlib libreddit",
+            "{platform} {service2} {object} viewer similar to teddit troddit",
         ],
         "query_object": "subreddit",
         "identity_extra": ["subreddit", "subreddits", "comment", "comments", "post", "posts", "user", "profile"],
@@ -154,8 +154,8 @@ PLATFORMS = {
         "core": ["tumblr", "priviblur"],
         "brands": ["priviblur"],
         "queries": [
-            "{platform} {service1} priviblur",
-            "{platform} {service2} {object} priviblur",
+            "{platform} {service1} alternatives to priviblur",
+            "{platform} {service2} {object} viewer similar to priviblur",
         ],
         "query_object": "blog",
         "identity_extra": ["blog", "blogs", "post", "posts", "user", "profile"],
@@ -211,7 +211,35 @@ BAD_PATH_MARKERS = (
     "/news/", "/article/", "/articles/", "/press/",
     "/blog/", "/blogs/", "/guide/", "/guides/", "/how-to/",
     "/category/", "/categories/", "/tag/", "/tags/", "/topics/",
+    "/post/", "/posts/", "/topic/", "/topics/", "/thread/", "/threads/",
+    "/discussion/", "/discussions/", "/resource/", "/resources/",
+    "/self-hosted-apps/", "/alternatives/", "/subreddits/", "/what-is-",
 )
+
+CONTENT_TITLE_MARKERS = (
+    "what is ", "what are ", "how to ", "best ", "top ",
+    "guide", "explained", "comparison", "review", "alternatives",
+    "alternative apps", "list of ", "methods for ",
+)
+
+SERVICE_PATH_SEGMENTS = {
+    "viewer", "view", "browse", "browser", "search", "nitter", "xcancel",
+    "redlib", "libreddit", "teddit", "troddit", "priviblur",
+}
+
+SERVICE_COMPOUND_RE = re.compile(
+    r"^(?:twitter|x|reddit|tumblr)[_-](?:viewer|browser|frontend)$",
+    re.IGNORECASE,
+)
+
+
+def path_looks_like_service(path: str) -> bool:
+    parts = [unquote(part).strip().lower() for part in path.split("/") if part.strip()]
+    for part in parts:
+        normalized = re.sub(r"[^a-z0-9_-]+", "-", part)
+        if normalized in SERVICE_PATH_SEGMENTS or SERVICE_COMPOUND_RE.fullmatch(normalized):
+            return True
+    return False
 
 URL_IN_HTML_RE = re.compile(r"(?i)https?://[^\s\"<>]+")
 ENCODED_URL_RE = re.compile(r"(?i)https?%3A%2F%2F[^\s\"&<>]+")
@@ -455,19 +483,29 @@ def build_queries() -> list[tuple[str, str, str]]:
                     ),
                 ))
 
-    # Branded/instance searches have much higher signal than generic
-    # "frontend" searches and should surface fresh deployments.
+    # Maintained registries already cover known Nitter/XCancel/Twiiit,
+    # Redlib/Libreddit/Teddit/Troddit and Priviblur instances. Search should
+    # therefore discover *similar/alternative* frontends rather than repeat
+    # instance-hunting queries for those known projects.
     queries.extend([
-        ("en", "twitter", "twitter nitter instance"),
-        ("en", "twitter", "twitter xcancel instance"),
-        ("en", "twitter", "twitter twiiit instance"),
-        ("en", "twitter", "nitter alternative twitter viewer"),
-        ("en", "reddit", "reddit redlib instance"),
-        ("en", "reddit", "reddit libreddit instance"),
-        ("en", "reddit", "reddit teddit instance"),
-        ("en", "reddit", "reddit troddit instance"),
-        ("en", "tumblr", "tumblr priviblur instance"),
-        ("en", "tumblr", "priviblur alternative tumblr"),
+        ("en", "twitter", "twitter viewer alternatives to nitter"),
+        ("en", "twitter", "twitter frontend alternatives to nitter"),
+        ("en", "twitter", "twitter viewer alternative to xcancel"),
+        ("en", "twitter", "twitter frontend similar to twiiit"),
+        ("en", "twitter", "twitter viewer similar to nitter"),
+        ("en", "twitter", "alternative twitter viewer without login not nitter"),
+        ("en", "reddit", "reddit viewer alternatives to redlib libreddit"),
+        ("en", "reddit", "reddit frontend alternatives to libreddit"),
+        ("en", "reddit", "reddit viewer alternative to teddit"),
+        ("en", "reddit", "reddit frontend similar to troddit"),
+        ("en", "reddit", "alternative reddit viewer without login not redlib"),
+        ("en", "tumblr", "tumblr viewer alternatives to priviblur"),
+        ("en", "tumblr", "tumblr frontend alternative to priviblur"),
+        ("en", "tumblr", "tumblr viewer similar to priviblur"),
+        ("en", "tumblr", "alternative tumblr viewer without account not priviblur"),
+        ("en", "twitter", "twitter alternative frontend viewer -nitter -xcancel -twiiit"),
+        ("en", "reddit", "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit"),
+        ("en", "tumblr", "tumblr alternative frontend viewer -priviblur"),
         ("en", "twitter", "X viewer without account"),
         ("en", "twitter", "tweet viewer without login"),
         ("en", "reddit", "reddit viewer without account"),
@@ -875,6 +913,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         hit.urls,
         key=lambda url: (
             any(marker in urlparse(url).path.lower() for marker in BAD_PATH_MARKERS),
+            not path_looks_like_service(urlparse(url).path.lower()),
             -sum(marker in urlparse(url).path.lower() for marker in (
                 "viewer", "frontend", "profile", "subreddit", "tweet",
                 "status", "search", "view", "tool", "tools"
@@ -889,9 +928,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             continue
         seen_urls.add(url)
         candidate_urls.append(url)
+
+    # Always give the site root a validation slot. This prevents a search
+    # snippet/article from becoming the canonical page when the real service
+    # lives on the homepage or a dedicated viewer route.
     root_url = f"https://{hit.domain}/"
-    if root_url not in seen_urls:
-        candidate_urls.append(root_url)
+    candidate_urls = [url for url in candidate_urls if url != root_url]
+    candidate_urls.insert(1, root_url)
+    candidate_urls = candidate_urls[:5]
 
     first_url = candidate_urls[0]
     html_text = None
@@ -1021,6 +1065,27 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {"content_host": True}, "content/publishing host, not a service host"
         )
 
+    content_path_hint = any(marker in final_path for marker in BAD_PATH_MARKERS)
+    content_title_hits = [
+        marker for marker in CONTENT_TITLE_MARKERS
+        if term_present(marker, header_text)
+    ]
+    article_like = bool(
+        content_path_hint
+        or (content_title_hits and not service_path_hint and not host_service_hint)
+    )
+    if article_like:
+        return Evaluation(
+            hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
+            {
+                "content_path_hint": content_path_hint,
+                "content_title_hits": content_title_hits,
+                "service_path_hint": service_path_hint,
+                "host_service_hint": host_service_hint,
+            },
+            "article/content page, not a frontend endpoint"
+        )
+
     platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, total)]
     brand_hits = [t for t in pcfg["brands"] if term_present(t, total)]
     header_platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, header_text)]
@@ -1037,20 +1102,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     header_identity_hits = [t for t in identity_terms if term_present(t, header_text)]
     header_service_hits = [t for t in service_terms if term_present(t, header_text)]
 
-    service_path_hint = any(
-        marker in first_path
-        for marker in (
-            "/viewer", "/frontend", "/view", "/browser", "/browse",
-            "/search", "/tool/", "/tools/", "/nitter", "/xcancel",
-            "/redlib", "/libreddit", "/teddit", "/troddit", "/priviblur",
-        )
-    )
+    service_path_hint = path_looks_like_service(final_path)
     host_service_hint = bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
 
     input_count = sum(p["inputs"] for p in all_pages)
     form_count = sum(p["forms"] for p in all_pages)
     button_count = sum(p["buttons"] for p in all_pages)
-    ui_signal = bool(input_count or form_count or button_count or service_path_hint)
+    ui_signal = bool(
+        input_count
+        or host_service_hint
+        or (service_path_hint and button_count)
+    )
 
     action_hits = [t for t in (
         "paste", "enter", "search", "browse", "view", "open", "load",
@@ -1137,25 +1199,35 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         and bool(platform_hits and service_hits)
     )
 
-    # Search candidates: require actual search-intent evidence plus independent
-    # corroboration, unless the hostname itself is a very strong service name.
+    # Search candidates: require actual search-intent evidence plus an
+    # independent signal from the hostname, service route, or repeated
+    # discovery. A single generic article result is not enough.
     strong_search_evidence = (
         search_intent_hits >= 1
         and (
-            distinct_queries >= 2
-            or host_service_hint
-            or service_path_hint
+            host_service_hint
+            or (
+                service_path_hint
+                and distinct_queries >= 2
+            )
+            or distinct_queries >= 2
         )
     )
     search_quality_ok = (
         strong_search_evidence
         or bool(brand_hits)
     )
+    search_interactive_ok = bool(
+        input_count > 0
+        or host_service_hint
+        or (service_path_hint and button_count > 0)
+    )
     search_accept = (
         not seed_candidate
         and strong_service_page
         and search_intent_hits >= 1
         and search_quality_ok
+        and search_interactive_ok
     )
 
     trusted_accept = (
@@ -1196,6 +1268,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "buttons": button_count,
         "service_path_hint": service_path_hint,
         "host_service_hint": host_service_hint,
+        "content_path_hint": content_path_hint,
+        "content_title_hits": content_title_hits,
         "search_intent_hits": search_intent_hits,
         "search_provider_hits": sorted(search_provider_hits),
         "distinct_queries": distinct_queries,

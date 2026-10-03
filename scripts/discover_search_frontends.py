@@ -13,7 +13,7 @@ from dataclasses import dataclass, asdict
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import parse_qs, quote_plus, urljoin, urlparse
+from urllib.parse import parse_qs, quote_plus, unquote, urljoin, urlparse
 from urllib.request import Request, urlopen
 
 
@@ -158,6 +158,9 @@ CHALLENGE_MARKERS = (
 BAD_PATH_MARKERS = (
     "/news/", "/article/", "/articles/", "/press/",
 )
+
+URL_IN_HTML_RE = re.compile(r"(?i)https?://[^\s\"<>]+")
+ENCODED_URL_RE = re.compile(r"(?i)https?%3A%2F%2F[^\s\"&<>]+")
 
 DOMAIN_RE = re.compile(
     r"^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$",
@@ -410,8 +413,14 @@ def search_engine(engine: str, query: str, hl: str, gl: str) -> list[str]:
 
     parser = SearchResultParser()
     parser.feed(text)
+    raw_hrefs = list(parser.hrefs)
+
+    # Google/Bing/other result pages can encode destination URLs in HTML.
+    raw_hrefs.extend(URL_IN_HTML_RE.findall(html.unescape(text)))
+    raw_hrefs.extend(unquote(u) for u in ENCODED_URL_RE.findall(text))
+
     urls: list[str] = []
-    for href in parser.hrefs:
+    for href in raw_hrefs:
         href = html.unescape(href)
         if engine == "google" and (href.startswith("/url?") or href.startswith("https://www.google.com/url?")):
             parsed = urlparse(href)
@@ -424,7 +433,11 @@ def search_engine(engine: str, query: str, hl: str, gl: str) -> list[str]:
         host = normalize_host(href)
         if host:
             urls.append(href)
-    return list(dict.fromkeys(urls))
+
+    urls = list(dict.fromkeys(urls))
+    if not urls:
+        raise RuntimeError(f"{engine} returned no parseable external results")
+    return urls
 
 
 def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
@@ -665,6 +678,8 @@ def main() -> int:
         for engine in engines:
             try:
                 urls = search_engine(engine, query, cfg["hl"], cfg["gl"])
+                if not urls:
+                    raise RuntimeError(f"{engine} returned zero external results")
                 used_engine = engine
                 if engine != "google" and not google_disabled:
                     print(f"[INFO] Fallback search engine used: {engine}")

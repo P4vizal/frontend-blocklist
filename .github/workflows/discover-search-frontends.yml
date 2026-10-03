@@ -21,7 +21,7 @@ jobs:
   discover:
     name: Frontend discovery
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -59,14 +59,21 @@ jobs:
           )
           assert ("twitter", "example.com") in candidates
           assert candidates[("twitter", "example.com")].providers == ["bing"]
-          assert discovery.build_queries()
+          queries = discovery.build_queries()
+          assert queries
+          assert len(discovery.active_search_languages()) == 4
+          assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
+          assert discovery.search_pages_for("fr", "twitter viewer") == (1,)
+          assert discovery.DISCOVERY_MODE == "daily"
           print("Runtime smoke test passed.")
           PY
 
       - name: Discover and validate domains
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
           URLSCAN_API_KEY: ${{ secrets.URLSCAN_API_KEY }}
+          DISCOVERY_MODE: daily
         run: python scripts/discover_search_frontends.py
 
       - name: Commit discovered list and report

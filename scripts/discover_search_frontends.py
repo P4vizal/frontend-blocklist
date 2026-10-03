@@ -69,6 +69,7 @@ WEB_VERIFIED_SEEDS = [
     ("twitter", "https://www.twitter-viewer.com/twitter-profile-viewer"),
     ("twitter", "https://ilo.so/twitter-viewer"),
     ("twitter", "https://tweetindex.com/es/twitter-profile-viewer"),
+    ("twitter", "https://twitviewer.net/"),
 ]
 
 CONTENT_HOST_SUFFIXES = (

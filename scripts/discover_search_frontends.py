@@ -272,6 +272,8 @@ class PageParser(HTMLParser):
         self.body_parts: list[str] = []
         self.links: list[tuple[str, str]] = []
         self.forms = 0
+        self.inputs = 0
+        self.buttons = 0
         self.current_tag: str | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -289,6 +291,10 @@ class PageParser(HTMLParser):
                     self.meta_parts.append(content)
         elif tag == "form":
             self.forms += 1
+        elif tag in {"input", "textarea", "select"}:
+            self.inputs += 1
+        elif tag == "button":
+            self.buttons += 1
         elif tag == "a":
             href = attrs_map.get("href") or ""
             self.links.append((href, ""))
@@ -326,6 +332,8 @@ class PageParser(HTMLParser):
             "body": " ".join(self.body_parts),
             "links": list(self.links),
             "forms": self.forms,
+            "inputs": self.inputs,
+            "buttons": self.buttons,
         }
 
 
@@ -710,18 +718,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     search_confirmed = len(hit.providers) >= 2 or len(hit.queries) >= 2
     html_text, fetch_meta = fetch_html(first_url)
     if html_text is None:
-        if direct_trusted:
-            score = 12 + 2 * len(hit.sources)
-            return Evaluation(
-                hit.domain, hit.platform, True, score, len(hit.queries), first_url,
-                {
-                    "trusted_sources": hit.sources,
-                    "source_validated": True,
-                    "live_page_fetch": False,
-                    "fetch_error": fetch_meta.get("error", "fetch failed"),
-                },
-                "trusted instance registry; live page unavailable"
-            )
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), first_url,
             {}, "", fetch_meta.get("error", "fetch failed")
@@ -737,7 +733,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {"redirect_host": final_host}, "redirected outside candidate host"
         )
 
-    if any(marker in urlparse(first_url).path.lower() for marker in BAD_PATH_MARKERS):
+    first_path = urlparse(first_url).path.lower()
+    if any(marker in first_path for marker in BAD_PATH_MARKERS):
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
             {}, "search result points to an article/news page"
@@ -809,6 +806,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "/subreddit", "/post", "/posts", "/tweet", "/tweets", "/status",
         "/blog", "/blogs", "/tag", "/tags", "/view",
     )
+    header_text = fold(" ".join([title, headings, meta]))
+    header_service_hits = [t for t in service_terms if term_present(t, header_text)]
+    header_identity_hits = [t for t in identity_terms if term_present(t, header_text)]
+    header_platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, header_text)]
+
+    path_service_hint = any(
+        marker in first_path
+        for marker in ("/viewer", "/view", "/profile", "/tweet", "/tweets",
+                       "/status", "/subreddit", "/r/", "/user", "/blog")
+    )
+
     app_path_hits = sorted({
         marker
         for page in all_pages
@@ -817,7 +825,15 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         for marker in app_path_markers
         if marker in urlparse(urljoin(final_url, href)).path.lower()
     })
-    ui_signal = bool(app_path_hits or sum(p["forms"] for p in all_pages) or len(first["links"]) >= 3)
+    ui_signal = bool(
+        path_service_hint
+        or app_path_hits
+        or sum(p["forms"] for p in all_pages)
+        or sum(p["inputs"] for p in all_pages)
+        or sum(p["buttons"] for p in all_pages) >= 2
+    )
+    service_in_header_or_path = bool(header_service_hits or path_service_hint)
+    identity_in_header_or_ui = bool(header_identity_hits or ui_signal)
 
     score = 0
     if header_brand_hits:
@@ -859,13 +875,22 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     trusted_repeat = len(hit.sources) >= 2
     accepted = (
         (
-            direct_trusted
-            and len(hit.sources) >= 1
-            and not any(marker in total[:12000] for marker in CHALLENGE_MARKERS)
+            structured_combo
+            and header_platform_hits
+            and service_in_header_or_path
+            and identity_in_header_or_ui
+            and ui_signal
+            and score >= 13
+            and (search_confirmed or direct_trusted)
         )
-        or (strong_brand and (service_hits or identity_hits) and score >= 10 and ui_signal)
-        or (structured_combo and search_confirmed and score >= 10 and ui_signal)
-        or (structured_combo and len(hit.urls) >= 2 and score >= 10 and ui_signal)
+        or (
+            strong_brand
+            and service_in_header_or_path
+            and identity_in_header_or_ui
+            and ui_signal
+            and score >= 12
+            and (search_confirmed or direct_trusted)
+        )
     )
     if direct_trusted:
         score += 6
@@ -884,12 +909,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "platform_hits": platform_hits,
         "brand_hits": brand_hits,
         "header_brand_hits": header_brand_hits,
+        "header_platform_hits": header_platform_hits,
+        "header_service_hits": header_service_hits,
+        "header_identity_hits": header_identity_hits,
         "trusted_sources": hit.sources,
         "service_hits": service_hits,
         "identity_hits": identity_hits,
         "body_service_hits": body_service_hits,
         "body_identity_hits": body_identity_hits,
         "forms": sum(p["forms"] for p in all_pages),
+        "inputs": sum(p["inputs"] for p in all_pages),
+        "buttons": sum(p["buttons"] for p in all_pages),
         "app_path_hits": app_path_hits,
         "ui_signal": ui_signal,
         "crawled_pages": len(all_pages),
@@ -1027,7 +1057,13 @@ def main() -> int:
     # Stronger discovery signal first: domains seen in multiple independent queries.
     hits = sorted(
         candidate_map.values(),
-        key=lambda h: (-len(h.queries), -len(h.urls), h.domain),
+        key=lambda h: (
+            -len(h.providers),
+            -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
+            -len(h.sources),
+            -len(h.search_evidence),
+            h.domain,
+        ),
     )
     hits = hits[:MAX_CANDIDATES]
 

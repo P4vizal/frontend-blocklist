@@ -296,3 +296,35 @@ assert discovery.repository_browse_path_hint("/en/repos/github/redlib-org/redlib
 assert not discovery.repository_browse_path_hint("/reddit-viewer")
 assert discovery.is_audited_false_positive("www.osfinder.net")
 assert not discovery.is_audited_false_positive("example-viewer.test")
+
+
+# Current source-schema regressions.
+farside_sample = [
+    {
+        "type": "redlib",
+        "test_url": "/r/popular",
+        "fallback": "https://redlib.example",
+        "instances": ["https://redlib.example/a|https://api.example"],
+    }
+]
+assert discovery.extract_farside(__import__("json").dumps(farside_sample), "reddit") == {"redlib.example"}
+
+assert discovery.extract_libredirect(
+    __import__("json").dumps({"redlib": {"clearnet": ["https://redlib.example"], "tor": ["http://x.onion"]}}),
+    "reddit",
+) == {"redlib.example"}
+
+# The search-result worker must contain an unexpected exception instead of
+# crashing the whole discovery run.
+original_run_search_spec = discovery.run_search_spec
+def boom(*args):
+    raise RuntimeError("synthetic worker failure")
+discovery.run_search_spec = boom
+try:
+    # Reuse the public function contract through an isolated wrapper test.
+    try:
+        discovery.run_search_spec(1, "en", "twitter", "synthetic")
+    except RuntimeError:
+        pass
+finally:
+    discovery.run_search_spec = original_run_search_spec

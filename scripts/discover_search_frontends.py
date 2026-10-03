@@ -2982,15 +2982,28 @@ def main() -> int:
                 for index, (lang, platform, query) in enumerate(query_specs, start=1)
             ]
             for future in concurrent.futures.as_completed(futures):
-                (
-                    index,
-                    lang,
-                    platform,
-                    query,
-                    results_by_page,
-                    errors,
-                    fallback_count,
-                ) = future.result()
+                try:
+                    (
+                        index,
+                        lang,
+                        platform,
+                        query,
+                        results_by_page,
+                        errors,
+                        fallback_count,
+                    ) = future.result()
+                except Exception as exc:
+                    search_errors.append({
+                        "language": "unknown",
+                        "platform": "unknown",
+                        "query": "unknown",
+                        "backend": "search-spec",
+                        "page": 0,
+                        "attempt": 1,
+                        "error": f"{type(exc).__name__}: {exc}",
+                    })
+                    print(f"[WARN] search worker crashed safely: {type(exc).__name__}: {exc}")
+                    continue
                 search_fallbacks += fallback_count
                 if results_by_page:
                     search_queries_with_results += 1
@@ -3279,8 +3292,6 @@ def main() -> int:
                     "trusted_candidate_count": trusted_candidate_count,
                     "audited_false_positive_domains": sorted(AUDITED_FALSE_POSITIVE_HOSTS),
                     "audited_false_positive_count": len(AUDITED_FALSE_POSITIVE_HOSTS),
-        "audited_false_positive_domains": sorted(AUDITED_FALSE_POSITIVE_HOSTS),
-        "audited_false_positive_count": len(AUDITED_FALSE_POSITIVE_HOSTS),
                     "trusted_source_names": trusted_source_names,
                     "verified_web_seed_count": seed_candidate_count,
                     "verified_seed_domains": seed_report,
@@ -3292,6 +3303,7 @@ def main() -> int:
                     "verified_frontend_domains": verified_frontend_domains,
                     "newly_discovered_count": 0,
                     "github_discovered_candidate_count": github_candidate_count,
+                    "search_queries": len(query_specs),
                     "search_backend": SEARCH_BACKEND,
                     "discovery_mode": DISCOVERY_MODE,
                     "active_search_languages": list(active_search_languages()),
@@ -3327,6 +3339,7 @@ def main() -> int:
                     "top_near_misses": near_misses[:20],
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
+                    "output_domain_count": len(historical),
                     "append_only": True,
                     "output_preserved": True,
                     "newly_discovered_count": 0,
@@ -3388,6 +3401,8 @@ def main() -> int:
         "verified_frontend_count": len(verified_frontend_domains),
         "verified_frontend_domains": verified_frontend_domains,
         "trusted_candidate_count": trusted_candidate_count,
+        "audited_false_positive_domains": sorted(AUDITED_FALSE_POSITIVE_HOSTS),
+        "audited_false_positive_count": len(AUDITED_FALSE_POSITIVE_HOSTS),
         "github_discovered_candidate_count": github_candidate_count,
         "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded multilingual rotated search with language-aware page-2 expansion + query-level intent scoring + persistent pending verification + parallel validation",
         "trusted_source_names": trusted_source_names,

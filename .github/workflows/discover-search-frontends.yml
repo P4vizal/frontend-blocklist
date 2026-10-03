@@ -138,6 +138,13 @@ jobs:
           assert int(report.get("validated_candidates", 0)) <= int(
               report.get("candidates_discovered", 0)
           )
+          if report.get("discovery_mode") == "daily":
+              assert int(report.get("search_queries", 0)) == 63
+          assert int(report.get("search_backend_failures", 0)) >= 0
+          assert int(report.get("pending_verification_count", 0)) <= 120
+          assert int(report.get("retained_total_count", 0)) == int(
+              report.get("output_domain_count", report.get("retained_total_count", 0))
+          )
           required_report_keys = {
               "status", "trusted_candidate_count", "validated_candidates",
               "pending_verification_count", "validation_crash_count",

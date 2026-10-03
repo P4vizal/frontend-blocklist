@@ -567,15 +567,21 @@ def build_queries() -> list[tuple[str, str, str]]:
         ("en", "twitter", "twitter frontend similar to twiiit"),
         ("en", "twitter", "twitter viewer similar to nitter"),
         ("en", "twitter", "alternative twitter viewer without login not nitter"),
+        ("en", "twitter", "twitter web client without login -nitter -xcancel -twiiit"),
+        ("en", "twitter", "tweet viewer site without login -nitter -xcancel"),
         ("en", "reddit", "reddit viewer alternatives to redlib libreddit"),
         ("en", "reddit", "reddit frontend alternatives to libreddit"),
         ("en", "reddit", "reddit viewer alternative to teddit"),
         ("en", "reddit", "reddit frontend similar to troddit"),
         ("en", "reddit", "alternative reddit viewer without login not redlib"),
+        ("en", "reddit", "reddit web client without login -redlib -libreddit -teddit -troddit"),
+        ("en", "reddit", "reddit web viewer site -redlib -libreddit"),
         ("en", "tumblr", "tumblr viewer alternatives to priviblur"),
         ("en", "tumblr", "tumblr frontend alternative to priviblur"),
         ("en", "tumblr", "tumblr viewer similar to priviblur"),
         ("en", "tumblr", "alternative tumblr viewer without account not priviblur"),
+        ("en", "tumblr", "tumblr web viewer without account -priviblur"),
+        ("en", "tumblr", "tumblr reader site without account -priviblur"),
         ("en", "twitter", "twitter alternative frontend viewer -nitter -xcancel -twiiit"),
         ("en", "reddit", "reddit alternative frontend viewer -redlib -libreddit -teddit -troddit"),
         ("en", "tumblr", "tumblr alternative frontend viewer -priviblur"),
@@ -1714,10 +1720,26 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         and ui_signal
         and not article_structure_hint
     )
+    # Some real frontends are JS-heavy and expose no forms/buttons in a plain
+    # HTML fetch. When search results repeatedly identify the platform/service
+    # and the page header itself confirms platform + service + identity, accept
+    # it without requiring interactive markup. Editorial pages remain blocked
+    # by content path/title/structure checks above.
+    header_verified_search_service_ok = bool(
+        search_intent_hits >= 1
+        and distinct_queries >= 2
+        and header_platform_hits
+        and strong_header_service_hits
+        and header_identity_hits
+        and not content_path_hint
+        and not content_title_hits
+        and not article_structure_hint
+    )
     search_quality_ok = (
         strong_search_evidence
         or bool(brand_hits)
         or single_query_service_ok
+        or header_verified_search_service_ok
     )
     search_interactive_ok = bool(
         host_service_hint
@@ -1728,6 +1750,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         distinct_queries >= 2
         or host_service_hint
         or single_query_service_ok
+        or header_verified_search_service_ok
     )
     search_accept = (
         not seed_candidate
@@ -1762,6 +1785,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     score += min(5, 2 * len(search_provider_hits))
     score += min(4, distinct_queries)
     score += 2 if single_query_service_ok else 0
+    score += 2 if header_verified_search_service_ok else 0
     score += 2 if len(hit.sources) >= 2 else (1 if hit.sources else 0)
     if host_service_hint:
         score += 2
@@ -1790,6 +1814,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "content_title_hits": content_title_hits,
         "header_service_identity_hint": header_service_identity_hint,
         "single_query_service_ok": single_query_service_ok,
+        "header_verified_search_service_ok": header_verified_search_service_ok,
         "search_intent_hits": search_intent_hits,
         "search_provider_hits": sorted(search_provider_hits),
         "distinct_queries": distinct_queries,

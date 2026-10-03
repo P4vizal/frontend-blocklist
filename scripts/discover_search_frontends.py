@@ -289,7 +289,9 @@ EDITORIAL_PAGE_MARKERS = (
 )
 
 STRONG_SERVICE_TERMS = (
-    "viewer", "frontend", "front-end", "alternative frontend", "alternative front-end",
+    "viewer", "frontend", "front-end", "front end",
+    "alternative frontend", "alternative front-end", "alternative front end",
+    "private frontend", "private front-end", "private front end",
     "browser", "slideshow",
     "reader", "gallery", "content browser", "web client",
     "visor", "visualizador", "visionneuse", "betrachter",
@@ -338,6 +340,7 @@ def sanitize_request_url(value: str) -> str | None:
     try:
         parsed = urlparse(value)
         host = parsed.hostname
+        parsed.port
     except ValueError:
         return None
     if parsed.scheme.lower() not in {"http", "https"} or not parsed.netloc or not host:
@@ -822,22 +825,22 @@ def build_queries() -> list[tuple[str, str, str]]:
             '"Twitter profile viewer" -news -article -guide -review',
             '"tweet viewer" -news -article -guide -review',
             '"X profile viewer" "no login" -news -article -guide -review',
-            '"Twitter alternative frontend" -news -article -guide -review',
-            '"Twitter browser" "public profiles" -news -article -guide',
+            '"Twitter alternative front-end" -news -article -guide -review',
+            '"Twitter private front-end" -news -article -guide -review',
         ],
         "reddit": [
             '"Reddit post viewer" -news -article -guide -review',
             '"Reddit profile viewer" -news -article -guide -review',
             '"Reddit anonymous viewer" -news -article -guide -review',
             '"subreddit viewer" -news -article -guide -review',
-            '"Reddit alternative frontend" -news -article -guide -review',
+            '"Reddit private front-end" -news -article -guide -review',
         ],
         "tumblr": [
             '"Tumblr blog viewer" -news -article -guide -review',
             '"Tumblr profile viewer" -news -article -guide -review',
             '"Tumblr anonymous viewer" -news -article -guide -review',
             '"Tumblr post viewer" -news -article -guide -review',
-            '"Tumblr alternative frontend" -news -article -guide -review',
+            '"Tumblr private front-end" -news -article -guide -review',
         ],
     }
 

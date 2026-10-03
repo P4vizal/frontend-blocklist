@@ -518,6 +518,23 @@ def discover_searxng_instances() -> list[str]:
 
 
 
+def fetch_text(url: str) -> str:
+    req = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "application/json,text/plain,text/markdown,*/*",
+            "Accept-Language": "en,es;q=0.7,*;q=0.3",
+            "Connection": "close",
+        },
+    )
+    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
+        raw = response.read(MAX_PAGE_BYTES)
+        charset = response.headers.get_content_charset() or "utf-8"
+        return raw.decode(charset, errors="replace")
+
+
+
 def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
 

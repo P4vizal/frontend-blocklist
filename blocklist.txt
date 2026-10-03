@@ -29,6 +29,7 @@
 ||a.opnxng.com^
 ||about.opnxng.com^
 ||adminforge.de^
+||advancedrobert.manthrowshat.net^
 ||allthefiles.net^
 ||alpine.sev.monster^
 ||anaimg.starbeamrainbowlabs.com^
@@ -143,7 +144,6 @@
 ||gram.whatever.social^
 ||grep.vim.wtf^
 ||gruble.de^
-||guestbook.html^
 ||hbubli.cc^
 ||hosting.cz-pro.cz^
 ||hp.ggtyler.dev^
@@ -235,7 +235,6 @@
 ||lx.vern.cc^
 ||lxv.dc09.ru^
 ||m.opnxng.com^
-||mail.buffon.cloud^
 ||mail.einfachzocken.eu^
 ||mail.mxchange.org^
 ||mail.rhscz.eu^
@@ -308,7 +307,8 @@
 ||overflow.r4fo.com^
 ||overflow.smnz.de^
 ||overflow.snine.nl^
-||p5790d9ee.dip0.t-ipconnect.de^
+||p200300d0df34b8000000000000000004.dip0.t-ipconnect.de^
+||p4fd9a5e0.dip0.t-ipconnect.de^
 ||page.search^
 ||paimon.sev.monster^
 ||paste.coalserver.de^
@@ -412,6 +412,7 @@
 ||rimgo.reallyaweso.me^
 ||rimgo.wuemeli.com^
 ||rmgur.com^
+||rockeaters.net^
 ||s.307200.xyz^
 ||s.dyox.in^
 ||s.opnxng.com^
@@ -497,6 +498,7 @@
 ||searx.nixnet.services^
 ||searx.oloke.xyz^
 ||searx.ononoki.org^
+||searx.party^
 ||searx.perennialte.ch^
 ||searx.redgarden.cv^
 ||searx.rhscz.eu^
@@ -623,7 +625,7 @@
 ||vps-31677213.vps.ovh.ca^
 ||vps-773e829a.vps.ovh.ca^
 ||vps-84f729f8.vps.ovh.us^
-||vps-ccaac17b.vps.ovh.us^
+||vps-ebe9aed2.vps.ovh.us^
 ||vx.maid.zone^
 ||vx2.maid.zone^
 ||w.sneed.network^
@@ -651,7 +653,6 @@
 ||wp.dc09.ru^
 ||wuemeli.com^
 ||www.cmunroe.us^
-||www.cups.moe^
 ||www.etsi.me^
 ||www.gruble.de^
 ||www.isci.si^

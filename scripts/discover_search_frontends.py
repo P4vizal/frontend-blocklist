@@ -1,3 +1,4 @@
+# CI: syntax validation is deliberately side-effect free.
 # CI trigger: keep discovery workflow immediately testable without touching stable blocklist files.
 #!/usr/bin/env python3
 from __future__ import annotations

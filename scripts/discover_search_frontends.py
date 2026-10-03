@@ -232,7 +232,7 @@ TRUSTED_SOURCES = [
     ("Alternative frontends 7", "text", "https://raw.githubusercontent.com/duyfken/alternative-front-ends/web/README.md"),
 ]
 
-DIRECT_TRUSTED_SOURCES = {"Farside", "Redlib", "Libreddit", "Priviblur"}
+DIRECT_TRUSTED_SOURCES = {"Farside", "Redlib", "Libreddit", "LibRedirect", "Priviblur"}
 
 FARSIDE_PLATFORM_TYPES = {
     "twitter": {"nitter", "xcancel"},

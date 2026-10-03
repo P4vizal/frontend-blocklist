@@ -1386,6 +1386,8 @@ def main() -> int:
     candidate_map: dict[tuple[str, str], SearchHit] = {}
     search_errors: list[dict] = []
     search_results_seen = 0
+    search_pages_succeeded = 0
+    search_queries_with_results = 0
 
     seeds = seed_candidates()
     candidate_map.update(seeds)
@@ -1445,7 +1447,10 @@ def main() -> int:
         ]
         for future in concurrent.futures.as_completed(futures):
             index, lang, platform, query, results_by_page, errors = future.result()
+            if results_by_page:
+                search_queries_with_results += 1
             for page, backend, results in results_by_page:
+                search_pages_succeeded += 1
                 search_results_seen += len(results)
                 for result in results:
                     merge_search_result(candidate_map, platform, query, backend, result)
@@ -1456,7 +1461,7 @@ def main() -> int:
             for error in errors:
                 search_errors.append(error)
                 print(
-                    f"[WARN] DDGS/{SEARCH_BACKEND} {lang}/{platform} "
+                    f"[WARN] DDGS/{error['backend']} {lang}/{platform} "
                     f"page={error['page']}: {error['error']}"
                 )
 
@@ -1489,8 +1494,11 @@ def main() -> int:
     print(f"Candidates discovered: {len(candidate_map)}")
     print(f"Candidates selected for validation: {len(hits)}")
     print(f"Previously known candidates skipped: {already_known_candidates}")
+    print(f"Search pages succeeded: {search_pages_succeeded}/{len(query_specs) * len(SEARCH_PAGES)}")
+    print(f"Search queries with at least one page: {search_queries_with_results}/{len(query_specs)}")
+    print(f"Search queries without any page: {len(query_specs) - search_queries_with_results}")
     print(f"Search results seen: {search_results_seen}")
-    print(f"Search-engine failures: {len(search_errors)}")
+    print(f"Search-engine backend failures: {len(search_errors)}")
 
     evaluations: list[Evaluation] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as executor:
@@ -1533,6 +1541,10 @@ def main() -> int:
                     "search_backends": list(SEARCH_BACKENDS),
                     "search_pages": list(SEARCH_PAGES),
                     "search_backend_disabled": False,
+                    "search_pages_succeeded": search_pages_succeeded,
+                    "search_queries_with_results": search_queries_with_results,
+                    "search_queries_without_results": len(query_specs) - search_queries_with_results,
+                    "search_backend_failures": len(search_errors),
                     "search_strategy": "maintained registries + GitHub repository discovery + resilient single-backend fallback (bing -> brave -> mojeek) + pages 1-2 + page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
@@ -1562,6 +1574,10 @@ def main() -> int:
         "search_backends": list(SEARCH_BACKENDS),
         "search_pages": list(SEARCH_PAGES),
         "search_backend_disabled": False,
+        "search_pages_succeeded": search_pages_succeeded,
+        "search_queries_with_results": search_queries_with_results,
+        "search_queries_without_results": len(query_specs) - search_queries_with_results,
+        "search_backend_failures": len(search_errors),
         "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,

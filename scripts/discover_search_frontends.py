@@ -28,7 +28,7 @@ FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
 MAX_CANDIDATES = 320
 MIN_ACCEPTED = 2
-SEARCH_WORKERS = 3
+SEARCH_WORKERS = 5
 WORKERS = 10
 VALIDATION_DELAY = 0.0
 
@@ -37,16 +37,23 @@ VALIDATION_DELAY = 0.0
 # result-loss behavior when one provider fails.
 # Probe engines one at a time. These are supported as individual text backends
 # by DDGS 9.16.0; the fallback records which engine actually returned results.
-SEARCH_BACKENDS = ("bing", "yahoo", "startpage")
+SEARCH_BACKENDS = ("bing", "startpage")
 SEARCH_BACKEND = "fallback"
-SEARCH_MAX_RESULTS = 15
+SEARCH_MAX_RESULTS = 10
 SEARCH_PAGES = (1, 2)
-SEARCH_TIMEOUT = 10
-SEARCH_DELAY = 0.25
-SEARCH_RETRIES = 1
+SEARCH_TIMEOUT = 6
+SEARCH_DELAY = 0.15
+SEARCH_RETRIES = 0
+SEARCH_PAGE2_LANGS = {"en", "es"}
+
+DISCOVERY_MODE = os.environ.get("DISCOVERY_MODE", "daily").strip().lower()
+if DISCOVERY_MODE not in {"daily", "deep", "all"}:
+    raise ValueError(f"Unsupported DISCOVERY_MODE={DISCOVERY_MODE!r}")
+
+LANGUAGE_ROTATION = ("fr", "de", "zh", "ja", "ko", "hi", "ru", "ar", "pt", "it")
 
 # External discovery sources are deliberately low-rate and fail-soft.
-REPOSITORY_SOURCE_LIMIT = 12
+REPOSITORY_SOURCE_LIMIT = 10
 COMMON_CRAWL_LIMIT = 40
 COMMON_CRAWL_DELAY = 2.0
 URLSCAN_MAX_RESULTS = 20
@@ -468,6 +475,21 @@ def cfg_lang_service(lang: str, index: int) -> str:
     return terms[min(index, len(terms) - 1)]
 
 
+def active_search_languages() -> tuple[str, ...]:
+    if DISCOVERY_MODE == "deep":
+        return ()
+    day_index = int(time.time() // 86400)
+    extras = (
+        LANGUAGE_ROTATION[(day_index * 2) % len(LANGUAGE_ROTATION)],
+        LANGUAGE_ROTATION[(day_index * 2 + 1) % len(LANGUAGE_ROTATION)],
+    )
+    return ("en", "es", *extras)
+
+
+def search_pages_for(lang: str) -> tuple[int, ...]:
+    return SEARCH_PAGES if lang in SEARCH_PAGE2_LANGS else (1,)
+
+
 def build_queries() -> list[tuple[str, str, str]]:
     # Combine natural-language searches with platform-specific project and
     # instance names. The platform-specific templates were previously defined
@@ -488,7 +510,10 @@ def build_queries() -> list[tuple[str, str, str]]:
     }
     queries: list[tuple[str, str, str]] = []
 
+    active_languages = set(active_search_languages())
     for lang, terms in intents.items():
+        if lang not in active_languages:
+            continue
         for platform, cfg in PLATFORMS.items():
             for intent in terms:
                 queries.append((lang, platform, f"{platform} {intent}"))
@@ -592,7 +617,7 @@ def run_search_spec(
     errors: list[dict] = []
     searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
 
-    for page in SEARCH_PAGES:
+    for page in search_pages_for(lang):
         page_results: list[dict] = []
         page_backend = ""
 

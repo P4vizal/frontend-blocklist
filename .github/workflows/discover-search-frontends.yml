@@ -2,6 +2,11 @@ name: Discover frontend domains via Google
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/discover-search-frontends.yml"
+      - "scripts/discover_search_frontends.py"
   schedule:
     - cron: "41 3 * * *"
 

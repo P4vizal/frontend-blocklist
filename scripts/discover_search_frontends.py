@@ -3405,6 +3405,7 @@ def main() -> int:
         REPORT.write_text(
             json.dumps(
                 {
+                    "generated": now_iso,
                     "report_schema_version": REPORT_SCHEMA_VERSION,
                     "status": "no_update",
                     "accepted": [],
@@ -3490,6 +3491,7 @@ def main() -> int:
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "report_schema_version": REPORT_SCHEMA_VERSION,
+        "status": "updated",
         "append_only": True,
         "output_preserved": False,
         "newly_discovered_count": len(accepted),
@@ -3557,6 +3559,7 @@ def main() -> int:
         "newly_accepted_count": len(accepted),
         "retained_historical_count": len(historical),
         "retained_total_count": len(retained_domains),
+        "output_domain_count": len(retained_domains),
         "already_covered_count": len(existing & candidate_domains),
         "already_discovered_count": len(historical & candidate_domains),
         "known_candidates_skipped_before_validation": already_known_candidates,

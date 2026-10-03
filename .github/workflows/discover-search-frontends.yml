@@ -34,7 +34,15 @@ jobs:
           python-version: "3.12"
 
       - name: Validate Python syntax
-        run: python -m py_compile scripts/discover_search_frontends.py
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+
+          path = Path("scripts/discover_search_frontends.py")
+          ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+          print(f"Python syntax OK: {path}")
+          PY
 
       - name: Runtime smoke test
         run: |

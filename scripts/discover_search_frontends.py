@@ -33,11 +33,11 @@ MIN_ACCEPTED = 2
 WORKERS = 6
 VALIDATION_DELAY = 0.35
 
-SEARCH_BACKENDS = ["brave", "duckduckgo", "bing", "google", "mojeek", "yahoo"]
+SEARCH_BACKENDS = ["duckduckgo", "bing", "yahoo", "brave", "google", "mojeek", "startpage", "yandex"]
 SEARCH_MAX_RESULTS = 8
 SEARCH_TIMEOUT = 8
-PROVIDER_ERROR_LIMIT = 2
 SEARCH_DELAY = 0.25
+SEARCH_AUTO_FALLBACK = True
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
@@ -45,6 +45,17 @@ WEB_VERIFIED_SEEDS = [
     ("twitter", "https://tweetviewer.com/"),
     ("twitter", "https://www.sotwe.com/"),
 ]
+
+CONTENT_HOST_SUFFIXES = (
+    ".blogspot.com", ".wordpress.com", ".medium.com", ".substack.com",
+    ".wixsite.com", ".weebly.com",
+)
+SEARCH_SERVICE_HOST_RE = re.compile(
+    r"(viewer|frontend|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
+    r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
+    r"priviblur|tumblrviewer|zoomblr)",
+    re.IGNORECASE,
+)
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
@@ -401,6 +412,10 @@ def build_queries() -> list[tuple[str, str, str]]:
     return queries
 
 
+def is_seed_candidate(hit: SearchHit) -> bool:
+    return any(q.startswith("SEED:") for q in hit.queries)
+
+
 def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
     for platform, url in WEB_VERIFIED_SEEDS:
@@ -656,6 +671,47 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
+def fetch_jina_text(url: str) -> tuple[str, dict] | tuple[None, dict]:
+    jina_url = "https://r.jina.ai/" + url
+    req = Request(
+        jina_url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "text/plain",
+            "Connection": "close",
+        },
+    )
+    try:
+        with urlopen(req, timeout=12) as response:
+            raw = response.read(MAX_PAGE_BYTES)
+            charset = response.headers.get_content_charset() or "utf-8"
+            text = raw.decode(charset, errors="replace")
+        return text, {"final_url": url, "via": "jina"}
+    except (HTTPError, URLError, TimeoutError, ValueError, OSError) as exc:
+        return None, {"error": f"{type(exc).__name__}: {exc}"}
+
+
+def page_evidence_from_text(url: str, text: str) -> dict:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    title = lines[0] if lines else ""
+    headings = " ".join(line.lstrip("# ").strip() for line in lines[1:8])
+    body = " ".join(lines[:500])
+    parsed = urlparse(url)
+    return {
+        "title": title,
+        "headings": headings,
+        "meta": "",
+        "body": body,
+        "links": [],
+        "forms": 0,
+        "inputs": 0,
+        "buttons": 0,
+        "url_text": f"{parsed.netloc} {parsed.path}",
+        "visible": body,
+        "link_text": "",
+    }
+
+
 def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
     headers = {
         "User-Agent": USER_AGENT,
@@ -713,17 +769,43 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {"already_covered": True}, "already covered by blocklist.txt"
         )
 
-    first_url = hit.urls[0]
+    seed_candidate = is_seed_candidate(hit)
     direct_trusted = bool(set(hit.sources) & DIRECT_TRUSTED_SOURCES)
-    search_confirmed = len(hit.providers) >= 2 or len(hit.queries) >= 2
+
+    # Prefer search-result URLs that actually look like the service page.
+    ranked_urls = sorted(
+        hit.urls,
+        key=lambda url: (
+            -sum(marker in urlparse(url).path.lower() for marker in (
+                "viewer", "frontend", "profile", "subreddit", "tweet",
+                "status", "blog", "search", "view"
+            )),
+            url,
+        ),
+    )
+    first_url = ranked_urls[0]
+
     html_text, fetch_meta = fetch_html(first_url)
+    via = "direct"
+    if html_text is None and seed_candidate:
+        jina_text, jina_meta = fetch_jina_text(first_url)
+        if jina_text is not None:
+            html_text = jina_text
+            fetch_meta = jina_meta
+            via = "jina"
+
     if html_text is None:
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), first_url,
-            {}, "", fetch_meta.get("error", "fetch failed")
+            {
+                "trusted_sources": hit.sources,
+                "search_providers": hit.providers,
+                "fetch_error": fetch_meta.get("error", "fetch failed"),
+            },
+            "page unavailable"
         )
 
-    final_url = fetch_meta["final_url"]
+    final_url = fetch_meta.get("final_url") or first_url
     final_host = normalize_host(final_url)
     candidate_base = hit.domain[4:] if hit.domain.startswith("www.") else hit.domain
     final_base = final_host[4:] if final_host and final_host.startswith("www.") else final_host
@@ -740,35 +822,43 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {}, "search result points to an article/news page"
         )
 
-    first = page_evidence(final_url, html_text)
+    if html_text == (fetch_meta.get("jina_text") or ""):
+        first = page_evidence_from_text(final_url, html_text)
+    elif fetch_meta.get("via") == "jina" or via == "jina":
+        first = page_evidence_from_text(final_url, html_text)
+    else:
+        first = page_evidence(final_url, html_text)
+
     all_pages = [first]
 
-    # Follow a small number of relevant same-origin links to strengthen validation.
-    relevant = []
-    for href, label in first["links"]:
-        absolute = urljoin(final_url, href)
-        parsed = urlparse(absolute)
-        if parsed.scheme not in {"http", "https"} or parsed.hostname != final_host:
-            continue
-        combined = fold(f"{href} {label}")
-        if any(
-            term_present(term, combined)
-            for term in (
-                "profile", "user", "post", "tweet", "subreddit", "blog",
-                "viewer", "frontend", "instance", "proxy", "mirror",
-                "search", "профиль", "пользователь", "帖子", "プロフィール", "사용자",
-            )
-        ):
-            relevant.append(absolute)
+    # On direct HTML, follow at most two same-origin service links.
+    if via == "direct":
+        relevant = []
+        for href, label in first["links"]:
+            absolute = urljoin(final_url, href)
+            parsed = urlparse(absolute)
+            if parsed.scheme not in {"http", "https"} or parsed.hostname != final_host:
+                continue
+            combined = fold(f"{href} {label}")
+            if any(
+                term_present(term, combined)
+                for term in (
+                    "profile", "user", "post", "tweet", "subreddit", "blog",
+                    "viewer", "frontend", "instance", "proxy", "mirror",
+                    "search", "профиль", "пользователь", "帖子", "プロフィール", "사용자",
+                )
+            ):
+                relevant.append(absolute)
 
-    seen = {final_url}
-    for extra_url in relevant[: MAX_CRAWL_PAGES - 1]:
-        if extra_url in seen:
-            continue
-        seen.add(extra_url)
-        extra_html, extra_meta = fetch_html(extra_url)
-        if extra_html is not None and normalize_host(extra_meta.get("final_url", "")) == hit.domain:
-            all_pages.append(page_evidence(extra_meta["final_url"], extra_html))
+        seen = {final_url}
+        for extra_url in relevant[:2]:
+            if extra_url in seen:
+                continue
+            seen.add(extra_url)
+            extra_html, extra_meta = fetch_html(extra_url)
+            extra_final = extra_meta.get("final_url", "") if extra_html is not None else ""
+            if extra_html is not None and normalize_host(extra_final) == hit.domain:
+                all_pages.append(page_evidence(extra_final, extra_html))
 
     pcfg = PLATFORMS[hit.platform]
     title = fold(" ".join(p["title"] for p in all_pages))
@@ -778,6 +868,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     links = fold(" ".join(p["link_text"] for p in all_pages))
     url_text = fold(final_url)
     total = fold(" ".join([title, headings, meta, body, links, url_text]))
+    header_text = fold(" ".join([title, headings, meta]))
 
     if any(marker in total[:12000] for marker in CHALLENGE_MARKERS):
         return Evaluation(
@@ -785,148 +876,172 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {}, "challenge/parked page detected"
         )
 
-    core_hits = [t for t in pcfg["core"] if term_present(t, total)]
+    content_host = (
+        hit.domain.endswith(CONTENT_HOST_SUFFIXES)
+        or hit.domain in {"alternativeto.net", "www.alternativeto.net", "beebom.com",
+                          "www.beebom.com", "makeuseof.com", "www.makeuseof.com"}
+    )
+    if content_host:
+        return Evaluation(
+            hit.domain, hit.platform, False, 0, len(hit.queries), final_url,
+            {"content_host": True}, "content/publishing host, not a service host"
+        )
+
     platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, total)]
     brand_hits = [t for t in pcfg["brands"] if term_present(t, total)]
-    header_brand_hits = [t for t in pcfg["brands"] if term_present(t, title + " " + headings + " " + meta + " " + url_text)]
+    header_platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, header_text)]
+    header_brand_hits = [t for t in pcfg["brands"] if term_present(t, header_text)]
+
     identity_terms = list(dict.fromkeys(
         pcfg["identity_extra"] + sum((cfg["identity"] for cfg in LANGUAGES.values()), [])
     ))
     service_terms = list(dict.fromkeys(
         sum((cfg["service"] for cfg in LANGUAGES.values()), [])
     ))
-
     identity_hits = [t for t in identity_terms if term_present(t, total)]
     service_hits = [t for t in service_terms if term_present(t, total)]
-    body_identity_hits = [t for t in identity_terms if term_present(t, body)]
-    body_service_hits = [t for t in service_terms if term_present(t, body)]
-
-    app_path_markers = (
-        "/search", "/profile", "/user", "/users/", "/u/", "/r/",
-        "/subreddit", "/post", "/posts", "/tweet", "/tweets", "/status",
-        "/blog", "/blogs", "/tag", "/tags", "/view",
-    )
-    header_text = fold(" ".join([title, headings, meta]))
-    header_service_hits = [t for t in service_terms if term_present(t, header_text)]
     header_identity_hits = [t for t in identity_terms if term_present(t, header_text)]
-    header_platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, header_text)]
+    header_service_hits = [t for t in service_terms if term_present(t, header_text)]
 
-    path_service_hint = any(
+    service_path_hint = any(
         marker in first_path
-        for marker in ("/viewer", "/view", "/profile", "/tweet", "/tweets",
-                       "/status", "/subreddit", "/r/", "/user", "/blog")
+        for marker in ("/viewer", "/frontend", "/view", "/profile", "/tweet",
+                       "/tweets", "/status", "/subreddit", "/r/", "/user")
+    )
+    host_service_hint = bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
+
+    input_count = sum(p["inputs"] for p in all_pages)
+    form_count = sum(p["forms"] for p in all_pages)
+    button_count = sum(p["buttons"] for p in all_pages)
+    ui_signal = bool(input_count or form_count or button_count or service_path_hint)
+
+    action_hits = [t for t in (
+        "paste", "enter", "search", "browse", "view", "open", "load",
+        "pegar", "buscar", "ver", "ouvrir", "suchen", "просмотр",
+        "ビュー", "보기",
+    ) if term_present(t, total)]
+
+    # A search hit only counts as discovery evidence when the result itself
+    # mentions both the target platform and a service concept.
+    search_intent_hits = 0
+    search_provider_hits: set[str] = set()
+    for evidence in hit.search_evidence:
+        if not isinstance(evidence, str):
+            continue
+        ev = fold(evidence)
+        platform_ok = any(term_present(t, ev) for t in (
+            ["twitter", "tweet", "nitter", "x"] if hit.platform == "twitter"
+            else ["reddit", "subreddit", "redlib", "libreddit", "teddit"]
+            if hit.platform == "reddit"
+            else ["tumblr", "priviblur", "blog"]
+        ))
+        service_ok = any(term_present(t, ev) for t in (
+            "viewer", "frontend", "mirror", "proxy", "visor", "visualizador",
+            "visionneuse", "betrachter", "ビューア", "просмотрщик",
+        ))
+        if platform_ok and service_ok:
+            search_intent_hits += 1
+            if ":" in evidence:
+                search_provider_hits.add(evidence.split(":", 1)[0])
+
+    distinct_queries = len({
+        q for q in hit.queries
+        if not q.startswith("SOURCE:") and not q.startswith("SEED:")
+    })
+    search_confirmed = (
+        len(search_provider_hits) >= 2
+        or distinct_queries >= 2
+        or seed_candidate
     )
 
-    app_path_hits = sorted({
-        marker
-        for page in all_pages
-        for href, label in page["links"]
-        if urlparse(urljoin(final_url, href)).hostname == final_host
-        for marker in app_path_markers
-        if marker in urlparse(urljoin(final_url, href)).path.lower()
-    })
-    ui_signal = bool(
-        path_service_hint
-        or app_path_hits
-        or sum(p["forms"] for p in all_pages)
-        or sum(p["inputs"] for p in all_pages)
-        or sum(p["buttons"] for p in all_pages) >= 2
+    # Strong service identity from the hostname is useful, but not enough
+    # without page-level evidence.
+    page_platform_ok = bool(
+        header_platform_hits
+        or host_service_hint and any(
+            term_present(t, header_text)
+            for t in pcfg["platform_terms"] if t != "x"
+        )
+        or seed_candidate and platform_hits
     )
-    service_in_header_or_path = bool(header_service_hits or path_service_hint)
-    identity_in_header_or_ui = bool(header_identity_hits or ui_signal)
+    page_service_ok = bool(header_service_hits or service_path_hint or (
+        seed_candidate and any(term_present(t, body[:7000]) for t in service_terms)
+    ))
+    page_identity_ok = bool(
+        header_identity_hits
+        or (ui_signal and any(term_present(t, body[:7000]) for t in identity_terms))
+    )
+
+    strong_service_page = (
+        page_platform_ok
+        and page_service_ok
+        and page_identity_ok
+        and ui_signal
+    )
+
+    # Seeds: published only after page validation, with Jina as a fallback when
+    # the origin blocks GitHub Actions.
+    seed_accept = (
+        seed_candidate
+        and strong_service_page
+        and bool(platform_hits and service_hits)
+    )
+
+    # Search candidates: require actual search-intent evidence plus independent
+    # corroboration, unless the hostname itself is a very strong service name.
+    search_accept = (
+        not seed_candidate
+        and strong_service_page
+        and search_intent_hits >= 1
+        and search_confirmed
+        and (len(hit.providers) >= 2 or distinct_queries >= 2 or host_service_hint)
+    )
+
+    trusted_accept = (
+        direct_trusted
+        and strong_service_page
+        and bool(platform_hits and service_hits)
+    )
+
+    accepted = bool(seed_accept or search_accept or trusted_accept)
 
     score = 0
-    if header_brand_hits:
-        score += 5
-    elif brand_hits:
-        score += 4
-    elif platform_hits:
+    score += 6 if header_brand_hits else 0
+    score += 4 if header_platform_hits else 0
+    score += 4 if header_service_hits else 0
+    score += 3 if header_identity_hits else 0
+    score += 3 if ui_signal else 0
+    score += min(5, 2 * len(search_provider_hits))
+    score += min(4, distinct_queries)
+    score += 2 if len(hit.sources) >= 2 else (1 if hit.sources else 0)
+    if host_service_hint:
         score += 2
-    if len(hit.sources) >= 2:
-        score += 4
-    elif hit.sources:
-        score += 2
-    if len(hit.providers) >= 2:
-        score += 4
-    elif hit.providers:
-        score += 2
-    if hit.search_evidence:
+    if via == "jina":
         score += 1
-    if len(service_hits) >= 1:
-        score += 2
-    if len(service_hits) >= 2:
-        score += 2
-    if len(identity_hits) >= 1:
-        score += 2
-    if len(identity_hits) >= 2:
-        score += 2
-    if body_service_hits and body_identity_hits:
-        score += 2
-    if len(hit.queries) >= 2:
-        score += 2
-    if any(term_present(b, url_text) for b in pcfg["brands"]):
-        score += 2
-    if ui_signal:
-        score += 2
-
-    structured_combo = bool(platform_hits and service_hits and identity_hits)
-    strong_brand = bool(brand_hits and header_brand_hits)
-    repeated_search = len([q for q in hit.queries if not q.startswith("SOURCE:")]) >= 2
-    trusted_repeat = len(hit.sources) >= 2
-    accepted = (
-        (
-            structured_combo
-            and header_platform_hits
-            and service_in_header_or_path
-            and identity_in_header_or_ui
-            and ui_signal
-            and score >= 13
-            and (search_confirmed or direct_trusted)
-        )
-        or (
-            strong_brand
-            and service_in_header_or_path
-            and identity_in_header_or_ui
-            and ui_signal
-            and score >= 12
-            and (search_confirmed or direct_trusted)
-        )
-    )
-    if direct_trusted:
-        score += 6
-
-    reason_parts = [
-        f"platform={','.join(platform_hits) or '-'}",
-        f"brands={','.join(brand_hits) or '-'}",
-        f"service={','.join(service_hits[:6]) or '-'}",
-        f"identity={','.join(identity_hits[:6]) or '-'}",
-        f"queries={len(hit.queries)}",
-        f"score={score}",
-    ]
 
     evidence = {
-        "core_hits": core_hits,
         "platform_hits": platform_hits,
         "brand_hits": brand_hits,
-        "header_brand_hits": header_brand_hits,
         "header_platform_hits": header_platform_hits,
+        "header_brand_hits": header_brand_hits,
         "header_service_hits": header_service_hits,
         "header_identity_hits": header_identity_hits,
-        "trusted_sources": hit.sources,
         "service_hits": service_hits,
         "identity_hits": identity_hits,
-        "body_service_hits": body_service_hits,
-        "body_identity_hits": body_identity_hits,
-        "forms": sum(p["forms"] for p in all_pages),
-        "inputs": sum(p["inputs"] for p in all_pages),
-        "buttons": sum(p["buttons"] for p in all_pages),
-        "app_path_hits": app_path_hits,
         "ui_signal": ui_signal,
-        "crawled_pages": len(all_pages),
-        "query_urls": hit.urls[:10],
+        "inputs": input_count,
+        "forms": form_count,
+        "buttons": button_count,
+        "service_path_hint": service_path_hint,
+        "host_service_hint": host_service_hint,
+        "search_intent_hits": search_intent_hits,
+        "search_provider_hits": sorted(search_provider_hits),
+        "distinct_queries": distinct_queries,
         "search_providers": hit.providers,
         "search_evidence": hit.search_evidence[:12],
-        "direct_trusted": direct_trusted,
+        "trusted_sources": hit.sources,
+        "fetch_via": via,
+        "query_urls": hit.urls[:10],
     }
 
     return Evaluation(
@@ -934,10 +1049,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         hit.platform,
         accepted,
         score,
-        len(hit.queries),
+        distinct_queries,
         final_url,
         evidence,
-        "; ".join(reason_parts),
+        f"platform={'/'.join(header_platform_hits or platform_hits) or '-'}; "
+        f"service={'/'.join(header_service_hits or service_hits) or '-'}; "
+        f"identity={'/'.join(header_identity_hits or identity_hits) or '-'}; "
+        f"search_intent={search_intent_hits}; providers={len(search_provider_hits)}; "
+        f"queries={distinct_queries}",
     )
 
 
@@ -1012,9 +1131,8 @@ def main() -> int:
     })
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
-    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
-    provider_failures = {backend: 0 for backend in SEARCH_BACKENDS}
     provider_disabled: set[str] = set()
+    searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
 
     for index, (lang, platform, query) in enumerate(query_specs, start=1):
         cfg = LANGUAGES[lang]
@@ -1033,7 +1151,6 @@ def main() -> int:
                 result_count += len(results)
                 print(f"[DDGS/{backend}] {len(results)} results")
             except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                provider_failures[backend] += 1
                 error = f"{type(exc).__name__}: {exc}"
                 search_errors.append({
                     "language": lang,
@@ -1043,9 +1160,10 @@ def main() -> int:
                     "error": error,
                 })
                 print(f"[WARN] DDGS/{backend}: {error}")
-                if provider_failures[backend] >= PROVIDER_ERROR_LIMIT:
+                message_lower = error.lower()
+                if isinstance(exc, (RatelimitException, TimeoutException)) or "429" in message_lower or "403" in message_lower:
                     provider_disabled.add(backend)
-                    print(f"[WARN] Disabling DDGS/{backend} after repeated failures.")
+                    print(f"[WARN] Disabling DDGS/{backend} after a rate-limit/block response.")
 
         if result_count == 0:
             print("[WARN] No search results from active backends.")
@@ -1105,7 +1223,7 @@ def main() -> int:
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backends": SEARCH_BACKENDS,
                     "disabled_backends": sorted(provider_disabled),
-                    "search_strategy": "maintained registries + GitHub + DDGS multi-engine search; each backend queried separately",
+                    "search_strategy": "maintained registries + GitHub repository discovery + DDGS per-backend search + page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",

@@ -73,7 +73,7 @@ CONTENT_HOST_SUFFIXES = (
     ".wixsite.com", ".weebly.com",
 )
 SEARCH_SERVICE_HOST_RE = re.compile(
-    r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|
+    r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
     r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
     r"priviblur|tumblrviewer|tumlook|tumviews|zoomblr)",
     re.IGNORECASE,

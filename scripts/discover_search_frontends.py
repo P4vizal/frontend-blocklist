@@ -366,10 +366,13 @@ class SearchResultParser(HTMLParser):
 
 class PageParser(HTMLParser):
     SKIP = {"script", "style", "noscript", "template", "svg", "canvas"}
+    CONTROL_ROLES = {"textbox", "searchbox", "combobox", "button", "search"}
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.skip_depth = 0
+        self.tag_stack: list[str] = []
+        self.anchor_stack: list[int] = []
         self.title_parts: list[str] = []
         self.heading_parts: list[str] = []
         self.meta_parts: list[str] = []
@@ -380,14 +383,31 @@ class PageParser(HTMLParser):
         self.buttons = 0
         self.article_count = 0
         self.control_parts: list[str] = []
-        self.current_tag: str | None = None
+
+    def _append_attr_text(self, attrs_map: dict[str, str | None], keys: tuple[str, ...]) -> None:
+        for key in keys:
+            value = attrs_map.get(key)
+            if value:
+                self.control_parts.append(value)
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
         if tag in self.SKIP:
             self.skip_depth += 1
             return
+
         attrs_map = dict(attrs)
+        self.tag_stack.append(tag)
+
+        role = (attrs_map.get("role") or "").strip().lower()
+        if role in self.CONTROL_ROLES:
+            self.control_parts.append(role)
+
+        if attrs_map.get("aria-label"):
+            self.control_parts.append(attrs_map["aria-label"] or "")
+        if attrs_map.get("aria-labelledby"):
+            self.control_parts.append(attrs_map["aria-labelledby"] or "")
+
         if tag == "meta":
             name = (attrs_map.get("name") or "").lower()
             prop = (attrs_map.get("property") or "").lower()
@@ -401,27 +421,47 @@ class PageParser(HTMLParser):
             self.forms += 1
         elif tag in {"input", "textarea", "select"}:
             self.inputs += 1
-            for key in ("type", "name", "placeholder", "aria-label", "value"):
-                value = attrs_map.get(key)
-                if value:
-                    self.control_parts.append(value)
+            self._append_attr_text(
+                attrs_map,
+                ("type", "name", "placeholder", "aria-label", "value", "title", "data-placeholder"),
+            )
         elif tag == "button":
             self.buttons += 1
-            for key in ("name", "aria-label", "value"):
-                value = attrs_map.get(key)
-                if value:
-                    self.control_parts.append(value)
+            self._append_attr_text(
+                attrs_map,
+                ("type", "name", "aria-label", "value", "title"),
+            )
         elif tag == "a":
             href = attrs_map.get("href") or ""
             self.links.append((href, ""))
-        self.current_tag = tag
+            self.anchor_stack.append(len(self.links) - 1)
+
+        if attrs_map.get("contenteditable", "").strip().lower() in {"true", "plaintext-only"}:
+            self.inputs += 1
+            self.control_parts.append("contenteditable")
+            self._append_attr_text(
+                attrs_map,
+                ("name", "placeholder", "aria-label", "title"),
+            )
+        elif role in {"textbox", "searchbox", "combobox"}:
+            self.inputs += 1
+        elif role == "button":
+            self.buttons += 1
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
-        if tag in self.SKIP and self.skip_depth:
-            self.skip_depth -= 1
-        if tag == self.current_tag:
-            self.current_tag = None
+        if tag in self.SKIP:
+            if self.skip_depth:
+                self.skip_depth -= 1
+            return
+
+        if self.anchor_stack and tag == "a":
+            self.anchor_stack.pop()
+
+        for index in range(len(self.tag_stack) - 1, -1, -1):
+            if self.tag_stack[index] == tag:
+                del self.tag_stack[index:]
+                break
 
     def handle_data(self, data: str) -> None:
         if self.skip_depth or not data.strip():
@@ -429,16 +469,18 @@ class PageParser(HTMLParser):
         cleaned = data.strip()
         if not cleaned:
             return
-        if self.current_tag == "title":
+
+        if "title" in self.tag_stack:
             self.title_parts.append(cleaned)
-        elif self.current_tag in {"h1", "h2", "h3"}:
+        elif any(tag in {"h1", "h2", "h3"} for tag in self.tag_stack):
             self.heading_parts.append(cleaned)
         else:
             self.body_parts.append(cleaned)
-            if self.links:
-                href, label = self.links[-1]
-                if not label and self.current_tag == "a":
-                    self.links[-1] = (href, cleaned)
+
+        if self.anchor_stack:
+            index = self.anchor_stack[-1]
+            href, label = self.links[index]
+            self.links[index] = (href, f"{label} {cleaned}".strip())
 
     def result(self) -> dict:
         return {
@@ -453,7 +495,6 @@ class PageParser(HTMLParser):
             "article_count": self.article_count,
             "controls": " ".join(self.control_parts),
         }
-
 
 @dataclass
 class SearchHit:
@@ -1421,8 +1462,44 @@ def page_evidence(url: str, html_text: str) -> dict:
     }
 
 
+def search_result_has_strong_service_evidence(hit: SearchHit) -> bool:
+    """Return True when at least one search snippet clearly matches platform + service."""
+    for evidence in hit.search_evidence:
+        if not isinstance(evidence, str):
+            continue
+        ev = fold(evidence)
+        if hit.platform == "twitter":
+            platform_ok = any(
+                term_present(term, ev) for term in ("twitter", "tweet", "nitter")
+            )
+        elif hit.platform == "reddit":
+            platform_ok = any(
+                term_present(term, ev)
+                for term in ("reddit", "subreddit", "redlib", "libreddit", "teddit")
+            )
+        else:
+            platform_ok = any(
+                term_present(term, ev) for term in ("tumblr", "priviblur", "blog")
+            )
+
+        service_ok = any(
+            term_present(term, ev)
+            for term in (
+                "viewer", "frontend", "alternative frontend", "browser",
+                "slideshow", "reader", "gallery", "content browser",
+                "web client", "visor", "visualizador", "visionneuse",
+                "betrachter", "ビューア", "просмотрщик", "查看器", "뷰어",
+                "व्यूअर", "عارض", "visualizzatore",
+            )
+        )
+        if platform_ok and service_ok:
+            return True
+    return False
+
+
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
+    strong_search_evidence_hint = search_result_has_strong_service_evidence(hit)
     if hit.domain in existing and not seed_candidate:
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), hit.urls[0],
@@ -1494,15 +1571,39 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # editorial pages into accepted domains.
     jina_eligible = (
         seed_candidate
+        or strong_search_evidence_hint
         or bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
         or any(path_looks_like_service(urlparse(url).path.lower()) for url in candidate_urls[:3])
     )
     if html_text is None and jina_eligible:
-        jina_text, jina_meta = fetch_jina_text(first_url)
-        if jina_text is not None:
+        for jina_url in candidate_urls[:4]:
+            jina_path = urlparse(jina_url).path.lower()
+            if any(marker in jina_path for marker in BAD_PATH_MARKERS):
+                continue
+            jina_text, jina_meta = fetch_jina_text(jina_url)
+            if jina_text is None:
+                continue
+
+            jina_final = jina_meta.get("final_url") or jina_url
+            jina_host = normalize_host(jina_final)
+            jina_base = (
+                jina_host[4:]
+                if jina_host and jina_host.startswith("www.")
+                else jina_host
+            )
+            candidate_base = hit.domain[4:] if hit.domain.startswith("www.") else hit.domain
+            if jina_base != candidate_base:
+                continue
+
+            jina_final_path = urlparse(jina_final).path.lower()
+            if any(marker in jina_final_path for marker in BAD_PATH_MARKERS):
+                continue
+
+            first_url = jina_url
             html_text = jina_text
-            fetch_meta = jina_meta
+            fetch_meta = {**jina_meta, "via": "jina"}
             via = "jina"
+            break
 
     if html_text is None:
         return Evaluation(
@@ -1533,9 +1634,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             {}, "service URL resolved to an article/news page"
         )
 
-    if html_text == (fetch_meta.get("jina_text") or ""):
-        first = page_evidence_from_text(final_url, html_text)
-    elif fetch_meta.get("via") == "jina" or via == "jina":
+    if fetch_meta.get("via") == "jina" or via == "jina":
         first = page_evidence_from_text(final_url, html_text)
     else:
         first = page_evidence(final_url, html_text)
@@ -1705,6 +1804,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
                 or service_path_hint
                 or host_service_hint
                 or header_service_identity_hint
+                or (header_platform_hits and header_service_hits)
             )
         )
         or (
@@ -1863,8 +1963,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # it without requiring interactive markup. Editorial pages remain blocked
     # by content path/title/structure checks above.
     header_verified_search_service_ok = bool(
-        search_intent_hits >= 1
-        and distinct_queries >= 1
+        distinct_queries >= 1
         and header_platform_hits
         and strong_header_service_hits
         and header_identity_hits
@@ -1882,6 +1981,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         host_service_hint
         or (service_path_hint and (input_count or button_count))
         or interactive_target_hits
+        or header_verified_search_service_ok
     )
     independent_query_ok = (
         distinct_queries >= 2
@@ -1892,7 +1992,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     search_accept = (
         not seed_candidate
         and strong_service_page
-        and search_intent_hits >= 1
+        and (search_intent_hits >= 1 or header_verified_search_service_ok)
         and search_quality_ok
         and search_interactive_ok
         and independent_query_ok
@@ -1956,6 +2056,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "single_query_service_ok": single_query_service_ok,
         "header_verified_search_service_ok": header_verified_search_service_ok,
         "search_intent_hits": search_intent_hits,
+        "strong_search_evidence_hint": strong_search_evidence_hint,
         "search_provider_hits": sorted(search_provider_hits),
         "distinct_queries": distinct_queries,
         "search_providers": hit.providers,

@@ -654,22 +654,22 @@ def build_queries() -> list[tuple[str, str, str]]:
 
     platform_queries = {
         "twitter": [
-            '"Twitter viewer" "Nitter alternative" -news -article -guide -review',
-            '"X viewer" "without account" -news -article -guide',
-            '"tweet viewer" "without login" -news -article -guide',
-            '"Twitter web viewer" "public profiles" -news -article',
+            '"Twitter profile viewer" -news -article -guide -review',
+            '"tweet viewer" -news -article -guide -review',
+            '"Twitter browser" "public profiles" -news -article -guide',
+            '"view Twitter profiles" "without login" -news -article -guide',
         ],
         "reddit": [
-            '"Reddit viewer" "without account" -news -article -guide',
-            '"Reddit frontend" "without login" -news -article -guide',
-            '"Reddit reader" "subreddit" "without account" -news -article',
-            '"Reddit viewer" "paste a subreddit" -news -article',
+            '"Reddit post viewer" -news -article -guide -review',
+            '"Reddit profile viewer" -news -article -guide -review',
+            '"subreddit viewer" -news -article -guide -review',
+            '"Reddit browser" "without login" -news -article -guide',
         ],
         "tumblr": [
-            '"Tumblr viewer" "without account" -news -article -guide',
-            '"Tumblr image viewer" "without login" -news -article',
-            '"Tumblr frontend" "without account" -news -article',
-            '"Tumblr reader" "paste a Tumblr URL" -news -article',
+            '"Tumblr blog viewer" -news -article -guide -review',
+            '"Tumblr profile viewer" -news -article -guide -review',
+            '"Tumblr post viewer" -news -article -guide -review',
+            '"Tumblr browser" "without login" -news -article -guide',
         ],
     }
 
@@ -1764,6 +1764,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     service_hits = [t for t in service_terms if term_present(t, total)]
     header_identity_hits = [t for t in identity_terms if term_present(t, header_text)]
     header_service_hits = [t for t in service_terms if term_present(t, header_text)]
+    body_identity_hits = [t for t in identity_terms if term_present(t, body[:20000])]
+    body_service_hits = [t for t in STRONG_SERVICE_TERMS if term_present(t, body[:20000])]
 
     input_count = sum(p["inputs"] for p in all_pages)
     form_count = sum(p["forms"] for p in all_pages)
@@ -1889,6 +1891,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             term_present(t, header_text)
             for t in pcfg["platform_terms"] if t != "x"
         )
+        or (ui_signal and platform_hits)
         or seed_candidate and platform_hits
     )
     strong_service_terms = STRONG_SERVICE_TERMS
@@ -1900,11 +1903,12 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or brand_hits
         or service_path_hint
         or host_service_hint and strong_header_service_hits
+        or (ui_signal and body_service_hits)
         or seed_candidate and any(term_present(t, body[:7000]) for t in strong_service_terms)
     )
     page_identity_ok = bool(
         header_identity_hits
-        or (ui_signal and any(term_present(t, body[:7000]) for t in identity_terms))
+        or (ui_signal and body_identity_hits)
     )
 
     # Many modern viewers are client-rendered and expose little/no form/button
@@ -2038,6 +2042,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "header_brand_hits": header_brand_hits,
         "header_service_hits": header_service_hits,
         "header_identity_hits": header_identity_hits,
+        "body_service_hits": body_service_hits,
+        "body_identity_hits": body_identity_hits,
         "service_hits": service_hits,
         "identity_hits": identity_hits,
         "ui_signal": ui_signal,

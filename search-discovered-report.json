@@ -23,8 +23,8 @@
       "in_blocklist": true,
       "in_discovery_history": true,
       "verified_seed": true,
-      "validation_accepted": true,
-      "validation_reason": "platform=reddit; service=slideshow/gallery; identity=subreddit/subreddits; search_intent=0; providers=0; queries=0"
+      "validation_accepted": false,
+      "validation_reason": "candidate validation crashed safely"
     },
     {
       "platform": "tumblr",
@@ -33,8 +33,8 @@
       "in_blocklist": true,
       "in_discovery_history": true,
       "verified_seed": true,
-      "validation_accepted": true,
-      "validation_reason": "platform=tumblr; service=viewer; identity=blog; search_intent=0; providers=0; queries=0"
+      "validation_accepted": false,
+      "validation_reason": "candidate validation crashed safely"
     },
     {
       "platform": "tumblr",
@@ -43,8 +43,8 @@
       "in_blocklist": true,
       "in_discovery_history": true,
       "verified_seed": true,
-      "validation_accepted": true,
-      "validation_reason": "platform=tumblr; service=viewer/browser/slideshow/gallery; identity=blogs; search_intent=0; providers=0; queries=0"
+      "validation_accepted": false,
+      "validation_reason": "candidate validation crashed safely"
     },
     {
       "platform": "tumblr",
@@ -63,8 +63,8 @@
       "in_blocklist": true,
       "in_discovery_history": true,
       "verified_seed": true,
-      "validation_accepted": true,
-      "validation_reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post; search_intent=0; providers=0; queries=0"
+      "validation_accepted": false,
+      "validation_reason": "candidate validation crashed safely"
     },
     {
       "platform": "twitter",
@@ -73,8 +73,8 @@
       "in_blocklist": true,
       "in_discovery_history": true,
       "verified_seed": true,
-      "validation_accepted": true,
-      "validation_reason": "platform=twitter/x/nitter; service=viewer; identity=tweet/tweets/user/profile; search_intent=0; providers=0; queries=1"
+      "validation_accepted": false,
+      "validation_reason": "candidate validation crashed safely"
     },
     {
       "platform": "twitter",
@@ -87,41 +87,10 @@
       "validation_reason": "page unavailable"
     }
   ],
-  "verified_frontend_count": 5,
-  "verified_frontend_domains": [
-    {
-      "platform": "reddit",
-      "domain": "www.peekstr.com",
-      "kind": "verified_seed",
-      "verified": true
-    },
-    {
-      "platform": "tumblr",
-      "domain": "cascadr.co",
-      "kind": "verified_seed",
-      "verified": true
-    },
-    {
-      "platform": "tumblr",
-      "domain": "www.tumviews.com",
-      "kind": "verified_seed",
-      "verified": true
-    },
-    {
-      "platform": "twitter",
-      "domain": "tweetviewer.com",
-      "kind": "verified_seed",
-      "verified": true
-    },
-    {
-      "platform": "twitter",
-      "domain": "twitterviewer.net",
-      "kind": "verified_seed",
-      "verified": true
-    }
-  ],
+  "verified_frontend_count": 0,
+  "verified_frontend_domains": [],
   "github_discovered_candidate_count": 4,
-  "search_backend": "fallback",
+  "search_backend": "bing-rss-fallback",
   "discovery_mode": "daily",
   "active_search_languages": [
     "en",
@@ -130,17 +99,17 @@
     "it"
   ],
   "search_backends": [
-    "bing",
-    "startpage"
+    "bing-rss",
+    "bing-html"
   ],
   "search_pages": [
     1
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 3,
-  "search_queries_with_results": 3,
-  "search_queries_without_results": 101,
-  "search_backend_failures": 20,
+  "search_pages_succeeded": 104,
+  "search_queries_with_results": 104,
+  "search_queries_without_results": 0,
+  "search_backend_failures": 0,
   "search_fallbacks": 0,
   "source_candidate_counts": {
     "github": 4,
@@ -149,904 +118,622 @@
     "common_crawl": 0,
     "urlscan": 0
   },
-  "validation_crash_count": 0,
-  "candidates_discovered": 77,
-  "validated_candidates": 26,
+  "validation_crash_count": 158,
+  "candidates_discovered": 295,
+  "validated_candidates": 215,
   "retained_historical_count": 119,
   "retained_total_count": 119,
   "search_strategy": "maintained registries + GitHub; daily rotated search; deep workflow adds Codeberg/GitLab/Common Crawl/optional URLScan; shared page validation",
   "candidates": [
     {
-      "domain": "twitterviewer.net",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 24,
-      "query_count": 1,
-      "final_url": "https://twitterviewer.net/twitter-advanced-search",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "header_brand_hits": [
-          "nitter"
-        ],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile"
-        ],
-        "service_hits": [
-          "viewer",
-          "frontend",
-          "browser"
-        ],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "post"
-        ],
-        "ui_signal": true,
-        "inputs": 2,
-        "forms": 0,
-        "buttons": 72,
-        "article_count": 6,
-        "article_structure_hint": true,
-        "interactive_target_hits": [
-          "username",
-          "tweet",
-          "twitter",
-          "paste"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best ",
-          "guide"
-        ],
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "Web-verified viewer seed: https://twitterviewer.net/",
-          "bing:twitter (x) advanced search — free, no login required search twitter (x) by account, date, engagement and more — results appear right on the page. no account or login required."
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://twitterviewer.net/",
-          "https://twitterviewer.net/twitter-advanced-search"
-        ]
-      },
-      "reason": "platform=twitter/x/nitter; service=viewer; identity=tweet/tweets/user/profile; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "tweetviewer.com",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 17,
-      "query_count": 0,
-      "final_url": "https://tweetviewer.com/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "post"
-        ],
-        "service_hits": [
-          "viewer",
-          "browser"
-        ],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "post"
-        ],
-        "ui_signal": true,
-        "inputs": 1,
-        "forms": 1,
-        "buttons": 10,
-        "article_count": 3,
-        "article_structure_hint": true,
-        "interactive_target_hits": [
-          "username",
-          "user",
-          "tweet",
-          "twitter",
-          "paste",
-          "view"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best ",
-          "top ",
-          "guide"
-        ],
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://tweetviewer.com/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://tweetviewer.com/"
-        ]
-      },
-      "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "www.tumviews.com",
-      "platform": "tumblr",
-      "accepted": true,
-      "score": 17,
-      "query_count": 0,
-      "final_url": "https://www.tumviews.com/",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer",
-          "browser",
-          "slideshow",
-          "gallery"
-        ],
-        "header_identity_hits": [
-          "blogs"
-        ],
-        "service_hits": [
-          "viewer",
-          "browser",
-          "slideshow",
-          "gallery"
-        ],
-        "identity_hits": [
-          "blogs"
-        ],
-        "ui_signal": true,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://www.tumviews.com/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.tumviews.com/"
-        ]
-      },
-      "reason": "platform=tumblr; service=viewer/browser/slideshow/gallery; identity=blogs; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "www.peekstr.com",
+      "domain": "abakada.org",
       "platform": "reddit",
-      "accepted": true,
-      "score": 15,
-      "query_count": 0,
-      "final_url": "https://www.peekstr.com/",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://abakada.org/tools/libreddit",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "about.roblox.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://about.roblox.com/es",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "account.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://account.microsoft.com/account",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "administrator.de",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://administrator.de/forum/netzwerkinstallation-richtig-durchmessen-messprotokoll-26127.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "agenciatributaria.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://agenciatributaria.madrid.es/portales/contribuyente/es/Tramites/Pago-de-impuestos-tasas-precios-publicos-y-multas-de-circulacion/?vgnextfmt=default&vgnextoid=66e39374bcaed010VgnVCM1000000b205a0aRCRD&vgnextchannel=97d608f9be116810VgnVCM1000001d4a900aRCRD",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "alexjenkins.tech",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://alexjenkins.tech/apps/priviblur/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "alexjenkins.tech",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://alexjenkins.tech/apps/redlib/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "apkpure.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://apkpure.com/es/x-formerly-twitter/com.twitter.android/download",
       "evidence": {
-        "platform_hits": [
-          "reddit"
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
         ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "slideshow",
-          "gallery"
-        ],
-        "header_identity_hits": [
-          "subreddit",
-          "subreddits"
-        ],
-        "service_hits": [
-          "browser",
-          "slideshow",
-          "gallery",
-          "content browser"
-        ],
-        "identity_hits": [
-          "subreddit",
-          "subreddits",
-          "post",
-          "posts"
-        ],
-        "ui_signal": true,
-        "inputs": 2,
-        "forms": 2,
-        "buttons": 3,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "subreddit",
-          "reddit"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://www.peekstr.com/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.peekstr.com/"
-        ]
+        "fetch_error": "fetch failed"
       },
-      "reason": "platform=reddit; service=slideshow/gallery; identity=subreddit/subreddits; search_intent=0; providers=0; queries=0",
+      "reason": "page unavailable",
       "error": ""
+    },
+    {
+      "domain": "appmus.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://appmus.com/alternatives-to/tumblr",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "apps.apple.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 7,
+      "final_url": "https://apps.apple.com/us/app/x/id333903271",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "assinadordigital.recife.pe.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://assinadordigital.recife.pe.gov.br/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "avisos.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://avisos.madrid.es/?step=1",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "bbs.instrument.com.cn",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://bbs.instrument.com.cn/topic/1317943",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "bingapp.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://bingapp.microsoft.com/bing",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "br.investing.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://br.investing.com/equities/microsoft-corp",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "brantaq.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://brantaq.com/reddit/anonymous/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "buddyxtheme.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://buddyxtheme.com/nitter-alternatives-and-competitors/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "calculator.free",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://calculator.free/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "cap.cybo.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://cap.cybo.com/italia/20121_milano",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "cap.milazzo.life",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://cap.milazzo.life/20121-cap-milano/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "careers.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://careers.microsoft.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "cascadr.co",
       "platform": "tumblr",
-      "accepted": true,
-      "score": 12,
-      "query_count": 0,
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
       "final_url": "https://cascadr.co/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "countries-info.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://countries-info.com/es/countries/kosovo/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "cronicoviajero.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://cronicoviajero.com/que-ver-kosovo-imprescindibles/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "datos.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://datos.madrid.es/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "descubriendoelplaneta.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://descubriendoelplaneta.com/europa/kosovo/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "detail.chiebukuro.yahoo.co.jp",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1296714117",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "diario.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://diario.madrid.es/blog/notas-de-prensa/madrid-prepara-cibeles-y-su-entorno-para-la-celebracion-de-la-copa-del-mundo-este-lunes-con-la-prevision-de-mas-de-60-000-asistentes/",
       "evidence": {
-        "platform_hits": [
-          "tumblr"
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
         ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "blog"
-        ],
-        "service_hits": [
-          "viewer"
-        ],
-        "identity_hits": [
-          "blog"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://cascadr.co/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://cascadr.co/"
-        ]
+        "fetch_error": "fetch failed"
       },
-      "reason": "platform=tumblr; service=viewer; identity=blog; search_intent=0; providers=0; queries=0",
+      "reason": "page unavailable",
       "error": ""
     },
     {
-      "domain": "socialix.io",
+      "domain": "dictionary.cambridge.org",
       "platform": "twitter",
       "accepted": false,
-      "score": 8,
+      "score": 0,
       "query_count": 1,
-      "final_url": "https://socialix.io/x-search",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "tweets",
-          "profile"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "tweets",
-          "user",
-          "profile"
-        ],
-        "ui_signal": false,
-        "inputs": 3,
-        "forms": 3,
-        "buttons": 60,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing"
-        ],
-        "search_evidence": [
-          "bing:x search - twitter advanced search without account | socialix.io the advanced x and twitter search engine. search tweets, profiles, and threads without an account."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://socialix.io/x-search"
-        ]
-      },
-      "reason": "platform=twitter/x; service=-; identity=tweets/profile; search_intent=0; providers=0; queries=1",
-      "error": ""
+      "final_url": "https://dictionary.cambridge.org/dictionary/english/tweet",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "dizionari.corriere.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://dizionari.corriere.it/dizionario_italiano/G/genere.shtml",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "dizionari.repubblica.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://dizionari.repubblica.it/Italiano/G/genere.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "dizionario.internazionale.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://dizionario.internazionale.it/parola/genere",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
     },
     {
       "domain": "eddrit.com",
       "platform": "reddit",
       "accepted": false,
-      "score": 6,
-      "query_count": 0,
+      "score": 0,
+      "query_count": 1,
       "final_url": "https://eddrit.com/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [
-          "eddrit"
-        ],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "profile"
-        ],
-        "ui_signal": true,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 5"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://eddrit.com/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=0",
-      "error": ""
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
-      "domain": "jpf-reddit.netlify.app",
+      "domain": "elpais.com",
       "platform": "reddit",
       "accepted": false,
-      "score": 6,
-      "query_count": 0,
-      "final_url": "https://jpf-reddit.netlify.app/",
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://elpais.com/noticias/kosovo/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "es.gizmodo.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://es.gizmodo.com/descargar/x-twitter",
       "evidence": {
-        "platform_hits": [
-          "reddit"
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
         ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 4",
-          "Alternative frontends 6"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://jpf-reddit.netlify.app/"
-        ]
+        "fetch_error": "fetch failed"
       },
-      "reason": "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0",
+      "reason": "page unavailable",
       "error": ""
     },
     {
-      "domain": "f-droid.org",
-      "platform": "twitter",
+      "domain": "es.linkedin.com",
+      "platform": "tumblr",
       "accepted": false,
-      "score": 5,
-      "query_count": 0,
-      "final_url": "https://f-droid.org/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 5,
-        "forms": 2,
-        "buttons": 1,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3",
-          "Alternative frontends 5"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://f-droid.org/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
-      "error": ""
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://es.linkedin.com/in/ruym%C3%A1n-p%C3%A9rez-53a21061",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "explore.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://explore.microsoft.com/it-it/bing",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "f-droid.org",
       "platform": "reddit",
       "accepted": false,
-      "score": 5,
-      "query_count": 0,
+      "score": 0,
+      "query_count": 4,
       "final_url": "https://f-droid.org/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 5,
-        "forms": 2,
-        "buttons": 1,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3",
-          "Alternative frontends 4",
-          "Alternative frontends 5",
-          "Alternative frontends 6"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://f-droid.org/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
-      "error": ""
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
-      "domain": "photon-reddit.com",
-      "platform": "reddit",
+      "domain": "f-droid.org",
+      "platform": "twitter",
       "accepted": false,
-      "score": 5,
-      "query_count": 0,
-      "final_url": "https://photon-reddit.com/",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 5"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://photon-reddit.com/"
-        ]
-      },
-      "reason": "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 0,
-      "final_url": "https://www.xeddit.com/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 4",
-          "Alternative frontends 6"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.xeddit.com/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "fdroid.gitlab.io",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 1,
-      "query_count": 0,
-      "final_url": "https://fdroid.gitlab.io/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://fdroid.gitlab.io/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
-      "error": ""
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://f-droid.org/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "fdroid.gitlab.io",
       "platform": "twitter",
       "accepted": false,
-      "score": 1,
-      "query_count": 0,
+      "score": 0,
+      "query_count": 1,
       "final_url": "https://fdroid.gitlab.io/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://fdroid.gitlab.io/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
-      "error": ""
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
-      "domain": "kaangiray26.github.io",
+      "domain": "fdroid.gitlab.io",
       "platform": "reddit",
       "accepted": false,
-      "score": 1,
-      "query_count": 0,
-      "final_url": "https://kaangiray26.github.io/",
-      "evidence": {
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 5"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://kaangiray26.github.io/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
-      "error": ""
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://fdroid.gitlab.io/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "finance.yahoo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://finance.yahoo.com/quote/MSFT/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "footprintiq.app",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 1,
+      "query_count": 4,
       "final_url": "https://footprintiq.app/twitter-search-without-account",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "forum.wordreference.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://forum.wordreference.com/threads/mardy.341164/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "fritter.cc",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://fritter.cc/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "g1.globo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://g1.globo.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "ge.globo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://ge.globo.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "genius.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://genius.com/Kendrick-lamar-and-tanna-leone-mr-morale-lyrics",
       "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is "
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
         ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": false
+        "fetch_error": "fetch failed"
       },
-      "reason": "article/content page, not a frontend endpoint",
+      "reason": "page unavailable",
       "error": ""
+    },
+    {
+      "domain": "genius.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://genius.com/Taylor-swift-bad-blood-lyrics",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "getbootstrap.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://getbootstrap.com/2.0.2/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "git.kalli.st",
@@ -1067,21 +754,126 @@
       "error": ""
     },
     {
-      "domain": "grokipedia.com",
+      "domain": "gitfield.org",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://gitfield.org/mirrors/redlib",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "gizmodo.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://gizmodo.com/download/x-twitter",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "greycoder.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 8,
+      "final_url": "https://greycoder.com/a-list-of-working-alternative-interfaces-to-various-social-media-sites/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "greycoder.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://greycoder.com/a-list-of-working-alternative-interfaces-to-various-social-media-sites/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "investidor10.com.br",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://grokipedia.com/page/Tumblr_Archive_Sites",
+      "final_url": "https://investidor10.com.br/stocks/msft/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "isola-alicudi.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "http://isola-alicudi.it/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "it.m.wiktionary.org",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://it.m.wiktionary.org/wiki/genere",
       "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": true
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
       },
-      "reason": "article/content page, not a frontend endpoint",
+      "reason": "page unavailable",
       "error": ""
+    },
+    {
+      "domain": "italiacomune.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://italiacomune.it/cap/20121/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "jpf-reddit.netlify.app",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://jpf-reddit.netlify.app/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "kaangiray26.github.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://kaangiray26.github.io/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "kddit.kalli.st",
@@ -1102,38 +894,381 @@
       "error": ""
     },
     {
+      "domain": "lib.rs",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://lib.rs/crates/libreddit",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "losmejoresdemadrid.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://losmejoresdemadrid.com/restaurantes/pizza/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "lyricstranslate.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://lyricstranslate.com/es/taylor-swift-bad-blood-lyrics.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "m.brasilescola.uol.com.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://m.brasilescola.uol.com.br/brasil/parana.htm",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "m.me",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://m.me/login/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "m.tuttocitta.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://m.tuttocitta.it/cap/20121",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "madridsecreto.co",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://madridsecreto.co/mejores-pizzas-de-madrid/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "mashable.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://mashable.com/category/reddit",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "mundoeducacao.uol.com.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://mundoeducacao.uol.com.br/geografia/parana.htm",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "news.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://news.microsoft.com/about/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
       "domain": "nextjs.org",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 2,
       "final_url": "https://nextjs.org/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": true
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
     },
     {
       "domain": "nitter.app",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 1,
-      "final_url": "https://nitter.app/guides/how-to-view-twitter-without-account",
+      "query_count": 8,
+      "final_url": "https://nitter.app/about",
       "evidence": {
         "trusted_sources": [],
         "search_providers": [
-          "bing"
+          "bing-rss"
         ],
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
       "error": ""
+    },
+    {
+      "domain": "oglobo.globo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://oglobo.globo.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "okcalc.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://okcalc.com/en/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "okdiario.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://okdiario.com/historia/kosovo-que-pais-era-antes-como-creo-cual-historia-9477871",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "ourculturemag.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://ourculturemag.com/2026/04/02/best-twitter-viewer-tools-in-2026-which-ones-still-work/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "parties365.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://parties365.com/xcancel-alternatives/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "patrimonioypaisaje.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://patrimonioypaisaje.madrid.es/portales/monumenta/es/En-portada/Programa-de-visitas-guiadas-Pasea-Madrid-2024/?vgnextfmt=default&vgnextoid=8f472b1f16ba3910VgnVCM2000001f4a900aRCRD&vgnextchannel=e89c3cb702aa4510VgnVCM1000008a4a900aRCRD",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "photon-reddit.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
+      "final_url": "https://photon-reddit.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "pizzapizzamad.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://pizzapizzamad.es/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "pizzartpizza.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://pizzartpizza.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "privacytools.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://privacytools.io/app/redlib",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "redditinc.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 9,
+      "final_url": "https://redditinc.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "relatedrepos.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
+      "final_url": "https://relatedrepos.com/gh/syeopite/priviblur",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "sapere.virgilio.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://sapere.virgilio.it/parole/vocabolario/genere",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "sede.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://sede.madrid.es/portal/site/tramites/menuitem.1f3361415fda829be152e15284f1a5a0/?vgnextoid=aa17f9ca0b30b310VgnVCM1000000b205a0aRCRD&vgnextchannel=bad0adb92e389210VgnVCM100000171f5a0aRCRD",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "simple-web.org",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://simple-web.org/guides/teddit-vs-redlib-which-reddit-frontend-should-you-use-2026",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "skimit.app",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
+      "final_url": "https://skimit.app/about/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "smartblogger.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://smartblogger.com/twitter-alternatives/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "solvecalc.net",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://solvecalc.net/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "sr.ht",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://sr.ht/~jamesponddotco/awesome-privacy-front-ends/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
     },
     {
       "domain": "stats.uptimerobot.com",
@@ -1153,6 +1288,67 @@
       "error": ""
     },
     {
+      "domain": "statusinvest.com.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://statusinvest.com.br/acoes/eua/msft",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "stockanalysis.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://stockanalysis.com/stocks/msft/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "sumcalculator.org",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://sumcalculator.org/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "support.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://support.microsoft.com/pt-br/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "techcult.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://techcult.com/best-sotwe-alternatives-as-a-twitter-web-viewer/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
       "domain": "teddit.no-logs.com",
       "platform": "reddit",
       "accepted": false,
@@ -1170,17 +1366,1031 @@
       "error": ""
     },
     {
-      "domain": "www.sotwe.com",
+      "domain": "think-pol.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://think-pol.com/blogs/best-reddit-osint-tools",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "transparencia.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://transparencia.madrid.es/portales/transparencia/es/Recursos-humanos/Provision-de-puestos/Concursos-de-meritos/?vgnextchannel=adf438d0ba092610VgnVCM1000001d4a900aRCRD",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "trucchiebricolage.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://trucchiebricolage.com/8-semplici-rimedi-che-terranno-lontani-gli-insetti-da-casa-tua-senza-prodotti-chimici/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "tumblr.github.io",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://tumblr.github.io/tumblr.js/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "tweet.app",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://www.sotwe.com/",
+      "final_url": "https://tweet.app/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "tweetviewer.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 5,
+      "final_url": "https://tweetviewer.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "twitter.uptodown.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://twitter.uptodown.com/android",
       "evidence": {
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
         ],
-        "search_providers": [],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "twitterviewer.net",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://twitterviewer.net/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "validar.iti.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://validar.iti.gov.br/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "w3calc.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://w3calc.com/en/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "wbcomdesigns.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 7,
+      "final_url": "https://wbcomdesigns.com/nitter-alternatives-and-competitors/",
+      "evidence": {
+        "content_host": true
+      },
+      "reason": "content/publishing host, not a service host",
+      "error": ""
+    },
+    {
+      "domain": "webapps.stackexchange.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://webapps.stackexchange.com/questions/182503/how-do-i-view-old-reddit-logged-out-as-of-july-2026",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.aemet.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.aemet.es/es/eltiempo/prediccion/municipios/horas/tarragona-id43148",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.afa.com.ar",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.afa.com.ar/es/posts/tags?s=SUB%2017",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.alicudi.me.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "http://www.alicudi.me.it/index.php",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.alicudicasamulino.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.alicudicasamulino.it/isola-di-alicudi-eolie/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.atlanticohoy.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.atlanticohoy.com/tenerife/ruyman-perez-mi-sueno-era-sacar-reina-adulta-consegui-ahora-quiero-seguir-innovando-con-disenos-diferentes_1563225_102.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.azlyrics.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.azlyrics.com/lyrics/taylorswift/badblood.html",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.azlyrics.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.azlyrics.com/lyrics/kendricklamar/mrmorale.html",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.bbc.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.bbc.com/mundo/noticias-internacional-47686699",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.bemparana.com.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.bemparana.com.br/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.britannica.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.britannica.com/place/Kosovo",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.britannica.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.britannica.com/money/Microsoft-Corporation",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.calc-solver.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.calc-solver.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.calculatemath.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.calculatemath.com/2026/01/addition-calculator.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.calculator.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.calculator.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.calculator.io",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.calculator.io/basic-calculator/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.calculator.net",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.calculator.net/math-calculator.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.calculatorplus.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.calculatorplus.com/calculators/basic-calculator",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.calculatorsoup.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.calculatorsoup.com/calculators/math/math.php",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.comuniecitta.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.comuniecitta.it/cap/20121",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.cotilleando.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.cotilleando.com/threads/inma-mercadona.138067/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.crecisp.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.crecisp.gov.br/Files/document/a04fd0cc-56fd-42f5-849a-0b247000070b_formulario-de-digitalizacao-assinatura-digital-do-polegar-foto.pdf",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.definizione.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.definizione.it/significato/genere",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.dnb.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.dnb.com/business-directory/company-profiles.perez_martin_ruyman.e89ebaa024734c186d170982f5c751d8.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.ecoblog.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.ecoblog.it/2025/07/15/addio-insetti-il-rimedio-naturale-della-nonna-per-non-farli-entrare-in-casa-facile-veloce-ed-economico/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.elblogdegastromadrid.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.elblogdegastromadrid.com/mejores-pizzas-madrid-2026",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.eldebate.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.eldebate.com/sociedad/20261002/fuertes-lluvias-tarragona-provocan-derrumbamiento-barranco-e-inundan-calles_465343.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.elle.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.elle.com/es/gourmet/donde-comer/a63321908/pizzerias-madrid-mejor-pizza/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.elyrics.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.elyrics.net/read/k/kendrick-lamar-&-tanna-leone-lyrics/mr.-morale-lyrics.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.espn.com.ar",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.espn.com.ar/futbol/equipo/_/id/8412/argentina-sub-17",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.estadao.com.br",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://www.estadao.com.br/tecmundo/big-techs/266675-reddit-funciona-entrar-app/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.ghacks.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.ghacks.net/2023/04/20/how-to-access-reddit-on-mobile-without-signing-in-or-using-the-reddit-app/",
+      "evidence": {
+        "content_host": true
+      },
+      "reason": "content/publishing host, not a service host",
+      "error": ""
+    },
+    {
+      "domain": "www.globo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.globo.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.glorycloud.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.glorycloud.com/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "www.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.gov.br/governodigital/pt-br/identidade/assinatura-eletronica",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "InvalidURL: URL can't contain control characters. '/governodigital/pt-br/search?origem=termos&SearchableText=Desenrola Brasil' (found at least ' ')"
+    },
+    {
+      "domain": "www.greenme.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.greenme.it/news/approfondimenti/rimedi-contro-insetti-guida/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.guidasicilia.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.guidasicilia.it/itinerario/alicudi-l-isola-dai-mille-gradini/1002329",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.hotelmadridrio.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.hotelmadridrio.com/mejores-pizza-madrid/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.instalker.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.instalker.org/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.iviaggidiliz.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.iviaggidiliz.it/isola-di-alicudi-guida-alla-piu-remota-delle-isole-eolie/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.jucerja.rj.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.jucerja.rj.gov.br/Servicos/ProtocoloWeb",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.lanacion.com.ar",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.lanacion.com.ar/deportes/futbol/convocados-de-la-seleccion-argentina-sub-17-quienes-y-son-y-en-que-clubes-juegan-nid03112025/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "www.lasexta.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.lasexta.com/noticias/el-tiempo/lluvias-torrenciales-dejan-destrozos-tarragona-rescates-carreteras-anegadas-rios-limite_202610026abfe1b5916cda53dca2a5e7.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.letras.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.letras.com/kendrick-lamar/mr-morale-feat-tanna-leone/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.letras.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.letras.com/taylor-swift/bad-blood-solo/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.libhunt.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.libhunt.com/r/redlib",
+      "evidence": {
+        "content_host": true
+      },
+      "reason": "content/publishing host, not a service host",
+      "error": ""
+    },
+    {
+      "domain": "www.libhunt.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.libhunt.com/",
+      "evidence": {
+        "content_host": true
+      },
+      "reason": "content/publishing host, not a service host",
+      "error": ""
+    },
+    {
+      "domain": "www.lyricsbox.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.lyricsbox.com/kendrick-lamar-feat.-tanna-leone-mr.-morale-lyrics-7pw9dbb.html",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.lyricskid.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.lyricskid.com/lyrics/kendrick-lamar-&-tanna-leone-lyrics/mr.-morale-lyrics.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.lyricsmania.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.lyricsmania.com/mr_morale_lyrics_kendrick_lamar.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.lyricsmania.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.lyricsmania.com/bad_blood_lyrics_taylor_swift.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.madrid.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.madrid.es/portal/site/munimadrid",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.math.net",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.math.net/calculators/addition",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.merriam-webster.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.merriam-webster.com/dictionary/tweet",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.microbiologiaitalia.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.microbiologiaitalia.it/salute/repellenti-naturali-da-avere-in-casa/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://www.microsoft.com/en-us/investor/default",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.moneycalc.net",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.moneycalc.net/addition-calculator",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.nonsolocap.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.nonsolocap.it/cap/20121/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.ohga.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.ohga.it/come-tenere-lontani-gli-insetti-il-metodo-naturale-e-casalingo/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.ole.com.ar",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.ole.com.ar/tema/seleccion-argentina-sub-17.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.omarpela.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.omarpela.com/milano/cap-20121-milano.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.paginebianche.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.paginebianche.it/cap/20121.htm",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.parana.pr.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.parana.pr.gov.br/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.peekstr.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 6,
+      "final_url": "https://www.peekstr.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.planalto.gov.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l14063.htm",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.producthunt.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.producthunt.com/products/tumlook",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.rankred.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.rankred.com/best-tumblr-alternatives/",
+      "evidence": {
+        "content_host": true
+      },
+      "reason": "content/publishing host, not a service host",
+      "error": ""
+    },
+    {
+      "domain": "www.roblox.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.roblox.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.rtve.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.rtve.es/noticias/20260822/heridos-lluvias-torrenciales-tarragona/17198796.shtml",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.salinaturismo.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.salinaturismo.it/isola-di-alicudi.html",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.sicilia.info",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.sicilia.info/isole-eolie/alicudi/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.socialfetch.dev",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.socialfetch.dev/use-cases/nitter-alternative",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.softwaretestinghelp.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://www.softwaretestinghelp.com/sotwe-alternatives/",
+      "evidence": {
+        "content_host": true
+      },
+      "reason": "content/publishing host, not a service host",
+      "error": ""
+    },
+    {
+      "domain": "www.songlyrics.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.songlyrics.com/taylor-swift/bad-blood-lyrics/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
@@ -1204,12 +2414,12 @@
       "error": ""
     },
     {
-      "domain": "zoomblr.com",
-      "platform": "tumblr",
+      "domain": "www.sotwe.com",
+      "platform": "twitter",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://zoomblr.com/",
+      "final_url": "https://www.sotwe.com/",
       "evidence": {
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
@@ -1219,189 +2429,181 @@
       },
       "reason": "page unavailable",
       "error": ""
+    },
+    {
+      "domain": "www.symbolab.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.symbolab.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.telecinco.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.telecinco.es/noticias/tiempo/20261002/tarragona-castellon-desbordadas-fuerte-temporal-inundaciones-sacar-agua-casa_18_020337246.html",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.thefork.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.thefork.es/restaurantes/madrid-c328022/pizza-t652",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.theonlinecalculator.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.theonlinecalculator.com/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.threads.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://www.threads.com/@reddit",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.timeout.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.timeout.es/madrid/es/restaurantes/las-mejores-pizzas-de-madrid",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.torrinomedica.it",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.torrinomedica.it/approfondimenti/zanzare/come-tenere-lontano-insetti-e-zanzare/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'ui_signal' where it is not associated with a value"
+    },
+    {
+      "domain": "www.transfermarkt.com.ar",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.transfermarkt.com.ar/argentinien-u17/kader/verein/25501",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.transfermarkt.es",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.transfermarkt.es/argentinien-u17/startseite/verein/25501",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.treccani.it",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://www.treccani.it/enciclopedia/genere/",
+      "evidence": {},
+      "reason": "candidate validation crashed safely",
+      "error": "UnboundLocalError: cannot access local variable 'editorial_marker_hits' where it is not associated with a value"
+    },
+    {
+      "domain": "www.tripadvisor.com.br",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.tripadvisor.com.br/Attractions-g303435-Activities-State_of_Parana.html",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.tripadvisor.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.tripadvisor.es/Restaurants-g187514-c31-Madrid.html",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.tumlook.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 8,
+      "final_url": "https://www.tumlook.com/about",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
     }
   ],
-  "search_errors": [
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter viewer similar to nitter",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "alternative twitter viewer without login not nitter",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "twitter web client without login -nitter -xcancel -twiiit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "tweet viewer site without login -nitter -xcancel",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit frontend alternatives to libreddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit viewer alternative to teddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit frontend similar to troddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit web client without login -redlib -libreddit -teddit -troddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit web viewer site -redlib -libreddit",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr frontend alternative to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr viewer similar to priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "alternative tumblr viewer without account not priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr web viewer without account -priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr reader site without account -priviblur",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "X viewer without account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "twitter",
-      "query": "tweet viewer without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit viewer without account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "reddit",
-      "query": "reddit browser without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr viewer without account",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    },
-    {
-      "language": "en",
-      "platform": "tumblr",
-      "query": "tumblr browser without login",
-      "backend": "bing",
-      "page": 1,
-      "attempt": 1,
-      "error": "TimeoutException: error sending request for url (https://html.duckduckgo.com/html/) > operation timed out"
-    }
-  ],
+  "search_errors": [],
   "note": "Publish guard triggered; output list was not replaced."
 }

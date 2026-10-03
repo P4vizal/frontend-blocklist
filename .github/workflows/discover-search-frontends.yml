@@ -135,11 +135,12 @@ jobs:
               f"Discovery validator crashes: {report.get('validation_crash_count')}"
           )
           assert int(report.get("pending_verification_count", 0)) <= 120
+          assert int(report.get("report_schema_version", 0)) == 2
           assert int(report.get("validated_candidates", 0)) <= int(
               report.get("candidates_discovered", 0)
           )
           if report.get("discovery_mode") == "daily":
-              assert int(report.get("search_queries", 0)) == 63
+              assert int(report.get("search_queries", 0)) == 72
           assert int(report.get("search_backend_failures", 0)) >= 0
           assert int(report.get("pending_verification_count", 0)) <= 120
           assert int(report.get("retained_total_count", 0)) == int(
@@ -149,6 +150,7 @@ jobs:
               "status", "trusted_candidate_count", "validated_candidates",
               "pending_verification_count", "validation_crash_count",
               "search_backend_failures", "audited_false_positive_count",
+              "trusted_source_health",
           }
           missing = sorted(required_report_keys - set(report))
           assert not missing, f"Discovery report missing keys: {missing}"
@@ -162,6 +164,7 @@ jobs:
                   old_output.add(line[2:-1])
 
           new_output = set()
+          new_output_lines = []
           bad = []
           for line_no, raw in enumerate(output_path.read_text(encoding="utf-8").splitlines(), 1):
               line = raw.strip()
@@ -170,8 +173,12 @@ jobs:
               if not re.fullmatch(r"\|\|[^\^/\s]+\^", line):
                   bad.append((line_no, raw))
               else:
-                  new_output.add(line[2:-1])
+                  domain = line[2:-1]
+                  new_output.add(domain)
+                  new_output_lines.append(domain)
           assert not bad, f"Malformed discovery output lines: {bad[:5]}"
+          assert new_output_lines == sorted(new_output_lines), "Discovery output is not sorted"
+          assert len(new_output_lines) == len(new_output), "Discovery output contains duplicate domains"
           audited_false_positives = set(report.get("audited_false_positive_domains", []))
           removed = old_output - new_output
           assert removed <= audited_false_positives, (

@@ -870,6 +870,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"X profile viewer" "no login" -news -article -guide -review',
                 '"Twitter alternative front-end" -news -article -guide -review',
                 '"Twitter private front-end" -news -article -guide -review',
+                '"Twitter public mirror viewer" -news -article -guide -review',
+                '"Twitter read-only client" -news -article -guide -review',
+                '"Twitter front-end instance" -news -article -guide -review',
             ],
             "reddit": [
                 '"Reddit post viewer" -news -article -guide -review',
@@ -877,6 +880,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Reddit anonymous viewer" -news -article -guide -review',
                 '"subreddit viewer" -news -article -guide -review',
                 '"Reddit private front-end" -news -article -guide -review',
+                '"Reddit public mirror viewer" -news -article -guide -review',
+                '"Reddit read-only client" -news -article -guide -review',
+                '"Reddit front-end instance" -news -article -guide -review',
             ],
             "tumblr": [
                 '"Tumblr blog viewer" -news -article -guide -review',
@@ -884,6 +890,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr anonymous viewer" -news -article -guide -review',
                 '"Tumblr post viewer" -news -article -guide -review',
                 '"Tumblr private front-end" -news -article -guide -review',
+                '"Tumblr public mirror viewer" -news -article -guide -review',
+                '"Tumblr read-only client" -news -article -guide -review',
+                '"Tumblr front-end instance" -news -article -guide -review',
             ],
         },
         {
@@ -893,6 +902,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"X anonymous viewer" profiles -news -article -guide -review',
                 '"Nitter alternative" viewer -news -article -guide -review',
                 '"Twitter frontend" privacy -news -article -guide -review',
+                '"Twitter privacy viewer" public -news -article -guide -review',
+                '"Twitter profile mirror" public -news -article -guide -review',
+                '"Twitter no-login browser" -news -article -guide -review',
             ],
             "reddit": [
                 '"Reddit web viewer" public posts -news -article -guide -review',
@@ -900,6 +912,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Reddit anonymous viewer" posts -news -article -guide -review',
                 '"Redlib alternative" viewer -news -article -guide -review',
                 '"Reddit frontend" privacy -news -article -guide -review',
+                '"Reddit privacy viewer" public -news -article -guide -review',
+                '"Reddit profile mirror" public -news -article -guide -review',
+                '"Reddit no-login browser" -news -article -guide -review',
             ],
             "tumblr": [
                 '"Tumblr web viewer" public blogs -news -article -guide -review',
@@ -907,6 +922,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr anonymous viewer" posts -news -article -guide -review',
                 '"Priviblur alternative" viewer -news -article -guide -review',
                 '"Tumblr frontend" privacy -news -article -guide -review',
+                '"Tumblr privacy viewer" public -news -article -guide -review',
+                '"Tumblr blog mirror" public -news -article -guide -review',
+                '"Tumblr no-login browser" -news -article -guide -review',
             ],
         },
         {
@@ -916,6 +934,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"X viewer" "without account" -news -article -guide -review',
                 '"Nitter frontend" alternative -news -article -guide -review',
                 '"Twitter viewer" "no account" -news -article -guide -review',
+                '"Twitter mirror" "without login" -news -article -guide -review',
+                '"Twitter web reader" public -news -article -guide -review',
+                '"Twitter anonymous client" -news -article -guide -review',
             ],
             "reddit": [
                 '"Reddit profile browser" -news -article -guide -review',
@@ -923,6 +944,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Reddit viewer" "without account" -news -article -guide -review',
                 '"Redlib frontend" alternative -news -article -guide -review',
                 '"Reddit viewer" "no account" -news -article -guide -review',
+                '"Reddit mirror" "without login" -news -article -guide -review',
+                '"Reddit web reader" public -news -article -guide -review',
+                '"Reddit anonymous client" -news -article -guide -review',
             ],
             "tumblr": [
                 '"Tumblr profile browser" -news -article -guide -review',
@@ -930,6 +954,9 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr viewer" "without account" -news -article -guide -review',
                 '"Priviblur frontend" alternative -news -article -guide -review',
                 '"Tumblr viewer" "no account" -news -article -guide -review',
+                '"Tumblr mirror" "without login" -news -article -guide -review',
+                '"Tumblr web reader" public -news -article -guide -review',
+                '"Tumblr anonymous client" -news -article -guide -review',
             ],
         },
         {

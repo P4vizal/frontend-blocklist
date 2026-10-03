@@ -578,7 +578,9 @@ def active_search_languages() -> tuple[str, ...]:
 
 
 def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
-    if lang not in SEARCH_PAGE2_LANGS:
+    day_index = int(time.time() // 86400)
+    rotating_page2_lang = LANGUAGE_ROTATION[(day_index * 2) % len(LANGUAGE_ROTATION)]
+    if lang not in SEARCH_PAGE2_LANGS and lang != rotating_page2_lang:
         return (1,)
     q = fold(query)
     deep_terms = ("viewer", "frontend", "alternative", "similar", "visor", "visualizador")
@@ -1889,11 +1891,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             platform_ok = any(
                 term_present(t, ev) for t in ("tumblr", "priviblur", "blog")
             )
-        service_ok = any(term_present(t, ev) for t in (
+        localized_strong_services = {
             "viewer", "frontend", "alternative frontend", "browser", "slideshow",
-            "reader", "gallery", "content browser", "web client", "visor", "visualizador",
-            "visionneuse", "betrachter", "ビューア", "просмотрщик",
-        ))
+            "reader", "gallery", "content browser", "web client",
+            "visor", "visualizador", "visionneuse", "betrachter",
+            "ビューア", "просмотрщик", "查看器", "뷰어", "व्यूअर", "عارض",
+            "visualizzatore", "visualizador",
+        }
+        service_ok = any(term_present(t, ev) for t in localized_strong_services)
         if platform_ok and service_ok:
             search_intent_hits += 1
             if ":" in evidence:
@@ -2387,6 +2392,10 @@ def main() -> int:
                     "search_backend": SEARCH_BACKEND,
                     "discovery_mode": DISCOVERY_MODE,
                     "active_search_languages": list(active_search_languages()),
+                    "language_rotation": list(LANGUAGE_ROTATION),
+                    "search_page2_rotating_language": LANGUAGE_ROTATION[
+                        (int(time.time() // 86400) * 2) % len(LANGUAGE_ROTATION)
+                    ],
                     "search_backends": list(SEARCH_BACKENDS),
                     "search_pages": list(SEARCH_PAGES),
                     "search_backend_disabled": False,

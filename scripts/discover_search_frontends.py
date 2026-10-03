@@ -36,7 +36,7 @@ MIN_ACCEPTED = 2
 WORKERS = 6
 VALIDATION_DELAY = 0.35
 
-USER_AGENT = (USER_AGENT = (
+USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/140.0 Safari/537.36 frontend-blocklist-discovery/1.0"

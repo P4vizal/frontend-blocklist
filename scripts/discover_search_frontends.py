@@ -289,7 +289,8 @@ EDITORIAL_PAGE_MARKERS = (
 )
 
 STRONG_SERVICE_TERMS = (
-    "viewer", "frontend", "alternative frontend", "browser", "slideshow",
+    "viewer", "frontend", "front-end", "alternative frontend", "alternative front-end",
+    "browser", "slideshow",
     "reader", "gallery", "content browser", "web client",
     "visor", "visualizador", "visionneuse", "betrachter",
     "ビューア", "просмотрщик", "visualizzatore",
@@ -349,6 +350,8 @@ def sanitize_request_url(value: str) -> str | None:
     safe_path = quote(parsed.path, safe="/:@-._~%")
     safe_query = quote(parsed.query, safe="=&/?:@-._~%")
     return urlunparse(parsed._replace(path=safe_path, query=safe_query, fragment=""))
+
+
 def path_looks_like_service(path: str) -> bool:
     parts = [unquote(part).strip().lower() for part in path.split("/") if part.strip()]
     for part in parts:
@@ -814,22 +817,22 @@ def build_queries() -> list[tuple[str, str, str]]:
             '"Twitter profile viewer" -news -article -guide -review',
             '"tweet viewer" -news -article -guide -review',
             '"X profile viewer" "no login" -news -article -guide -review',
+            '"Twitter alternative frontend" -news -article -guide -review',
             '"Twitter browser" "public profiles" -news -article -guide',
-            '"view Twitter profiles" "without login" -news -article -guide',
         ],
         "reddit": [
             '"Reddit post viewer" -news -article -guide -review',
             '"Reddit profile viewer" -news -article -guide -review',
             '"Reddit anonymous viewer" -news -article -guide -review',
             '"subreddit viewer" -news -article -guide -review',
-            '"Reddit browser" "without login" -news -article -guide',
+            '"Reddit alternative frontend" -news -article -guide -review',
         ],
         "tumblr": [
             '"Tumblr blog viewer" -news -article -guide -review',
             '"Tumblr profile viewer" -news -article -guide -review',
             '"Tumblr anonymous viewer" -news -article -guide -review',
             '"Tumblr post viewer" -news -article -guide -review',
-            '"Tumblr browser" "without login" -news -article -guide',
+            '"Tumblr alternative frontend" -news -article -guide -review',
         ],
     }
 
@@ -1727,8 +1730,9 @@ def query_has_service_intent(platform: str, query: str) -> bool:
 
     service_terms = tuple(dict.fromkeys(
         (
-            "viewer", "frontend", "browser", "slideshow", "gallery", "reader",
-            "anonymous", "content browser", "web client", "visor", "visualizador",
+            "viewer", "frontend", "front-end", "browser", "slideshow", "gallery", "reader",
+            "anonymous", "content browser", "web client", "private frontend",
+            "private front-end", "visor", "visualizador",
         )
         + tuple(
             term

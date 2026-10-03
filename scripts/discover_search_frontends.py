@@ -33,11 +33,10 @@ MIN_ACCEPTED = 2
 WORKERS = 6
 VALIDATION_DELAY = 0.35
 
-SEARCH_BACKENDS = ["duckduckgo", "bing", "yahoo", "brave", "google", "mojeek", "startpage", "yandex"]
+SEARCH_BACKENDS = ["bing", "yandex"]
 SEARCH_MAX_RESULTS = 10
 SEARCH_TIMEOUT = 8
 SEARCH_DELAY = 0.25
-SEARCH_AUTO_FALLBACK = True
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
@@ -401,25 +400,37 @@ def quote_term(term: str) -> str:
 
 
 def build_queries() -> list[tuple[str, str, str]]:
+    # Deliberately use the same unquoted wording a human types:
+    # "reddit viewer", "tumblr viewer", "twitter viewer", etc.
+    # Quoted exact-phrase searches were too restrictive and biased results
+    # toward a small number of SEO pages.
     intents = {
-        "en": ["viewer", "alternative frontend", "mirror", "proxy"],
-        "es": ["visor", "interfaz alternativa", "espejo", "proxy"],
-        "fr": ["visionneuse", "interface alternative"],
-        "de": ["Betrachter", "alternative Oberfläche"],
-        "ja": ["ビューア", "代替フロントエンド"],
-        "ru": ["просмотрщик", "альтернативный интерфейс"],
-        "pt": ["visualizador", "frontend alternativo", "ver sem login"],
-        "it": ["visualizzatore", "frontend alternativo", "vedere senza login"],
+        "en": ["viewer", "frontend", "without login"],
+        "es": ["visor", "frontend", "sin iniciar sesión"],
+        "fr": ["visionneuse", "frontend", "sans connexion"],
+        "de": ["Betrachter", "Frontend", "ohne Anmeldung"],
+        "ja": ["ビューア", "フロントエンド", "ログインなし"],
+        "ru": ["просмотрщик", "фронтенд", "без входа"],
+        "pt": ["visualizador", "frontend", "sem login"],
+        "it": ["visualizzatore", "frontend", "senza accesso"],
     }
     queries: list[tuple[str, str, str]] = []
     for lang, terms in intents.items():
         for platform in PLATFORMS:
             for intent in terms:
-                queries.append((lang, platform, f'"{platform} {intent}"'))
+                queries.append((lang, platform, f"{platform} {intent}"))
+
+    # High-yield English variants that closely match real-world search phrasing.
     queries.extend([
-        ("en", "twitter", '"X viewer" twitter'),
-        ("en", "twitter", '"X profile viewer"'),
-        ("en", "twitter", '"tweet viewer"'),
+        ("en", "twitter", "X viewer"),
+        ("en", "twitter", "X profile viewer"),
+        ("en", "twitter", "tweet viewer"),
+        ("en", "reddit", "reddit alternative frontend"),
+        ("en", "reddit", "reddit without account"),
+        ("en", "reddit", "reddit viewer without login"),
+        ("en", "tumblr", "tumblr alternative frontend"),
+        ("en", "tumblr", "tumblr without account"),
+        ("en", "tumblr", "tumblr viewer without login"),
     ])
     return queries
 
@@ -949,7 +960,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             else ["tumblr", "priviblur", "blog"]
         ))
         service_ok = any(term_present(t, ev) for t in (
-            "viewer", "frontend", "mirror", "proxy", "visor", "visualizador",
+            "viewer", "frontend", "alternative frontend", "visor", "visualizador",
             "visionneuse", "betrachter", "ビューア", "просмотрщик",
         ))
         if platform_ok and service_ok:
@@ -977,9 +988,20 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
         or seed_candidate and platform_hits
     )
-    page_service_ok = bool(header_service_hits or service_path_hint or (
-        seed_candidate and any(term_present(t, body[:7000]) for t in service_terms)
-    ))
+    strong_service_terms = (
+        "viewer", "frontend", "alternative frontend",
+        "visor", "visualizador", "visionneuse", "betrachter",
+        "ビューア", "просмотрщик", "visualizzatore"
+    )
+    strong_header_service_hits = [
+        t for t in strong_service_terms if term_present(t, header_text)
+    ]
+    page_service_ok = bool(
+        strong_header_service_hits
+        or service_path_hint
+        or host_service_hint and strong_header_service_hits
+        or seed_candidate and any(term_present(t, body[:7000]) for t in strong_service_terms)
+    )
     page_identity_ok = bool(
         header_identity_hits
         or (ui_signal and any(term_present(t, body[:7000]) for t in identity_terms))
@@ -1191,27 +1213,6 @@ def main() -> int:
                         provider_disabled.add(backend)
                         print(f"[WARN] Disabling DDGS/{backend} after a rate-limit/block response.")
 
-            # DDGS auto mode is a final per-query fallback when all explicit
-            # providers fail. This lets the library choose a temporarily healthy
-            # backend without replacing the independent-provider evidence above.
-            if result_count == 0 and SEARCH_AUTO_FALLBACK:
-                try:
-                    results = search_with_ddgs(query, region, "auto")
-                    for result in results:
-                        merge_search_result(candidate_map, platform, query, "auto", result)
-                    result_count = len(results)
-                    print(f"[DDGS/auto] {len(results)} results")
-                except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                    error = f"{type(exc).__name__}: {exc}"
-                    search_errors.append({
-                        "language": lang,
-                        "platform": platform,
-                        "query": query,
-                        "backend": "auto",
-                        "error": error,
-                    })
-                    print(f"[WARN] DDGS/auto: {error}")
-
             if result_count == 0:
                 print("[WARN] No search results from active backends.")
             time.sleep(SEARCH_DELAY)
@@ -1272,7 +1273,7 @@ def main() -> int:
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backends": SEARCH_BACKENDS,
                     "disabled_backends": sorted(provider_disabled),
-                    "search_strategy": "maintained registries + GitHub repository discovery + DDGS per-backend search + page validation",
+                    "search_strategy": "maintained registries + GitHub repository discovery + Bing/Yandex search via DDGS + page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",

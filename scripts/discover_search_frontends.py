@@ -5,7 +5,6 @@ import concurrent.futures
 import html
 import ipaddress
 import json
-import os
 import re
 import sys
 import time
@@ -40,52 +39,52 @@ USER_AGENT = (
 LANGUAGES = {
     "en": {
         "hl": "en", "gl": "us",
-        "service": ["viewer", "frontend", "mirror", "proxy", "alternative", "instance"],
+        "service": ["viewer", "frontend", "mirror", "proxy", "alternative frontend", "instance"],
         "identity": ["profile", "user", "post"],
     },
     "es": {
         "hl": "es", "gl": "es",
-        "service": ["visor", "visualizador", "interfaz alternativa", "espejo", "proxy", "alternativa", "instancia"],
+        "service": ["visor", "visualizador", "interfaz alternativa", "espejo", "proxy", "frontend", "instancia"],
         "identity": ["perfil", "usuario", "publicación", "post"],
     },
     "fr": {
         "hl": "fr", "gl": "fr",
-        "service": ["visionneuse", "interface alternative", "miroir", "proxy", "alternative", "instance"],
+        "service": ["visionneuse", "interface alternative", "miroir", "proxy", "frontend", "instance"],
         "identity": ["profil", "utilisateur", "publication", "post"],
     },
     "de": {
         "hl": "de", "gl": "de",
-        "service": ["betrachter", "alternative oberfläche", "spiegel", "proxy", "alternative", "instanz"],
+        "service": ["betrachter", "alternative oberfläche", "spiegel", "proxy", "frontend", "instanz"],
         "identity": ["profil", "benutzer", "beitrag", "post"],
     },
     "ru": {
         "hl": "ru", "gl": "ru",
-        "service": ["просмотр", "просмотрщик", "альтернативный интерфейс", "зеркало", "прокси", "альтернативный", "экземпляр"],
+        "service": ["просмотрщик", "альтернативный интерфейс", "зеркало", "прокси", "frontend", "экземпляр"],
         "identity": ["профиль", "пользователь", "публикация", "пост"],
     },
     "zh": {
         "hl": "zh-CN", "gl": "cn",
-        "service": ["查看器", "替代前端", "镜像", "代理", "替代", "实例"],
+        "service": ["查看器", "替代前端", "镜像", "代理", "前端", "实例"],
         "identity": ["个人资料", "用户", "帖子", "博文"],
     },
     "ja": {
         "hl": "ja", "gl": "jp",
-        "service": ["ビューア", "代替フロントエンド", "ミラー", "プロキシ", "代替", "インスタンス"],
+        "service": ["ビューア", "代替フロントエンド", "ミラー", "プロキシ", "フロントエンド", "インスタンス"],
         "identity": ["プロフィール", "ユーザー", "投稿", "ポスト"],
     },
     "ko": {
         "hl": "ko", "gl": "kr",
-        "service": ["뷰어", "대체 프론트엔드", "미러", "프록시", "대체", "인스턴스"],
+        "service": ["뷰어", "대체 프론트엔드", "미러", "프록시", "프론트엔드", "인스턴스"],
         "identity": ["프로필", "사용자", "게시물", "포스트"],
     },
     "hi": {
         "hl": "hi", "gl": "in",
-        "service": ["व्यूअर", "वैकल्पिक फ्रंटएंड", "मिरर", "प्रॉक्सी", "वैकल्पिक", "इंस्टेंस"],
+        "service": ["व्यूअर", "वैकल्पिक फ्रंटएंड", "मिरर", "प्रॉक्सी", "फ्रंटएंड", "इंस्टेंस"],
         "identity": ["प्रोफ़ाइल", "उपयोगकर्ता", "पोस्ट", "प्रकाशन"],
     },
     "ar": {
         "hl": "ar", "gl": "sa",
-        "service": ["عارض", "واجهة بديلة", "مرآة", "وكيل", "بديل", "مثيل"],
+        "service": ["عارض", "واجهة بديلة", "مرآة", "وكيل", "واجهة أمامية", "مثيل"],
         "identity": ["ملف شخصي", "مستخدم", "منشور", "مشاركة"],
     },
 }
@@ -491,16 +490,10 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             all_pages.append(page_evidence(extra_meta["final_url"], extra_html))
 
     pcfg = PLATFORMS[hit.platform]
-    lang_cfg = LANGUAGES[next(iter(
-        lang for lang in LANGUAGES
-        if lang in " ".join(hit.queries)
-    ))] if False else None
-
     title = fold(" ".join(p["title"] for p in all_pages))
     headings = fold(" ".join(p["headings"] for p in all_pages))
     meta = fold(" ".join(p["meta"] for p in all_pages))
     body = fold(" ".join(p["body"] for p in all_pages))
-    visible = fold(" ".join(p["visible"] for p in all_pages))
     links = fold(" ".join(p["link_text"] for p in all_pages))
     url_text = fold(final_url)
     total = fold(" ".join([title, headings, meta, body, links, url_text]))

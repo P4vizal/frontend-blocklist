@@ -594,14 +594,18 @@ def run_search_spec(
                     page_backend = backend
                     break
             except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-                errors.append({
-                    "language": lang,
-                    "platform": platform,
-                    "query": query,
-                    "backend": backend,
-                    "page": page,
-                    "error": f"{type(exc).__name__}: {exc}",
-                })
+                message = str(exc)
+                if isinstance(exc, DDGSException) and "No results found" in message:
+                    pass
+                else:
+                    errors.append({
+                        "language": lang,
+                        "platform": platform,
+                        "query": query,
+                        "backend": backend,
+                        "page": page,
+                        "error": f"{type(exc).__name__}: {exc}",
+                    })
 
             if SEARCH_DELAY:
                 time.sleep(SEARCH_DELAY)
@@ -800,6 +804,268 @@ def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
                     hit.urls.append(source_url)
 
     print(f"GitHub repository sources found: {len(repo_keys)}")
+    return found
+
+
+REPOSITORY_SEARCH_QUERIES = [
+    "twitter alternative frontend",
+    "twitter viewer frontend",
+    "reddit alternative frontend",
+    "reddit viewer frontend",
+    "tumblr alternative frontend",
+    "tumblr viewer frontend",
+    "nitter alternative frontend",
+    "redlib alternative frontend",
+    "libreddit alternative frontend",
+    "priviblur alternative frontend",
+]
+
+
+def add_source_candidate(
+    found: dict[tuple[str, str], SearchHit],
+    platform: str,
+    host: str,
+    source_name: str,
+    source_url: str = "",
+) -> None:
+    key = (platform, host)
+    if key not in found:
+        found[key] = SearchHit(host, platform, [], [], [], [], [])
+    hit = found[key]
+    if source_name not in hit.sources:
+        hit.sources.append(source_name)
+    marker = f"SOURCE:{source_name}"
+    if marker not in hit.queries:
+        hit.queries.append(marker)
+    if source_url:
+        if "://" not in source_url:
+            source_url = f"https://{source_url}/"
+        if source_url not in hit.urls:
+            hit.urls.append(source_url)
+
+
+def repository_service_urls(text: str, platform: str) -> set[str]:
+    urls = extract_section_urls(text, platform)
+    if urls:
+        return urls
+
+    lines = text.splitlines()
+    context: list[str] = []
+    service_terms = (
+        "viewer", "frontend", "nitter", "redlib", "libreddit",
+        "teddit", "troddit", "priviblur", "mirror", "proxy",
+    )
+    platform_terms = [t for t in PLATFORMS[platform]["platform_terms"] if t != "x"]
+    for i, line in enumerate(lines):
+        folded = fold(line)
+        if any(term_present(t, folded) for t in platform_terms) and any(
+            term_present(t, folded) for t in service_terms
+        ):
+            context.extend(lines[max(0, i - 2): min(len(lines), i + 3)])
+
+    for raw_url in URL_IN_HTML_RE.findall("\n".join(context)):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            urls.add(host)
+    return urls
+
+
+def gitlab_repository_candidates() -> dict[tuple[str, str], SearchHit]:
+    found: dict[tuple[str, str], SearchHit] = {}
+    repo_keys: set[str] = set()
+    headers = {"Accept": "application/json", "User-Agent": USER_AGENT}
+
+    for query in REPOSITORY_SEARCH_QUERIES:
+        url = (
+            "https://gitlab.com/api/v4/projects"
+            f"?search={quote_plus(query)}&simple=true"
+            f"&order_by=last_activity_at&sort=desc&per_page={REPOSITORY_SOURCE_LIMIT}"
+        )
+        try:
+            data = json.loads(fetch_text(url, headers))
+        except Exception as exc:
+            print(f"[WARN] GitLab repository search failed for {query!r}: {type(exc).__name__}: {exc}")
+            continue
+        if not isinstance(data, list):
+            continue
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            web_url = item.get("web_url")
+            branch = item.get("default_branch") or "main"
+            if isinstance(web_url, str) and isinstance(branch, str):
+                repo_keys.add(f"{web_url}@{branch}")
+
+    for repo_key in sorted(repo_keys)[:REPOSITORY_SOURCE_LIMIT * 2]:
+        web_url, branch = repo_key.rsplit("@", 1)
+        parsed = urlparse(web_url)
+        if parsed.netloc != "gitlab.com":
+            continue
+        full_path = parsed.path.strip("/")
+        if not full_path:
+            continue
+        source_name = f"GitLab:{full_path}"
+        readme_url = f"https://gitlab.com/{full_path}/-/raw/{quote_plus(branch)}/README.md"
+        try:
+            text = fetch_text(readme_url)
+        except Exception:
+            continue
+        for platform in PLATFORMS:
+            for host in repository_service_urls(text, platform):
+                add_source_candidate(found, platform, host, source_name, f"https://{host}/")
+
+    print(f"GitLab repository sources found: {len(repo_keys)}")
+    return found
+
+
+def codeberg_repository_candidates() -> dict[tuple[str, str], SearchHit]:
+    found: dict[tuple[str, str], SearchHit] = {}
+    repo_keys: set[str] = set()
+    headers = {"Accept": "application/json", "User-Agent": USER_AGENT}
+
+    for query in REPOSITORY_SEARCH_QUERIES:
+        url = (
+            "https://codeberg.org/api/v1/repos/search"
+            f"?q={quote_plus(query)}&limit={REPOSITORY_SOURCE_LIMIT}"
+        )
+        try:
+            data = json.loads(fetch_text(url, headers))
+        except Exception as exc:
+            print(f"[WARN] Codeberg repository search failed for {query!r}: {type(exc).__name__}: {exc}")
+            continue
+        items = data.get("data", data) if isinstance(data, dict) else data
+        if not isinstance(items, list):
+            continue
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            full_name = item.get("full_name")
+            branch = item.get("default_branch") or "main"
+            if isinstance(full_name, str) and isinstance(branch, str):
+                repo_keys.add(f"{full_name}@{branch}")
+
+    for repo_key in sorted(repo_keys)[:REPOSITORY_SOURCE_LIMIT * 2]:
+        full_name, branch = repo_key.rsplit("@", 1)
+        source_name = f"Codeberg:{full_name}"
+        readme_url = (
+            f"https://codeberg.org/{full_name}/raw/branch/{quote_plus(branch)}/README.md"
+        )
+        try:
+            text = fetch_text(readme_url)
+        except Exception:
+            continue
+        for platform in PLATFORMS:
+            for host in repository_service_urls(text, platform):
+                add_source_candidate(found, platform, host, source_name, f"https://{host}/")
+
+    print(f"Codeberg repository sources found: {len(repo_keys)}")
+    return found
+
+
+def common_crawl_candidates() -> dict[tuple[str, str], SearchHit]:
+    found: dict[tuple[str, str], SearchHit] = {}
+    try:
+        collections = json.loads(fetch_text("https://index.commoncrawl.org/collinfo.json"))
+        latest = collections[0]
+        cdx_api = latest["cdx-api"]
+        collection_id = latest["id"]
+    except Exception as exc:
+        print(f"[WARN] Common Crawl collection discovery failed: {type(exc).__name__}: {exc}")
+        return found
+
+    patterns = {
+        "twitter": ("*twitter*viewer*", "*twitter*frontend*"),
+        "reddit": ("*reddit*viewer*", "*reddit*frontend*"),
+        "tumblr": ("*tumblr*viewer*", "*tumblr*frontend*"),
+    }
+    for platform, platform_patterns in patterns.items():
+        for pattern in platform_patterns:
+            time.sleep(COMMON_CRAWL_DELAY)
+            url = (
+                f"{cdx_api}?url={quote_plus(pattern)}&output=json"
+                f"&filter=status%3A200&collapse=urlkey&limit={COMMON_CRAWL_LIMIT}"
+            )
+            try:
+                raw = fetch_text(
+                    url,
+                    {"Accept": "application/json", "User-Agent": USER_AGENT},
+                )
+            except Exception as exc:
+                print(f"[WARN] Common Crawl query failed for {pattern!r}: {type(exc).__name__}: {exc}")
+                continue
+            for line in raw.splitlines():
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                target_url = record.get("url")
+                if not isinstance(target_url, str):
+                    continue
+                host = normalize_host(target_url)
+                if not host:
+                    continue
+                add_source_candidate(
+                    found,
+                    platform,
+                    host,
+                    f"CommonCrawl:{collection_id}",
+                    target_url,
+                )
+
+    print(f"Common Crawl candidates found: {len(found)}")
+    return found
+
+
+def urlscan_candidates() -> dict[tuple[str, str], SearchHit]:
+    found: dict[tuple[str, str], SearchHit] = {}
+    api_key = os.environ.get("URLSCAN_API_KEY", "").strip()
+    if not api_key:
+        print("[INFO] URLScan API key not configured; optional URLScan discovery skipped.")
+        return found
+
+    queries = {
+        "twitter": "page.title:(twitter viewer)",
+        "reddit": "page.title:(reddit viewer)",
+        "tumblr": "page.title:(tumblr viewer)",
+    }
+    headers = {
+        "API-Key": api_key,
+        "Accept": "application/json",
+        "User-Agent": USER_AGENT,
+    }
+    for platform, query in queries.items():
+        time.sleep(URLSCAN_DELAY)
+        url = (
+            "https://urlscan.io/api/v1/search/"
+            f"?q={quote_plus(query)}&size={URLSCAN_MAX_RESULTS}&datasource=scans"
+        )
+        try:
+            data = json.loads(fetch_text(url, headers))
+        except Exception as exc:
+            print(f"[WARN] URLScan search failed for {platform}: {type(exc).__name__}: {exc}")
+            continue
+        results = data.get("results", []) if isinstance(data, dict) else []
+        for item in results:
+            if not isinstance(item, dict):
+                continue
+            page = item.get("page") or {}
+            target_url = page.get("url") if isinstance(page, dict) else ""
+            host_value = page.get("domain") if isinstance(page, dict) else ""
+            host = host_value or normalize_host(target_url if isinstance(target_url, str) else "")
+            if not isinstance(host, str):
+                continue
+            normalized = normalize_host(host)
+            if not normalized:
+                continue
+            add_source_candidate(
+                found,
+                platform,
+                normalized,
+                f"URLScan:{platform}",
+                target_url if isinstance(target_url, str) else f"https://{normalized}/",
+            )
+
+    print(f"URLScan candidates found: {len(found)}")
     return found
 
 
@@ -1117,6 +1383,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         marker for marker in CONTENT_TITLE_MARKERS
         if term_present(marker, header_text)
     ]
+    service_path_hint = path_looks_like_service(final_path)
+    host_service_hint = bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
     article_like = bool(
         content_path_hint
         or (content_title_hits and not service_path_hint and not host_service_hint)
@@ -1148,9 +1416,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     service_hits = [t for t in service_terms if term_present(t, total)]
     header_identity_hits = [t for t in identity_terms if term_present(t, header_text)]
     header_service_hits = [t for t in service_terms if term_present(t, header_text)]
-
-    service_path_hint = path_looks_like_service(final_path)
-    host_service_hint = bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
 
     input_count = sum(p["inputs"] for p in all_pages)
     form_count = sum(p["forms"] for p in all_pages)
@@ -1301,7 +1566,13 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         and bool(header_platform_hits or brand_hits)
     )
 
-    accepted = bool(seed_accept or search_accept or trusted_accept)
+    source_accept = bool(
+        hit.sources
+        and strong_service_page
+        and bool(platform_hits)
+        and bool(header_platform_hits or brand_hits)
+    )
+    accepted = bool(seed_accept or search_accept or trusted_accept or source_accept)
 
     score = 0
     score += 6 if header_brand_hits else 0
@@ -1409,20 +1680,33 @@ def main() -> int:
                     current.urls.append(url)
 
     github_sources = github_repository_candidates()
-    for key, hit in github_sources.items():
-        if key not in candidate_map:
-            candidate_map[key] = hit
-        else:
-            current = candidate_map[key]
-            for source in hit.sources:
-                if source not in current.sources:
-                    current.sources.append(source)
-            for query in hit.queries:
-                if query not in current.queries:
-                    current.queries.append(query)
-            for url in hit.urls:
-                if url not in current.urls:
-                    current.urls.append(url)
+    gitlab_sources = gitlab_repository_candidates()
+    codeberg_sources = codeberg_repository_candidates()
+    common_crawl_sources = common_crawl_candidates()
+    urlscan_sources = urlscan_candidates()
+
+    source_maps = (
+        github_sources,
+        gitlab_sources,
+        codeberg_sources,
+        common_crawl_sources,
+        urlscan_sources,
+    )
+    for source_map in source_maps:
+        for key, hit in source_map.items():
+            if key not in candidate_map:
+                candidate_map[key] = hit
+            else:
+                current = candidate_map[key]
+                for source in hit.sources:
+                    if source not in current.sources:
+                        current.sources.append(source)
+                for query in hit.queries:
+                    if query not in current.queries:
+                        current.queries.append(query)
+                for url in hit.urls:
+                    if url not in current.urls:
+                        current.urls.append(url)
 
     seed_candidate_count = len(seeds)
     trusted_candidate_count = len(trusted)
@@ -1437,9 +1721,6 @@ def main() -> int:
     })
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
-    # DDGS auto mode is the only search backend used here. Quality is enforced
-    # by multi-query agreement and direct page validation, without reviving
-    # unstable individual search engines.
     with concurrent.futures.ThreadPoolExecutor(max_workers=SEARCH_WORKERS) as executor:
         futures = [
             executor.submit(run_search_spec, index, lang, platform, query)
@@ -1527,6 +1808,10 @@ def main() -> int:
     if len(accepted) < MIN_ACCEPTED:
         print("[WARN] No sufficient validated domains were found.")
         print("The previous search-discovered-blocklist.txt is intentionally left untouched.")
+        validation_crash_count = sum(
+            1 for evaluation in evaluations
+            if evaluation.reason == "candidate validation crashed safely"
+        )
         REPORT.write_text(
             json.dumps(
                 {
@@ -1545,7 +1830,17 @@ def main() -> int:
                     "search_queries_with_results": search_queries_with_results,
                     "search_queries_without_results": len(query_specs) - search_queries_with_results,
                     "search_backend_failures": len(search_errors),
-                    "search_strategy": "maintained registries + GitHub repository discovery + resilient single-backend fallback (bing -> brave -> mojeek) + pages 1-2 + page validation",
+                    "source_candidate_counts": {
+                        "github": len(github_sources),
+                        "gitlab": len(gitlab_sources),
+                        "codeberg": len(codeberg_sources),
+                        "common_crawl": len(common_crawl_sources),
+                        "urlscan": len(urlscan_sources),
+                    },
+                    "validation_crash_count": validation_crash_count,
+                    "candidates_discovered": len(candidate_map),
+                    "validated_candidates": len(evaluations),
+                    "search_strategy": "maintained registries + GitHub/Codeberg/GitLab repositories + Common Crawl + optional URLScan + resilient single-backend fallback + pages 1-2 + page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -1578,6 +1873,17 @@ def main() -> int:
         "search_queries_with_results": search_queries_with_results,
         "search_queries_without_results": len(query_specs) - search_queries_with_results,
         "search_backend_failures": len(search_errors),
+        "source_candidate_counts": {
+            "github": len(github_sources),
+            "gitlab": len(gitlab_sources),
+            "codeberg": len(codeberg_sources),
+            "common_crawl": len(common_crawl_sources),
+            "urlscan": len(urlscan_sources),
+        },
+        "validation_crash_count": sum(
+            1 for evaluation in evaluations
+            if evaluation.reason == "candidate validation crashed safely"
+        ),
         "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,

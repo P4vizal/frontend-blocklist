@@ -20,8 +20,8 @@ from urllib.request import Request, urlopen
 OUTPUT = Path("search-discovered-blocklist.txt")
 REPORT = Path("search-discovered-report.json")
 
-SEARXSPACE_INSTANCES_URL = "https://searx.space/data/instances.json"
-SEARX_INSTANCE_LIMIT = 12
+SEARX_INSTANCES_YML_URL = "https://raw.githubusercontent.com/searxng/searx-instances/master/searxinstances/instances.yml"
+SEARX_INSTANCE_LIMIT = 30
 SEARX_ACTIVE_INSTANCES = 3
 SEARX_REQUEST_TIMEOUT = 10
 DISCOVERY_SEARCH_DELAY = 0.8
@@ -493,23 +493,13 @@ def search_searxng(base: str, query: str, language: str) -> list[str]:
 
 
 def discover_searxng_instances() -> list[str]:
-    data = json.loads(fetch_text(SEARXSPACE_INSTANCES_URL))
-    raw_strings: list[str] = []
-
-    def walk(node):
-        if isinstance(node, dict):
-            for value in node.values():
-                walk(value)
-        elif isinstance(node, list):
-            for value in node:
-                walk(value)
-        elif isinstance(node, str):
-            raw_strings.append(node)
-
-    walk(data)
+    text = fetch_text(SEARX_INSTANCES_YML_URL)
     hosts: list[str] = []
-    for value in raw_strings:
-        host = normalize_host(value)
+    for line in text.splitlines():
+        match = re.match(r"^\s*(https?://[^\s:]+):", line)
+        if not match:
+            continue
+        host = normalize_host(match.group(1))
         if host and host not in hosts:
             hosts.append(host)
 
@@ -526,75 +516,6 @@ def discover_searxng_instances() -> list[str]:
             break
     return active
 
-
-def fetch_text(url: str) -> str:
-    req = Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "*/*",
-        },
-    )
-    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
-        raw = response.read(MAX_PAGE_BYTES)
-        charset = response.headers.get_content_charset() or "utf-8"
-        return raw.decode(charset, errors="replace")
-
-
-def extract_farside(text: str, platform: str) -> set[str]:
-    data = json.loads(text)
-    wanted = FARSIDE_PLATFORM_TYPES[platform]
-    out: set[str] = set()
-
-    def walk(node):
-        if isinstance(node, dict):
-            service_type = node.get("type")
-            if isinstance(service_type, str) and service_type.casefold() in wanted:
-                for value in node.get("instances", []):
-                    if isinstance(value, str):
-                        host = normalize_host(value)
-                        if host:
-                            out.add(host)
-            for value in node.values():
-                walk(value)
-        elif isinstance(node, list):
-            for value in node:
-                walk(value)
-
-    walk(data)
-    return out
-
-
-def extract_section_urls(text: str, platform: str) -> set[str]:
-    aliases = {
-        "twitter": {"twitter", "x"},
-        "reddit": {"reddit"},
-        "tumblr": {"tumblr"},
-    }
-    section_lines: list[str] = []
-    section_level: int | None = None
-    in_section = False
-
-    for line in text.splitlines():
-        heading = re.match(r"^\s*(#{2,6})\s+(.+?)\s*#*\s*$", line)
-        if heading:
-            level = len(heading.group(1))
-            title = fold(heading.group(2))
-            if in_section and section_level is not None and level <= section_level:
-                break
-            if any(term_present(alias, title) for alias in aliases[platform]):
-                in_section = True
-                section_level = level
-                continue
-        if in_section:
-            section_lines.append(line)
-
-    out: set[str] = set()
-    for raw_url in URL_IN_HTML_RE.findall("\n".join(section_lines)):
-        host = normalize_host(html.unescape(raw_url))
-        if host:
-            out.add(host)
-    return out
 
 
 def trusted_candidates() -> dict[tuple[str, str], SearchHit]:

@@ -102,12 +102,13 @@ jobs:
           ]
 
           queries = discovery.build_queries()
-          assert queries
+          assert len(queries) == 63, f"Unexpected daily query count: {len(queries)}"
+          assert len(set(queries)) == len(queries)
+          assert discovery.active_search_languages()
           assert len(discovery.active_search_languages()) == 4
           assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
           fr_pages = discovery.search_pages_for("fr", "twitter viewer")
           assert fr_pages in ((1,), (1, 2))
-          assert len(set(queries)) == len(queries)
           parser = discovery.PageParser()
           parser.feed(
               '<html><head><title>Reddit Viewer</title></head>'

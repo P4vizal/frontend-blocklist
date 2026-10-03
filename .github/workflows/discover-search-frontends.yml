@@ -37,7 +37,7 @@ jobs:
 
       - name: Validate Python syntax
         run: |
-          python - <<PY
+          python - <<'PY'
           import ast
           from pathlib import Path
 
@@ -48,7 +48,7 @@ jobs:
 
       - name: Runtime smoke test
         run: |
-          python - <<PY
+          python - <<'PY'
           import scripts.discover_search_frontends as discovery
 
           candidates = {}
@@ -400,7 +400,7 @@ jobs:
 
           git diff --check
 
-          python - <<PY
+          python - <<'PY'
           import json
           import re
           from pathlib import Path

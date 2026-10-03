@@ -48,7 +48,7 @@ jobs:
 
       - name: Runtime smoke test
         run: |
-          python - <<'PY'
+          python - <<PY
           import scripts.discover_search_frontends as discovery
 
           candidates = {}

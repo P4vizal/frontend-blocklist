@@ -530,6 +530,8 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
             hit.sources.append(source_name)
         if f"SOURCE:{source_name}" not in hit.queries:
             hit.queries.append(f"SOURCE:{source_name}")
+        if f"https://{host}/" not in hit.urls:
+            hit.urls.append(f"https://{host}/")
 
     for source_name, kind, url in TRUSTED_SOURCES:
         try:
@@ -897,7 +899,7 @@ def main() -> int:
     hits = hits[:MAX_CANDIDATES]
 
     print(f"Candidates discovered: {len(hits)}")
-    print(f"Google query errors: {len(search_errors)}")
+    print(f"Search-engine failures: {len(search_errors)}")
 
     evaluations: list[Evaluation] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as executor:

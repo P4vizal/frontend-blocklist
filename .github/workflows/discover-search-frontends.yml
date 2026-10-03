@@ -55,7 +55,7 @@ jobs:
               },
           )
           assert ("twitter", "example.com") in candidates
-          assert candidates[("twitter", "example.com")].providers == ["bing"]
+          assert candidates[("twitter", "example.com")].providers == ["bing-rss"]
           queries = discovery.build_queries()
           assert queries
           assert len(discovery.active_search_languages()) == 4

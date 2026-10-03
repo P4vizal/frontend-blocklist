@@ -1,0 +1,4 @@
+# Generated from Google discovery + page validation.
+# Domains are published only after multi-signal validation.
+# Existing domains from blocklist.txt are omitted.
+# The first successful discovery run will replace this file.

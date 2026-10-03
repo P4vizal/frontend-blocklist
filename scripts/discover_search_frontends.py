@@ -96,6 +96,7 @@ PLATFORMS = {
         "queries": [
             "{platform} {service1} nitter",
             "{platform} {service2} {object} nitter",
+            "x viewer twitter nitter",
         ],
         "query_object": "profile",
         "identity_extra": ["tweet", "tweets", "user", "profile", "post"],

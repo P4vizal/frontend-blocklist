@@ -23,11 +23,6 @@ from urllib.request import Request, urlopen
 OUTPUT = Path("search-discovered-blocklist.txt")
 REPORT = Path("search-discovered-report.json")
 
-SEARX_INSTANCES_YML_URL = "https://raw.githubusercontent.com/searxng/searx-instances/master/searxinstances/instances.yml"
-SEARX_INSTANCE_LIMIT = 30
-SEARX_ACTIVE_INSTANCES = 3
-SEARX_REQUEST_TIMEOUT = 10
-DISCOVERY_SEARCH_DELAY = 0.8
 PAGE_TIMEOUT = 10
 FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
@@ -456,6 +451,154 @@ def merge_search_result(
             hit.search_evidence.append(marker)
 
 
+def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json,text/plain,text/markdown,*/*",
+        "Accept-Language": "en,es;q=0.7,*;q=0.3",
+        "Connection": "close",
+    }
+    if extra_headers:
+        headers.update(extra_headers)
+    req = Request(url, headers=headers)
+    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
+        raw = response.read(MAX_PAGE_BYTES)
+        charset = response.headers.get_content_charset() or "utf-8"
+        return raw.decode(charset, errors="replace")
+
+
+def extract_farside(text: str, platform: str) -> set[str]:
+    data = json.loads(text)
+    wanted = FARSIDE_PLATFORM_TYPES.get(platform, set())
+    out: set[str] = set()
+    if not isinstance(data, list):
+        return out
+    for item in data:
+        if not isinstance(item, dict) or item.get("type") not in wanted:
+            continue
+        values = list(item.get("instances", []))
+        fallback = item.get("fallback")
+        if isinstance(fallback, str):
+            values.append(fallback)
+        for value in values:
+            if not isinstance(value, str):
+                continue
+            for raw in value.split("|"):
+                host = normalize_host(raw)
+                if host:
+                    out.add(host)
+    return out
+
+
+def extract_section_urls(text: str, platform: str) -> set[str]:
+    aliases = {
+        "twitter": {"twitter", "x"},
+        "reddit": {"reddit"},
+        "tumblr": {"tumblr"},
+    }
+    section_lines: list[str] = []
+    section_level: int | None = None
+    in_section = False
+
+    for line in text.splitlines():
+        heading = re.match(r"^\s*(#{2,6})\s+(.+?)\s*#*\s*$", line)
+        if heading:
+            level = len(heading.group(1))
+            title = fold(heading.group(2))
+            if in_section and section_level is not None and level <= section_level:
+                break
+            if any(term_present(alias, title) for alias in aliases[platform]):
+                in_section = True
+                section_level = level
+                continue
+        if in_section:
+            section_lines.append(line)
+
+    out: set[str] = set()
+    for raw_url in URL_IN_HTML_RE.findall("\n".join(section_lines)):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            out.add(host)
+    return out
+
+
+GITHUB_SOURCE_QUERIES = [
+    "alternative frontend reddit twitter tumblr",
+    "privacy alternative frontends reddit",
+    "privacy alternative frontends twitter",
+    "privacy alternative frontends tumblr",
+    "nitter instances",
+    "redlib instances",
+    "libreddit instances",
+    "priviblur instances",
+    "teddit instances",
+]
+
+
+def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        print("[WARN] GITHUB_TOKEN unavailable; skipping GitHub repository discovery.")
+        return {}
+
+    found: dict[tuple[str, str], SearchHit] = {}
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    repo_keys: set[str] = set()
+
+    for query in GITHUB_SOURCE_QUERIES:
+        url = (
+            "https://api.github.com/search/repositories"
+            f"?q={quote_plus(query)}&sort=updated&order=desc&per_page=6"
+        )
+        try:
+            data = json.loads(fetch_text(url, headers))
+        except Exception as exc:
+            print(f"[WARN] GitHub repo search failed for {query!r}: {type(exc).__name__}: {exc}")
+            continue
+
+        for item in data.get("items", []):
+            if not isinstance(item, dict):
+                continue
+            full_name = item.get("full_name")
+            default_branch = item.get("default_branch")
+            if isinstance(full_name, str) and isinstance(default_branch, str):
+                if full_name.lower() != "p4vizal/frontend-blocklist":
+                    repo_keys.add(f"{full_name}@{default_branch}")
+
+    for repo_key in sorted(repo_keys)[:30]:
+        full_name, default_branch = repo_key.rsplit("@", 1)
+        readme_url = (
+            f"https://raw.githubusercontent.com/{full_name}/"
+            f"{default_branch}/README.md"
+        )
+        source_name = f"GitHub:{full_name}"
+        try:
+            text = fetch_text(readme_url)
+        except Exception:
+            continue
+        for platform in PLATFORMS:
+            for host in extract_section_urls(text, platform):
+                key = (platform, host)
+                if key not in found:
+                    found[key] = SearchHit(host, platform, [], [], [], [], [])
+                hit = found[key]
+                if source_name not in hit.sources:
+                    hit.sources.append(source_name)
+                marker = f"SOURCE:{source_name}"
+                if marker not in hit.queries:
+                    hit.queries.append(marker)
+                source_url = f"https://{host}/"
+                if source_url not in hit.urls:
+                    hit.urls.append(source_url)
+
+    print(f"GitHub repository sources found: {len(repo_keys)}")
+    return found
+
+
 def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
 
@@ -832,6 +975,11 @@ def main() -> int:
 
     print(f"Verified web seeds: {seed_candidate_count}")
     print(f"Trusted-source candidates: {trusted_candidate_count}")
+    trusted_source_names = sorted({
+        source
+        for hit in trusted.values()
+        for source in hit.sources
+    })
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
     searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)

@@ -1,4 +1,3 @@
-# CI trigger: keep discovery workflow immediately testable without touching stable blocklist files.
 #!/usr/bin/env python3
 from __future__ import annotations
 
@@ -1648,8 +1647,10 @@ def search_query_intent_hits(hit: SearchHit) -> int:
 
 
 def pending_candidate_has_strong_signal(hit: SearchHit) -> bool:
-    """Keep only candidates with more than a generic search-query hint."""
-    if is_seed_candidate(hit) or hit.sources:
+    """Keep only candidates with independent service evidence worth retrying."""
+    if is_seed_candidate(hit):
+        return True
+    if set(hit.sources) & DIRECT_TRUSTED_SOURCES:
         return True
     if SEARCH_SERVICE_HOST_RE.search(hit.domain):
         return True
@@ -1658,12 +1659,7 @@ def pending_candidate_has_strong_signal(hit: SearchHit) -> bool:
         for url in hit.urls
     ):
         return True
-    if search_result_has_strong_service_evidence(hit):
-        return True
-    return search_query_intent_hits(hit) >= 1 and len({
-        query for query in hit.queries
-        if not query.startswith(("SOURCE:", "SEED:"))
-    }) >= 2
+    return search_result_has_strong_service_evidence(hit)
 
 
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
@@ -2063,6 +2059,10 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     # Strong service identity from the hostname is useful, but not enough
     # without page-level evidence.
+    strong_service_terms = STRONG_SERVICE_TERMS
+    strong_header_service_hits = [
+        t for t in strong_service_terms if term_present(t, header_text)
+    ]
     page_platform_ok = bool(
         header_platform_hits
         or (
@@ -2077,10 +2077,6 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
         or seed_candidate and platform_hits
     )
-    strong_service_terms = STRONG_SERVICE_TERMS
-    strong_header_service_hits = [
-        t for t in strong_service_terms if term_present(t, header_text)
-    ]
     page_service_ok = bool(
         strong_header_service_hits
         or brand_hits
@@ -2182,10 +2178,26 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         or single_query_service_ok
         or header_verified_search_service_ok
     )
+    query_service_ok = bool(
+        search_intent_hits >= 1
+        or header_verified_search_service_ok
+        or (
+            query_intent_hits >= 1
+            and (
+                service_path_hint
+                or host_service_hint
+                or (
+                    query_intent_hits >= 2
+                    and ui_signal
+                    and not article_structure_hint
+                )
+            )
+        )
+    )
     search_accept = (
         not seed_candidate
         and strong_service_page
-        and (search_intent_hits >= 1 or header_verified_search_service_ok)
+        and query_service_ok
         and search_quality_ok
         and search_interactive_ok
         and independent_query_ok

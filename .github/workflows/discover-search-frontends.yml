@@ -21,6 +21,8 @@ jobs:
     name: Frontend discovery
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
 
     steps:
       - name: Checkout repository
@@ -149,9 +151,11 @@ jobs:
             esac
           done
 
+          find . -type d -name "__pycache__" -prune -exec rm -rf {} +
+
           git diff --check
 
-          python - <<'PY'
+          python - <<'PY
           import json
           import re
           from pathlib import Path

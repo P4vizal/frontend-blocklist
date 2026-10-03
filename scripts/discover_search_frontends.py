@@ -20,8 +20,13 @@ from urllib.request import Request, urlopen
 OUTPUT = Path("search-discovered-blocklist.txt")
 REPORT = Path("search-discovered-report.json")
 
-GOOGLE_URL = "https://www.google.com/search"
+SEARCH_ENGINES = {
+    "google": "https://www.google.com/search",
+    "bing": "https://www.bing.com/search",
+    "ddg": "https://html.duckduckgo.com/html/",
+}
 GOOGLE_DELAY = 2.5
+FALLBACK_DELAY = 2.0
 GOOGLE_RESULTS = 10
 PAGE_TIMEOUT = 10
 MAX_PAGE_BYTES = 1_500_000
@@ -201,7 +206,7 @@ def normalize_host(value: str) -> str | None:
     return host if DOMAIN_RE.fullmatch(host) else None
 
 
-class GoogleParser(HTMLParser):
+class SearchResultParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.hrefs: list[str] = []
@@ -211,7 +216,12 @@ class GoogleParser(HTMLParser):
             return
         attrs_map = dict(attrs)
         href = attrs_map.get("href")
-        if href:
+        classes = set((attrs_map.get("class") or "").split())
+        if not href:
+            return
+        if "result__a" in classes or "b_algo" in classes or href.startswith(("/url?", "https://www.google.com/url?")):
+            self.hrefs.append(href)
+        elif href.startswith(("http://", "https://")):
             self.hrefs.append(href)
 
 
@@ -346,16 +356,31 @@ def build_queries() -> list[tuple[str, str, str]]:
     return queries
 
 
-def google_search(query: str, hl: str, gl: str) -> list[str]:
-    params = {
-        "q": query,
-        "num": str(GOOGLE_RESULTS),
-        "hl": hl,
-        "gl": gl,
-        "filter": "0",
-        "gbv": "1",
-    }
-    url = GOOGLE_URL + "?" + "&".join(
+def search_engine(engine: str, query: str, hl: str, gl: str) -> list[str]:
+    if engine == "google":
+        params = {
+            "q": query,
+            "num": str(GOOGLE_RESULTS),
+            "hl": hl,
+            "gl": gl,
+            "filter": "0",
+            "gbv": "1",
+        }
+    elif engine == "bing":
+        params = {
+            "q": query,
+            "count": str(GOOGLE_RESULTS),
+            "setlang": hl,
+            "cc": gl.upper(),
+        }
+    else:
+        params = {
+            "q": query,
+            "kl": f"{gl}-{hl.split('-')[0]}" if gl else "wt-wt",
+        }
+
+    base = SEARCH_ENGINES[engine]
+    url = base + "?" + "&".join(
         f"{quote_plus(k)}={quote_plus(v)}" for k, v in params.items()
     )
     req = Request(
@@ -364,6 +389,7 @@ def google_search(query: str, hl: str, gl: str) -> list[str]:
             "User-Agent": USER_AGENT,
             "Accept": "text/html,application/xhtml+xml",
             "Accept-Language": f"{hl},en;q=0.7",
+            "Cache-Control": "no-cache",
         },
     )
     with urlopen(req, timeout=PAGE_TIMEOUT) as response:
@@ -372,24 +398,33 @@ def google_search(query: str, hl: str, gl: str) -> list[str]:
         text = raw.decode(charset, errors="replace")
 
     lower = fold(text)
-    if "our systems have detected unusual traffic" in lower or "captcha" in lower:
-        raise RuntimeError("Google returned a bot/challenge page")
+    challenge_markers = (
+        "our systems have detected unusual traffic",
+        "unusual traffic",
+        "captcha",
+        "verify you are human",
+        "automated queries",
+    )
+    if any(marker in lower for marker in challenge_markers):
+        raise RuntimeError(f"{engine} returned a bot/challenge page")
 
-    parser = GoogleParser()
+    parser = SearchResultParser()
     parser.feed(text)
     urls: list[str] = []
     for href in parser.hrefs:
         href = html.unescape(href)
-        if href.startswith("/url?") or href.startswith("https://www.google.com/url?"):
+        if engine == "google" and (href.startswith("/url?") or href.startswith("https://www.google.com/url?")):
             parsed = urlparse(href)
             qs = parse_qs(parsed.query)
             href = (qs.get("q") or qs.get("url") or [""])[0]
+        elif href.startswith("//"):
+            href = "https:" + href
         if not href.startswith(("http://", "https://")):
             continue
         host = normalize_host(href)
         if host:
             urls.append(href)
-    return urls
+    return list(dict.fromkeys(urls))
 
 
 def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
@@ -616,11 +651,48 @@ def main() -> int:
     search_errors: list[dict] = []
 
     consecutive_errors = 0
+    google_disabled = False
+
     for index, (lang, platform, query) in enumerate(query_specs, start=1):
         cfg = LANGUAGES[lang]
         print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
-        try:
-            urls = google_search(query, cfg["hl"], cfg["gl"])
+
+        engines = ["bing", "ddg"] if google_disabled else ["google", "bing", "ddg"]
+        urls: list[str] = []
+        used_engine = None
+        engine_errors: list[str] = []
+
+        for engine in engines:
+            try:
+                urls = search_engine(engine, query, cfg["hl"], cfg["gl"])
+                used_engine = engine
+                if engine != "google" and not google_disabled:
+                    print(f"[INFO] Fallback search engine used: {engine}")
+                break
+            except Exception as exc:
+                error_text = f"{type(exc).__name__}: {exc}"
+                engine_errors.append(f"{engine}: {error_text}")
+                if engine == "google" and (
+                    "429" in error_text or "bot/challenge" in error_text.lower()
+                ):
+                    google_disabled = True
+                    print("[WARN] Google is rate-limited/challenged; disabling Google for the rest of this run and using fallbacks.")
+                elif engine == "google":
+                    print(f"[WARN] Google failed: {exc}")
+
+        if used_engine is None:
+            consecutive_errors += 1
+            search_errors.append({
+                "language": lang,
+                "platform": platform,
+                "query": query,
+                "error": " | ".join(engine_errors),
+            })
+            print(f"[WARN] All search engines failed ({consecutive_errors}/{MAX_CONSECUTIVE_SEARCH_ERRORS})")
+            if consecutive_errors >= MAX_CONSECUTIVE_SEARCH_ERRORS:
+                print("[WARN] Stopping discovery after consecutive search failures.")
+                break
+        else:
             consecutive_errors = 0
             for url in urls:
                 domain = normalize_host(url)
@@ -634,19 +706,8 @@ def main() -> int:
                     hit.queries.append(query)
                 if url not in hit.urls:
                     hit.urls.append(url)
-        except Exception as exc:
-            consecutive_errors += 1
-            search_errors.append({
-                "language": lang,
-                "platform": platform,
-                "query": query,
-                "error": f"{type(exc).__name__}: {exc}",
-            })
-            print(f"[WARN] Google query failed ({consecutive_errors}/{MAX_CONSECUTIVE_SEARCH_ERRORS} consecutive): {exc}")
-            if consecutive_errors >= MAX_CONSECUTIVE_SEARCH_ERRORS:
-                print("[WARN] Stopping Google queries after consecutive failures to avoid hammering the search service.")
-                break
-        time.sleep(GOOGLE_DELAY)
+
+        time.sleep(GOOGLE_DELAY if used_engine == "google" else FALLBACK_DELAY)
 
     # Stronger discovery signal first: domains seen in multiple independent queries.
     hits = sorted(
@@ -707,6 +768,7 @@ def main() -> int:
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "google_queries": len(query_specs),
+        "google_disabled_during_run": google_disabled,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),
         "accepted_count": len(accepted),

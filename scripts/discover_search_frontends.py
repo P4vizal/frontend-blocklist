@@ -1894,7 +1894,7 @@ def runtime_signals_from_html(html_text: str, platform: str) -> dict:
             html_text,
         )
     )[:16000]
-    runtime_text = fold(" ".join(script_sources + manifest_urls + [jsonld_text, inline_js_text]))
+    runtime_text = fold(re.sub(r"[-_]+", " ", " ".join(script_sources + manifest_urls + [jsonld_text, inline_js_text])))
     if platform == "twitter":
         platform_terms = ("twitter", "tweet", "nitter", "xcancel")
     elif platform == "reddit":

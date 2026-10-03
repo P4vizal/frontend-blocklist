@@ -34,7 +34,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile/thread; search_intent=2; providers=1; queries=2"
+      "validation_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile/thread; search_intent=2; providers=1; queries=4"
     },
     {
       "platform": "reddit",
@@ -54,7 +54,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=reddit; service=slideshow/gallery; identity=subreddit/subreddits; search_intent=1; providers=1; queries=1"
+      "validation_reason": "platform=reddit; service=browser/slideshow; identity=subreddit/post/thread; search_intent=3; providers=1; queries=4"
     },
     {
       "platform": "tumblr",
@@ -64,7 +64,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=tumblr; service=viewer; identity=blog; search_intent=1; providers=1; queries=1"
+      "validation_reason": "platform=tumblr; service=viewer; identity=blog; search_intent=0; providers=0; queries=0"
     },
     {
       "platform": "tumblr",
@@ -74,7 +74,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=tumblr; service=viewer/browser/slideshow/gallery; identity=blogs; search_intent=0; providers=0; queries=1"
+      "validation_reason": "platform=tumblr; service=viewer/browser/slideshow/gallery; identity=blogs; search_intent=0; providers=0; queries=0"
     },
     {
       "platform": "tumblr",
@@ -94,7 +94,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x; service=viewer/reader; identity=tweet/tweets/profile/post/posts/media; search_intent=1; providers=1; queries=1"
+      "validation_reason": "platform=twitter/x; service=viewer/reader; identity=tweet/tweets/profile/post/posts/media; search_intent=1; providers=1; queries=3"
     },
     {
       "platform": "twitter",
@@ -114,7 +114,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x/nitter; service=viewer; identity=tweet/tweets/user/profile; search_intent=4; providers=1; queries=4"
+      "validation_reason": "platform=twitter/x/nitter; service=viewer; identity=tweet/tweets/user/profile; search_intent=1; providers=1; queries=1"
     },
     {
       "platform": "twitter",
@@ -258,9 +258,9 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 107,
-  "validated_candidates": 37,
-  "pending_verification_count": 11,
+  "candidates_discovered": 115,
+  "validated_candidates": 46,
+  "pending_verification_count": 10,
   "pending_verification": [
     {
       "domain": "git.kalli.st",
@@ -279,9 +279,9 @@
       "providers": [],
       "search_evidence": [],
       "first_seen": "2026-10-03T21:50:39Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 2
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 3
     },
     {
       "domain": "kddit.kalli.st",
@@ -300,30 +300,9 @@
       "providers": [],
       "search_evidence": [],
       "first_seen": "2026-10-03T21:50:39Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 2
-    },
-    {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "queries": [
-        "SOURCE:Alternative frontends 4",
-        "SOURCE:Alternative frontends 6"
-      ],
-      "urls": [
-        "https://www.xeddit.com/"
-      ],
-      "sources": [
-        "Alternative frontends 4",
-        "Alternative frontends 6"
-      ],
-      "providers": [],
-      "search_evidence": [],
-      "first_seen": "2026-10-03T22:01:54Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 1
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 3
     },
     {
       "domain": "www.sotwe.com",
@@ -342,9 +321,9 @@
         "Web-verified viewer seed: https://www.sotwe.com/"
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 8
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 9
     },
     {
       "domain": "teddit.no-logs.com",
@@ -361,9 +340,9 @@
       "providers": [],
       "search_evidence": [],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 6
     },
     {
       "domain": "nitter.app",
@@ -387,9 +366,9 @@
         "bing-rss:how to browse twitter (x) anonymously — 2026 | nitter.app how to browse twitter (x) anonymously in 2026 updated 2026-08-27 quick answer read profiles through a viewer such as nitter.app — your browser talks to the viewer, never to x's servers, so x gets no visit, no cookie, no ip. for stronger anonymity add a vpn so the viewer doesn't see your ip either."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 6
     },
     {
       "domain": "www.postel.app",
@@ -410,9 +389,9 @@
         "bing-rss:twitter viewer | tweet viewer | twitter viewer without account | postel our twitter viewer without account simplifies the process of accessing twitter content. instead of creating an account, verifying your email, and navigating twitter's interface, you can instantly view profiles and tweets through our streamlined tool."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 6
     },
     {
       "domain": "www.tumlook.com",
@@ -433,9 +412,9 @@
         "bing-rss:tumblr web viewer | tumlook experience the best of tumblr on tumlook.com. browse tumblr blogs, tags, and posts anonymously without a tumblr account. start your discovery today!"
       ],
       "first_seen": "2026-10-03T21:29:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 4
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 5
     },
     {
       "domain": "subscroller.app",
@@ -454,9 +433,9 @@
         "bing-rss:home | subscroller reddit subreddit image scroller, with slideshow. pwa support."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 6
     },
     {
       "domain": "www.instalker.org",
@@ -475,9 +454,9 @@
         "bing-rss:instalker - twitter search web viewer & trend tracker instalker is a free twitter web viewer that lets you explore twitter content without an account. search any username to view profiles, tweets, and media anonymously."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 6
     },
     {
       "domain": "www.merriam-webster.com",
@@ -496,9 +475,9 @@
         "bing-rss:view definition & meaning - merriam-webster the meaning of view is extent or range of vision : sight. how to use view in a sentence. synonym discussion of view."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:01:54Z",
-      "last_attempt_epoch": 1791064914.5078855,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:04:06Z",
+      "last_attempt_epoch": 1791065046.765228,
+      "attempts": 6
     }
   ],
   "retained_historical_count": 128,
@@ -507,15 +486,19 @@
   "output_preserved": true,
   "rejection_reason_counts": {
     "platform=reddit; service=viewer; identity=subreddits/comment/comments/post/posts/profile/thread; search_intent=1; providers=1; queries=1": 1,
-    "platform=-; service=viewer; identity=subreddit; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=-; identity=profile; search_intent=0; providers=0; queries=4": 1,
     "platform=-; service=-; identity=subreddit/subreddits; search_intent=0; providers=0; queries=1": 1,
     "platform=reddit; service=-; identity=comments/posts; search_intent=0; providers=0; queries=2": 1,
+    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 1,
     "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=0": 1,
     "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0": 2,
     "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0": 2,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 3,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 4,
+    "article/content page, not a frontend endpoint": 3,
     "page unavailable": 14,
-    "article/content page, not a frontend endpoint": 1
+    "challenge/parked page detected": 1,
+    "non-frontend service/tool page": 3
   },
   "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
   "candidates": [
@@ -523,8 +506,8 @@
       "domain": "twitterviewer.net",
       "platform": "twitter",
       "accepted": true,
-      "score": 29,
-      "query_count": 4,
+      "score": 26,
+      "query_count": 1,
       "final_url": "https://twitterviewer.net/",
       "evidence": {
         "platform_hits": [
@@ -601,42 +584,38 @@
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
-        "search_intent_hits": 4,
-        "query_intent_hits": 4,
-        "search_signal_hits": 8,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 4,
+        "distinct_queries": 1,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
           "Web-verified viewer seed: https://twitterviewer.net/",
-          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account what is a twitter viewer? a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x. since twitter's policy changes removed anonymous access, tools like our anonymous twitter viewer fill this gap — providing a seamless, secure ...",
-          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! instantly view any public tweet, user profile, and replies online – no account or login required. the best nitter alternative with video downloading.",
-          "bing-rss:free twitter/x viewer — view tweets, profiles & replies ... free twitter/x viewer! instantly view any public tweet, user profile, and replies online – no account or login required. the best nitter alternative with video downloading.",
-          "bing-rss:nitter alternatives compared: self-hosted frontends vs ... tl;dr — nitter is an open-source, self-hostable front-end for twitter/x built around privacy and minimalism: no javascript, no ads, requests proxied server-side, rss output. a hosted viewer like this one trades those properties for zero setup — nothing to install, nothing to maintain, and a reading interface built for phones."
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! view any public tweet, profile, and replies online – no account required. the best nitter alternative."
         ],
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
         ],
         "fetch_via": "direct",
         "query_urls": [
-          "https://twitterviewer.net/",
-          "https://twitterviewer.net/blog/nitter-alternatives-compared"
+          "https://twitterviewer.net/"
         ]
       },
-      "reason": "platform=twitter/x/nitter; service=viewer; identity=tweet/tweets/user/profile; search_intent=4; providers=1; queries=4",
+      "reason": "platform=twitter/x/nitter; service=viewer; identity=tweet/tweets/user/profile; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
       "domain": "tryadlicio.com",
       "platform": "reddit",
       "accepted": true,
-      "score": 21,
-      "query_count": 2,
+      "score": 23,
+      "query_count": 4,
       "final_url": "https://tryadlicio.com/tools/reddit-viewer",
       "evidence": {
         "platform_hits": [
@@ -720,13 +699,13 @@
         "single_query_service_ok": true,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 2,
-        "query_intent_hits": 2,
-        "search_signal_hits": 4,
+        "query_intent_hits": 4,
+        "search_signal_hits": 6,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 2,
+        "distinct_queries": 4,
         "search_providers": [
           "bing-rss"
         ],
@@ -743,16 +722,16 @@
           "https://tryadlicio.com/tools/reddit-viewer"
         ]
       },
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile/thread; search_intent=2; providers=1; queries=2",
+      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile/thread; search_intent=2; providers=1; queries=4",
       "error": ""
     },
     {
       "domain": "www.peekstr.com",
       "platform": "reddit",
       "accepted": true,
-      "score": 20,
-      "query_count": 1,
-      "final_url": "https://www.peekstr.com/",
+      "score": 23,
+      "query_count": 4,
+      "final_url": "https://www.peekstr.com/view-reddit-without-login",
       "evidence": {
         "platform_hits": [
           "reddit"
@@ -764,45 +743,47 @@
         ],
         "header_brand_hits": [],
         "header_service_hits": [
-          "slideshow",
-          "gallery"
+          "browser",
+          "slideshow"
         ],
         "header_identity_hits": [
           "subreddit",
-          "subreddits"
+          "post",
+          "thread"
         ],
         "body_service_hits": [
           "browser",
           "slideshow",
-          "gallery",
-          "content browser"
+          "gallery"
         ],
         "body_identity_hits": [
           "subreddit",
-          "subreddits",
+          "comments",
           "post",
-          "posts"
+          "posts",
+          "profile",
+          "thread"
         ],
         "service_hits": [
           "browser",
           "slideshow",
-          "gallery",
-          "content browser"
+          "gallery"
         ],
         "identity_hits": [
           "subreddit",
-          "subreddits",
+          "comments",
           "post",
-          "posts"
+          "posts",
+          "profile",
+          "thread"
         ],
         "ui_signal": true,
-        "inputs": 2,
-        "forms": 2,
-        "buttons": 3,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 1,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [
-          "subreddit",
           "reddit"
         ],
         "service_path_hint": false,
@@ -815,19 +796,21 @@
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": true,
-        "search_intent_hits": 1,
-        "query_intent_hits": 1,
-        "search_signal_hits": 2,
+        "search_intent_hits": 3,
+        "query_intent_hits": 4,
+        "search_signal_hits": 7,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 1,
+        "distinct_queries": 4,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
           "Web-verified viewer seed: https://www.peekstr.com/",
+          "bing-rss:view reddit without logging in, no account | peekstr peekstr is a clean, full-screen way to browse public reddit images and videos in your browser. no account, no app, no cookies, and every post links back to its original reddit thread.",
+          "bing-rss:peekstr - view any subreddit’s images & videos full-screen. no account ... peekstr turns any subreddit into a full-screen image & video slideshow. no account, no app, no cookies. combine subreddits with the ai multi-reddit builder and browse galleries instantly.",
           "bing-rss:peekstr - view any subreddit’s images & videos full-screen. no account ... turn any subreddit into a full-screen image & video slideshow with an ai multi-reddit builder. no account, no app, no cookies."
         ],
         "trusted_sources": [
@@ -835,97 +818,19 @@
         ],
         "fetch_via": "direct",
         "query_urls": [
-          "https://www.peekstr.com/"
+          "https://www.peekstr.com/",
+          "https://www.peekstr.com/view-reddit-without-login"
         ]
       },
-      "reason": "platform=reddit; service=slideshow/gallery; identity=subreddit/subreddits; search_intent=1; providers=1; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.tumviews.com",
-      "platform": "tumblr",
-      "accepted": true,
-      "score": 20,
-      "query_count": 1,
-      "final_url": "https://www.tumviews.com/",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer",
-          "browser",
-          "slideshow",
-          "gallery"
-        ],
-        "header_identity_hits": [
-          "blogs"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "viewer",
-          "browser",
-          "slideshow",
-          "gallery"
-        ],
-        "identity_hits": [
-          "blogs"
-        ],
-        "ui_signal": true,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": true,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "Web-verified viewer seed: https://www.tumviews.com/",
-          "bing-rss:how to view tumblr images without an account | tumviews browse any public tumblr blog as a grid of images without signing in. what works without an account, what does not, and what \"anonymous\" honestly means."
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.tumviews.com/",
-          "https://www.tumviews.com/articles/how-to-view-tumblr-images-without-account"
-        ]
-      },
-      "reason": "platform=tumblr; service=viewer/browser/slideshow/gallery; identity=blogs; search_intent=0; providers=0; queries=1",
+      "reason": "platform=reddit; service=browser/slideshow; identity=subreddit/post/thread; search_intent=3; providers=1; queries=4",
       "error": ""
     },
     {
       "domain": "ilo.so",
       "platform": "twitter",
       "accepted": true,
-      "score": 18,
-      "query_count": 1,
+      "score": 20,
+      "query_count": 3,
       "final_url": "https://ilo.so/twitter-viewer",
       "evidence": {
         "platform_hits": [
@@ -1007,13 +912,13 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 1,
-        "query_intent_hits": 1,
-        "search_signal_hits": 2,
+        "query_intent_hits": 3,
+        "search_signal_hits": 4,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 1,
+        "distinct_queries": 3,
         "search_providers": [
           "bing-rss"
         ],
@@ -1029,81 +934,7 @@
           "https://ilo.so/twitter-viewer"
         ]
       },
-      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/tweets/profile/post/posts/media; search_intent=1; providers=1; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "cascadr.co",
-      "platform": "tumblr",
-      "accepted": true,
-      "score": 17,
-      "query_count": 1,
-      "final_url": "https://cascadr.co/",
-      "evidence": {
-        "platform_hits": [
-          "tumblr"
-        ],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [
-          "tumblr"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "blog"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "viewer"
-        ],
-        "identity_hits": [
-          "blog"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": true,
-        "search_intent_hits": 1,
-        "query_intent_hits": 1,
-        "search_signal_hits": 2,
-        "strong_search_evidence_hint": true,
-        "search_provider_hits": [
-          "bing-rss"
-        ],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "Web-verified viewer seed: https://cascadr.co/",
-          "bing-rss:cascadr | a tumblr image viewer cascadr is a tumblr image viewer, a different way to view tumblr that allows you to easily and quickly scan through a blog to find the images that you want."
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://cascadr.co/"
-        ]
-      },
-      "reason": "platform=tumblr; service=viewer; identity=blog; search_intent=1; providers=1; queries=1",
+      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/tweets/profile/post/posts/media; search_intent=1; providers=1; queries=3",
       "error": ""
     },
     {
@@ -1320,6 +1151,81 @@
       "error": ""
     },
     {
+      "domain": "www.tumviews.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 17,
+      "query_count": 0,
+      "final_url": "https://www.tumviews.com/",
+      "evidence": {
+        "platform_hits": [
+          "tumblr"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "tumblr"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer",
+          "browser",
+          "slideshow",
+          "gallery"
+        ],
+        "header_identity_hits": [
+          "blogs"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "viewer",
+          "browser",
+          "slideshow",
+          "gallery"
+        ],
+        "identity_hits": [
+          "blogs"
+        ],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [
+          "Web-verified viewer seed: https://www.tumviews.com/"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://www.tumviews.com/"
+        ]
+      },
+      "reason": "platform=tumblr; service=viewer/browser/slideshow/gallery; identity=blogs; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
       "domain": "www.twitter-viewer.com",
       "platform": "twitter",
       "accepted": true,
@@ -1517,6 +1423,75 @@
       "error": ""
     },
     {
+      "domain": "cascadr.co",
+      "platform": "tumblr",
+      "accepted": true,
+      "score": 12,
+      "query_count": 0,
+      "final_url": "https://cascadr.co/",
+      "evidence": {
+        "platform_hits": [
+          "tumblr"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "tumblr"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "blog"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "blog"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [
+          "Web-verified viewer seed: https://cascadr.co/"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://cascadr.co/"
+        ]
+      },
+      "reason": "platform=tumblr; service=viewer; identity=blog; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
       "domain": "redship.io",
       "platform": "reddit",
       "accepted": false,
@@ -1625,70 +1600,87 @@
       "error": ""
     },
     {
-      "domain": "danb.me",
+      "domain": "www.estadao.com.br",
       "platform": "reddit",
       "accepted": false,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "https://danb.me/viewr/",
+      "score": 14,
+      "query_count": 4,
+      "final_url": "https://www.estadao.com.br/tecmundo/big-techs/266675-reddit-funciona-entrar-app/",
       "evidence": {
-        "platform_hits": [],
+        "platform_hits": [
+          "reddit"
+        ],
         "twitter_x_context_ok": false,
         "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
+        "header_platform_hits": [
+          "reddit"
         ],
+        "header_brand_hits": [],
+        "header_service_hits": [],
         "header_identity_hits": [
-          "subreddit"
+          "profile"
         ],
         "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "viewer"
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "post",
+          "posts",
+          "profile",
+          "perfil",
+          "usuário",
+          "publicação"
         ],
+        "service_hits": [],
         "identity_hits": [
-          "subreddit"
+          "subreddit",
+          "subreddits",
+          "post",
+          "posts",
+          "profile",
+          "perfil",
+          "usuário",
+          "publicação"
         ],
-        "ui_signal": false,
-        "inputs": 0,
+        "ui_signal": true,
+        "inputs": 2,
         "forms": 0,
-        "buttons": 0,
+        "buttons": 40,
         "article_count": 0,
         "article_structure_hint": false,
-        "interactive_target_hits": [],
+        "interactive_target_hits": [
+          "blog",
+          "reddit"
+        ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
-        "search_intent_hits": 1,
-        "query_intent_hits": 1,
-        "search_signal_hits": 2,
-        "strong_search_evidence_hint": true,
-        "search_provider_hits": [
-          "bing-rss"
-        ],
-        "distinct_queries": 1,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:imgur subreddit viewer browse imgur's subreddit content with this viewer for a streamlined browsing experience."
+          "bing-rss:reddit: o que é, como funciona e como entrar no app? o reddit é uma plataforma de rede social que permite aos usuários compartilharem, discutirem e votarem em conteúdos organizados em \"subreddits\", que são comunidades específicas baseadas em interesses, hobbies, notícias, cultura pop e muito mais."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "query_urls": [
-          "https://danb.me/viewr/"
+          "https://www.estadao.com.br/tecmundo/big-techs/266675-reddit-funciona-entrar-app/"
         ]
       },
-      "reason": "platform=-; service=viewer; identity=subreddit; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=-; identity=profile; search_intent=0; providers=0; queries=4",
       "error": ""
     },
     {
@@ -1829,6 +1821,73 @@
       "error": ""
     },
     {
+      "domain": "whatismylocation.ai",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 8,
+      "query_count": 1,
+      "final_url": "https://whatismylocation.ai/it",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "browser"
+        ],
+        "header_identity_hits": [],
+        "body_service_hits": [
+          "browser",
+          "visualizzatore"
+        ],
+        "body_identity_hits": [],
+        "service_hits": [
+          "visualizzatore",
+          "browser"
+        ],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 2,
+        "forms": 0,
+        "buttons": 15,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "guide"
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:qual è la mia posizione? — scopri subito dove ti trovi trova la tua posizione attuale, l'indirizzo completo, le coordinate gps, latitudine, longitudine e la posizione sulla mappa. gratis, immediato e privato. funziona su qualsiasi browser."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://whatismylocation.ai/it"
+        ]
+      },
+      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
       "domain": "eddrit.com",
       "platform": "reddit",
       "accepted": false,
@@ -1949,6 +2008,68 @@
     },
     {
       "domain": "f-droid.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 5,
+      "query_count": 0,
+      "final_url": "https://f-droid.org/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "user"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "user"
+        ],
+        "ui_signal": false,
+        "inputs": 5,
+        "forms": 2,
+        "buttons": 1,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [],
+        "trusted_sources": [
+          "Alternative frontends 3",
+          "Alternative frontends 5"
+        ],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://f-droid.org/"
+        ]
+      },
+      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "f-droid.org",
       "platform": "reddit",
       "accepted": false,
       "score": 5,
@@ -2002,68 +2123,6 @@
           "Alternative frontends 4",
           "Alternative frontends 5",
           "Alternative frontends 6"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://f-droid.org/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "f-droid.org",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 5,
-      "query_count": 0,
-      "final_url": "https://f-droid.org/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 5,
-        "forms": 2,
-        "buttons": 1,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3",
-          "Alternative frontends 5"
         ],
         "fetch_via": "direct",
         "query_urls": [
@@ -2130,6 +2189,121 @@
         ]
       },
       "reason": "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "www.zhihu.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://www.zhihu.com/signin?next=%2F",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 11,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:现在怎么才能登录whatsapp呢? - 知乎 i understand that whatsapp places a strong emphasis on user privacy and security, and i share these concerns as well. consequently, i have conscientiously refrained fromusing unofficial or third-party applications to ensure the protection of my communication data."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://www.zhihu.com/question/68113079"
+        ]
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "www.xeddit.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 0,
+      "final_url": "https://www.xeddit.com/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [],
+        "trusted_sources": [
+          "Alternative frontends 4",
+          "Alternative frontends 6"
+        ],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://www.xeddit.com/"
+        ]
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -2298,6 +2472,46 @@
       "error": ""
     },
     {
+      "domain": "apps.apple.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 5,
+      "final_url": "https://apps.apple.com/us/app/x/id333903271",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "review"
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "footprintiq.app",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://footprintiq.app/twitter-search-without-account",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is "
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
       "domain": "git.kalli.st",
       "platform": "reddit",
       "accepted": false,
@@ -2316,6 +2530,34 @@
       "error": ""
     },
     {
+      "domain": "gizmodo.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
+      "final_url": "https://gizmodo.com/download/x-twitter",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "greycoder.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://greycoder.com/a-list-of-working-alternative-interfaces-to-various-social-media-sites/",
+      "evidence": {},
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
       "domain": "kddit.kalli.st",
       "platform": "reddit",
       "accepted": false,
@@ -2331,6 +2573,25 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "mashable.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 5,
+      "final_url": "https://mashable.com/",
+      "evidence": {
+        "non_frontend_service_hits": [
+          "tracking"
+        ],
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "non-frontend service/tool page",
       "error": ""
     },
     {
@@ -2368,6 +2629,42 @@
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "search.pullpush.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://search.pullpush.io/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed"
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "snoosnoop.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://snoosnoop.com/",
+      "evidence": {
+        "non_frontend_service_hits": [
+          "analyser"
+        ],
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false
+      },
+      "reason": "non-frontend service/tool page",
       "error": ""
     },
     {
@@ -2422,20 +2719,24 @@
       "error": ""
     },
     {
-      "domain": "www.digital-coach.com",
+      "domain": "tracktheirprofile.com",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://www.digital-coach.com/it/seo/query/",
+      "final_url": "https://tracktheirprofile.com/",
       "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-rss"
+        "non_frontend_service_hits": [
+          "tracker",
+          "tracking",
+          "profile tracker"
         ],
-        "fetch_error": "fetch failed"
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false
       },
-      "reason": "page unavailable",
+      "reason": "non-frontend service/tool page",
       "error": ""
     },
     {
@@ -2524,37 +2825,17 @@
       "error": ""
     },
     {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://www.xeddit.com/",
-      "evidence": {
-        "trusted_sources": [
-          "Alternative frontends 4",
-          "Alternative frontends 6"
-        ],
-        "search_providers": [],
-        "fetch_error": "fetch failed"
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
       "domain": "zoomblr.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
-      "query_count": 2,
-      "final_url": "https://zoomblr.com/use-cases/view-tumblr-without-account",
+      "query_count": 1,
+      "final_url": "https://zoomblr.com/",
       "evidence": {
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
         ],
-        "search_providers": [
-          "bing-rss"
-        ],
+        "search_providers": [],
         "fetch_error": "fetch failed"
       },
       "reason": "page unavailable",

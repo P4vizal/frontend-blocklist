@@ -781,11 +781,12 @@ def main() -> int:
         key=lambda e: (-e.score, e.domain),
     )
     if len(accepted) < MIN_ACCEPTED:
-        print("[ERROR] No sufficient validated domains were found.")
+        print("[WARN] No sufficient validated domains were found.")
         print("The previous search-discovered-blocklist.txt is intentionally left untouched.")
         REPORT.write_text(
             json.dumps(
                 {
+                    "status": "no_update",
                     "accepted": [],
                     "accepted_count": 0,
                     "candidates": [asdict(e) for e in evaluations[:200]],
@@ -797,7 +798,7 @@ def main() -> int:
             ) + "\n",
             encoding="utf-8",
         )
-        return 1
+        return 0
 
     OUTPUT.write_text(
         "# Generated from Google discovery + page validation.\n"

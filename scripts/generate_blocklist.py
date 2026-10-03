@@ -11,6 +11,7 @@ OUTPUT = Path("blocklist.txt")
 PORTMASTER_OUTPUT = Path("portmaster.txt")
 SEARCH_OUTPUT = Path("search-rules.txt")
 HAGEZI_OUTPUT = Path("hagezi-overlap.txt")
+SEARCH_DISCOVERED_OUTPUT = Path("search-discovered-blocklist.txt")
 
 SEARCH_RULES = """! Title: Frontend blocklist - search URL rules
 ! Purpose: block document URLs containing Reddit, Tumblr or Twitter.
@@ -163,6 +164,18 @@ def parse_source(name: str, text: str) -> set[str]:
     if name in {"4get","Nitter status","SearXNG HTML fallback"}: return extract_links(text)
     raise ValueError(f"Unsupported source: {name}")
 
+def read_adguard_domains(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    out = set()
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        m = ADGUARD_RULE_RE.match(line.strip())
+        if m:
+            domain = normalize(m.group(1))
+            if domain:
+                out.add(domain)
+    return out
+
 def parse_hagezi(text: str) -> set[str]:
     out=set()
     for line in text.splitlines():
@@ -175,7 +188,14 @@ def parse_hagezi(text: str) -> set[str]:
     return out
 
 def main() -> int:
-    all_domains=set(FIXED_DOMAINS); failures={}; counts={}
+    # Preserve previously published domains and merge the append-only discovery
+    # history so a newly discovered frontend reaches the public blocklist.
+    all_domains=set(FIXED_DOMAINS)
+    existing_domains = read_adguard_domains(OUTPUT)
+    discovered_domains = read_adguard_domains(SEARCH_DISCOVERED_OUTPUT)
+    all_domains.update(existing_domains)
+    all_domains.update(discovered_domains)
+    failures={}; counts={}
     def attempt(name):
         try:
             data=parse_source(name, fetch(SOURCES[name])); counts[name]=len(data)
@@ -189,9 +209,13 @@ def main() -> int:
     if counts.get("SearXNG JSON",0)==0: attempt("SearXNG HTML fallback")
     if counts.get("Nitter status",0)==0: attempt("Nitter gist")
     valid=sorted(d for d in all_domains if normalize(d)==d)
+    counts["Existing blocklist"] = len(existing_domains)
+    counts["Search discovery"] = len(discovered_domains)
     OUTPUT.write_text("\n".join(f"||{d}^" for d in valid)+"\n", encoding="utf-8")
     PORTMASTER_OUTPUT.write_text("\n".join(valid)+"\n", encoding="utf-8")
     SEARCH_OUTPUT.write_text(SEARCH_RULES.rstrip()+"\n", encoding="utf-8")
+    print(f"[OK] Preserved existing blocklist domains: {len(existing_domains)}")
+    print(f"[OK] Imported append-only discovery domains: {len(discovered_domains)}")
     print(f"[OK] Portmaster list: {len(valid)} domains")
     print("[OK] Search rules: generated")
     try:

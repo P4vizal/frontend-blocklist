@@ -925,6 +925,38 @@ def build_queries() -> list[tuple[str, str, str]]:
                 '"Tumblr viewer" "no account" -news -article -guide -review',
             ],
         },
+        {
+            "twitter": [
+                '"Twitter public profile viewer" -news -article -guide -review',
+                '"Twitter web client public profiles" -news -article -guide -review',
+                '"X Twitter mirror viewer" -news -article -guide -review',
+                '"Twitter public tweets browser" -news -article -guide -review',
+                '"Twitter alternative web client" -news -article -guide -review',
+                '"Twitter private viewer" -news -article -guide -review',
+                '"Twitter anonymous browser" -news -article -guide -review',
+                '"Twitter frontend instance" -news -article -guide -review',
+            ],
+            "reddit": [
+                '"Reddit public post browser" -news -article -guide -review',
+                '"Reddit web client no login" -news -article -guide -review',
+                '"Reddit frontend instance" -news -article -guide -review',
+                '"Reddit subreddit browser" -news -article -guide -review',
+                '"Reddit public profile browser" -news -article -guide -review',
+                '"Reddit private viewer" -news -article -guide -review',
+                '"Reddit anonymous web client" -news -article -guide -review',
+                '"Reddit alternative browser" -news -article -guide -review',
+            ],
+            "tumblr": [
+                '"Tumblr public blog viewer" -news -article -guide -review',
+                '"Tumblr web client" "no login" -news -article -guide -review',
+                '"Tumblr mirror viewer" -news -article -guide -review',
+                '"Tumblr public posts browser" -news -article -guide -review',
+                '"Tumblr alternative web client" -news -article -guide -review',
+                '"Tumblr private viewer" -news -article -guide -review',
+                '"Tumblr anonymous browser" -news -article -guide -review',
+                '"Tumblr frontend instance" -news -article -guide -review',
+            ],
+        },
     )
     day_index = int(time.time() // 86400)
     platform_queries = platform_query_families[(day_index // 2) % len(platform_query_families)]

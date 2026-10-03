@@ -36,11 +36,11 @@ VALIDATION_DELAY = 0.0
 SEARCH_BACKENDS = ("bing-rss", "bing-html")
 SEARCH_BACKEND = "bing-rss-fallback"
 SEARCH_MAX_RESULTS = 10
-SEARCH_PAGES = (1,)
+SEARCH_PAGES = (1, 2)
 SEARCH_TIMEOUT = 7
 SEARCH_DELAY = 0.2
 SEARCH_RETRIES = 0
-SEARCH_PAGE2_LANGS: set[str] = set()
+SEARCH_PAGE2_LANGS = {"en", "es"}
 
 DISCOVERY_MODE = os.environ.get("DISCOVERY_MODE", "daily").strip().lower()
 if DISCOVERY_MODE not in {"daily", "deep", "all"}:
@@ -778,11 +778,12 @@ def search_with_bing_rss(query: str, cfg: dict, page: int) -> list[dict]:
 
 
 def search_with_bing_html(query: str, cfg: dict, page: int) -> list[dict]:
-    if page != 1:
+    if page < 1:
         return []
+    first = 1 + (page - 1) * SEARCH_MAX_RESULTS
     url = (
         "https://www.bing.com/search?"
-        f"q={quote_plus(query)}&count={SEARCH_MAX_RESULTS}"
+        f"q={quote_plus(query)}&count={SEARCH_MAX_RESULTS}&first={first}"
         f"&setlang={quote_plus(cfg['hl'])}&cc={quote_plus(cfg['gl'])}"
     )
     req = Request(

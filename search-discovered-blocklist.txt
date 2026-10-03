@@ -15,6 +15,7 @@
 ||fr.facebo.com^
 ||fr.xtwitt.com^
 ||geonode.com^
+||ghostddit.aeddit.com^
 ||hiddenme.net^
 ||i.opnxng.com^
 ||iamprovider.com^
@@ -56,6 +57,7 @@
 ||snaplytics.io^
 ||snoo.ioens.is^
 ||sotwe.in^
+||spyx.com^
 ||status.d420.de^
 ||td.vern.cc^
 ||techbii.com^

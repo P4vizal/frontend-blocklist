@@ -63,6 +63,8 @@ COMMON_CRAWL_LIMIT = 40
 COMMON_CRAWL_DELAY = 1.25
 URLSCAN_MAX_RESULTS = 20
 URLSCAN_DELAY = 1.0
+PENDING_RETRY_BASE_SECONDS = 86400
+PENDING_RETRY_MAX_SECONDS = 7 * 86400
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("reddit", "https://tryadlicio.com/tools/reddit-viewer"),
@@ -219,6 +221,7 @@ TRUSTED_SOURCES = [
     ("Farside", "json", "https://raw.githubusercontent.com/benbusby/farside/main/services-full.json"),
     ("Redlib", "json", "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json"),
     ("Libreddit", "json", "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json"),
+    ("LibRedirect", "json", "https://raw.githubusercontent.com/libredirect/instances/main/data.json"),
     ("Priviblur", "text", "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md"),
     ("Alternative frontends 1", "text", "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md"),
     ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md"),
@@ -618,6 +621,13 @@ def read_discovered_domains() -> set[str]:
     return out
 
 
+def safe_nonnegative_int(value: object, default: int = 0) -> int:
+    try:
+        return max(0, int(value))
+    except (TypeError, ValueError):
+        return default
+
+
 def read_pending_verification() -> list[dict]:
     """Read a bounded set of recent candidates that were strong but unreachable."""
     if not REPORT.exists():
@@ -647,10 +657,14 @@ def read_pending_verification() -> list[dict]:
         if last_attempt_epoch and last_attempt_epoch < cutoff:
             continue
 
+        attempts = safe_nonnegative_int(item.get("attempts", 0))
+        next_retry_epoch = 0.0
         try:
-            attempts = max(0, int(item.get("attempts", 0) or 0))
+            next_retry_epoch = max(0.0, float(item.get("next_retry_epoch", 0) or 0))
         except (TypeError, ValueError):
-            attempts = 0
+            next_retry_epoch = 0.0
+        if next_retry_epoch and next_retry_epoch > time.time():
+            continue
 
         out.append({
             "domain": domain,
@@ -673,7 +687,8 @@ def read_pending_verification() -> list[dict]:
             "attempts": attempts,
             "status": str(item.get("status", "temporary_unavailable") or "temporary_unavailable"),
             "last_reason": str(item.get("last_reason", "")),
-            "discovery_score": max(0, int(item.get("discovery_score", 0) or 0)),
+            "discovery_score": safe_nonnegative_int(item.get("discovery_score", 0)),
+            "next_retry_epoch": next_retry_epoch,
         })
 
     out.sort(key=lambda item: (
@@ -1223,6 +1238,35 @@ def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
         return raw.decode(charset, errors="replace")
 
 
+LIBREDIRECT_PLATFORM_KEYS = {
+    "twitter": {"nitter", "shitter"},
+    "reddit": {"redlib", "libreddit", "teddit", "eddrit", "troddit", "kddit"},
+    "tumblr": {"priviblur"},
+}
+
+
+def extract_libredirect(text: str, platform: str) -> set[str]:
+    data = json.loads(text)
+    wanted = LIBREDIRECT_PLATFORM_KEYS.get(platform, set())
+    out: set[str] = set()
+    if not isinstance(data, dict):
+        return out
+    for service_name in wanted:
+        item = data.get(service_name)
+        if not isinstance(item, dict):
+            continue
+        clearnet = item.get("clearnet", [])
+        if not isinstance(clearnet, list):
+            continue
+        for value in clearnet:
+            if not isinstance(value, str):
+                continue
+            host = normalize_host(value)
+            if host:
+                out.add(host)
+    return out
+
+
 def extract_farside(text: str, platform: str) -> set[str]:
     data = json.loads(text)
     wanted = FARSIDE_PLATFORM_TYPES.get(platform, set())
@@ -1329,7 +1373,7 @@ def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
         full_name, default_branch = repo_key.rsplit("@", 1)
         readme_url = (
             f"https://raw.githubusercontent.com/{full_name}/"
-            f"{default_branch}/README.md"
+            f"{quote(default_branch, safe='/')}/README.md"
         )
         source_name = f"GitHub:{full_name}"
         try:
@@ -1469,7 +1513,7 @@ def gitlab_repository_candidates() -> dict[tuple[str, str], SearchHit]:
         if not full_path:
             continue
         source_name = f"GitLab:{full_path}"
-        readme_url = f"https://gitlab.com/{full_path}/-/raw/{quote_plus(branch)}/README.md"
+        readme_url = f"https://gitlab.com/{full_path}/-/raw/{quote(branch, safe='/')}/README.md"
         try:
             text = fetch_text(readme_url)
         except Exception:
@@ -1512,7 +1556,7 @@ def codeberg_repository_candidates() -> dict[tuple[str, str], SearchHit]:
         full_name, branch = repo_key.rsplit("@", 1)
         source_name = f"Codeberg:{full_name}"
         readme_url = (
-            f"https://codeberg.org/{full_name}/raw/branch/{quote_plus(branch)}/README.md"
+            f"https://codeberg.org/{full_name}/raw/branch/{quote(branch, safe='/')}/README.md"
         )
         try:
             text = fetch_text(readme_url)
@@ -1662,7 +1706,13 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
             if kind == "json":
                 text = fetch_text(url)
                 for platform in PLATFORMS:
-                    for host in extract_farside(text, platform) if source_name == "Farside" else set():
+                    if source_name == "Farside":
+                        hosts = extract_farside(text, platform)
+                    elif source_name == "LibRedirect":
+                        hosts = extract_libredirect(text, platform)
+                    else:
+                        hosts = set()
+                    for host in hosts:
                         add(platform, host, source_name)
                 if source_name == "Redlib":
                     data = json.loads(text)
@@ -1754,6 +1804,7 @@ def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
         variants.append(safe_url.replace("http://", "https://", 1))
 
     last_error = "fetch failed"
+    fetch_status = None
     for scheme_url in dict.fromkeys(variants):
         for attempt in range(1, FETCH_RETRIES + 1):
             try:
@@ -1766,9 +1817,11 @@ def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
                     charset = response.headers.get_content_charset() or "utf-8"
                     text = raw.decode(charset, errors="replace")
                     final_url = response.geturl()
-                return text, {"final_url": final_url}
+                    status = getattr(response, "status", None)
+                return text, {"final_url": final_url, "status_code": status}
             except HTTPError as exc:
                 last_error = f"{type(exc).__name__}: {exc}"
+                fetch_status = exc.code
                 # Permanent responses do not benefit from a second request.
                 if exc.code not in RETRYABLE_HTTP_CODES:
                     break
@@ -1778,7 +1831,7 @@ def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
                 last_error = f"{type(exc).__name__}: {exc}"
                 if attempt < FETCH_RETRIES:
                     time.sleep(0.5 * attempt)
-    return None, {"error": last_error}
+    return None, {"error": last_error, "status_code": fetch_status}
 
 
 def page_evidence(url: str, html_text: str) -> dict:
@@ -1833,7 +1886,14 @@ def runtime_signals_from_html(html_text: str, platform: str) -> dict:
         )
     )[:12000]
 
-    runtime_text = fold(" ".join(script_sources + manifest_urls + [jsonld_text]))
+    inline_js_text = " ".join(
+        value
+        for value in re.findall(
+            r"(?is)<script(?![^>]+\bsrc\s*=)[^>]*>(.*?)</script>",
+            html_text,
+        )
+    )[:16000]
+    runtime_text = fold(" ".join(script_sources + manifest_urls + [jsonld_text, inline_js_text]))
     if platform == "twitter":
         platform_terms = ("twitter", "tweet", "nitter", "xcancel")
     elif platform == "reddit":
@@ -2035,6 +2095,14 @@ def fetch_error_is_permanent(error: str) -> bool:
     ))
 
 
+def pending_next_retry_epoch(status: str, attempts: int, now_epoch: float) -> float:
+    """Bound retry frequency for unavailable or challenged candidates."""
+    if status == "challenge_blocked":
+        return now_epoch + min(PENDING_RETRY_MAX_SECONDS, 2 * PENDING_RETRY_BASE_SECONDS)
+    exponent = max(0, min(3, attempts - 1))
+    return now_epoch + min(PENDING_RETRY_MAX_SECONDS, PENDING_RETRY_BASE_SECONDS * (2 ** exponent))
+
+
 def classify_pending_status(evaluation: Evaluation, hit: SearchHit) -> str | None:
     """Return a retry state for strong candidates that are not yet publishable."""
     error = str(evaluation.evidence.get("fetch_error", "") or "")
@@ -2043,6 +2111,13 @@ def classify_pending_status(evaluation: Evaluation, hit: SearchHit) -> str | Non
     if "challenge/parked page detected" in evaluation.reason:
         return "challenge_blocked"
     if evaluation.reason == "page unavailable":
+        status_code = evaluation.evidence.get("status_code")
+        if status_code == 429:
+            return "rate_limited"
+        if status_code == 403:
+            return "forbidden"
+        if isinstance(status_code, int) and 500 <= status_code <= 599:
+            return "server_error"
         lowered = error.casefold()
         if "429" in lowered or "rate limit" in lowered:
             return "rate_limited"
@@ -2187,6 +2262,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
                 "trusted_sources": hit.sources,
                 "search_providers": hit.providers,
                 "fetch_error": fetch_meta.get("error", "fetch failed"),
+                "status_code": fetch_meta.get("status_code"),
             },
             "page unavailable"
         )
@@ -2745,6 +2821,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "search_evidence": hit.search_evidence[:12],
         "trusted_sources": hit.sources,
         "fetch_via": via,
+        "fetch_status_code": fetch_meta.get("status_code"),
         "runtime_platform_hits": runtime_platform_hits,
         "runtime_service_hits": runtime_service_hits,
         "runtime_framework_hits": runtime["framework_hits"],
@@ -3091,10 +3168,15 @@ def main() -> int:
             "first_seen": previous.get("first_seen") or now_iso,
             "last_attempt": now_iso,
             "last_attempt_epoch": now_epoch,
-            "attempts": int(previous.get("attempts", 0) or 0) + 1,
+            "attempts": safe_nonnegative_int(previous.get("attempts", 0)) + 1,
             "status": status,
             "last_reason": evaluation.reason,
             "discovery_score": discovery_score(source_hit),
+            "next_retry_epoch": pending_next_retry_epoch(
+                status,
+                safe_nonnegative_int(previous.get("attempts", 0)) + 1,
+                now_epoch,
+            ),
         }
 
     pending_verification = sorted(

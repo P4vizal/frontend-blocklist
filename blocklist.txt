@@ -1,4 +1,3 @@
-||0bin.ch^
 ||0x573e6188.static.cust.fastspeed.dk^
 ||1-163-203-60.dynamic-ip.hinet.net^
 ||147.202.76.83.dynamic.cust.swisscom.net^
@@ -30,7 +29,6 @@
 ||a.opnxng.com^
 ||about.opnxng.com^
 ||adminforge.de^
-||advancedrobert.manthrowshat.net^
 ||allthefiles.net^
 ||alpine.sev.monster^
 ||anaimg.starbeamrainbowlabs.com^
@@ -232,7 +230,6 @@
 ||lmdb.ngn.tf^
 ||lost-skunk.cc^
 ||lucy.im-in.space^
-||lukisko.eu^
 ||luna.sys.tiekoetter.net^
 ||lx.benike.monster^
 ||lx.vern.cc^
@@ -314,11 +311,8 @@
 ||p5790d9ee.dip0.t-ipconnect.de^
 ||page.search^
 ||paimon.sev.monster^
-||paste.07f.de^
 ||paste.coalserver.de^
-||paste.cracktek.eu^
 ||paste.encrypt.co.il^
-||paste.helkor.eu^
 ||paste.ononoki.org^
 ||paste.skynetcloud.site^
 ||paulgo.io^
@@ -344,7 +338,8 @@
 ||privacyredirect.com^
 ||privatebin.cc^
 ||privatebin.net^
-||privatebin.unige.ch^
+||privatebin.oxidizer.de^
+||privatebin.wildberries.ru^
 ||priviblur.canine.tools^
 ||priviblur.privadency.com^
 ||priviblur.pussthecat.org^
@@ -391,6 +386,7 @@
 ||redd.it^
 ||reddit.com^
 ||redlib.catsarch.com^
+||redlib.cow.rip^
 ||redlib.nadeko.net^
 ||redlib.privacyredirect.com^
 ||redlib.privadency.com^
@@ -402,7 +398,6 @@
 ||ri.nadeko.net^
 ||rimgo.4o1x5.dev^
 ||rimgo.aketawi.space^
-||rimgo.astrial.org^
 ||rimgo.bloat.cat^
 ||rimgo.canine.tools^
 ||rimgo.catsarch.com^
@@ -417,7 +412,6 @@
 ||rimgo.reallyaweso.me^
 ||rimgo.wuemeli.com^
 ||rmgur.com^
-||rockeaters.net^
 ||s.307200.xyz^
 ||s.dyox.in^
 ||s.opnxng.com^
@@ -503,7 +497,6 @@
 ||searx.nixnet.services^
 ||searx.oloke.xyz^
 ||searx.ononoki.org^
-||searx.party^
 ||searx.perennialte.ch^
 ||searx.redgarden.cv^
 ||searx.rhscz.eu^
@@ -532,7 +525,6 @@
 ||searxng.website^
 ||searxng.wuemeli.com^
 ||secret.timeweb.ru^
-||secure.4it.com.au^
 ||send.adminforge.de^
 ||send.aezafiles.net^
 ||send.artemislena.eu^

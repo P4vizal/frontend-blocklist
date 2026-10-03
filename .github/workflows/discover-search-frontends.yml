@@ -131,6 +131,12 @@ jobs:
               "Reddit alternative frontend",
               "Redlib is a private front-end to Reddit",
           )
+          assert discovery.search_result_is_relevant(
+              "reddit",
+              "Reddit viewer without login",
+              "Browse public posts",
+              "https://example-viewer.test/reddit-viewer",
+          )
           assert not discovery.pending_candidate_has_strong_signal(
               discovery.SearchHit(
                   "noise.example",
@@ -290,7 +296,14 @@ jobs:
           report_path = Path("search-discovered-report.json")
           output_path = Path("search-discovered-blocklist.txt")
 
-          json.loads(report_path.read_text(encoding="utf-8"))
+          report = json.loads(report_path.read_text(encoding="utf-8"))
+          assert int(report.get("validation_crash_count", 0)) == 0, (
+              f"Discovery validator crashes: {report.get('validation_crash_count')}"
+          )
+          assert int(report.get("pending_verification_count", 0)) <= 120
+          assert int(report.get("validated_candidates", 0)) <= int(
+              report.get("candidates_discovered", 0)
+          )
 
           bad = []
           for line_no, raw in enumerate(output_path.read_text(encoding="utf-8").splitlines(), 1):

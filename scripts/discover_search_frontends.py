@@ -828,7 +828,13 @@ def main() -> int:
     trusted = trusted_candidates()
     for key, hit in trusted.items():
         candidate_map[key] = hit
-    print(f"Trusted-source candidates: {len(trusted)}")
+    trusted_candidate_count = len(trusted)
+    trusted_source_names = sorted({
+        source
+        for hit in trusted.values()
+        for source in hit.sources
+    })
+    print(f"Trusted-source candidates: {trusted_candidate_count}")
 
     consecutive_errors = 0
     google_disabled = False
@@ -930,6 +936,8 @@ def main() -> int:
                     "status": "no_update",
                     "accepted": [],
                     "accepted_count": 0,
+                    "trusted_candidate_count": trusted_candidate_count,
+                    "trusted_source_names": trusted_source_names,
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -951,8 +959,10 @@ def main() -> int:
 
     report = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "google_queries": len(query_specs),
+        "search_queries": len(query_specs),
         "google_disabled_during_run": google_disabled,
+        "trusted_candidate_count": trusted_candidate_count,
+        "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),
         "accepted_count": len(accepted),

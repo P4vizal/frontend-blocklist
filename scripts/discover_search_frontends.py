@@ -38,7 +38,6 @@ SEARCH_BACKEND = "bing-rss-fallback"
 SEARCH_MAX_RESULTS = 10
 SEARCH_PAGES = (1, 2)
 SEARCH_TIMEOUT = 7
-JINA_TIMEOUT = 9
 SEARCH_DELAY = 0.2
 SEARCH_RETRIES = 0
 SEARCH_PAGE2_LANGS = {"en", "es"}
@@ -68,8 +67,6 @@ WEB_VERIFIED_SEEDS = [
     ("twitter", "https://www.sotwe.com/"),
     ("twitter", "https://www.twitter-viewer.com/twitter-profile-viewer"),
     ("twitter", "https://ilo.so/twitter-viewer"),
-    ("twitter", "https://tweetindex.com/es/twitter-profile-viewer"),
-    ("twitter", "https://twitviewer.net/"),
 ]
 
 CONTENT_HOST_SUFFIXES = (
@@ -287,9 +284,6 @@ EDITORIAL_PAGE_MARKERS = (
 STRONG_SERVICE_TERMS = (
     "viewer", "frontend", "alternative frontend", "browser", "slideshow",
     "reader", "gallery", "content browser", "web client",
-    "interfaz alternativa", "interface alternative", "alternative oberfläche",
-    "代替フロントエンド", "대체 프론트엔드", "वैकल्पिक फ्रंटएंड",
-    "واجهة بديلة", "frontend alternativo",
     "visor", "visualizador", "visionneuse", "betrachter",
     "ビューア", "просмотрщик", "visualizzatore",
     "查看器", "뷰어", "व्यूअर", "عارض",
@@ -589,10 +583,7 @@ def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
     if lang not in SEARCH_PAGE2_LANGS and lang != rotating_page2_lang:
         return (1,)
     q = fold(query)
-    deep_terms = tuple(dict.fromkeys(
-        ("viewer", "frontend", "alternative", "similar")
-        + sum((cfg["service"] for cfg in LANGUAGES.values()), [])
-    ))
+    deep_terms = ("viewer", "frontend", "alternative", "similar", "visor", "visualizador")
     return SEARCH_PAGES if any(term_present(term, q) for term in deep_terms) else (1,)
 
 
@@ -606,73 +597,73 @@ def build_queries() -> list[tuple[str, str, str]]:
             '"{platform} viewer" "without login"',
             '"{platform} viewer" "without account"',
             '"{platform} frontend" "without login"',
-            '"{platform} anonymous viewer"',
+            '"{platform} reader" "without account"',
         ],
         "es": [
             '"{platform} visor" "sin iniciar sesión"',
             '"{platform} visor" "sin cuenta"',
             '"{platform} frontend" "sin iniciar sesión"',
-            '"{platform} visor anónimo"',
+            '"{platform} lector" "sin cuenta"',
         ],
         "fr": [
             '"{platform} visionneuse" "sans connexion"',
             '"{platform} visionneuse" "sans compte"',
             '"{platform} interface alternative" "sans connexion"',
-            '"{platform} visionneuse anonyme"',
+            '"{platform} lecteur" "sans compte"',
         ],
         "de": [
             '"{platform} Betrachter" "ohne Anmeldung"',
             '"{platform} Betrachter" "ohne Konto"',
             '"{platform} Frontend" "ohne Anmeldung"',
-            '"{platform} anonymer Betrachter"',
+            '"{platform} Leser" "ohne Konto"',
         ],
         "zh": [
             '"{platform} 查看器" "无登录"',
             '"{platform} 查看器" "无需账户"',
             '"{platform} 替代前端"',
-            '"{platform} 匿名 查看器"',
+            '"{platform} 阅读器" "无需账户"',
         ],
         "ja": [
             '"{platform} ビューア" "ログインなし"',
             '"{platform} ビューア" "アカウントなし"',
             '"{platform} フロントエンド"',
-            '"{platform} 匿名 ビューア"',
+            '"{platform} リーダー" "アカウントなし"',
         ],
         "ko": [
             '"{platform} 뷰어" "로그인 없이"',
             '"{platform} 뷰어" "계정 없이"',
             '"{platform} 프론트엔드"',
-            '"{platform} 익명 뷰어"',
+            '"{platform} 리더" "계정 없이"',
         ],
         "hi": [
             '"{platform} व्यूअर" "बिना लॉगिन"',
             '"{platform} व्यूअर" "बिना अकाउंट"',
             '"{platform} फ्रंटएंड"',
-            '"{platform} अनाम व्यूअर"',
+            '"{platform} रीडर" "बिना अकाउंट"',
         ],
         "ru": [
             '"{platform} просмотрщик" "без входа"',
             '"{platform} просмотрщик" "без аккаунта"',
             '"{platform} фронтенд" "без входа"',
-            '"{platform} анонимный просмотрщик"',
+            '"{platform} читалка" "без аккаунта"',
         ],
         "ar": [
             '"{platform} عارض" "بدون تسجيل دخول"',
             '"{platform} عارض" "بدون حساب"',
             '"{platform} واجهة بديلة"',
-            '"{platform} عارض مجهول الهوية"',
+            '"{platform} قارئ" "بدون حساب"',
         ],
         "pt": [
             '"{platform} visualizador" "sem login"',
             '"{platform} visualizador" "sem conta"',
             '"{platform} frontend" "sem login"',
-            '"{platform} visualizador anônimo"',
+            '"{platform} leitor" "sem conta"',
         ],
         "it": [
             '"{platform} visualizzatore" "senza accesso"',
             '"{platform} visualizzatore" "senza account"',
             '"{platform} frontend" "senza accesso"',
-            '"{platform} visualizzatore anonimo"',
+            '"{platform} lettore" "senza account"',
         ],
     }
 
@@ -680,7 +671,6 @@ def build_queries() -> list[tuple[str, str, str]]:
         "twitter": [
             '"Twitter profile viewer" -news -article -guide -review',
             '"tweet viewer" -news -article -guide -review',
-            '"X profile viewer" "no login" -news -article -guide -review',
             '"Twitter browser" "public profiles" -news -article -guide',
             '"view Twitter profiles" "without login" -news -article -guide',
         ],
@@ -688,14 +678,12 @@ def build_queries() -> list[tuple[str, str, str]]:
             '"Reddit post viewer" -news -article -guide -review',
             '"Reddit profile viewer" -news -article -guide -review',
             '"subreddit viewer" -news -article -guide -review',
-            '"Reddit anonymous viewer" -news -article -guide -review',
             '"Reddit browser" "without login" -news -article -guide',
         ],
         "tumblr": [
             '"Tumblr blog viewer" -news -article -guide -review',
             '"Tumblr profile viewer" -news -article -guide -review',
             '"Tumblr post viewer" -news -article -guide -review',
-            '"Tumblr anonymous viewer" -news -article -guide -review',
             '"Tumblr browser" "without login" -news -article -guide',
         ],
     }
@@ -1408,7 +1396,7 @@ def fetch_jina_text(url: str) -> tuple[str, dict] | tuple[None, dict]:
         },
     )
     try:
-        with urlopen(req, timeout=JINA_TIMEOUT) as response:
+        with urlopen(req, timeout=12) as response:
             raw = response.read(MAX_PAGE_BYTES)
             charset = response.headers.get_content_charset() or "utf-8"
             text = raw.decode(charset, errors="replace")
@@ -1532,26 +1520,6 @@ def search_result_has_strong_service_evidence(hit: SearchHit) -> bool:
     return False
 
 
-def search_hit_has_prevalidation_signal(hit: SearchHit) -> bool:
-    """Return True when a search-only candidate has enough signal to fetch."""
-    if is_seed_candidate(hit) or hit.sources:
-        return True
-    if search_result_has_strong_service_evidence(hit):
-        return True
-    if SEARCH_SERVICE_HOST_RE.search(hit.domain):
-        return True
-    if any(
-        path_looks_like_service(urlparse(url).path.lower())
-        for url in hit.urls
-    ):
-        return True
-    distinct_queries = {
-        q for q in hit.queries
-        if not q.startswith("SOURCE:") and not q.startswith("SEED:")
-    }
-    return len(distinct_queries) >= 2
-
-
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
     strong_search_evidence_hint = search_result_has_strong_service_evidence(hit)
@@ -1590,7 +1558,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # lives on the homepage or a dedicated viewer route.
     root_url = f"https://{hit.domain}/"
     candidate_urls = [url for url in candidate_urls if url != root_url]
-    candidate_urls = candidate_urls[:3] + [root_url] + candidate_urls[3:]
+    candidate_urls.insert(1, root_url)
     candidate_urls = candidate_urls[:5]
 
     first_url = candidate_urls[0]
@@ -1923,7 +1891,14 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             platform_ok = any(
                 term_present(t, ev) for t in ("tumblr", "priviblur", "blog")
             )
-        service_ok = any(term_present(t, ev) for t in STRONG_SERVICE_TERMS)
+        localized_strong_services = {
+            "viewer", "frontend", "alternative frontend", "browser", "slideshow",
+            "reader", "gallery", "content browser", "web client",
+            "visor", "visualizador", "visionneuse", "betrachter",
+            "ビューア", "просмотрщик", "查看器", "뷰어", "व्यूअर", "عارض",
+            "visualizzatore", "visualizador",
+        }
+        service_ok = any(term_present(t, ev) for t in localized_strong_services)
         if platform_ok and service_ok:
             search_intent_hits += 1
             if ":" in evidence:
@@ -2288,24 +2263,13 @@ def main() -> int:
         ),
     )
     search_hits = sorted(
-        [
-            h for h in candidate_map.values()
-            if not h.sources
-            and h.domain not in known_domains
-            and search_hit_has_prevalidation_signal(h)
-        ],
+        [h for h in candidate_map.values() if not h.sources and h.domain not in known_domains],
         key=lambda h: (
             -len(h.providers),
             -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
             -len(h.search_evidence),
             h.domain,
         ),
-    )
-    search_low_signal_skipped = sum(
-        1 for h in candidate_map.values()
-        if not h.sources
-        and h.domain not in known_domains
-        and not search_hit_has_prevalidation_signal(h)
     )
     # Always validate the small, curated seed set even when it is already in
     # blocklist.txt. They are not re-added; validation is for report accuracy
@@ -2321,7 +2285,6 @@ def main() -> int:
     print(f"Candidates discovered: {len(candidate_map)}")
     print(f"Candidates selected for validation: {len(hits)}")
     print(f"Previously known candidates skipped: {already_known_candidates}")
-    print(f"Low-signal search candidates skipped before fetch: {search_low_signal_skipped}")
     expected_search_pages = sum(len(search_pages_for(lang, query)) for lang, _, query in query_specs)
     print(f"Search mode: {DISCOVERY_MODE}; active languages: {', '.join(active_search_languages()) or 'none'}")
     print(f"Search pages succeeded: {search_pages_succeeded}/{expected_search_pages}")
@@ -2451,7 +2414,6 @@ def main() -> int:
                     "validation_crash_count": validation_crash_count,
                     "candidates_discovered": len(candidate_map),
                     "validated_candidates": len(evaluations),
-                    "search_low_signal_skipped": search_low_signal_skipped,
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
                     "append_only": True,
@@ -2520,7 +2482,6 @@ def main() -> int:
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),
-        "search_low_signal_skipped": search_low_signal_skipped,
         "accepted_count": len(accepted),
         "newly_accepted_count": len(accepted),
         "retained_historical_count": len(historical),

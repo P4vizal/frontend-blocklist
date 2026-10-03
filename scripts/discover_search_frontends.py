@@ -99,8 +99,9 @@ LANGUAGES = {
 
 PLATFORMS = {
     "twitter": {
-        "core": ["twitter", "nitter"],
-        "brands": ["nitter"],
+        "platform_terms": ["twitter", "x", "nitter"],
+        "core": ["twitter", "nitter", "xcancel", "twiiit"],
+        "brands": ["nitter", "xcancel", "twiiit"],
         "queries": [
             "{platform} {service1} nitter",
             "{platform} {service2} {object} nitter",
@@ -110,8 +111,9 @@ PLATFORMS = {
         "identity_extra": ["tweet", "tweets", "user", "profile", "post"],
     },
     "reddit": {
-        "core": ["reddit", "redlib", "libreddit", "teddit"],
-        "brands": ["redlib", "libreddit", "teddit"],
+        "platform_terms": ["reddit"],
+        "core": ["reddit", "redlib", "libreddit", "teddit", "eddrit", "troddit", "kddit"],
+        "brands": ["redlib", "libreddit", "teddit", "eddrit", "troddit", "kddit"],
         "queries": [
             "{platform} {service1} redlib libreddit",
             "{platform} {service2} {object} teddit",
@@ -120,6 +122,7 @@ PLATFORMS = {
         "identity_extra": ["subreddit", "subreddits", "comment", "comments", "post", "posts", "user", "profile"],
     },
     "tumblr": {
+        "platform_terms": ["tumblr"],
         "core": ["tumblr", "priviblur"],
         "brands": ["priviblur"],
         "queries": [
@@ -129,6 +132,24 @@ PLATFORMS = {
         "query_object": "blog",
         "identity_extra": ["blog", "blogs", "post", "posts", "user", "profile"],
     },
+TRUSTED_SOURCES = [
+    ("Farside", "json", "https://raw.githubusercontent.com/benbusby/farside/main/services-full.json"),
+    ("Redlib", "json", "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json"),
+    ("Libreddit", "json", "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json"),
+    ("Priviblur", "text", "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md"),
+    ("Nitter wiki", "html", "https://github.com/zedeus/nitter/wiki/Instances"),
+    ("Alternative frontends 1", "text", "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md"),
+    ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/main/README.md"),
+    ("Alternative frontends 3", "text", "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md"),
+    ("Alternative frontends 4", "text", "https://raw.githubusercontent.com/mendel5/alternative-front-ends/master/README.md"),
+]
+
+FARSIDE_PLATFORM_TYPES = {
+    "twitter": {"nitter", "xcancel"},
+    "reddit": {"redlib", "libreddit", "teddit", "eddrit", "troddit"},
+    "tumblr": {"priviblur"},
+}
+
 }
 
 EXCLUDED_HOSTS = {
@@ -305,6 +326,7 @@ class SearchHit:
     platform: str
     queries: list[str]
     urls: list[str]
+    sources: list[str]
 
 
 @dataclass
@@ -442,6 +464,107 @@ def search_engine(engine: str, query: str, hl: str, gl: str) -> list[str]:
     return urls
 
 
+def fetch_text(url: str) -> str:
+    req = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "*/*",
+        },
+    )
+    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
+        raw = response.read(MAX_PAGE_BYTES)
+        charset = response.headers.get_content_charset() or "utf-8"
+        return raw.decode(charset, errors="replace")
+
+
+def extract_farside(text: str, platform: str) -> set[str]:
+    data = json.loads(text)
+    wanted = FARSIDE_PLATFORM_TYPES[platform]
+    out: set[str] = set()
+
+    def walk(node):
+        if isinstance(node, dict):
+            service_type = node.get("type")
+            if isinstance(service_type, str) and service_type.casefold() in wanted:
+                for value in node.get("instances", []):
+                    if isinstance(value, str):
+                        host = normalize_host(value)
+                        if host:
+                            out.add(host)
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    walk(data)
+    return out
+
+
+def extract_section_urls(text: str, platform: str) -> set[str]:
+    section_re = {
+        "twitter": r"(?ims)^##\s+Twitter\s*$(.*?)(?=^##\s+|\Z)",
+        "reddit": r"(?ims)^##\s+Reddit\s*$(.*?)(?=^##\s+|\Z)",
+        "tumblr": r"(?ims)^##\s+Tumblr\s*$(.*?)(?=^##\s+|\Z)",
+    }
+    match = re.search(section_re[platform], text)
+    section = match.group(1) if match else text
+    out: set[str] = set()
+    for raw_url in URL_IN_HTML_RE.findall(section):
+        host = normalize_host(html.unescape(raw_url))
+        if host:
+            out.add(host)
+    return out
+
+
+def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
+    found: dict[tuple[str, str], SearchHit] = {}
+
+    def add(platform: str, host: str, source_name: str):
+        key = (platform, host)
+        if key not in found:
+            found[key] = SearchHit(host, platform, [], [])
+        hit = found[key]
+        if source_name not in hit.sources:
+            hit.sources.append(source_name)
+        if f"SOURCE:{source_name}" not in hit.queries:
+            hit.queries.append(f"SOURCE:{source_name}")
+
+    for source_name, kind, url in TRUSTED_SOURCES:
+        try:
+            if kind == "json":
+                text = fetch_text(url)
+                for platform in PLATFORMS:
+                    for host in extract_farside(text, platform) if source_name == "Farside" else set():
+                        add(platform, host, source_name)
+                if source_name == "Redlib":
+                    data = json.loads(text)
+                    for item in data.get("instances", []):
+                        if isinstance(item, dict):
+                            host = normalize_host(item.get("url", ""))
+                            if host:
+                                add("reddit", host, source_name)
+                elif source_name == "Libreddit":
+                    data = json.loads(text)
+                    for item in data.get("instances", []):
+                        if isinstance(item, dict):
+                            host = normalize_host(item.get("url", ""))
+                            if host:
+                                add("reddit", host, source_name)
+            else:
+                text = fetch_text(url) if kind == "text" else fetch_html(url)[0]
+                if text is None:
+                    continue
+                for platform in PLATFORMS:
+                    for host in extract_section_urls(text, platform):
+                        add(platform, host, source_name)
+        except Exception as exc:
+            print(f"[WARN] Trusted source {source_name} failed: {type(exc).__name__}: {exc}")
+
+    return found
+
+
 def fetch_html(url: str) -> tuple[str, dict] | tuple[None, dict]:
     headers = {
         "User-Agent": USER_AGENT,
@@ -569,8 +692,9 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
 
     core_hits = [t for t in pcfg["core"] if term_present(t, total)]
+    platform_hits = [t for t in pcfg["platform_terms"] if term_present(t, total)]
     brand_hits = [t for t in pcfg["brands"] if term_present(t, total)]
-    header_hits = [t for t in pcfg["core"] if term_present(t, title + " " + headings + " " + meta + " " + url_text)]
+    header_brand_hits = [t for t in pcfg["brands"] if term_present(t, title + " " + headings + " " + meta + " " + url_text)]
     identity_terms = list(dict.fromkeys(
         pcfg["identity_extra"] + sum((cfg["identity"] for cfg in LANGUAGES.values()), [])
     ))
@@ -599,12 +723,16 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     ui_signal = bool(app_path_hits or sum(p["forms"] for p in all_pages) or len(first["links"]) >= 3)
 
     score = 0
-    if header_hits:
+    if header_brand_hits:
         score += 5
-    elif core_hits:
-        score += 3
-    if brand_hits:
+    elif brand_hits:
         score += 4
+    elif platform_hits:
+        score += 2
+    if len(hit.sources) >= 2:
+        score += 4
+    elif hit.sources:
+        score += 2
     if len(service_hits) >= 1:
         score += 2
     if len(service_hits) >= 2:
@@ -622,17 +750,19 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     if ui_signal:
         score += 2
 
-    structured_combo = bool(core_hits and service_hits and identity_hits)
-    strong_brand = bool(brand_hits and header_hits)
-    repeated_search = len(hit.queries) >= 2
+    structured_combo = bool(platform_hits and service_hits and identity_hits)
+    strong_brand = bool(brand_hits and header_brand_hits)
+    repeated_search = len([q for q in hit.queries if not q.startswith("SOURCE:")]) >= 2
+    trusted_repeat = len(hit.sources) >= 2
     accepted = (
         (strong_brand and (service_hits or identity_hits) and score >= 10 and ui_signal)
-        or (structured_combo and repeated_search and score >= 12 and ui_signal)
-        or (structured_combo and len(hit.urls) >= 2 and score >= 12 and ui_signal)
+        or (structured_combo and (repeated_search or trusted_repeat) and score >= 11 and ui_signal)
+        or (structured_combo and len(hit.urls) >= 2 and score >= 11 and ui_signal)
     )
 
     reason_parts = [
-        f"core={','.join(core_hits) or '-'}",
+        f"platform={','.join(platform_hits) or '-'}",
+        f"brands={','.join(brand_hits) or '-'}",
         f"service={','.join(service_hits[:6]) or '-'}",
         f"identity={','.join(identity_hits[:6]) or '-'}",
         f"queries={len(hit.queries)}",
@@ -641,8 +771,10 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     evidence = {
         "core_hits": core_hits,
+        "platform_hits": platform_hits,
         "brand_hits": brand_hits,
-        "header_core_hits": header_hits,
+        "header_brand_hits": header_brand_hits,
+        "trusted_sources": hit.sources,
         "service_hits": service_hits,
         "identity_hits": identity_hits,
         "body_service_hits": body_service_hits,
@@ -741,7 +873,7 @@ def main() -> int:
                     continue
                 key = (platform, domain)
                 if key not in candidate_map:
-                    candidate_map[key] = SearchHit(domain, platform, [], [])
+                    candidate_map[key] = SearchHit(domain, platform, [], [], [])
                 hit = candidate_map[key]
                 if query not in hit.queries:
                     hit.queries.append(query)

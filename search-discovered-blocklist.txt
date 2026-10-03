@@ -55,6 +55,7 @@
 ||rebloq.app^
 ||reddit-viewer.vercel.app^
 ||reddit.lol^
+||redditprofile.com^
 ||redlib.freedit.eu^
 ||redlite.app^
 ||rentry.co^
@@ -98,6 +99,7 @@
 ||twitterviewer.net^
 ||twitviewer.net^
 ||unsubbed.co^
+||viewanonymous.com^
 ||viewari.com^
 ||viewri.com^
 ||viiewerr.com^

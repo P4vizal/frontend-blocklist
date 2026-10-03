@@ -11,44 +11,53 @@ on:
     - cron: "41 3 * * *"
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: discover-search-frontends
   cancel-in-progress: true
 
 jobs:
+  quality:
+    name: Discovery tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.12"
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/discover_search_frontends.py tests/test_discover_search_frontends_smoke.py
+      - name: Run discovery smoke tests
+        run: python tests/test_discover_search_frontends_smoke.py
+
   discover:
     name: Frontend discovery
+    needs: quality
+    permissions:
+      contents: write
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       PYTHONDONTWRITEBYTECODE: "1"
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 1
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: "3.12"
-
-      - name: Validate Python syntax
-        run: |
-          python - <<'PY'
-          import ast
-          from pathlib import Path
-
-          path = Path("scripts/discover_search_frontends.py")
-          ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
-          print(f"Python syntax OK: {path}")
-          PY
-
-      - name: Runtime smoke test
-        run: python tests/test_discover_search_frontends_smoke.py
 
       - name: Snapshot protected files
         shell: bash
@@ -128,8 +137,23 @@ jobs:
           assert int(report.get("validated_candidates", 0)) <= int(
               report.get("candidates_discovered", 0)
           )
+          required_report_keys = {
+              "status", "trusted_candidate_count", "validated_candidates",
+              "pending_verification_count", "validation_crash_count",
+              "search_backend_failures", "audited_false_positive_count",
+          }
+          missing = sorted(required_report_keys - set(report))
+          assert not missing, f"Discovery report missing keys: {missing}"
 
-          bad = []
+          old_output = set()
+          for raw in __import__("subprocess").check_output(
+              ["git", "show", "HEAD:search-discovered-blocklist.txt"], text=True
+          ).splitlines():
+              line = raw.strip()
+              if line.startswith("||") and line.endswith("^"):
+                  old_output.add(line[2:-1])
+
+          new_output = set()
           for line_no, raw in enumerate(output_path.read_text(encoding="utf-8").splitlines(), 1):
               line = raw.strip()
               if not line or line.startswith("#"):
@@ -137,7 +161,18 @@ jobs:
               if not re.fullmatch(r"\|\|[^\^/\s]+\^", line):
                   bad.append((line_no, raw))
           assert not bad, f"Malformed discovery output lines: {bad[:5]}"
-          print("Discovery outputs and protected files verified.")
+          audited_false_positives = set(report.get("audited_false_positive_domains", []))
+          removed = old_output - new_output
+          assert removed <= audited_false_positives, (
+              f"Discovery output removed non-audited domains: {sorted(removed - audited_false_positives)[:10]}"
+          )
+          if report.get("status") == "no_update":
+              assert old_output == new_output, "no_update run changed the discovery list"
+          assert len(new_output) == sum(
+              1 for raw in output_path.read_text(encoding="utf-8").splitlines()
+              if raw.strip() and not raw.strip().startswith("#")
+          )
+          print("Discovery outputs, audit guard, and protected files verified.")
           PY
 
       - name: Commit discovered list and report

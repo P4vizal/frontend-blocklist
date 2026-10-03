@@ -285,3 +285,9 @@ assert discovery.search_pages_for(
 ) == (1, 2)
 assert discovery.DISCOVERY_MODE == "daily"
 print("Runtime smoke test passed.")
+
+# Regression: repository catalog pages must never qualify as frontend endpoints.
+assert discovery.repository_browse_path_hint("/en/repos/github/redlib-org/redlib")
+assert not discovery.repository_browse_path_hint("/reddit-viewer")
+assert discovery.is_audited_false_positive("www.osfinder.net")
+assert not discovery.is_audited_false_positive("example-viewer.test")

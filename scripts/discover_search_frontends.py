@@ -95,6 +95,8 @@ EDITORIAL_HOSTS = {
     "painonsocial.com", "www.painonsocial.com",
 }
 
+AUDITED_FALSE_POSITIVE_HOSTS = {"www.osfinder.net"}
+
 SEARCH_SERVICE_HOST_RE = re.compile(
     r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
     r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
@@ -2869,7 +2871,7 @@ def safe_evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 def main() -> int:
     existing = read_existing_domains()
     historical = read_discovered_domains()
-    known_domains = existing | historical
+    known_domains = existing | historical | AUDITED_FALSE_POSITIVE_HOSTS
     query_specs = build_queries()
 
     candidate_map: dict[tuple[str, str], SearchHit] = {}
@@ -3118,6 +3120,7 @@ def main() -> int:
             evaluation.accepted
             and evaluation.domain not in existing
             and evaluation.domain not in historical
+            and not is_audited_false_positive(evaluation.domain)
         ):
             current = accepted_by_domain.get(evaluation.domain)
             if current is None or evaluation.score > current.score:
@@ -3262,6 +3265,10 @@ def main() -> int:
                     "accepted": [],
                     "accepted_count": 0,
                     "trusted_candidate_count": trusted_candidate_count,
+                    "audited_false_positive_domains": sorted(AUDITED_FALSE_POSITIVE_HOSTS),
+                    "audited_false_positive_count": len(AUDITED_FALSE_POSITIVE_HOSTS),
+        "audited_false_positive_domains": sorted(AUDITED_FALSE_POSITIVE_HOSTS),
+        "audited_false_positive_count": len(AUDITED_FALSE_POSITIVE_HOSTS),
                     "trusted_source_names": trusted_source_names,
                     "verified_web_seed_count": seed_candidate_count,
                     "verified_seed_domains": seed_report,

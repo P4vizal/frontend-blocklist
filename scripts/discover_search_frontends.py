@@ -28,15 +28,19 @@ FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
 MAX_CANDIDATES = 320
 MIN_ACCEPTED = 2
-SEARCH_WORKERS = 4
+SEARCH_WORKERS = 3
 WORKERS = 10
 VALIDATION_DELAY = 0.0
 
-SEARCH_BACKEND = "auto"
+# Use resilient single-engine fallback instead of DDGS auto fan-out. This avoids
+# unstable providers (notably DuckDuckGo HTML) and avoids DDGS multi-backend
+# result-loss behavior when one provider fails.
+SEARCH_BACKENDS = ("bing", "brave", "mojeek")
+SEARCH_BACKEND = "fallback"
 SEARCH_MAX_RESULTS = 15
 SEARCH_PAGES = (1, 2)
 SEARCH_TIMEOUT = 10
-SEARCH_DELAY = 0.15
+SEARCH_DELAY = 0.25
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
@@ -548,14 +552,20 @@ def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
-def search_with_ddgs(searcher: DDGS, query: str, region: str, page: int) -> list[dict]:
+def search_with_ddgs(
+    searcher: DDGS,
+    query: str,
+    region: str,
+    page: int,
+    backend: str,
+) -> list[dict]:
     results = searcher.text(
         query,
         region=region,
         safesearch="moderate",
         max_results=SEARCH_MAX_RESULTS,
         page=page,
-        backend=SEARCH_BACKEND,
+        backend=backend,
     )
     return [r for r in results if isinstance(r, dict)]
 
@@ -565,26 +575,40 @@ def run_search_spec(
     lang: str,
     platform: str,
     query: str,
-) -> tuple[int, str, str, str, list[tuple[int, list[dict]]], list[dict]]:
+) -> tuple[int, str, str, str, list[tuple[int, str, list[dict]]], list[dict]]:
     cfg = LANGUAGES[lang]
     region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
-    results_by_page: list[tuple[int, list[dict]]] = []
+    results_by_page: list[tuple[int, str, list[dict]]] = []
     errors: list[dict] = []
     searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
 
     for page in SEARCH_PAGES:
-        try:
-            results = search_with_ddgs(searcher, query, region, page)
-            results_by_page.append((page, results))
-        except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
-            errors.append({
-                "language": lang,
-                "platform": platform,
-                "query": query,
-                "backend": SEARCH_BACKEND,
-                "page": page,
-                "error": f"{type(exc).__name__}: {exc}",
-            })
+        page_results: list[dict] = []
+        page_backend = ""
+
+        for backend in SEARCH_BACKENDS:
+            try:
+                results = search_with_ddgs(searcher, query, region, page, backend)
+                if results:
+                    page_results = results
+                    page_backend = backend
+                    break
+            except (RatelimitException, TimeoutException, DDGSException, OSError, ValueError) as exc:
+                errors.append({
+                    "language": lang,
+                    "platform": platform,
+                    "query": query,
+                    "backend": backend,
+                    "page": page,
+                    "error": f"{type(exc).__name__}: {exc}",
+                })
+
+            if SEARCH_DELAY:
+                time.sleep(SEARCH_DELAY)
+
+        if page_results:
+            results_by_page.append((page, page_backend, page_results))
+
         if SEARCH_DELAY:
             time.sleep(SEARCH_DELAY)
 
@@ -1421,13 +1445,13 @@ def main() -> int:
         ]
         for future in concurrent.futures.as_completed(futures):
             index, lang, platform, query, results_by_page, errors = future.result()
-            for page, results in results_by_page:
+            for page, backend, results in results_by_page:
                 search_results_seen += len(results)
                 for result in results:
-                    merge_search_result(candidate_map, platform, query, SEARCH_BACKEND, result)
+                    merge_search_result(candidate_map, platform, query, backend, result)
                 print(
                     f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query} "
-                    f"page={page} results={len(results)}"
+                    f"backend={backend} page={page} results={len(results)}"
                 )
             for error in errors:
                 search_errors.append(error)
@@ -1435,9 +1459,6 @@ def main() -> int:
                     f"[WARN] DDGS/{SEARCH_BACKEND} {lang}/{platform} "
                     f"page={error['page']}: {error['error']}"
                 )
-
-    for hit in candidate_map.values():
-        ensure_corroboration_fields(hit)
 
     # Prioritise maintained registries and GitHub-discovered instances so the
     # validation cap cannot crowd them out with noisy search-engine results.
@@ -1509,9 +1530,10 @@ def main() -> int:
                     "verified_web_seed_count": seed_candidate_count,
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backend": SEARCH_BACKEND,
+                    "search_backends": list(SEARCH_BACKENDS),
                     "search_pages": list(SEARCH_PAGES),
                     "search_backend_disabled": False,
-                    "search_strategy": "maintained registries + GitHub repository discovery + DDGS auto metasearch + pages 1-2 + page validation",
+                    "search_strategy": "maintained registries + GitHub repository discovery + resilient single-backend fallback (bing -> brave -> mojeek) + pages 1-2 + page validation",
                     "candidates": [asdict(e) for e in evaluations[:200]],
                     "search_errors": search_errors,
                     "note": "Publish guard triggered; output list was not replaced.",
@@ -1537,12 +1559,13 @@ def main() -> int:
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "search_queries": len(query_specs),
         "search_backend": SEARCH_BACKEND,
+        "search_backends": list(SEARCH_BACKENDS),
         "search_pages": list(SEARCH_PAGES),
         "search_backend_disabled": False,
         "verified_web_seed_count": seed_candidate_count,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
-        "search_strategy": "maintained registries + GitHub + DDGS auto search + parallel query jobs + prioritized validation",
+        "search_strategy": "maintained registries + GitHub + resilient single-backend fallback + parallel query jobs + prioritized validation",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(hits),
         "validated_candidates": len(evaluations),
@@ -1568,7 +1591,7 @@ def main() -> int:
     print(f"[OK] New validated domains: {len(accepted)}")
     print(f"[OK] Retained historical domains: {len(historical)}")
     print(f"[OK] Total discovery list domains: {len(retained_domains)}")
-    print(f"[OK] Search workers: {SEARCH_WORKERS}; validation workers: {WORKERS}; fetch retries: {FETCH_RETRIES}")
+    print(f"[OK] Search workers: {SEARCH_WORKERS}; validation workers: {WORKERS}; search backends: {' -> '.join(SEARCH_BACKENDS)}; fetch retries: {FETCH_RETRIES}")
     for e in accepted:
         print(f"[ACCEPT] {e.domain} | {e.platform} | {e.reason}")
 

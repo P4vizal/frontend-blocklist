@@ -56,10 +56,11 @@ assert malformed[("reddit", "example.com")].urls == [
 ]
 
 queries = discovery.build_queries()
-assert len(queries) == 63, f"Unexpected daily query count: {len(queries)}"
+assert len(queries) == 72, f"Unexpected daily query count: {len(queries)}"
 assert len(set(queries)) == len(queries)
 assert discovery.active_search_languages()
 assert len(discovery.active_search_languages()) == 4
+assert any("Reddit frontend instance" in q for q in queries)
 assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
 fr_pages = discovery.search_pages_for("fr", "twitter viewer")
 assert fr_pages in ((1,), (1, 2))
@@ -194,6 +195,18 @@ assert discovery.pending_next_retry_epoch("temporary_unavailable", 5, 1000) > 10
 assert discovery.pending_next_retry_epoch(
     "temporary_unavailable", 5, 1000
 ) <= 1000 + discovery.PENDING_RETRY_MAX_SECONDS
+
+rate_limited = __import__("urllib.error").error.HTTPError(
+    "https://api.example", 429, "Too Many Requests", {"Retry-After": "2"}, None
+)
+assert discovery.http_retry_delay(rate_limited, 1) == 2.0
+rate_exhausted = __import__("urllib.error").error.HTTPError(
+    "https://api.example", 429, "Too Many Requests",
+    {"Retry-After": "60"}, None
+)
+assert discovery.http_retry_delay(rate_exhausted, 1) is None
+assert discovery.GITHUB_REPOSITORY_CATALOG_LIMIT == 48
+assert discovery.REPORT_SCHEMA_VERSION == 2
 
 libredirect_sample = {
     "nitter": {"clearnet": ["https://nitter.example"]},

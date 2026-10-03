@@ -245,7 +245,7 @@
     2
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 126,
+  "search_pages_succeeded": 123,
   "search_queries_with_results": 63,
   "search_queries_without_results": 0,
   "search_backend_failures": 0,
@@ -258,8 +258,8 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 115,
-  "validated_candidates": 46,
+  "candidates_discovered": 113,
+  "validated_candidates": 44,
   "pending_verification_count": 10,
   "pending_verification": [
     {
@@ -279,9 +279,9 @@
       "providers": [],
       "search_evidence": [],
       "first_seen": "2026-10-03T21:50:39Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 3
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 4
     },
     {
       "domain": "kddit.kalli.st",
@@ -300,9 +300,9 @@
       "providers": [],
       "search_evidence": [],
       "first_seen": "2026-10-03T21:50:39Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 3
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 4
     },
     {
       "domain": "www.sotwe.com",
@@ -321,9 +321,9 @@
         "Web-verified viewer seed: https://www.sotwe.com/"
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 9
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 10
     },
     {
       "domain": "teddit.no-logs.com",
@@ -340,9 +340,9 @@
       "providers": [],
       "search_evidence": [],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 6
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 7
     },
     {
       "domain": "nitter.app",
@@ -366,9 +366,9 @@
         "bing-rss:how to browse twitter (x) anonymously — 2026 | nitter.app how to browse twitter (x) anonymously in 2026 updated 2026-08-27 quick answer read profiles through a viewer such as nitter.app — your browser talks to the viewer, never to x's servers, so x gets no visit, no cookie, no ip. for stronger anonymity add a vpn so the viewer doesn't see your ip either."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 6
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 7
     },
     {
       "domain": "www.postel.app",
@@ -389,9 +389,9 @@
         "bing-rss:twitter viewer | tweet viewer | twitter viewer without account | postel our twitter viewer without account simplifies the process of accessing twitter content. instead of creating an account, verifying your email, and navigating twitter's interface, you can instantly view profiles and tweets through our streamlined tool."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 6
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 7
     },
     {
       "domain": "www.tumlook.com",
@@ -412,9 +412,9 @@
         "bing-rss:tumblr web viewer | tumlook experience the best of tumblr on tumlook.com. browse tumblr blogs, tags, and posts anonymously without a tumblr account. start your discovery today!"
       ],
       "first_seen": "2026-10-03T21:29:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 5
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 6
     },
     {
       "domain": "subscroller.app",
@@ -433,9 +433,9 @@
         "bing-rss:home | subscroller reddit subreddit image scroller, with slideshow. pwa support."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 6
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 7
     },
     {
       "domain": "www.instalker.org",
@@ -454,9 +454,9 @@
         "bing-rss:instalker - twitter search web viewer & trend tracker instalker is a free twitter web viewer that lets you explore twitter content without an account. search any username to view profiles, tweets, and media anonymously."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 6
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 7
     },
     {
       "domain": "www.merriam-webster.com",
@@ -475,9 +475,9 @@
         "bing-rss:view definition & meaning - merriam-webster the meaning of view is extent or range of vision : sight. how to use view in a sentence. synonym discussion of view."
       ],
       "first_seen": "2026-10-03T21:27:10Z",
-      "last_attempt": "2026-10-03T22:04:06Z",
-      "last_attempt_epoch": 1791065046.765228,
-      "attempts": 6
+      "last_attempt": "2026-10-03T22:05:40Z",
+      "last_attempt_epoch": 1791065140.9434495,
+      "attempts": 7
     }
   ],
   "retained_historical_count": 128,
@@ -489,11 +489,9 @@
     "platform=reddit; service=-; identity=profile; search_intent=0; providers=0; queries=4": 1,
     "platform=-; service=-; identity=subreddit/subreddits; search_intent=0; providers=0; queries=1": 1,
     "platform=reddit; service=-; identity=comments/posts; search_intent=0; providers=0; queries=2": 1,
-    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 1,
     "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=0": 1,
     "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0": 2,
     "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0": 2,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 1,
     "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 4,
     "article/content page, not a frontend endpoint": 3,
     "page unavailable": 14,
@@ -1821,73 +1819,6 @@
       "error": ""
     },
     {
-      "domain": "whatismylocation.ai",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://whatismylocation.ai/it",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "browser"
-        ],
-        "header_identity_hits": [],
-        "body_service_hits": [
-          "browser",
-          "visualizzatore"
-        ],
-        "body_identity_hits": [],
-        "service_hits": [
-          "visualizzatore",
-          "browser"
-        ],
-        "identity_hits": [],
-        "ui_signal": true,
-        "inputs": 2,
-        "forms": 0,
-        "buttons": 15,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "guide"
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:qual è la mia posizione? — scopri subito dove ti trovi trova la tua posizione attuale, l'indirizzo completo, le coordinate gps, latitudine, longitudine e la posizione sulla mappa. gratis, immediato e privato. funziona su qualsiasi browser."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://whatismylocation.ai/it"
-        ]
-      },
-      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
       "domain": "eddrit.com",
       "platform": "reddit",
       "accepted": false,
@@ -2008,68 +1939,6 @@
     },
     {
       "domain": "f-droid.org",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 5,
-      "query_count": 0,
-      "final_url": "https://f-droid.org/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "user"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 5,
-        "forms": 2,
-        "buttons": 1,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [],
-        "trusted_sources": [
-          "Alternative frontends 3",
-          "Alternative frontends 5"
-        ],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://f-droid.org/"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "f-droid.org",
       "platform": "reddit",
       "accepted": false,
       "score": 5,
@@ -2123,6 +1992,68 @@
           "Alternative frontends 4",
           "Alternative frontends 5",
           "Alternative frontends 6"
+        ],
+        "fetch_via": "direct",
+        "query_urls": [
+          "https://f-droid.org/"
+        ]
+      },
+      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "f-droid.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 5,
+      "query_count": 0,
+      "final_url": "https://f-droid.org/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "user"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "user"
+        ],
+        "ui_signal": false,
+        "inputs": 5,
+        "forms": 2,
+        "buttons": 1,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [],
+        "trusted_sources": [
+          "Alternative frontends 3",
+          "Alternative frontends 5"
         ],
         "fetch_via": "direct",
         "query_urls": [
@@ -2192,65 +2123,6 @@
       "error": ""
     },
     {
-      "domain": "www.zhihu.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.zhihu.com/signin?next=%2F",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": true,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 11,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:现在怎么才能登录whatsapp呢? - 知乎 i understand that whatsapp places a strong emphasis on user privacy and security, and i share these concerns as well. consequently, i have conscientiously refrained fromusing unofficial or third-party applications to ensure the protection of my communication data."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "query_urls": [
-          "https://www.zhihu.com/question/68113079"
-        ]
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
       "domain": "www.xeddit.com",
       "platform": "reddit",
       "accepted": false,
@@ -2308,7 +2180,7 @@
     },
     {
       "domain": "fdroid.gitlab.io",
-      "platform": "twitter",
+      "platform": "reddit",
       "accepted": false,
       "score": 1,
       "query_count": 0,
@@ -2363,7 +2235,7 @@
     },
     {
       "domain": "fdroid.gitlab.io",
-      "platform": "reddit",
+      "platform": "twitter",
       "accepted": false,
       "score": 1,
       "query_count": 0,

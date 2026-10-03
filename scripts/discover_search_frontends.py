@@ -28,7 +28,7 @@ FETCH_RETRIES = 2
 MAX_PAGE_BYTES = 1_500_000
 MAX_CANDIDATES = 320
 MIN_ACCEPTED = 1
-SEARCH_WORKERS = 5
+SEARCH_WORKERS = 3
 WORKERS = 10
 VALIDATION_DELAY = 0.0
 
@@ -40,11 +40,11 @@ VALIDATION_DELAY = 0.0
 SEARCH_BACKENDS = ("bing", "startpage")
 SEARCH_BACKEND = "fallback"
 SEARCH_MAX_RESULTS = 10
-SEARCH_PAGES = (1, 2)
+SEARCH_PAGES = (1,)
 SEARCH_TIMEOUT = 6
 SEARCH_DELAY = 0.15
 SEARCH_RETRIES = 0
-SEARCH_PAGE2_LANGS = {"en", "es"}
+SEARCH_PAGE2_LANGS: set[str] = set()
 
 DISCOVERY_MODE = os.environ.get("DISCOVERY_MODE", "daily").strip().lower()
 if DISCOVERY_MODE not in {"daily", "deep", "all"}:
@@ -194,6 +194,9 @@ TRUSTED_SOURCES = [
     ("Alternative frontends 2", "text", "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md"),
     ("Alternative frontends 3", "text", "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md"),
     ("Alternative frontends 4", "text", "https://raw.githubusercontent.com/mendel5/alternative-front-ends/main/README.md"),
+    ("Alternative frontends 5", "text", "https://raw.githubusercontent.com/skynet2982/awesome-alternative-front-ends/main/README.md"),
+    ("Alternative frontends 6", "text", "https://raw.githubusercontent.com/ParniDEO/alternative-front-ends-unofficial/main/README.md"),
+    ("Alternative frontends 7", "text", "https://raw.githubusercontent.com/duyfken/alternative-front-ends/web/README.md"),
 ]
 
 DIRECT_TRUSTED_SOURCES = {"Farside", "Redlib", "Libreddit", "Priviblur"}
@@ -253,7 +256,7 @@ CONTENT_TITLE_MARKERS = (
 
 STRONG_SERVICE_TERMS = (
     "viewer", "frontend", "alternative frontend", "browser", "slideshow",
-    "reader", "gallery", "content browser",
+    "reader", "gallery", "content browser", "web client",
     "visor", "visualizador", "visionneuse", "betrachter",
     "ビューア", "просмотрщик", "visualizzatore",
     "查看器", "뷰어", "व्यूअर", "عارض",
@@ -1626,7 +1629,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             )
         service_ok = any(term_present(t, ev) for t in (
             "viewer", "frontend", "alternative frontend", "browser", "slideshow",
-            "reader", "gallery", "content browser", "visor", "visualizador",
+            "reader", "gallery", "content browser", "web client", "visor", "visualizador",
             "visionneuse", "betrachter", "ビューア", "просмотрщик",
         ))
         if platform_ok and service_ok:
@@ -1727,7 +1730,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     # by content path/title/structure checks above.
     header_verified_search_service_ok = bool(
         search_intent_hits >= 1
-        and distinct_queries >= 2
+        and distinct_queries >= 1
         and header_platform_hits
         and strong_header_service_hits
         and header_identity_hits
@@ -2149,7 +2152,7 @@ def main() -> int:
         "verified_seed_domains": seed_report,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
-        "search_strategy": "maintained registries + GitHub + rotated search + sequential backend fallback + parallel validation",
+        "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + low-concurrency rotated search + sequential backend fallback + parallel validation",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),

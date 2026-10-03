@@ -5,7 +5,6 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/discover-search-frontends.yml"
       - "scripts/discover_search_frontends.py"
   schedule:
     - cron: "41 3 * * *"
@@ -21,7 +20,7 @@ jobs:
   discover:
     name: Frontend discovery
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository
@@ -62,6 +61,7 @@ jobs:
           assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
           fr_pages = discovery.search_pages_for("fr", "twitter viewer")
           assert fr_pages in ((1,), (1, 2))
+          assert len(set(queries)) == len(queries)
           parser = discovery.PageParser()
           parser.feed(
               '<html><head><title>Reddit Viewer</title></head>'
@@ -84,6 +84,25 @@ jobs:
           print("Runtime smoke test passed.")
           PY
 
+      - name: Snapshot protected files
+        shell: bash
+        run: |
+          set -euo pipefail
+          protected_files=(
+            "scripts/generate_blocklist.py"
+            "blocklist.txt"
+            "portmaster.txt"
+            "hagezi-overlap.txt"
+          )
+          snapshot="$RUNNER_TEMP/frontend-discovery-protected-sha256"
+          : > "$snapshot"
+          for path in "${protected_files[@]}"; do
+            test -f "$path"
+            printf '%s  %s\n' "$(git rev-parse "HEAD:$path")" "$path" >> "$snapshot"
+          done
+          echo "Protected file baseline:"
+          cat "$snapshot"
+
       - name: Discover and validate domains
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -91,6 +110,59 @@ jobs:
           URLSCAN_API_KEY: ${{ secrets.URLSCAN_API_KEY }}
           DISCOVERY_MODE: daily
         run: python scripts/discover_search_frontends.py
+
+      - name: Verify discovery outputs and protected files
+        shell: bash
+        run: |
+          set -euo pipefail
+          snapshot="$RUNNER_TEMP/frontend-discovery-protected-sha256"
+
+          while read -r expected path; do
+            actual="$(git hash-object "$path")"
+            if [[ "$actual" != "$expected" ]]; then
+              echo "::error::Protected file changed: $path"
+              echo "Expected blob: $expected"
+              echo "Actual blob:   $actual"
+              git diff -- "$path" || true
+              exit 1
+            fi
+          done < "$snapshot"
+
+          mapfile -t changed < <(git status --porcelain=v1 | awk '{print $2}')
+          for path in "${changed[@]}"; do
+            case "$path" in
+              search-discovered-blocklist.txt|search-discovered-report.json) ;;
+              "")
+                ;;
+              *)
+                echo "::error::Unexpected working-tree change: $path"
+                exit 1
+                ;;
+            esac
+          done
+
+          git diff --check
+
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          report_path = Path("search-discovered-report.json")
+          output_path = Path("search-discovered-blocklist.txt")
+
+          json.loads(report_path.read_text(encoding="utf-8"))
+
+          bad = []
+          for line_no, raw in enumerate(output_path.read_text(encoding="utf-8").splitlines(), 1):
+              line = raw.strip()
+              if not line or line.startswith("#"):
+                  continue
+              if not re.fullmatch(r"\|\|[^\^/\s]+\^", line):
+                  bad.append((line_no, raw))
+          assert not bad, f"Malformed discovery output lines: {bad[:5]}"
+          print("Discovery outputs and protected files verified.")
+          PY
 
       - name: Commit discovered list and report
         shell: bash

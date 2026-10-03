@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "scripts/discover_search_frontends.py"
+      - ".github/workflows/discover-search-frontends.yml"
   schedule:
     - cron: "41 3 * * *"
 

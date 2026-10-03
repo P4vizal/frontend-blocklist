@@ -627,16 +627,17 @@ def read_pending_verification() -> list[dict]:
 def pending_hits_from_report(entries: list[dict]) -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
     for item in entries:
-        key = (item["platform"], item["domain"])
-        found[key] = SearchHit(
+        hit = SearchHit(
             item["domain"],
             item["platform"],
             list(item["queries"]),
             list(item["urls"]),
-            [],
+            list(item["sources"]),
             list(item["providers"]),
             list(item["search_evidence"]),
         )
+        if pending_candidate_has_strong_signal(hit):
+            found[(hit.platform, hit.domain)] = hit
     return found
 
 
@@ -1646,6 +1647,25 @@ def search_query_intent_hits(hit: SearchHit) -> int:
     )
 
 
+def pending_candidate_has_strong_signal(hit: SearchHit) -> bool:
+    """Keep only candidates with more than a generic search-query hint."""
+    if is_seed_candidate(hit) or hit.sources:
+        return True
+    if SEARCH_SERVICE_HOST_RE.search(hit.domain):
+        return True
+    if any(
+        path_looks_like_service(urlparse(url).path.lower())
+        for url in hit.urls
+    ):
+        return True
+    if search_result_has_strong_service_evidence(hit):
+        return True
+    return search_query_intent_hits(hit) >= 1 and len({
+        query for query in hit.queries
+        if not query.startswith(("SOURCE:", "SEED:"))
+    }) >= 2
+
+
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
     strong_search_evidence_hint = search_result_has_strong_service_evidence(hit)
@@ -2537,17 +2557,7 @@ def main() -> int:
         if source_hit is None:
             continue
 
-        meaningful_signal = (
-            is_seed_candidate(source_hit)
-            or bool(source_hit.sources)
-            or search_result_has_strong_service_evidence(source_hit)
-            or search_query_intent_hits(source_hit) >= 1
-            or SEARCH_SERVICE_HOST_RE.search(source_hit.domain)
-            or any(
-                path_looks_like_service(urlparse(url).path.lower())
-                for url in source_hit.urls
-            )
-        )
+        meaningful_signal = pending_candidate_has_strong_signal(source_hit)
         if not meaningful_signal:
             pending_state.pop(key, None)
             continue

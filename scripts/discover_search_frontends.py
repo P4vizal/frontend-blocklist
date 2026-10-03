@@ -1781,6 +1781,7 @@ def main() -> int:
                         current.urls.append(url)
 
     seed_candidate_count = len(seeds)
+    verified_seed_domains = sorted(seeds)
     trusted_candidate_count = len(trusted)
     github_candidate_count = len(github_sources)
 
@@ -1896,6 +1897,10 @@ def main() -> int:
                     "trusted_candidate_count": trusted_candidate_count,
                     "trusted_source_names": trusted_source_names,
                     "verified_web_seed_count": seed_candidate_count,
+                    "verified_seed_domains": [
+                        {"platform": platform, "domain": domain, "known": domain in known_domains}
+                        for platform, domain in verified_seed_domains
+                    ],
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backend": SEARCH_BACKEND,
         "discovery_mode": DISCOVERY_MODE,
@@ -1966,6 +1971,10 @@ def main() -> int:
             if evaluation.reason == "candidate validation crashed safely"
         ),
         "verified_web_seed_count": seed_candidate_count,
+        "verified_seed_domains": [
+            {"platform": platform, "domain": domain, "known": domain in known_domains}
+            for platform, domain in verified_seed_domains
+        ],
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
         "search_strategy": "maintained registries + GitHub + rotated search + sequential backend fallback + parallel validation",

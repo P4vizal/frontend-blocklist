@@ -9,6 +9,8 @@
 ||carryfeed.com^
 ||cascadr.co^
 ||deletedby.com^
+||dev.co^
+||dev.to^
 ||discuss.privacyguides.net^
 ||dopingconsomme.blogspot.com^
 ||finderlaunch.com^

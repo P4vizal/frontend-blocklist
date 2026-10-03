@@ -1,0 +1,87 @@
+name: Deep discovery sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "13 4 * * 0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deep-discovery-sources
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    name: Deep frontend discovery
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install search engine client
+        run: python -m pip install --disable-pip-version-check --no-input "ddgs==9.16.0"
+
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/discover_search_frontends.py
+
+      - name: Runtime smoke test
+        env:
+          DISCOVERY_MODE: deep
+        run: |
+          python - <<'PY'
+          import scripts.discover_search_frontends as discovery
+
+          assert discovery.DISCOVERY_MODE == "deep"
+          assert discovery.build_queries() == []
+          assert discovery.active_search_languages() == ()
+          assert discovery.merge_search_result
+          print("Deep-discovery smoke test passed.")
+          PY
+
+      - name: Discover from archive and repository sources
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          URLSCAN_API_KEY: ${{ secrets.URLSCAN_API_KEY }}
+          DISCOVERY_MODE: deep
+        run: python scripts/discover_search_frontends.py
+
+      - name: Commit discovered list and report
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add search-discovered-blocklist.txt search-discovered-report.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update deep-discovered frontend domains"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort || true
+            fi
+            sleep 2
+          done
+
+          echo "Unable to push after 5 attempts."
+          exit 1

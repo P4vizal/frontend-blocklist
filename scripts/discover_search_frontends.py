@@ -12,6 +12,8 @@ import time
 import unicodedata
 from dataclasses import dataclass, asdict
 from html.parser import HTMLParser
+from ddgs import DDGS
+from ddgs.exceptions import DDGSException, RatelimitException, TimeoutException
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, quote_plus, unquote, urljoin, urlparse
@@ -35,6 +37,19 @@ MAX_CONSECUTIVE_SEARCH_ERRORS = 3
 MIN_ACCEPTED = 2
 WORKERS = 6
 VALIDATION_DELAY = 0.35
+
+SEARCH_BACKENDS = ["brave", "duckduckgo", "bing", "google", "mojeek", "yahoo"]
+SEARCH_MAX_RESULTS = 8
+SEARCH_TIMEOUT = 8
+PROVIDER_ERROR_LIMIT = 2
+SEARCH_DELAY = 0.25
+WEB_VERIFIED_SEEDS = [
+    ("reddit", "https://www.peekstr.com/"),
+    ("tumblr", "https://zoomblr.com/"),
+    ("twitter", "https://twitterviewer.net/"),
+    ("twitter", "https://tweetviewer.com/"),
+    ("twitter", "https://www.sotwe.com/"),
+]
 
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) "
@@ -326,6 +341,8 @@ class SearchHit:
     queries: list[str]
     urls: list[str]
     sources: list[str]
+    providers: list[str]
+    search_evidence: list[str]
 
 
 @dataclass
@@ -360,319 +377,83 @@ def quote_term(term: str) -> str:
 
 
 def build_queries() -> list[tuple[str, str, str]]:
+    intents = {
+        "en": ["viewer", "alternative frontend", "mirror", "proxy"],
+        "es": ["visor", "interfaz alternativa", "espejo", "proxy"],
+        "fr": ["visionneuse", "interface alternative"],
+        "de": ["Betrachter", "alternative Oberfläche"],
+        "ja": ["ビューア", "代替フロントエンド"],
+        "ru": ["просмотрщик", "альтернативный интерфейс"],
+    }
     queries: list[tuple[str, str, str]] = []
-    for lang, cfg in LANGUAGES.items():
-        for platform, pcfg in PLATFORMS.items():
-            core = pcfg["core"]
-            service = list(dict.fromkeys(cfg["service"]))
-            identity = list(dict.fromkeys(
-                pcfg["identity_extra"] + cfg["identity"]
-            ))
-
-            core_group = " OR ".join(quote_term(term) for term in core)
-            service_group = " OR ".join(quote_term(term) for term in service)
-            identity_group = " OR ".join(quote_term(term) for term in identity)
-
-            query = (
-                f"({core_group}) "
-                f"({service_group}) "
-                f"({identity_group})"
-            )
-            queries.append((lang, platform, query))
+    for lang, terms in intents.items():
+        for platform in PLATFORMS:
+            for intent in terms:
+                queries.append((lang, platform, f'"{platform} {intent}"'))
+    queries.extend([
+        ("en", "twitter", '"X viewer" twitter'),
+        ("en", "twitter", '"X profile viewer"'),
+        ("en", "twitter", '"tweet viewer"'),
+    ])
     return queries
 
 
-def extract_farside(text: str, platform: str) -> set[str]:
-    data = json.loads(text)
-    wanted = FARSIDE_PLATFORM_TYPES.get(platform, set())
-    out: set[str] = set()
-    if not isinstance(data, list):
-        return out
-    for item in data:
-        if not isinstance(item, dict) or item.get("type") not in wanted:
-            continue
-        values = []
-        values.extend(item.get("instances", []))
-        fallback = item.get("fallback")
-        if isinstance(fallback, str):
-            values.append(fallback)
-        for value in values:
-            if not isinstance(value, str):
-                continue
-            for raw in value.split("|"):
-                host = normalize_host(raw)
-                if host:
-                    out.add(host)
-    return out
-
-
-def extract_section_urls(text: str, platform: str) -> set[str]:
-    aliases = {
-        "twitter": {"twitter", "x"},
-        "reddit": {"reddit"},
-        "tumblr": {"tumblr"},
-    }
-    section_lines: list[str] = []
-    section_level: int | None = None
-    in_section = False
-
-    for line in text.splitlines():
-        heading = re.match(r"^\s*(#{2,6})\s+(.+?)\s*#*\s*$", line)
-        if heading:
-            level = len(heading.group(1))
-            title = fold(heading.group(2))
-            if in_section and section_level is not None and level <= section_level:
-                break
-            if any(term_present(alias, title) for alias in aliases[platform]):
-                in_section = True
-                section_level = level
-                continue
-        if in_section:
-            section_lines.append(line)
-
-    out: set[str] = set()
-    for raw_url in URL_IN_HTML_RE.findall("\n".join(section_lines)):
-        host = normalize_host(html.unescape(raw_url))
-        if host:
-            out.add(host)
-    return out
-
-
-class SearxHtmlParser(HTMLParser):
-    def __init__(self) -> None:
-        super().__init__(convert_charrefs=True)
-        self.result_depth = 0
-        self.hrefs: list[str] = []
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attrs_map = dict(attrs)
-        classes = set((attrs_map.get("class") or "").split())
-        if tag.lower() == "article" and "result" in classes:
-            self.result_depth += 1
-            return
-        if self.result_depth and tag.lower() == "a":
-            href = attrs_map.get("href")
-            if href:
-                self.hrefs.append(href)
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag.lower() == "article" and self.result_depth:
-            self.result_depth -= 1
-
-
-def search_searxng_json(base: str, query: str, language: str) -> list[str]:
-    params = {
-        "q": query,
-        "format": "json",
-        "language": language,
-        "safesearch": "1",
-        "categories": "general",
-    }
-    url = base.rstrip("/") + "/search?" + "&".join(
-        f"{quote_plus(k)}={quote_plus(v)}" for k, v in params.items()
-    )
-    req = Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "application/json",
-            "Accept-Language": f"{language},en;q=0.7",
-            "Connection": "close",
-        },
-    )
-    with urlopen(req, timeout=SEARX_REQUEST_TIMEOUT) as response:
-        raw = response.read(MAX_PAGE_BYTES)
-        charset = response.headers.get_content_charset() or "utf-8"
-        text = raw.decode(charset, errors="replace")
-    data = json.loads(text)
-    urls: list[str] = []
-    for item in data.get("results", []):
-        if not isinstance(item, dict):
-            continue
-        target = item.get("url")
-        if isinstance(target, str) and normalize_host(target):
-            urls.append(target)
-    urls = list(dict.fromkeys(urls))
-    if not urls:
-        raise RuntimeError("SearXNG JSON returned no external results")
-    return urls
-
-
-def search_searxng_html(base: str, query: str, language: str) -> list[str]:
-    params = {
-        "q": query,
-        "language": language,
-        "safesearch": "1",
-        "categories": "general",
-    }
-    url = base.rstrip("/") + "/search?" + "&".join(
-        f"{quote_plus(k)}={quote_plus(v)}" for k, v in params.items()
-    )
-    req = Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "text/html,application/xhtml+xml",
-            "Accept-Language": f"{language},en;q=0.7",
-            "Connection": "close",
-        },
-    )
-    with urlopen(req, timeout=SEARX_REQUEST_TIMEOUT) as response:
-        raw = response.read(MAX_PAGE_BYTES)
-        charset = response.headers.get_content_charset() or "utf-8"
-        text = raw.decode(charset, errors="replace")
-
-    parser = SearxHtmlParser()
-    parser.feed(text)
-    urls: list[str] = []
-    for href in parser.hrefs:
-        if href.startswith("//"):
-            href = "https:" + href
-        if href.startswith(("http://", "https://")) and normalize_host(href):
-            urls.append(href)
-    urls = list(dict.fromkeys(urls))
-    if not urls:
-        raise RuntimeError("SearXNG HTML returned no external results")
-    return urls
-
-
-def search_searxng(base: str, query: str, language: str) -> list[str]:
-    try:
-        return search_searxng_json(base, query, language)
-    except Exception as json_exc:
-        try:
-            return search_searxng_html(base, query, language)
-        except Exception as html_exc:
-            raise RuntimeError(
-                f"SearXNG JSON failed: {type(json_exc).__name__}: {json_exc}; "
-                f"HTML failed: {type(html_exc).__name__}: {html_exc}"
-            ) from html_exc
-
-
-def discover_searxng_instances() -> list[str]:
-    text = fetch_text(SEARX_INSTANCES_YML_URL)
-    hosts: list[str] = []
-    for line in text.splitlines():
-        match = re.match(r"^\s*(https?://[^\s:]+):", line)
-        if not match:
-            continue
-        host = normalize_host(match.group(1))
-        if host and host not in hosts:
-            hosts.append(host)
-
-    active: list[str] = []
-    for host in hosts[:SEARX_INSTANCE_LIMIT]:
-        base = f"https://{host}"
-        try:
-            search_searxng(base, "alternative frontend", "en")
-            active.append(base)
-            print(f"[SEARX] active {base}")
-        except Exception as exc:
-            print(f"[SEARX] skip {base}: {type(exc).__name__}: {exc}")
-        if len(active) >= SEARX_ACTIVE_INSTANCES:
-            break
-    return active
-
-
-
-def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
-    headers = {
-        "User-Agent": USER_AGENT,
-        "Accept": "application/json,text/plain,text/markdown,*/*",
-        "Accept-Language": "en,es;q=0.7,*;q=0.3",
-        "Connection": "close",
-    }
-    if extra_headers:
-        headers.update(extra_headers)
-
-    req = Request(
-        url,
-        headers=headers,
-    )
-    with urlopen(req, timeout=PAGE_TIMEOUT) as response:
-        raw = response.read(MAX_PAGE_BYTES)
-        charset = response.headers.get_content_charset() or "utf-8"
-        return raw.decode(charset, errors="replace")
-
-
-
-GITHUB_SOURCE_QUERIES = [
-    "alternative frontend reddit twitter tumblr",
-    "privacy alternative frontends reddit",
-    "privacy alternative frontends twitter",
-    "privacy alternative frontends tumblr",
-    "nitter instances",
-    "redlib instances",
-    "libreddit instances",
-    "priviblur instances",
-    "teddit instances",
-]
-
-
-def github_repository_candidates() -> dict[tuple[str, str], SearchHit]:
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        print("[WARN] GITHUB_TOKEN unavailable; skipping GitHub repository discovery.")
-        return {}
-
+def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-    repo_keys: set[str] = set()
-
-    for query in GITHUB_SOURCE_QUERIES:
-        url = (
-            "https://api.github.com/search/repositories"
-            f"?q={quote_plus(query)}&sort=updated&order=desc&per_page=6"
-        )
-        try:
-            data = json.loads(fetch_text(url, headers))
-        except Exception as exc:
-            print(f"[WARN] GitHub repo search failed for {query!r}: {type(exc).__name__}: {exc}")
+    for platform, url in WEB_VERIFIED_SEEDS:
+        host = normalize_host(url)
+        if not host:
             continue
-
-        for item in data.get("items", []):
-            if not isinstance(item, dict):
-                continue
-            full_name = item.get("full_name")
-            default_branch = item.get("default_branch")
-            if not isinstance(full_name, str) or not isinstance(default_branch, str):
-                continue
-            if full_name.lower() == "p4vizal/frontend-blocklist":
-                continue
-            repo_keys.add(f"{full_name}@{default_branch}")
-
-    for repo_key in sorted(repo_keys)[:30]:
-        full_name, default_branch = repo_key.rsplit("@", 1)
-        readme_url = (
-            f"https://raw.githubusercontent.com/{full_name}/"
-            f"{quote_plus(default_branch)}/README.md"
+        found[(platform, host)] = SearchHit(
+            host,
+            platform,
+            [f"SEED:{url}"],
+            [url],
+            ["Web-verified seed 2026-10-03"],
+            [],
+            [f"Human-verified viewer seed: {url}"],
         )
-        source_name = f"GitHub:{full_name}"
-        try:
-            text = fetch_text(readme_url)
-        except Exception as exc:
-            continue
-        for platform in PLATFORMS:
-            for host in extract_section_urls(text, platform):
-                key = (platform, host)
-                if key not in found:
-                    found[key] = SearchHit(host, platform, [], [], [])
-                hit = found[key]
-                if source_name not in hit.sources:
-                    hit.sources.append(source_name)
-                marker = f"SOURCE:{source_name}"
-                if marker not in hit.queries:
-                    hit.queries.append(marker)
-                source_url = f"https://{host}/"
-                if source_url not in hit.urls:
-                    hit.urls.append(source_url)
-
-    print(f"GitHub repository sources found: {len(repo_keys)}")
     return found
+
+
+def search_with_ddgs(searcher: DDGS, query: str, region: str, backend: str) -> list[dict]:
+    results = searcher.text(
+        query,
+        region=region,
+        safesearch="moderate",
+        max_results=SEARCH_MAX_RESULTS,
+        page=1,
+        backend=backend,
+    )
+    return [r for r in results if isinstance(r, dict)]
+
+
+def merge_search_result(
+    candidate_map: dict[tuple[str, str], SearchHit],
+    platform: str,
+    query: str,
+    backend: str,
+    result: dict,
+) -> None:
+    href = result.get("href") or result.get("url") or ""
+    domain = normalize_host(href)
+    if not domain:
+        return
+    key = (platform, domain)
+    if key not in candidate_map:
+        candidate_map[key] = SearchHit(domain, platform, [], [], [], [], [])
+    hit = candidate_map[key]
+    if query not in hit.queries:
+        hit.queries.append(query)
+    if href not in hit.urls:
+        hit.urls.append(href)
+    if backend not in hit.providers:
+        hit.providers.append(backend)
+    evidence = fold(f"{result.get('title', '')} {result.get('body', '')}")
+    if evidence:
+        marker = f"{backend}:{evidence[:900]}"
+        if marker not in hit.search_evidence:
+            hit.search_evidence.append(marker)
 
 
 def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
@@ -681,7 +462,7 @@ def trusted_candidates() -> dict[tuple[str, str], SearchHit]:
     def add(platform: str, host: str, source_name: str):
         key = (platform, host)
         if key not in found:
-            found[key] = SearchHit(host, platform, [], [], [])
+            found[key] = SearchHit(host, platform, [], [], [], [], [])
         hit = found[key]
         if source_name not in hit.sources:
             hit.sources.append(source_name)

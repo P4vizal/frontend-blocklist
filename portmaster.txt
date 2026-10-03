@@ -146,6 +146,7 @@ gram.whatever.social
 grep.vim.wtf
 gruble.de
 guestbook.html
+hbubli.cc
 hosting.cz-pro.cz
 hp.ggtyler.dev
 hp.iqbalrifai.eu.org
@@ -462,6 +463,7 @@ search.femboy.ad
 search.fischbytes.de
 search.funami.tech
 search.garudalinux.org
+search.hbubli.cc
 search.im-in.space
 search.indst.eu
 search.inetol.net

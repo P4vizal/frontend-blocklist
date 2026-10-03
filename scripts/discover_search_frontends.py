@@ -591,6 +591,46 @@ def run_search_spec(
     return index, lang, platform, query, results_by_page, errors
 
 
+def merge_search_result(
+    candidate_map: dict[tuple[str, str], SearchHit],
+    platform: str,
+    query: str,
+    backend: str,
+    result: dict,
+) -> None:
+    """Merge one search result into the deduplicated candidate map."""
+    href = result.get("href") or result.get("url") or ""
+    domain = normalize_host(href)
+    if not domain:
+        return
+
+    key = (platform, domain)
+    if key not in candidate_map:
+        candidate_map[key] = SearchHit(
+            domain,
+            platform,
+            [],
+            [],
+            [],
+            [],
+            [],
+        )
+
+    hit = candidate_map[key]
+    if query not in hit.queries:
+        hit.queries.append(query)
+    if href not in hit.urls:
+        hit.urls.append(href)
+    if backend not in hit.providers:
+        hit.providers.append(backend)
+
+    evidence = fold(f"{result.get('title', '')} {result.get('body', '')}")
+    if evidence:
+        marker = f"{backend}:{evidence[:900]}"
+        if marker not in hit.search_evidence:
+            hit.search_evidence.append(marker)
+
+
 def fetch_text(url: str, extra_headers: dict[str, str] | None = None) -> str:
     headers = {
         "User-Agent": USER_AGENT,

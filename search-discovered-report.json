@@ -1,4 +1,2219 @@
 {
-  "status": "not-run-yet",
-  "note": "Populated by .github/workflows/discover-search-frontends.yml"
+  "status": "no_update",
+  "accepted": [],
+  "accepted_count": 0,
+  "candidates": [
+    {
+      "domain": "redditinc.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 13,
+      "query_count": 8,
+      "final_url": "https://redditinc.com",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [
+          "reddit"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "usuario",
+          "publication",
+          "пользователь",
+          "用户",
+          "उपयोगकर्ता",
+          "مستخدم",
+          "منشور"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "usuario",
+          "publication",
+          "пользователь",
+          "用户",
+          "उपयोगकर्ता",
+          "مستخدم",
+          "منشور"
+        ],
+        "forms": 3,
+        "app_path_hits": [
+          "/tag",
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://redditinc.com",
+          "https://redditinc.com/"
+        ]
+      },
+      "reason": "core=reddit; service=-; identity=subreddit,subreddits,comment,comments,post,posts; queries=8; score=13",
+      "error": ""
+    },
+    {
+      "domain": "twitter.cn.uptodown.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://twitter.cn.uptodown.com/android",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [
+          "twitter"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "个人资料",
+          "用户",
+          "帖子"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "个人资料",
+          "用户",
+          "帖子"
+        ],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://twitter.cn.uptodown.com/android",
+          "https://twitter.cn.uptodown.com"
+        ]
+      },
+      "reason": "core=twitter; service=-; identity=个人资料,用户,帖子; queries=1; score=11",
+      "error": ""
+    },
+    {
+      "domain": "mashable.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 10,
+      "query_count": 1,
+      "final_url": "https://mashable.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [
+          "mirror"
+        ],
+        "identity_hits": [
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "mirror"
+        ],
+        "body_identity_hits": [
+          "user"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://mashable.com"
+        ]
+      },
+      "reason": "core=-; service=mirror; identity=user,profile; queries=1; score=10",
+      "error": ""
+    },
+    {
+      "domain": "www.cnpp.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 10,
+      "query_count": 1,
+      "final_url": "https://www.cnpp.cn/china/list_5157.html",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [
+          "代理"
+        ],
+        "identity_hits": [
+          "user",
+          "用户"
+        ],
+        "body_service_hits": [
+          "代理"
+        ],
+        "body_identity_hits": [
+          "用户"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://www.cnpp.cn/china/list_5157.html",
+          "https://www.cnpp.cn"
+        ]
+      },
+      "reason": "core=-; service=代理; identity=user,用户; queries=1; score=10",
+      "error": ""
+    },
+    {
+      "domain": "www.daragoblog.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 9,
+      "query_count": 1,
+      "final_url": "https://www.daragoblog.com",
+      "evidence": {
+        "core_hits": [
+          "tumblr"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "ユーザー",
+          "投稿"
+        ],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.daragoblog.com"
+        ]
+      },
+      "reason": "core=tumblr; service=-; identity=blog,ユーザー,投稿; queries=1; score=9",
+      "error": ""
+    },
+    {
+      "domain": "www.who.int",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 9,
+      "query_count": 1,
+      "final_url": "https://www.who.int",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "user",
+          "publication"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.who.int"
+        ]
+      },
+      "reason": "core=twitter; service=-; identity=user,publication; queries=1; score=9",
+      "error": ""
+    },
+    {
+      "domain": "agents.stackoverflow.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 8,
+      "query_count": 1,
+      "final_url": "https://agents.stackoverflow.com/all?sort=hot",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [
+          "instance"
+        ],
+        "identity_hits": [
+          "posts"
+        ],
+        "body_service_hits": [
+          "instance"
+        ],
+        "body_identity_hits": [
+          "posts"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://agents.stackoverflow.com"
+        ]
+      },
+      "reason": "core=-; service=instance; identity=posts; queries=1; score=8",
+      "error": ""
+    },
+    {
+      "domain": "pcmaster.blog",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 8,
+      "query_count": 1,
+      "final_url": "https://pcmaster.blog",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [
+          "ビューア"
+        ],
+        "identity_hits": [
+          "blog",
+          "profile",
+          "投稿"
+        ],
+        "body_service_hits": [
+          "ビューア"
+        ],
+        "body_identity_hits": [],
+        "forms": 4,
+        "app_path_hits": [
+          "/profile"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://pcmaster.blog"
+        ]
+      },
+      "reason": "core=-; service=ビューア; identity=blog,profile,投稿; queries=1; score=8",
+      "error": ""
+    },
+    {
+      "domain": "espanol.mapsofworld.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 7,
+      "query_count": 1,
+      "final_url": "https://espanol.mapsofworld.com",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://espanol.mapsofworld.com"
+        ]
+      },
+      "reason": "core=twitter; service=-; identity=user; queries=1; score=7",
+      "error": ""
+    },
+    {
+      "domain": "s.bingparachute.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 7,
+      "query_count": 2,
+      "final_url": "https://s.bingparachute.com/search?q='",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 3,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://s.bingparachute.com/search?q='",
+          "https://s.bingparachute.com/?&mkt=global';"
+        ]
+      },
+      "reason": "core=twitter; service=-; identity=-; queries=2; score=7",
+      "error": ""
+    },
+    {
+      "domain": "50yokatta-blog.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://50yokatta-blog.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "profile",
+          "プロフィール"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "プロフィール"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://50yokatta-blog.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=profile,プロフィール; queries=1; score=6",
+      "error": ""
+    },
+    {
+      "domain": "es.stackoverflow.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://es.stackoverflow.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "user",
+          "usuario"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "user",
+          "usuario"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/tag",
+          "/tags",
+          "/user",
+          "/users/"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://es.stackoverflow.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=blog,user,usuario; queries=1; score=6",
+      "error": ""
+    },
+    {
+      "domain": "note.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://note.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "ユーザー",
+          "投稿"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://note.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=ユーザー,投稿; queries=1; score=6",
+      "error": ""
+    },
+    {
+      "domain": "www.choge-blog.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://www.choge-blog.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "profile",
+          "ユーザー"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "ユーザー"
+        ],
+        "forms": 3,
+        "app_path_hits": [
+          "/post",
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.choge-blog.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=profile,ユーザー; queries=1; score=6",
+      "error": ""
+    },
+    {
+      "domain": "www.who.int",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://www.who.int",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "user",
+          "publication"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.who.int"
+        ]
+      },
+      "reason": "core=-; service=-; identity=user,publication; queries=1; score=6",
+      "error": ""
+    },
+    {
+      "domain": "www.wikihow.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 6,
+      "query_count": 3,
+      "final_url": "https://www.wikihow.com/Main-Page",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "post"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "post"
+        ],
+        "forms": 4,
+        "app_path_hits": [
+          "/user"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.wikihow.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=post; queries=3; score=6",
+      "error": ""
+    },
+    {
+      "domain": "viajarensuiza.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 5,
+      "query_count": 1,
+      "final_url": "https://viajarensuiza.com",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://viajarensuiza.com"
+        ]
+      },
+      "reason": "core=twitter; service=-; identity=-; queries=1; score=5",
+      "error": ""
+    },
+    {
+      "domain": "www.infosuiza.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 5,
+      "query_count": 1,
+      "final_url": "https://www.infosuiza.com",
+      "evidence": {
+        "core_hits": [
+          "twitter"
+        ],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.infosuiza.com"
+        ]
+      },
+      "reason": "core=twitter; service=-; identity=-; queries=1; score=5",
+      "error": ""
+    },
+    {
+      "domain": "actualizate.sedic.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://actualizate.sedic.es",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "publicación"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "publicación"
+        ],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://actualizate.sedic.es"
+        ]
+      },
+      "reason": "core=-; service=-; identity=publicación; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "func.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://func.jp",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "ユーザー"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "ユーザー"
+        ],
+        "forms": 3,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://func.jp"
+        ]
+      },
+      "reason": "core=-; service=-; identity=ユーザー; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "lactualizate.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://lactualizate.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "usuario"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "usuario"
+        ],
+        "forms": 5,
+        "app_path_hits": [
+          "/blog"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://lactualizate.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=usuario; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "news.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://news.yahoo.co.jp",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "投稿"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "投稿"
+        ],
+        "forms": 1,
+        "app_path_hits": [
+          "/user",
+          "/users/"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://news.yahoo.co.jp"
+        ]
+      },
+      "reason": "core=-; service=-; identity=投稿; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "promo-search.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://promo-search.yahoo.co.jp",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "profile"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "profile"
+        ],
+        "forms": 2,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://promo-search.yahoo.co.jp"
+        ]
+      },
+      "reason": "core=-; service=-; identity=profile; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "s.bingparachute.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 4,
+      "query_count": 3,
+      "final_url": "https://s.bingparachute.com/search?q='",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 3,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://s.bingparachute.com/search?q='",
+          "https://s.bingparachute.com/?&mkt=global';"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=3; score=4",
+      "error": ""
+    },
+    {
+      "domain": "weather.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://weather.yahoo.co.jp/weather/",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "投稿"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "投稿"
+        ],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://weather.yahoo.co.jp"
+        ]
+      },
+      "reason": "core=-; service=-; identity=投稿; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "actualicese.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://actualicese.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 2,
+        "app_path_hits": [
+          "/tag"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://actualicese.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "actualizate.biz",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://actualizate.biz",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://actualizate.biz"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "apps.apple.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://apps.apple.com/us/iphone/today",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://apps.apple.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "dxzhgl.miit.gov.cn",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "用户"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "用户"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport"
+        ]
+      },
+      "reason": "core=-; service=-; identity=用户; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "dxzhgl.miit.gov.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "用户"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "用户"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport"
+        ]
+      },
+      "reason": "core=-; service=-; identity=用户; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "dxzhgl.miit.gov.cn",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "用户"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "用户"
+        ],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport"
+        ]
+      },
+      "reason": "core=-; service=-; identity=用户; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "es.switzerlandmap360.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://es.switzerlandmap360.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://es.switzerlandmap360.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "mammamiapizzeria.com.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "http://mammamiapizzeria.com.cn/cn/shanghai.asp",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "http://mammamiapizzeria.com.cn/cn/shanghai.asp",
+          "http://mammamiapizzeria.com.cn"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "oneclick.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "http://oneclick.goyang.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "사용자"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "http://oneclick.goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=사용자; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "s.bingparachute.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://s.bingparachute.com/search?q='",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 3,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 3,
+        "query_urls": [
+          "https://s.bingparachute.com/search?q='",
+          "https://s.bingparachute.com/?&mkt=global';"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "search.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://search.yahoo.co.jp",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 2,
+        "app_path_hits": [
+          "/search"
+        ],
+        "ui_signal": true,
+        "crawled_pages": 2,
+        "query_urls": [
+          "https://search.yahoo.co.jp"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "www.actualizate.exito.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://www.actualizate.exito.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.actualizate.exito.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "www.actualizateya.com.mx",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "http://www.actualizateya.com.mx",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "http://www.actualizateya.com.mx"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "www.chinapp.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://www.chinapp.com/best/pisa.html",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.chinapp.com/best/pisa.html",
+          "https://www.chinapp.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "www.paises.net",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://www.paises.net",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.paises.net"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "www.viamichelin.es",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://www.viamichelin.es",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.viamichelin.es"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "www.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://www.yahoo.co.jp",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 1,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.yahoo.co.jp"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=2",
+      "error": ""
+    },
+    {
+      "domain": "actualizate.academy",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://actualizate.academy",
+      "evidence": {},
+      "reason": "",
+      "error": "RemoteDisconnected: Remote end closed connection without response"
+    },
+    {
+      "domain": "apkpure.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://apkpure.com/cn/x-formerly-twitter/com.twitter.android",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "apkpure.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://apkpure.com",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "beian.miit.gov.cn",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://beian.miit.gov.cn",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 521: "
+    },
+    {
+      "domain": "beian.miit.gov.cn",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://beian.miit.gov.cn",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 521: "
+    },
+    {
+      "domain": "beian.miit.gov.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://beian.miit.gov.cn",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 521: "
+    },
+    {
+      "domain": "beian.mps.gov.cn",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "beian.mps.gov.cn",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "beian.mps.gov.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "bis.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://bis.goyang.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://bis.goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "cc.bingj.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://cc.bingj.com/cache.aspx?q=(%22twitter%22+OR+%22nitter%22)+(%22%d0%bf%d1%80%d0%be%d1%81%d0%bc%d0%be%d1%82%d1%80%d1%89%d0%b8%d0%ba%22+OR+%22%d0%b0%d0%bb%d1%8c%d1%82%d0%b5%d1%80%d0%bd%d0%b0%d1%82%d0%b8%d0%b2%d0%bd%d1%8b%d0%b9+%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%22+OR+%22%d0%b7%d0%b5%d1%80%d0%ba%d0%b0%d0%bb%d0%be%22+OR+%22%d0%bf%d1%80%d0%be%d0%ba%d1%81%d0%b8%22+OR+%22frontend%22+OR+%22%d1%8d%d0%ba%d0%b7%d0%b5%d0%bc%d0%bf%d0%bb%d1%8f%d1%80%22)+(%22tweet%22+OR+%22tweets%22+OR+%22user%22+OR+%22profile%22+OR+%22post%22+OR+%22%d0%bf%d1%80%d0%be%d1%84%d0%b8%d0%bb%d1%8c%22+OR+%22%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d1%82%d0%b5%d0%bb%d1%8c%22+OR+%22%d0%bf%d1%83%d0%b1%d0%bb%d0%b8%d0%ba%d0%b0%d1%86%d0%b8%d1%8f%22+OR+%22%d0%bf%d0%be%d1%81%d1%82%22)\\u0026d={0}\\u0026mkt=ru-RU\\u0026setlang=ru-RU\\u0026w={1}",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "domain": "cc.bingj.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://cc.bingj.com/cache.aspx?q=(%22tumblr%22+OR+%22priviblur%22)+(%22viewer%22+OR+%22frontend%22+OR+%22mirror%22+OR+%22proxy%22+OR+%22alternative+frontend%22+OR+%22instance%22)+(%22blog%22+OR+%22blogs%22+OR+%22post%22+OR+%22posts%22+OR+%22user%22+OR+%22profile%22)\\u0026d={0}\\u0026mkt=en-US\\u0026setlang=en-US\\u0026w={1}",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "domain": "cn.tripadvisor.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://cn.tripadvisor.com/Restaurants-g308272-c31-zfn8277443-Shanghai.html",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "detail.chiebukuro.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://chiebukuro.yahoo.co.jp/",
+      "evidence": {
+        "redirect_host": "chiebukuro.yahoo.co.jp"
+      },
+      "reason": "redirected outside candidate host",
+      "error": ""
+    },
+    {
+      "domain": "dportal.kdca.go.kr",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://dportal.kdca.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://dportal.kdca.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "eminwon.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://eminwon.goyang.go.kr/emwp/emwpIndex.html",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://eminwon.goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "ext.yahoo.co.jp",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://ext.yahoo.co.jp",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "domain": "gizmodo.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://gizmodo.com",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "go.microsoft.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://help.bing.microsoft.com/#apex/18/en-US/10016/0",
+      "evidence": {
+        "redirect_host": "help.bing.microsoft.com"
+      },
+      "reason": "redirected outside candidate host",
+      "error": ""
+    },
+    {
+      "domain": "go.microsoft.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://help.bing.microsoft.com/#apex/18/en-US/10016/0",
+      "evidence": {
+        "redirect_host": "help.bing.microsoft.com"
+      },
+      "reason": "redirected outside candidate host",
+      "error": ""
+    },
+    {
+      "domain": "go.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://help.bing.microsoft.com/#apex/18/en-US/10016/0",
+      "evidence": {
+        "redirect_host": "help.bing.microsoft.com"
+      },
+      "reason": "redirected outside candidate host",
+      "error": ""
+    },
+    {
+      "domain": "goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://goyang.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "its.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://its.goyang.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://its.goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "m8.dominos.com.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://m8.dominos.com.cn/findStore",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://m8.dominos.com.cn/findStore",
+          "https://m8.dominos.com.cn"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "namu.wiki",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://namu.wiki",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "nuri.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.goyang.go.kr/gynuri/index.do",
+      "evidence": {
+        "redirect_host": "www.goyang.go.kr"
+      },
+      "reason": "redirected outside candidate host",
+      "error": ""
+    },
+    {
+      "domain": "proyectoviajero.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://proyectoviajero.com",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "schemas.live.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "http://schemas.live.com/Web/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 417: Expectation Failed"
+    },
+    {
+      "domain": "schemas.live.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "http://schemas.live.com/Web/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 417: Expectation Failed"
+    },
+    {
+      "domain": "schemas.live.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "http://schemas.live.com/Web/",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 417: Expectation Failed"
+    },
+    {
+      "domain": "stackoverflow.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://stackoverflow.com",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "staging-bing-int.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://staging-bing-int.com/telemetry?cat='",
+      "evidence": {},
+      "reason": "",
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'staging-bing-int.com'. (_ssl.c:1010)>"
+    },
+    {
+      "domain": "staging-bing-int.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://staging-bing-int.com/telemetry?cat='",
+      "evidence": {},
+      "reason": "",
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'staging-bing-int.com'. (_ssl.c:1010)>"
+    },
+    {
+      "domain": "staging-bing-int.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://staging-bing-int.com/telemetry?cat='",
+      "evidence": {},
+      "reason": "",
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'staging-bing-int.com'. (_ssl.c:1010)>"
+    },
+    {
+      "domain": "storage.live.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "https://storage.live.com/users/0x{0}/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1\\u0026ex=720\\u0026sid=1B3ECB2D1D82626D0B0DDCCA1C2063C9\\u0026fofoff=1",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "domain": "storage.live.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "https://storage.live.com/users/0x{0}/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1\\u0026ex=720\\u0026sid=03D305701F7E6EE90A9F12971E3D6F3E\\u0026fofoff=1",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "domain": "storage.live.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "https://storage.live.com/users/0x{0}/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1\\u0026ex=720\\u0026sid=28A2CFA62A1561C53093D8412B1F6032\\u0026fofoff=1",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 400: Bad Request"
+    },
+    {
+      "domain": "support.microsoft.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://support.microsoft.com/topic/82d20721-2d6f-4012-a13d-d1910ccf203f&clcid=0x04",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "domain": "t.bingparachute.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://t.bingparachute.com/telemetry?cat='",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Ip Forbidden"
+    },
+    {
+      "domain": "t.bingparachute.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://t.bingparachute.com/telemetry?cat='",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Ip Forbidden"
+    },
+    {
+      "domain": "t.bingparachute.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://t.bingparachute.com/telemetry?cat='",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Ip Forbidden"
+    },
+    {
+      "domain": "water.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://water.goyang.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://water.goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.163.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.163.com/dy/article/JB5K5ID80522BBQM.html",
+      "evidence": {},
+      "reason": "search result points to an article/news page",
+      "error": ""
+    },
+    {
+      "domain": "www.actualizateprograma.es",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.actualizateprograma.es",
+      "evidence": {},
+      "reason": "",
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "domain": "www.amap.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.amap.com/place/B0G1THX8LG",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.amap.com/place/B0G1THX8LG",
+          "https://www.amap.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.britannica.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 5,
+      "final_url": "https://www.britannica.com",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.cdc.gov",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.cdc.gov",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.dominos.com.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.dominos.com.cn/index.htm",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.dominos.com.cn/index.htm",
+          "https://www.dominos.com.cn"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.goyang.go.kr",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.goyang.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.goyang.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.health.gov.au",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.health.gov.au",
+      "evidence": {},
+      "reason": "",
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "domain": "www.kdca.go.kr",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.kdca.go.kr",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.kdca.go.kr"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.languefrancaise.net",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.languefrancaise.net",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.myswitzerland.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.myswitzerland.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.myswitzerland.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.threads.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.threads.com",
+      "evidence": {
+        "core_hits": [],
+        "brand_hits": [],
+        "header_core_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.threads.com"
+        ]
+      },
+      "reason": "core=-; service=-; identity=-; queries=1; score=0",
+      "error": ""
+    },
+    {
+      "domain": "www.w3.org",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "http://www.w3.org/1999/xhtml",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.w3.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "http://www.w3.org/1999/xhtml",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.w3.org",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 10,
+      "final_url": "http://www.w3.org/1999/xhtml",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "www.zhihu.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.zhihu.com/question/391248841",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "domain": "zhuanlan.zhihu.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://zhuanlan.zhihu.com/p/9985814781",
+      "evidence": {},
+      "reason": "",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ],
+  "search_errors": [],
+  "note": "Publish guard triggered; output list was not replaced."
 }

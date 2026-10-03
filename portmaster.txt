@@ -119,6 +119,8 @@ de.operack.com
 de.skysend.ch
 deggo.fyi
 deletedby.com
+dev.co
+dev.to
 discuss.privacyguides.net
 dns.sev.monster
 docs.searxng.org

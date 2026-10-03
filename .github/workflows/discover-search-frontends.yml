@@ -218,6 +218,49 @@ jobs:
               strong_hit,
           ) == "timeout"
 
+          forbidden_eval = discovery.Evaluation(
+              "nitter.example",
+              "twitter",
+              False,
+              0,
+              1,
+              "https://nitter.example/",
+              {"fetch_error": "HTTP Error 403: Forbidden", "status_code": 403},
+              "page unavailable",
+          )
+          assert discovery.classify_pending_status(
+              forbidden_eval,
+              strong_hit,
+          ) == "forbidden"
+
+          assert discovery.safe_nonnegative_int("broken", 7) == 7
+          assert discovery.safe_nonnegative_int("-4") == 0
+          assert discovery.pending_next_retry_epoch("temporary_unavailable", 1, 1000) > 1000
+          assert discovery.pending_next_retry_epoch("temporary_unavailable", 5, 1000) > 1000
+          assert discovery.pending_next_retry_epoch(
+              "temporary_unavailable", 5, 1000
+          ) <= 1000 + discovery.PENDING_RETRY_MAX_SECONDS
+
+          libredirect_sample = {
+              "nitter": {"clearnet": ["https://nitter.example"]},
+              "shitter": {"clearnet": ["https://shitter.example"]},
+              "redlib": {"clearnet": ["https://redlib.example"]},
+              "priviblur": {"clearnet": ["https://priviblur.example"]},
+          }
+          libredirect_text = __import__("json").dumps(libredirect_sample)
+          assert discovery.extract_libredirect(
+              libredirect_text,
+              "twitter",
+          ) == {"nitter.example", "shitter.example"}
+          assert discovery.extract_libredirect(
+              libredirect_text,
+              "reddit",
+          ) == {"redlib.example"}
+          assert discovery.extract_libredirect(
+              libredirect_text,
+              "tumblr",
+          ) == {"priviblur.example"}
+
           original_fetch_html = discovery.fetch_html
           original_fetch_jina_text = discovery.fetch_jina_text
 

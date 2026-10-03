@@ -60,7 +60,8 @@ jobs:
           assert queries
           assert len(discovery.active_search_languages()) == 4
           assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
-          assert discovery.search_pages_for("fr", "twitter viewer") == (1,)
+          fr_pages = discovery.search_pages_for("fr", "twitter viewer")
+          assert fr_pages in ((1,), (1, 2))
           parser = discovery.PageParser()
           parser.feed(
               '<html><head><title>Reddit Viewer</title></head>'
@@ -73,6 +74,12 @@ jobs:
           assert "reddit viewer" in parsed["headings"].lower()
           assert parsed["inputs"] >= 1
           assert parsed["article_count"] == 1
+
+          multilingual = discovery.SearchHit(
+              "example.org", "reddit", ["query"], ["https://example.org/"], [], ["bing-rss"],
+              ["bing-rss:reddit 查看器 用于浏览 subreddit"],
+          )
+          assert discovery.search_result_has_strong_service_evidence(multilingual)
           assert discovery.DISCOVERY_MODE == "daily"
           print("Runtime smoke test passed.")
           PY

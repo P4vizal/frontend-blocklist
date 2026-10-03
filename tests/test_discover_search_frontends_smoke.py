@@ -207,6 +207,7 @@ rate_exhausted = __import__("urllib.error").error.HTTPError(
 assert discovery.http_retry_delay(rate_exhausted, 1) is None
 assert discovery.GITHUB_REPOSITORY_CATALOG_LIMIT == 48
 assert discovery.REPORT_SCHEMA_VERSION == 2
+assert {408, 425, 429, 500, 502, 503, 504} <= discovery.RETRYABLE_HTTP_CODES
 
 libredirect_sample = {
     "nitter": {"clearnet": ["https://nitter.example"]},

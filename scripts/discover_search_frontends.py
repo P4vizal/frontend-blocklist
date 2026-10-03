@@ -68,7 +68,7 @@ WEB_VERIFIED_SEEDS = [
     ("twitter", "https://www.sotwe.com/"),
     ("twitter", "https://www.twitter-viewer.com/twitter-profile-viewer"),
     ("twitter", "https://ilo.so/twitter-viewer"),
-    ("twitter", "https://twitgoon.com/viewer/"),
+    ("twitter", "https://tweetindex.com/es/twitter-profile-viewer"),
 ]
 
 CONTENT_HOST_SUFFIXES = (
@@ -1531,6 +1531,26 @@ def search_result_has_strong_service_evidence(hit: SearchHit) -> bool:
     return False
 
 
+def search_hit_has_prevalidation_signal(hit: SearchHit) -> bool:
+    """Return True when a search-only candidate has enough signal to fetch."""
+    if is_seed_candidate(hit) or hit.sources:
+        return True
+    if search_result_has_strong_service_evidence(hit):
+        return True
+    if SEARCH_SERVICE_HOST_RE.search(hit.domain):
+        return True
+    if any(
+        path_looks_like_service(urlparse(url).path.lower())
+        for url in hit.urls
+    ):
+        return True
+    distinct_queries = {
+        q for q in hit.queries
+        if not q.startswith("SOURCE:") and not q.startswith("SEED:")
+    }
+    return len(distinct_queries) >= 2
+
+
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     seed_candidate = is_seed_candidate(hit)
     strong_search_evidence_hint = search_result_has_strong_service_evidence(hit)
@@ -2267,13 +2287,24 @@ def main() -> int:
         ),
     )
     search_hits = sorted(
-        [h for h in candidate_map.values() if not h.sources and h.domain not in known_domains],
+        [
+            h for h in candidate_map.values()
+            if not h.sources
+            and h.domain not in known_domains
+            and search_hit_has_prevalidation_signal(h)
+        ],
         key=lambda h: (
             -len(h.providers),
             -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
             -len(h.search_evidence),
             h.domain,
         ),
+    )
+    search_low_signal_skipped = sum(
+        1 for h in candidate_map.values()
+        if not h.sources
+        and h.domain not in known_domains
+        and not search_hit_has_prevalidation_signal(h)
     )
     # Always validate the small, curated seed set even when it is already in
     # blocklist.txt. They are not re-added; validation is for report accuracy
@@ -2289,6 +2320,7 @@ def main() -> int:
     print(f"Candidates discovered: {len(candidate_map)}")
     print(f"Candidates selected for validation: {len(hits)}")
     print(f"Previously known candidates skipped: {already_known_candidates}")
+    print(f"Low-signal search candidates skipped before fetch: {search_low_signal_skipped}")
     expected_search_pages = sum(len(search_pages_for(lang, query)) for lang, _, query in query_specs)
     print(f"Search mode: {DISCOVERY_MODE}; active languages: {', '.join(active_search_languages()) or 'none'}")
     print(f"Search pages succeeded: {search_pages_succeeded}/{expected_search_pages}")
@@ -2418,6 +2450,7 @@ def main() -> int:
                     "validation_crash_count": validation_crash_count,
                     "candidates_discovered": len(candidate_map),
                     "validated_candidates": len(evaluations),
+                    "search_low_signal_skipped": search_low_signal_skipped,
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
                     "append_only": True,
@@ -2486,6 +2519,7 @@ def main() -> int:
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),
+        "search_low_signal_skipped": search_low_signal_skipped,
         "accepted_count": len(accepted),
         "newly_accepted_count": len(accepted),
         "retained_historical_count": len(historical),

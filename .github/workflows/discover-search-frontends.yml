@@ -35,7 +35,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install search engine client
-        run: python -m pip install --disable-pip-version-check --no-input -U ddgs
+        run: python -m pip install --disable-pip-version-check --no-input "ddgs==9.16.0"
 
       - name: Validate Python syntax
         run: python -m py_compile scripts/discover_search_frontends.py

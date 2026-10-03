@@ -126,6 +126,22 @@ jobs:
               ["bing-rss:reddit 查看器 用于浏览 subreddit"],
           )
           assert discovery.search_result_has_strong_service_evidence(multilingual)
+          assert discovery.search_result_is_relevant(
+              "reddit",
+              "Reddit alternative frontend",
+              "Redlib is a private front-end to Reddit",
+          )
+          assert not discovery.pending_candidate_has_strong_signal(
+              discovery.SearchHit(
+                  "noise.example",
+                  "reddit",
+                  ["reddit viewer"],
+                  ["https://noise.example/"],
+                  [],
+                  ["bing-rss"],
+                  ["bing-rss:unrelated calculator results"],
+              )
+          )
 
           original_fetch_html = discovery.fetch_html
           original_fetch_jina_text = discovery.fetch_jina_text

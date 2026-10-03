@@ -21,12 +21,13 @@ OUTPUT = Path("search-discovered-blocklist.txt")
 REPORT = Path("search-discovered-report.json")
 
 GOOGLE_URL = "https://www.google.com/search"
-GOOGLE_DELAY = 1.0
+GOOGLE_DELAY = 2.5
 GOOGLE_RESULTS = 10
 PAGE_TIMEOUT = 10
 MAX_PAGE_BYTES = 1_500_000
 MAX_CRAWL_PAGES = 3
 MAX_CANDIDATES = 180
+MAX_CONSECUTIVE_SEARCH_ERRORS = 3
 MIN_ACCEPTED = 2
 WORKERS = 12
 
@@ -318,26 +319,30 @@ def read_existing_domains() -> set[str]:
     return out
 
 
+def quote_term(term: str) -> str:
+    return '"' + term.replace('"', ' ') + '"'
+
+
 def build_queries() -> list[tuple[str, str, str]]:
     queries: list[tuple[str, str, str]] = []
     for lang, cfg in LANGUAGES.items():
         for platform, pcfg in PLATFORMS.items():
-            service1 = cfg["service"][0]
-            service2 = cfg["service"][1]
-            object_term = pcfg.get("query_object", cfg["identity"][0])
-            for template in pcfg["queries"]:
-                queries.append(
-                    (
-                        lang,
-                        platform,
-                        template.format(
-                            platform=platform,
-                            service1=service1,
-                            service2=service2,
-                            object=object_term,
-                        ),
-                    )
-                )
+            core = pcfg["core"]
+            service = list(dict.fromkeys(cfg["service"]))
+            identity = list(dict.fromkeys(
+                pcfg["identity_extra"] + cfg["identity"]
+            ))
+
+            core_group = " OR ".join(quote_term(term) for term in core)
+            service_group = " OR ".join(quote_term(term) for term in service)
+            identity_group = " OR ".join(quote_term(term) for term in identity)
+
+            query = (
+                f"({core_group}) "
+                f"({service_group}) "
+                f"({identity_group})"
+            )
+            queries.append((lang, platform, query))
     return queries
 
 
@@ -610,11 +615,13 @@ def main() -> int:
     candidate_map: dict[tuple[str, str], SearchHit] = {}
     search_errors: list[dict] = []
 
+    consecutive_errors = 0
     for index, (lang, platform, query) in enumerate(query_specs, start=1):
         cfg = LANGUAGES[lang]
         print(f"[SEARCH {index}/{len(query_specs)}] {lang}/{platform}: {query}")
         try:
             urls = google_search(query, cfg["hl"], cfg["gl"])
+            consecutive_errors = 0
             for url in urls:
                 domain = normalize_host(url)
                 if not domain:
@@ -628,12 +635,17 @@ def main() -> int:
                 if url not in hit.urls:
                     hit.urls.append(url)
         except Exception as exc:
+            consecutive_errors += 1
             search_errors.append({
                 "language": lang,
                 "platform": platform,
                 "query": query,
                 "error": f"{type(exc).__name__}: {exc}",
             })
+            print(f"[WARN] Google query failed ({consecutive_errors}/{MAX_CONSECUTIVE_SEARCH_ERRORS} consecutive): {exc}")
+            if consecutive_errors >= MAX_CONSECUTIVE_SEARCH_ERRORS:
+                print("[WARN] Stopping Google queries after consecutive failures to avoid hammering the search service.")
+                break
         time.sleep(GOOGLE_DELAY)
 
     # Stronger discovery signal first: domains seen in multiple independent queries.

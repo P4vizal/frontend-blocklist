@@ -230,20 +230,33 @@ CHALLENGE_MARKERS = (
     "enable javascript and cookies to continue",
 )
 
+# Paths that are strong editorial/content signals. Deliberately exclude
+# /post/, /posts/, /thread/, /topic/, /subreddit/ and /app/ because real
+# viewers/frontends commonly use those routes as service endpoints.
 BAD_PATH_MARKERS = (
     "/news/", "/article/", "/articles/", "/press/",
     "/blog/", "/blogs/", "/guide/", "/guides/", "/how-to/",
     "/category/", "/categories/", "/tag/", "/tags/", "/topics/",
-    "/post/", "/posts/", "/topic/", "/topics/", "/thread/", "/threads/",
     "/discussion/", "/discussions/", "/resource/", "/resources/",
-    "/company/", "/companies/", "/app/", "/apps/",
-    "/self-hosted-apps/", "/alternatives/", "/subreddits/", "/what-is-",
+    "/company/", "/companies/", "/self-hosted-apps/",
+    "/alternatives/", "/what-is-",
 )
 
+# Editorial title language is only a rejection signal when the page also
+# lacks a service route/hostname/header. "alternatives" is intentionally not
+# here because a real viewer can legitimately describe itself as an alternative.
 CONTENT_TITLE_MARKERS = (
     "what is ", "what are ", "how to ", "best ", "top ",
-    "guide", "explained", "comparison", "review", "alternatives",
-    "alternative apps", "list of ", "methods for ",
+    "guide", "explained", "comparison", "review",
+    "list of ", "methods for ",
+)
+
+STRONG_SERVICE_TERMS = (
+    "viewer", "frontend", "alternative frontend", "browser", "slideshow",
+    "reader", "gallery", "content browser",
+    "visor", "visualizador", "visionneuse", "betrachter",
+    "ビューア", "просмотрщик", "visualizzatore",
+    "查看器", "뷰어", "व्यूअर", "عارض",
 )
 
 SERVICE_PATH_SEGMENTS = {
@@ -1265,13 +1278,13 @@ def page_evidence(url: str, html_text: str) -> dict:
 
 
 def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
-    if hit.domain in existing:
+    seed_candidate = is_seed_candidate(hit)
+    if hit.domain in existing and not seed_candidate:
         return Evaluation(
             hit.domain, hit.platform, False, 0, len(hit.queries), hit.urls[0],
             {"already_covered": True}, "already covered by blocklist.txt"
         )
 
-    seed_candidate = is_seed_candidate(hit)
     direct_trusted = bool(set(hit.sources) & DIRECT_TRUSTED_SOURCES)
 
     # Prefer service-like URLs, but do not throw away a real service just
@@ -1331,7 +1344,16 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         fetch_meta = candidate_meta
         break
 
-    if html_text is None and seed_candidate:
+    # Some legitimate viewers are JS-heavy or block GitHub Actions' direct
+    # HTTP fetch. Use Jina only for high-signal service URLs/hosts (and seeds),
+    # not for arbitrary search results, to improve recall without turning
+    # editorial pages into accepted domains.
+    jina_eligible = (
+        seed_candidate
+        or bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
+        or any(path_looks_like_service(urlparse(url).path.lower()) for url in candidate_urls[:3])
+    )
+    if html_text is None and jina_eligible:
         jina_text, jina_meta = fetch_jina_text(first_url)
         if jina_text is not None:
             html_text = jina_text
@@ -1439,9 +1461,17 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     ]
     service_path_hint = path_looks_like_service(final_path)
     host_service_hint = bool(SEARCH_SERVICE_HOST_RE.search(hit.domain))
+    header_service_identity_hint = bool(
+        any(term_present(term, header_text) for term in STRONG_SERVICE_TERMS)
+    )
     article_like = bool(
         content_path_hint
-        or (content_title_hits and not service_path_hint and not host_service_hint)
+        or (
+            content_title_hits
+            and not service_path_hint
+            and not host_service_hint
+            and not header_service_identity_hint
+        )
     )
     if article_like:
         return Evaluation(
@@ -1541,13 +1571,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         )
         or seed_candidate and platform_hits
     )
-    strong_service_terms = (
-        "viewer", "frontend", "alternative frontend", "browser", "slideshow",
-        "reader", "gallery", "content browser",
-        "visor", "visualizador", "visionneuse", "betrachter",
-        "ビューア", "просмотрщик", "visualizzatore",
-        "查看器", "뷰어", "व्यूअर", "عارض"
-    )
+    strong_service_terms = STRONG_SERVICE_TERMS
     strong_header_service_hits = [
         t for t in strong_service_terms if term_present(t, header_text)
     ]
@@ -1601,20 +1625,31 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
             or distinct_queries >= 2
         )
     )
+    # A dedicated viewer/frontend route can be sufficient on its own when the
+    # page is independently validated as a service. This avoids a false
+    # negative when search engines surface /twitter-viewer or /reddit-viewer
+    # only once.
+    single_query_service_ok = bool(
+        search_intent_hits >= 1
+        and service_path_hint
+        and page_service_ok
+        and page_identity_ok
+        and ui_signal
+    )
     search_quality_ok = (
         strong_search_evidence
         or bool(brand_hits)
+        or single_query_service_ok
     )
     search_interactive_ok = bool(
         host_service_hint
         or (service_path_hint and (input_count or button_count))
         or interactive_target_hits
     )
-    # The same domain must be surfaced by at least two distinct search queries
-    # unless its hostname is itself an unmistakable viewer/frontend name.
     independent_query_ok = (
         distinct_queries >= 2
         or host_service_hint
+        or single_query_service_ok
     )
     search_accept = (
         not seed_candidate
@@ -1648,6 +1683,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     score += 3 if ui_signal else 0
     score += min(5, 2 * len(search_provider_hits))
     score += min(4, distinct_queries)
+    score += 2 if single_query_service_ok else 0
     score += 2 if len(hit.sources) >= 2 else (1 if hit.sources else 0)
     if host_service_hint:
         score += 2
@@ -1672,6 +1708,8 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
         "host_service_hint": host_service_hint,
         "content_path_hint": content_path_hint,
         "content_title_hits": content_title_hits,
+        "header_service_identity_hint": header_service_identity_hint,
+        "single_query_service_ok": single_query_service_ok,
         "search_intent_hits": search_intent_hits,
         "search_provider_hits": sorted(search_provider_hits),
         "distinct_queries": distinct_queries,
@@ -1839,7 +1877,11 @@ def main() -> int:
             h.domain,
         ),
     )
-    hits = (priority_hits + search_hits)[:MAX_CANDIDATES]
+    # Always validate the small, curated seed set even when it is already in
+    # blocklist.txt. They are not re-added; validation is for report accuracy
+    # and catches stale/incorrect seed metadata without touching the list.
+    seed_hits = list(seeds.values())
+    hits = seed_hits + (priority_hits + search_hits)[:MAX_CANDIDATES]
 
     already_known_candidates = sum(
         1 for h in candidate_map.values() if h.domain in known_domains
@@ -1865,6 +1907,26 @@ def main() -> int:
             time.sleep(VALIDATION_DELAY)
 
     evaluations.sort(key=lambda e: (-e.accepted, -e.score, e.domain))
+
+    seed_keys = set(seeds)
+    seed_evaluations = {
+        (e.platform, e.domain): e
+        for e in evaluations
+        if (e.platform, e.domain) in seed_keys
+    }
+    seed_report = []
+    for platform, domain in verified_seed_domains:
+        evaluation = seed_evaluations.get((platform, domain))
+        seed_report.append({
+            "platform": platform,
+            "domain": domain,
+            "known": domain in known_domains,
+            "in_blocklist": domain in existing,
+            "in_discovery_history": domain in historical,
+            "verified_seed": True,
+            "validation_accepted": bool(evaluation and evaluation.accepted),
+            "validation_reason": evaluation.reason if evaluation else "not validated",
+        })
 
     accepted_by_domain: dict[str, Evaluation] = {}
     for evaluation in evaluations:
@@ -1897,14 +1959,9 @@ def main() -> int:
                     "trusted_candidate_count": trusted_candidate_count,
                     "trusted_source_names": trusted_source_names,
                     "verified_web_seed_count": seed_candidate_count,
-                    "verified_seed_domains": [
-                        {"platform": platform, "domain": domain, "known": domain in known_domains}
-                        for platform, domain in verified_seed_domains
-                    ],
+                    "verified_seed_domains": seed_report,
                     "github_discovered_candidate_count": github_candidate_count,
                     "search_backend": SEARCH_BACKEND,
-        "discovery_mode": DISCOVERY_MODE,
-        "active_search_languages": list(active_search_languages()),
                     "discovery_mode": DISCOVERY_MODE,
                     "active_search_languages": list(active_search_languages()),
                     "search_backends": list(SEARCH_BACKENDS),
@@ -1971,15 +2028,12 @@ def main() -> int:
             if evaluation.reason == "candidate validation crashed safely"
         ),
         "verified_web_seed_count": seed_candidate_count,
-        "verified_seed_domains": [
-            {"platform": platform, "domain": domain, "known": domain in known_domains}
-            for platform, domain in verified_seed_domains
-        ],
+        "verified_seed_domains": seed_report,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
         "search_strategy": "maintained registries + GitHub + rotated search + sequential backend fallback + parallel validation",
         "trusted_source_names": trusted_source_names,
-        "candidates_discovered": len(hits),
+        "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),
         "accepted_count": len(accepted),
         "newly_accepted_count": len(accepted),
@@ -1994,6 +2048,10 @@ def main() -> int:
         "rejected_sample": [
             asdict(e) for e in evaluations if not e.accepted
         ][:120],
+        "rejection_reason_counts": {
+            reason: sum(1 for e in evaluations if not e.accepted and e.reason == reason)
+            for reason in sorted({e.reason for e in evaluations if not e.accepted})
+        },
     }
     REPORT.write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n",

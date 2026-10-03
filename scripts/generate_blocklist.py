@@ -75,7 +75,7 @@ NOISE_HOSTS = {
 
 DOMAIN_RE = re.compile(r"^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$", re.I)
 URL_RE = re.compile(r"(?i)(?:https?://|//)[^\s<>'\"\]\[)]+")
-ADGUARD_RULE_RE = re.compile(r"^\|\|([^\^/\\s]+)\^", re.IGNORECASE)
+ADGUARD_RULE_RE = re.compile(r"^\|\|([^\^/\s]+)\^", re.IGNORECASE)
 
 def fetch(url: str) -> str:
     req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})

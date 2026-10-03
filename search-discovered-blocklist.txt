@@ -114,6 +114,7 @@
 ||www.tumviews.com^
 ||www.tweetbinder.com^
 ||www.tweeteraser.com^
+||www.twitter-viewer.com^
 ||www.twitterviewer.io^
 ||www.webshare.io^
 ||xapis.dev^

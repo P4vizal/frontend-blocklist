@@ -663,9 +663,6 @@ def read_pending_verification() -> list[dict]:
             next_retry_epoch = max(0.0, float(item.get("next_retry_epoch", 0) or 0))
         except (TypeError, ValueError):
             next_retry_epoch = 0.0
-        if next_retry_epoch and next_retry_epoch > time.time():
-            continue
-
         out.append({
             "domain": domain,
             "platform": platform,
@@ -703,7 +700,11 @@ def read_pending_verification() -> list[dict]:
 
 def pending_hits_from_report(entries: list[dict]) -> dict[tuple[str, str], SearchHit]:
     found: dict[tuple[str, str], SearchHit] = {}
+    now_epoch = time.time()
     for item in entries:
+        next_retry_epoch = float(item.get("next_retry_epoch", 0) or 0)
+        if next_retry_epoch and next_retry_epoch > now_epoch:
+            continue
         hit = SearchHit(
             item["domain"],
             item["platform"],

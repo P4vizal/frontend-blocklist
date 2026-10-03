@@ -5,7 +5,6 @@ import concurrent.futures
 import html
 import ipaddress
 import json
-import os
 import re
 import sys
 import time
@@ -382,7 +381,29 @@ def build_queries() -> list[tuple[str, str, str]]:
     return queries
 
 
-def search_searxng(base: str, query: str, language: str) -> list[str]:
+class SearxHtmlParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.result_depth = 0
+        self.hrefs: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attrs_map = dict(attrs)
+        classes = set((attrs_map.get("class") or "").split())
+        if tag.lower() == "article" and "result" in classes:
+            self.result_depth += 1
+            return
+        if self.result_depth and tag.lower() == "a":
+            href = attrs_map.get("href")
+            if href:
+                self.hrefs.append(href)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "article" and self.result_depth:
+            self.result_depth -= 1
+
+
+def search_searxng_json(base: str, query: str, language: str) -> list[str]:
     params = {
         "q": query,
         "format": "json",
@@ -416,8 +437,59 @@ def search_searxng(base: str, query: str, language: str) -> list[str]:
             urls.append(target)
     urls = list(dict.fromkeys(urls))
     if not urls:
-        raise RuntimeError("SearXNG returned no external results")
+        raise RuntimeError("SearXNG JSON returned no external results")
     return urls
+
+
+def search_searxng_html(base: str, query: str, language: str) -> list[str]:
+    params = {
+        "q": query,
+        "language": language,
+        "safesearch": "1",
+        "categories": "general",
+    }
+    url = base.rstrip("/") + "/search?" + "&".join(
+        f"{quote_plus(k)}={quote_plus(v)}" for k, v in params.items()
+    )
+    req = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": f"{language},en;q=0.7",
+            "Connection": "close",
+        },
+    )
+    with urlopen(req, timeout=SEARX_REQUEST_TIMEOUT) as response:
+        raw = response.read(MAX_PAGE_BYTES)
+        charset = response.headers.get_content_charset() or "utf-8"
+        text = raw.decode(charset, errors="replace")
+
+    parser = SearxHtmlParser()
+    parser.feed(text)
+    urls: list[str] = []
+    for href in parser.hrefs:
+        if href.startswith("//"):
+            href = "https:" + href
+        if href.startswith(("http://", "https://")) and normalize_host(href):
+            urls.append(href)
+    urls = list(dict.fromkeys(urls))
+    if not urls:
+        raise RuntimeError("SearXNG HTML returned no external results")
+    return urls
+
+
+def search_searxng(base: str, query: str, language: str) -> list[str]:
+    try:
+        return search_searxng_json(base, query, language)
+    except Exception as json_exc:
+        try:
+            return search_searxng_html(base, query, language)
+        except Exception as html_exc:
+            raise RuntimeError(
+                f"SearXNG JSON failed: {type(json_exc).__name__}: {json_exc}; "
+                f"HTML failed: {type(html_exc).__name__}: {html_exc}"
+            ) from html_exc
 
 
 def discover_searxng_instances() -> list[str]:

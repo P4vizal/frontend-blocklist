@@ -7,6 +7,7 @@ on:
     paths:
       - "scripts/discover_search_frontends.py"
       - ".github/workflows/discover-search-frontends.yml"
+      - "tests/test_discover_search_frontends_smoke.py"
   schedule:
     - cron: "41 3 * * *"
 

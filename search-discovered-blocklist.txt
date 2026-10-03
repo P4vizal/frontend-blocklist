@@ -38,6 +38,7 @@
 ||mediascroll.io^
 ||nerdculture.com^
 ||nitter.ca^
+||nitter.cf^
 ||nitter.net^
 ||nitter.space^
 ||nlnet.nl^
@@ -58,6 +59,7 @@
 ||reddit.lol^
 ||redditprofile.com^
 ||redlib.freedit.eu^
+||redlibinstances.com^
 ||redlite.app^
 ||rentry.co^
 ||rola-ip.co^

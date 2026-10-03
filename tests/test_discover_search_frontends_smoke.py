@@ -1,0 +1,287 @@
+import scripts.discover_search_frontends as discovery
+
+candidates = {}
+discovery.merge_search_result(
+    candidates,
+    "twitter",
+    "twitter viewer alternative to nitter",
+    "bing-rss",
+    {
+        "href": "https://example.com/view",
+        "title": "Twitter viewer",
+        "body": "viewer",
+    },
+)
+assert ("twitter", "example.com") in candidates
+assert candidates[("twitter", "example.com")].providers == ["bing-rss"]
+
+noisy = {}
+discovery.merge_search_result(
+    noisy,
+    "twitter",
+    "twitter viewer without login",
+    "bing-rss",
+    {
+        "href": "https://noise.example/restaurant",
+        "title": "Restaurant Milano",
+        "body": "Hotel, restaurant and booking information",
+    },
+)
+assert not noisy
+
+encoded = discovery.sanitize_request_url(
+    "https://example.com/user/Son Goku?q=hello world"
+)
+assert encoded == "https://example.com/user/Son%20Goku?q=hello%20world"
+
+malformed = {}
+discovery.merge_search_result(
+    malformed,
+    "reddit",
+    "reddit viewer without login",
+    "bing-rss",
+    {
+        "href": "https://example.com/user/Son Goku",
+        "title": "Reddit viewer",
+        "body": "Reddit viewer for public posts",
+    },
+)
+assert malformed[("reddit", "example.com")].urls == [
+    "https://example.com/user/Son%20Goku"
+]
+
+queries = discovery.build_queries()
+assert len(queries) == 63, f"Unexpected daily query count: {len(queries)}"
+assert len(set(queries)) == len(queries)
+assert discovery.active_search_languages()
+assert len(discovery.active_search_languages()) == 4
+assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
+fr_pages = discovery.search_pages_for("fr", "twitter viewer")
+assert fr_pages in ((1,), (1, 2))
+parser = discovery.PageParser()
+parser.feed(
+    '<html><head><title>Reddit Viewer</title></head>'
+    '<body><h1>Reddit <span>Viewer</span></h1>'
+    '<div role="textbox" aria-label="Search subreddit"></div>'
+    '<article>post</article></body></html>'
+)
+parsed = parser.result()
+assert "reddit viewer" in parsed["title"].lower()
+assert "reddit viewer" in parsed["headings"].lower()
+assert parsed["inputs"] >= 1
+assert parsed["article_count"] == 1
+
+multilingual = discovery.SearchHit(
+    "example.org", "reddit", ["query"], ["https://example.org/"], [], ["bing-rss"],
+    ["bing-rss:reddit 查看器 用于浏览 subreddit"],
+)
+assert discovery.search_result_has_strong_service_evidence(multilingual)
+assert discovery.search_result_is_relevant(
+    "reddit",
+    "Reddit alternative frontend",
+    "Redlib is a private front-end to Reddit",
+)
+assert discovery.search_result_is_relevant(
+    "reddit",
+    "Reddit viewer without login",
+    "Browse public posts",
+    "https://example-viewer.test/reddit-viewer",
+)
+assert not discovery.pending_candidate_has_strong_signal(
+    discovery.SearchHit(
+        "noise.example",
+        "reddit",
+        ["reddit viewer"],
+        ["https://noise.example/"],
+        [],
+        ["bing-rss"],
+        ["bing-rss:unrelated calculator results"],
+    )
+)
+
+assert not discovery.search_result_is_relevant(
+    "reddit",
+    "reddit profile analyzer",
+    "Reddit profile analyzer and account statistics",
+)
+
+source_text = (
+    "## Reddit\\n"
+    "[Redlib](https://redlib.example/) "
+    "`https://libreddit.example/`"
+)
+extracted = discovery.repository_service_urls(source_text, "reddit")
+assert {"redlib.example", "libreddit.example"} <= extracted
+
+runtime_html = (
+    "<html><head>"
+    "<script src='/static/reddit-viewer.js'></script>"
+    "<script>const framework = 'next.js';</script>"
+    "<link rel='manifest' href='/site.webmanifest'>"
+    "</head><body></body></html>"
+)
+runtime = discovery.runtime_signals_from_html(runtime_html, "reddit")
+assert "reddit" in runtime["platform_hits"]
+assert "viewer" in runtime["service_hits"]
+assert runtime["service_runtime_hint"]
+assert "next.js" in runtime["framework_hits"]
+
+route_page = {
+    "links": [
+        ("/reddit-viewer", "Reddit viewer"),
+        ("/article/how-to-reddit", "How to use Reddit"),
+        ("/profile", "Profile"),
+    ]
+}
+routes = discovery.service_route_candidates(
+    "https://example.com/",
+    route_page,
+    "reddit",
+)
+assert "https://example.com/reddit-viewer" in routes
+assert all("/article/" not in url for url in routes)
+
+strong_hit = discovery.SearchHit(
+    "nitter.example",
+    "twitter",
+    ['"Twitter viewer" "without login"'],
+    ["https://nitter.example/"],
+    [],
+    ["bing-rss"],
+    ["bing-rss:twitter viewer without login"],
+)
+assert discovery.discovery_score(strong_hit) >= 10
+
+timeout_eval = discovery.Evaluation(
+    "nitter.example",
+    "twitter",
+    False,
+    0,
+    1,
+    "https://nitter.example/",
+    {"fetch_error": "TimeoutError: timed out"},
+    "page unavailable",
+)
+assert discovery.classify_pending_status(
+    timeout_eval,
+    strong_hit,
+) == "timeout"
+
+forbidden_eval = discovery.Evaluation(
+    "nitter.example",
+    "twitter",
+    False,
+    0,
+    1,
+    "https://nitter.example/",
+    {"fetch_error": "HTTP Error 403: Forbidden", "status_code": 403},
+    "page unavailable",
+)
+assert discovery.classify_pending_status(
+    forbidden_eval,
+    strong_hit,
+) == "forbidden"
+
+assert discovery.safe_nonnegative_int("broken", 7) == 7
+assert discovery.safe_nonnegative_int("-4") == 0
+assert discovery.pending_next_retry_epoch("temporary_unavailable", 1, 1000) > 1000
+assert discovery.pending_next_retry_epoch("temporary_unavailable", 5, 1000) > 1000
+assert discovery.pending_next_retry_epoch(
+    "temporary_unavailable", 5, 1000
+) <= 1000 + discovery.PENDING_RETRY_MAX_SECONDS
+
+libredirect_sample = {
+    "nitter": {"clearnet": ["https://nitter.example"]},
+    "shitter": {"clearnet": ["https://shitter.example"]},
+    "redlib": {"clearnet": ["https://redlib.example"]},
+    "priviblur": {"clearnet": ["https://priviblur.example"]},
+}
+libredirect_text = __import__("json").dumps(libredirect_sample)
+assert discovery.extract_libredirect(
+    libredirect_text,
+    "twitter",
+) == {"nitter.example", "shitter.example"}
+assert discovery.extract_libredirect(
+    libredirect_text,
+    "reddit",
+) == {"redlib.example"}
+assert discovery.extract_libredirect(
+    libredirect_text,
+    "tumblr",
+) == {"priviblur.example"}
+
+original_fetch_html = discovery.fetch_html
+original_fetch_jina_text = discovery.fetch_jina_text
+
+def fake_fetch_html(url):
+    if "analyzer" in url:
+        return (
+            "<html><head><title>Reddit profile analyzer</title>"
+            "<meta name='description' content='Analyze Reddit users and account statistics'>"
+            "</head><body>"
+            "<h1>Reddit profile analyzer</h1>"
+            "<input placeholder='Username'>"
+            "<button>Analyze</button>"
+            "</body></html>",
+            {"final_url": url},
+        )
+    return (
+        "<html><head><title>Reddit Viewer</title>"
+        "<meta name='description' content='Browse Reddit subreddits and posts without login'>"
+        "</head><body>"
+        "<h1>Reddit Viewer</h1>"
+        "<input placeholder='Search subreddit'>"
+        "<button>View</button>"
+        "</body></html>",
+        {"final_url": url},
+    )
+
+discovery.fetch_html = fake_fetch_html
+discovery.fetch_jina_text = lambda url: (None, {"error": "not needed"})
+try:
+    regression_hit = discovery.SearchHit(
+        "example-viewer.test",
+        "reddit",
+        ["reddit viewer without login"],
+        ["https://example-viewer.test/reddit-viewer"],
+        [],
+        ["bing-rss"],
+        ["bing-rss:reddit viewer without login"],
+    )
+    regression = discovery.safe_evaluate_candidate(regression_hit, set())
+    assert regression.reason != "candidate validation crashed safely", (
+        f"{regression.reason}: {regression.error} | {regression.evidence}"
+    )
+    assert regression.accepted, f"{regression.reason}: {regression.evidence}"
+
+    analyzer_hit = discovery.SearchHit(
+        "example-analyzer.test",
+        "reddit",
+        ["reddit profile analyzer"],
+        ["https://example-analyzer.test/"],
+        [],
+        ["bing-rss"],
+        ["bing-rss:reddit profile analyzer"],
+    )
+    analyzer = discovery.safe_evaluate_candidate(analyzer_hit, set())
+    assert analyzer.reason == "non-frontend service/tool page"
+    assert not analyzer.accepted
+finally:
+    discovery.fetch_html = original_fetch_html
+    discovery.fetch_jina_text = original_fetch_jina_text
+
+seeded = discovery.SearchHit(
+    "example-viewer.test",
+    "reddit",
+    ["SEED:https://example-viewer.test/"],
+    ["https://example-viewer.test/"],
+    ["Web-verified seed 2026-10-03"],
+    [],
+    [],
+)
+assert discovery.pending_candidate_has_strong_signal(seeded)
+assert discovery.search_pages_for(
+    "en", "view Twitter profiles without login"
+) == (1, 2)
+assert discovery.DISCOVERY_MODE == "daily"
+print("Runtime smoke test passed.")

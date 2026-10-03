@@ -33,10 +33,11 @@ MIN_ACCEPTED = 2
 WORKERS = 6
 VALIDATION_DELAY = 0.35
 
-SEARCH_BACKENDS = ["bing", "yandex"]
-SEARCH_MAX_RESULTS = 10
-SEARCH_TIMEOUT = 8
-SEARCH_DELAY = 0.25
+SEARCH_BACKEND = "auto"
+SEARCH_MAX_RESULTS = 15
+SEARCH_PAGES = (1, 2)
+SEARCH_TIMEOUT = 10
+SEARCH_DELAY = 0.15
 WEB_VERIFIED_SEEDS = [
     ("reddit", "https://www.peekstr.com/"),
     ("tumblr", "https://zoomblr.com/"),
@@ -457,15 +458,15 @@ def seed_candidates() -> dict[tuple[str, str], SearchHit]:
     return found
 
 
-def search_with_ddgs(query: str, region: str, backend: str) -> list[dict]:
+def search_with_ddgs(query: str, region: str, page: int) -> list[dict]:
     searcher = DDGS(timeout=SEARCH_TIMEOUT, verify=True)
     results = searcher.text(
         query,
         region=region,
         safesearch="moderate",
         max_results=SEARCH_MAX_RESULTS,
-        page=1,
-        backend=backend,
+        page=page,
+        backend=SEARCH_BACKEND,
     )
     return [r for r in results if isinstance(r, dict)]
 
@@ -1168,12 +1169,11 @@ def main() -> int:
     print(f"GitHub-discovered candidates: {github_candidate_count}")
 
     provider_disabled: set[str] = set()
-    search_errors: list[dict] = []
 
-    # DDGS auto mode internally falls back across the engines available in
-    # the installed release. This is intentionally one call per query: asking
-    # for many named backends separately created hundreds of "No results found"
-    # errors even when one of the providers returned usable results.
+    # DDGS auto mode performs internal fallback across the engines available
+    # in the installed release. Keep discovery simple and let it choose a
+    # currently healthy backend instead of producing hundreds of per-engine
+    # "No results found" messages.
     for index, (lang, platform, query) in enumerate(query_specs, start=1):
         cfg = LANGUAGES[lang]
         region = f"{cfg['gl']}-{cfg['hl'].split('-')[0]}"
@@ -1270,7 +1270,7 @@ def main() -> int:
         return 0
 
     OUTPUT.write_text(
-        "# Generated from maintained frontend registries + GitHub + DDGS multi-engine search + page validation.\n"
+        "# Generated from maintained frontend registries + GitHub + DDGS auto metasearch + page validation.\n"
         "# Only newly discovered domains are included; domains already in blocklist.txt are omitted.\n"
         + "\n".join(f"||{e.domain}^" for e in accepted)
         + "\n",

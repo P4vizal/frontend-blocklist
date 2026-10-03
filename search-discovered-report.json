@@ -1,3192 +1,1268 @@
 {
-  "status": "no_update",
-  "accepted": [],
-  "accepted_count": 0,
-  "trusted_candidate_count": 0,
-  "trusted_source_names": [],
-  "candidates": [
+  "generated": "2026-10-03T11:19:22Z",
+  "search_queries": 30,
+  "google_disabled_during_run": true,
+  "trusted_candidate_count": 55,
+  "searxng_instances_used": 0,
+  "search_strategy": "trusted registries + SearXNG JSON; Google/Bing/DDG HTML scraping disabled",
+  "trusted_source_names": [
+    "Alternative frontends 1",
+    "Alternative frontends 3",
+    "Alternative frontends 4",
+    "Farside",
+    "Libreddit",
+    "Redlib"
+  ],
+  "candidates_discovered": 55,
+  "validated_candidates": 55,
+  "accepted_count": 27,
+  "already_covered_count": 17,
+  "search_errors": [
     {
-      "domain": "mashable.com",
+      "language": "en",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"viewer\" OR \"frontend\" OR \"mirror\" OR \"proxy\" OR \"alternative frontend\" OR \"instance\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "en",
       "platform": "reddit",
-      "accepted": false,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "https://mashable.com",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"viewer\" OR \"frontend\" OR \"mirror\" OR \"proxy\" OR \"alternative frontend\" OR \"instance\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "en",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"viewer\" OR \"frontend\" OR \"mirror\" OR \"proxy\" OR \"alternative frontend\" OR \"instance\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "es",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"visor\" OR \"visualizador\" OR \"interfaz alternativa\" OR \"espejo\" OR \"proxy\" OR \"frontend\" OR \"instancia\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"perfil\" OR \"usuario\" OR \"publicación\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "es",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"visor\" OR \"visualizador\" OR \"interfaz alternativa\" OR \"espejo\" OR \"proxy\" OR \"frontend\" OR \"instancia\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"perfil\" OR \"usuario\" OR \"publicación\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "es",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"visor\" OR \"visualizador\" OR \"interfaz alternativa\" OR \"espejo\" OR \"proxy\" OR \"frontend\" OR \"instancia\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"perfil\" OR \"usuario\" OR \"publicación\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "fr",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"visionneuse\" OR \"interface alternative\" OR \"miroir\" OR \"proxy\" OR \"frontend\" OR \"instance\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"profil\" OR \"utilisateur\" OR \"publication\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "fr",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"visionneuse\" OR \"interface alternative\" OR \"miroir\" OR \"proxy\" OR \"frontend\" OR \"instance\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"profil\" OR \"utilisateur\" OR \"publication\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "fr",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"visionneuse\" OR \"interface alternative\" OR \"miroir\" OR \"proxy\" OR \"frontend\" OR \"instance\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"profil\" OR \"utilisateur\" OR \"publication\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "de",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"betrachter\" OR \"alternative oberfläche\" OR \"spiegel\" OR \"proxy\" OR \"frontend\" OR \"instanz\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"profil\" OR \"benutzer\" OR \"beitrag\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "de",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"betrachter\" OR \"alternative oberfläche\" OR \"spiegel\" OR \"proxy\" OR \"frontend\" OR \"instanz\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"profil\" OR \"benutzer\" OR \"beitrag\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "de",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"betrachter\" OR \"alternative oberfläche\" OR \"spiegel\" OR \"proxy\" OR \"frontend\" OR \"instanz\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"profil\" OR \"benutzer\" OR \"beitrag\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ru",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"просмотрщик\" OR \"альтернативный интерфейс\" OR \"зеркало\" OR \"прокси\" OR \"frontend\" OR \"экземпляр\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"профиль\" OR \"пользователь\" OR \"публикация\" OR \"пост\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ru",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"просмотрщик\" OR \"альтернативный интерфейс\" OR \"зеркало\" OR \"прокси\" OR \"frontend\" OR \"экземпляр\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"профиль\" OR \"пользователь\" OR \"публикация\" OR \"пост\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ru",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"просмотрщик\" OR \"альтернативный интерфейс\" OR \"зеркало\" OR \"прокси\" OR \"frontend\" OR \"экземпляр\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"профиль\" OR \"пользователь\" OR \"публикация\" OR \"пост\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "zh",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"查看器\" OR \"替代前端\" OR \"镜像\" OR \"代理\" OR \"前端\" OR \"实例\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"个人资料\" OR \"用户\" OR \"帖子\" OR \"博文\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "zh",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"查看器\" OR \"替代前端\" OR \"镜像\" OR \"代理\" OR \"前端\" OR \"实例\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"个人资料\" OR \"用户\" OR \"帖子\" OR \"博文\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "zh",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"查看器\" OR \"替代前端\" OR \"镜像\" OR \"代理\" OR \"前端\" OR \"实例\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"个人资料\" OR \"用户\" OR \"帖子\" OR \"博文\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ja",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"ビューア\" OR \"代替フロントエンド\" OR \"ミラー\" OR \"プロキシ\" OR \"フロントエンド\" OR \"インスタンス\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"プロフィール\" OR \"ユーザー\" OR \"投稿\" OR \"ポスト\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ja",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"ビューア\" OR \"代替フロントエンド\" OR \"ミラー\" OR \"プロキシ\" OR \"フロントエンド\" OR \"インスタンス\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"プロフィール\" OR \"ユーザー\" OR \"投稿\" OR \"ポスト\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ja",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"ビューア\" OR \"代替フロントエンド\" OR \"ミラー\" OR \"プロキシ\" OR \"フロントエンド\" OR \"インスタンス\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"プロフィール\" OR \"ユーザー\" OR \"投稿\" OR \"ポスト\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ko",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"뷰어\" OR \"대체 프론트엔드\" OR \"미러\" OR \"프록시\" OR \"프론트엔드\" OR \"인스턴스\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"프로필\" OR \"사용자\" OR \"게시물\" OR \"포스트\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ko",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"뷰어\" OR \"대체 프론트엔드\" OR \"미러\" OR \"프록시\" OR \"프론트엔드\" OR \"인스턴스\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"프로필\" OR \"사용자\" OR \"게시물\" OR \"포스트\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ko",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"뷰어\" OR \"대체 프론트엔드\" OR \"미러\" OR \"프록시\" OR \"프론트엔드\" OR \"인스턴스\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"프로필\" OR \"사용자\" OR \"게시물\" OR \"포스트\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "hi",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"व्यूअर\" OR \"वैकल्पिक फ्रंटएंड\" OR \"मिरर\" OR \"प्रॉक्सी\" OR \"फ्रंटएंड\" OR \"इंस्टेंस\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"प्रोफ़ाइल\" OR \"उपयोगकर्ता\" OR \"पोस्ट\" OR \"प्रकाशन\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "hi",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"व्यूअर\" OR \"वैकल्पिक फ्रंटएंड\" OR \"मिरर\" OR \"प्रॉक्सी\" OR \"फ्रंटएंड\" OR \"इंस्टेंस\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"प्रोफ़ाइल\" OR \"उपयोगकर्ता\" OR \"पोस्ट\" OR \"प्रकाशन\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "hi",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"व्यूअर\" OR \"वैकल्पिक फ्रंटएंड\" OR \"मिरर\" OR \"प्रॉक्सी\" OR \"फ्रंटएंड\" OR \"इंस्टेंस\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"प्रोफ़ाइल\" OR \"उपयोगकर्ता\" OR \"पोस्ट\" OR \"प्रकाशन\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ar",
+      "platform": "twitter",
+      "query": "(\"twitter\" OR \"nitter\" OR \"xcancel\" OR \"twiiit\") (\"عارض\" OR \"واجهة بديلة\" OR \"مرآة\" OR \"وكيل\" OR \"واجهة أمامية\" OR \"مثيل\") (\"tweet\" OR \"tweets\" OR \"user\" OR \"profile\" OR \"post\" OR \"ملف شخصي\" OR \"مستخدم\" OR \"منشور\" OR \"مشاركة\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ar",
+      "platform": "reddit",
+      "query": "(\"reddit\" OR \"redlib\" OR \"libreddit\" OR \"teddit\" OR \"eddrit\" OR \"troddit\" OR \"kddit\") (\"عارض\" OR \"واجهة بديلة\" OR \"مرآة\" OR \"وكيل\" OR \"واجهة أمامية\" OR \"مثيل\") (\"subreddit\" OR \"subreddits\" OR \"comment\" OR \"comments\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"ملف شخصي\" OR \"مستخدم\" OR \"منشور\" OR \"مشاركة\")",
+      "error": "no live SearXNG instances"
+    },
+    {
+      "language": "ar",
+      "platform": "tumblr",
+      "query": "(\"tumblr\" OR \"priviblur\") (\"عارض\" OR \"واجهة بديلة\" OR \"مرآة\" OR \"وكيل\" OR \"واجهة أمامية\" OR \"مثيل\") (\"blog\" OR \"blogs\" OR \"post\" OR \"posts\" OR \"user\" OR \"profile\" OR \"ملف شخصي\" OR \"مستخدم\" OR \"منشور\" OR \"مشاركة\")",
+      "error": "no live SearXNG instances"
+    }
+  ],
+  "accepted": [
+    {
+      "domain": "teddit.net",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 20,
+      "query_count": 4,
+      "final_url": "https://teddit.net/",
       "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [
-          "mirror"
+        "trusted_sources": [
+          "Farside",
+          "Alternative frontends 1",
+          "Alternative frontends 3",
+          "Alternative frontends 4"
         ],
-        "identity_hits": [
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [
-          "mirror"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://mashable.com"
-        ]
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1010)>"
       },
-      "reason": "platform=-; brands=-; service=mirror; identity=user,profile; queries=1; score=10",
+      "reason": "trusted instance registry; live page unavailable",
       "error": ""
     },
     {
-      "domain": "redditinc.com",
+      "domain": "nitter.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 18,
+      "query_count": 3,
+      "final_url": "https://nitter.net/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside",
+          "Alternative frontends 1",
+          "Alternative frontends 4"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "troddit.com",
       "platform": "reddit",
-      "accepted": false,
-      "score": 10,
-      "query_count": 7,
-      "final_url": "https://redditinc.com",
+      "accepted": true,
+      "score": 15,
+      "query_count": 1,
+      "final_url": "https://www.troddit.com/",
       "evidence": {
         "core_hits": [
-          "reddit"
+          "reddit",
+          "troddit"
         ],
         "platform_hits": [
           "reddit"
         ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
+        "brand_hits": [
+          "troddit"
+        ],
+        "header_brand_hits": [
+          "troddit"
+        ],
+        "trusted_sources": [
+          "Alternative frontends 1"
+        ],
         "service_hits": [],
         "identity_hits": [
-          "subreddit",
           "subreddits",
           "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "usuario",
-          "publication",
-          "пользователь",
-          "用户",
-          "उपयोगकर्ता",
-          "مستخدم",
-          "منشور"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "usuario",
-          "publication",
-          "пользователь",
-          "用户",
-          "उपयोगकर्ता",
-          "مستخدم",
-          "منشور"
-        ],
-        "forms": 3,
-        "app_path_hits": [
-          "/tag",
-          "/user"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://redditinc.com",
-          "https://redditinc.com/"
-        ]
-      },
-      "reason": "platform=reddit; brands=-; service=-; identity=subreddit,subreddits,comment,comments,post,posts; queries=7; score=10",
-      "error": ""
-    },
-    {
-      "domain": "zhidao.baidu.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "https://zhidao.baidu.com/question/502380362795976404.html",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [
-          "代理"
-        ],
-        "identity_hits": [
-          "profile",
-          "用户"
-        ],
-        "body_service_hits": [
-          "代理"
-        ],
-        "body_identity_hits": [
-          "用户"
-        ],
-        "forms": 1,
-        "app_path_hits": [
-          "/profile",
-          "/search",
-          "/user"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://zhidao.baidu.com/question/502380362795976404.html",
-          "https://zhidao.baidu.com/question/1742082275621941227.html",
-          "https://zhidao.baidu.com/question/186142390073063684.html",
-          "https://zhidao.baidu.com/question/697204538815555884.html",
-          "https://zhidao.baidu.com/question/1763622452169187788.html",
-          "https://zhidao.baidu.com/question/658863562058041965.html",
-          "https://zhidao.baidu.com/question/1057435389396982139.html",
-          "https://zhidao.baidu.com/question/1553740034266308747.html",
-          "https://zhidao.baidu.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=代理; identity=profile,用户; queries=1; score=10",
-      "error": ""
-    },
-    {
-      "domain": "solvecalc.net",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://solvecalc.net",
-      "evidence": {
-        "core_hits": [
-          "twitter"
-        ],
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [
-          "mirror"
-        ],
-        "identity_hits": [
-          "tweet"
-        ],
-        "body_service_hits": [
-          "mirror"
-        ],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [
-          "/blog"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://solvecalc.net"
-        ]
-      },
-      "reason": "platform=twitter,x; brands=-; service=mirror; identity=tweet; queries=1; score=8",
-      "error": ""
-    },
-    {
-      "domain": "www.36kr.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://www.36kr.com/p/1722357481473",
-      "evidence": {
-        "core_hits": [
-          "reddit"
-        ],
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "subreddit",
-          "user",
-          "用户",
-          "帖子"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "subreddit",
-          "用户",
-          "帖子"
-        ],
-        "forms": 0,
-        "app_path_hits": [
-          "/tag",
-          "/tags",
-          "/user"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://www.36kr.com/p/1722357481473",
-          "https://www.36kr.com"
-        ]
-      },
-      "reason": "platform=reddit; brands=-; service=-; identity=subreddit,user,用户,帖子; queries=1; score=8",
-      "error": ""
-    },
-    {
-      "domain": "www.lemonde.fr",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://www.lemonde.fr/en/",
-      "evidence": {
-        "core_hits": [
-          "reddit"
-        ],
-        "platform_hits": [
-          "reddit"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "profile"
-        ],
-        "forms": 7,
-        "app_path_hits": [
-          "/search"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://www.lemonde.fr"
-        ]
-      },
-      "reason": "platform=reddit; brands=-; service=-; identity=user,profile; queries=1; score=8",
-      "error": ""
-    },
-    {
-      "domain": "www.techspot.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 8,
-      "query_count": 2,
-      "final_url": "https://www.techspot.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "comments",
-          "posts",
-          "profile"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "comments",
-          "posts"
-        ],
-        "forms": 3,
-        "app_path_hits": [
-          "/post",
-          "/posts",
-          "/tag"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.techspot.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=comments,posts,profile; queries=2; score=8",
-      "error": ""
-    },
-    {
-      "domain": "boutique.louvre.fr",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://boutique.louvre.fr/en/",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 5,
-        "app_path_hits": [
-          "/profile",
-          "/user",
-          "/view"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://boutique.louvre.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=user,profile; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "business.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://business.amazon.co.jp",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "blog",
-          "ユーザー"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "ユーザー"
-        ],
-        "forms": 10,
-        "app_path_hits": [
-          "/blog"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://business.amazon.co.jp"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=blog,ユーザー; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "gderabota.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://gderabota.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "profile",
-          "пользователь",
-          "пост"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "пользователь",
-          "пост"
-        ],
-        "forms": 2,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://gderabota.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=profile,пользователь,пост; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "hh.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://hh.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "пользователь",
-          "публикация"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "пользователь"
-        ],
-        "forms": 6,
-        "app_path_hits": [
-          "/blog",
-          "/search"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://hh.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=пользователь,публикация; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "icrcat.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://icrcat.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "blog",
-          "publicación"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "blog",
-          "publicación"
-        ],
-        "forms": 3,
-        "app_path_hits": [
-          "/blog"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://icrcat.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=blog,publicación; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "note.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://note.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "ユーザー",
-          "投稿"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [
-          "/tag"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://note.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=ユーザー,投稿; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "ru.wikihow.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://ru.wikihow.com/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "user",
-          "пользователь"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "пользователь"
-        ],
-        "forms": 3,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://ru.wikihow.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=user,пользователь; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "techtrendforge.ru",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://techtrendforge.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "profile",
-          "профиль",
-          "пользователь",
-          "пост"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "profile",
-          "профиль",
-          "пользователь",
-          "пост"
-        ],
-        "forms": 3,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://techtrendforge.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=profile,профиль,пользователь,пост; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "web2.0calc.es",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://web2.0calc.es",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [
-          "x"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "usuario"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "usuario"
-        ],
-        "forms": 5,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://web2.0calc.es"
-        ]
-      },
-      "reason": "platform=x; brands=-; service=-; identity=usuario; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.blogdumoderateur.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.blogdumoderateur.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "comment",
-          "profile",
-          "profil"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "profil"
-        ],
-        "forms": 14,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.blogdumoderateur.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=comment,profile,profil; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.choge-blog.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.choge-blog.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "profile",
-          "ユーザー"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "ユーザー"
-        ],
-        "forms": 3,
-        "app_path_hits": [
-          "/post",
-          "/tag"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.choge-blog.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=profile,ユーザー; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.clubic.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.clubic.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "comment",
-          "comments",
-          "user"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "comment"
-        ],
-        "forms": 11,
-        "app_path_hits": [
-          "/search"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://www.clubic.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=comment,comments,user; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.gulfjobs.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.gulfjobs.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "post",
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "post",
-          "user",
-          "profile"
-        ],
-        "forms": 3,
-        "app_path_hits": [
-          "/blog",
-          "/post"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://www.gulfjobs.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=post,user,profile; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.joursouvrables.fr",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.joursouvrables.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "utilisateur",
-          "publication"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "utilisateur",
-          "publication"
-        ],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.joursouvrables.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=utilisateur,publication; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.linkedin.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.linkedin.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile"
-        ],
-        "forms": 6,
-        "app_path_hits": [
-          "/post",
-          "/posts",
-          "/search",
-          "/user"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://www.linkedin.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=comment,comments,post,posts,user,profile; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.linkedin.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.linkedin.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "blog",
-          "post",
-          "posts",
-          "user"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "blog",
-          "post",
-          "posts",
-          "user"
-        ],
-        "forms": 11,
-        "app_path_hits": [
-          "/post",
-          "/posts",
-          "/search",
-          "/user",
-          "/view"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://www.linkedin.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=blog,post,posts,user; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.paginasamarillas.es",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.paginasamarillas.es",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "profile",
-          "usuario"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "usuario"
-        ],
-        "forms": 2,
-        "app_path_hits": [
-          "/r/"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.paginasamarillas.es"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=profile,usuario; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "www.rabota.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://www.rabota.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "post",
-          "профиль"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "профиль"
-        ],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.rabota.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=post,профиль; queries=1; score=6",
-      "error": ""
-    },
-    {
-      "domain": "apps.apple.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 2,
-      "final_url": "https://apps.apple.com/us/iphone/today",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://apps.apple.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=2; score=4",
-      "error": ""
-    },
-    {
-      "domain": "ashcables.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://ashcables.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "profile"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "profile"
-        ],
-        "forms": 8,
-        "app_path_hits": [
-          "/search"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://ashcables.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=profile; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "calculator.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://calculator.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [
-          "x"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://calculator.com"
-        ]
-      },
-      "reason": "platform=x; brands=-; service=-; identity=-; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "calculator.free",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://calculator.free",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [
-          "x"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://calculator.free"
-        ]
-      },
-      "reason": "platform=x; brands=-; service=-; identity=-; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "e24diari.es",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://e24diari.es",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "usuario"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "usuario"
-        ],
-        "forms": 4,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://e24diari.es"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=usuario; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "forum.wordreference.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://forum.wordreference.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
           "post"
         ],
         "body_service_hits": [],
         "body_identity_hits": [],
-        "forms": 7,
+        "forms": 0,
         "app_path_hits": [
-          "/post",
-          "/posts",
-          "/search",
-          "/tag",
-          "/tags"
+          "/r/",
+          "/subreddit"
         ],
-        "ui_signal": true,
-        "crawled_pages": 2,
-        "query_urls": [
-          "https://forum.wordreference.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=post; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "presse.louvre.fr",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://presse.louvre.fr/en/?lang=en",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "user"
-        ],
-        "forms": 2,
-        "app_path_hits": [],
         "ui_signal": true,
         "crawled_pages": 1,
         "query_urls": [
-          "https://presse.louvre.fr"
-        ]
+          "https://troddit.com/"
+        ],
+        "direct_trusted": false
       },
-      "reason": "platform=-; brands=-; service=-; identity=user; queries=1; score=4",
+      "reason": "platform=reddit; brands=troddit; service=-; identity=subreddits,comment,post; queries=1; score=15",
       "error": ""
     },
     {
-      "domain": "remontka.com",
+      "domain": "www.troddit.com",
       "platform": "reddit",
-      "accepted": false,
-      "score": 4,
+      "accepted": true,
+      "score": 15,
       "query_count": 1,
-      "final_url": "https://remontka.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "пост"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "пост"
-        ],
-        "forms": 2,
-        "app_path_hits": [
-          "/post"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://remontka.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=пост; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "s.bingparachute.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 2,
-      "final_url": "https://s.bingparachute.com/search?q='",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 3,
-        "app_path_hits": [
-          "/search"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 3,
-        "query_urls": [
-          "https://s.bingparachute.com/search?q='",
-          "https://s.bingparachute.com/?&mkt=global';"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=2; score=4",
-      "error": ""
-    },
-    {
-      "domain": "s.bingparachute.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://s.bingparachute.com/search?q='",
+      "final_url": "https://www.troddit.com/",
       "evidence": {
         "core_hits": [
-          "twitter"
+          "reddit",
+          "troddit"
         ],
         "platform_hits": [
-          "twitter"
+          "reddit"
         ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
+        "brand_hits": [
+          "troddit"
+        ],
+        "header_brand_hits": [
+          "troddit"
+        ],
+        "trusted_sources": [
+          "Alternative frontends 4"
+        ],
         "service_hits": [],
-        "identity_hits": [],
+        "identity_hits": [
+          "subreddits",
+          "comment",
+          "post"
+        ],
         "body_service_hits": [],
         "body_identity_hits": [],
-        "forms": 3,
+        "forms": 0,
         "app_path_hits": [
-          "/search"
+          "/r/",
+          "/subreddit"
         ],
         "ui_signal": true,
-        "crawled_pages": 3,
+        "crawled_pages": 1,
         "query_urls": [
-          "https://s.bingparachute.com/search?q='",
-          "https://s.bingparachute.com/?&mkt=global';"
-        ]
+          "https://www.troddit.com/"
+        ],
+        "direct_trusted": false
       },
-      "reason": "platform=twitter; brands=-; service=-; identity=-; queries=1; score=4",
+      "reason": "platform=reddit; brands=troddit; service=-; identity=subreddits,comment,post; queries=1; score=15",
       "error": ""
     },
     {
-      "domain": "support.microsoft.com",
+      "domain": "i.opnxng.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://i.opnxng.com/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "RemoteDisconnected: Remote end closed connection without response"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "lightbrd.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://lightbrd.com/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "nitter.space",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://nitter.space/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "rdt.trom.tf",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://rdt.trom.tf/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "reddit.lol",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://reddit.lol/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "snoo.ioens.is",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://snoo.ioens.is/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "td.vern.cc",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://td.vern.cc/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'td.vern.cc'. (_ssl.c:1010)>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.adminforge.de",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.adminforge.de/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'teddit.adminforge.de'. (_ssl.c:1010)>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.bus-hit.me",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.bus-hit.me/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.froth.zone",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.froth.zone/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "HTTPError: HTTP Error 410: Gone"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.garudalinux.org",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.garudalinux.org/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.ggc-project.de",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.ggc-project.de/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.hostux.net",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.hostux.net/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.httpjames.space",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.httpjames.space/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.laserdisc.tokyo",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.laserdisc.tokyo/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error timed out>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.projectsegfau.lt",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.projectsegfau.lt/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "non-html content-type: text/plain; charset=utf-8"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.pussthecat.org",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.pussthecat.org/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'teddit.pussthecat.org'. (_ssl.c:1010)>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.rawbit.ninja",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.rawbit.ninja/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "HTTPError: HTTP Error 526: <none>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.sethforprivacy.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.sethforprivacy.com/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.tinfoil-hat.net",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.tinfoil-hat.net/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.tokhmi.xyz",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.tokhmi.xyz/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.xbdm.fun",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.xbdm.fun/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "teddit.zaggy.nl",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://teddit.zaggy.nl/",
+      "evidence": {
+        "trusted_sources": [
+          "Farside"
+        ],
+        "source_validated": true,
+        "live_page_fetch": false,
+        "fetch_error": "URLError: <urlopen error [SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1010)>"
+      },
+      "reason": "trusted instance registry; live page unavailable",
+      "error": ""
+    }
+  ],
+  "rejected_sample": [
+    {
+      "domain": "nextjs.org",
       "platform": "reddit",
       "accepted": false,
-      "score": 4,
+      "score": 14,
       "query_count": 1,
-      "final_url": "https://support.microsoft.com/en-us/",
+      "final_url": "https://nextjs.org/",
       "evidence": {
         "core_hits": [],
         "platform_hits": [],
         "brand_hits": [],
         "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 1"
+        ],
+        "service_hits": [
+          "frontend",
+          "proxy"
+        ],
         "identity_hits": [
+          "post",
+          "user",
           "profile"
         ],
-        "body_service_hits": [],
+        "body_service_hits": [
+          "frontend",
+          "proxy"
+        ],
         "body_identity_hits": [
-          "profile"
-        ],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://support.microsoft.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=profile; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.asu.edu.om",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.asu.edu.om",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "publication"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "publication"
-        ],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.asu.edu.om"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=publication; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.calculator.net",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.calculator.net",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [
-          "x"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.calculator.net"
-        ]
-      },
-      "reason": "platform=x; brands=-; service=-; identity=-; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.edarabia.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.edarabia.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "posts"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "posts"
-        ],
-        "forms": 3,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.edarabia.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=posts; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.franceinfo.fr",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.franceinfo.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "tweets"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.franceinfo.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=tweets; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.louvre.fr",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.louvre.fr/en",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
+          "post",
           "user"
         ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.louvre.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=user; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.mutuauniversal.net",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.mutuauniversal.net/es/",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "perfil"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "perfil"
-        ],
-        "forms": 2,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.mutuauniversal.net"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=perfil; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "www.twidouga.net",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.twidouga.net",
-      "evidence": {
-        "core_hits": [
-          "twitter"
-        ],
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.twidouga.net"
-        ]
-      },
-      "reason": "platform=twitter,x; brands=-; service=-; identity=-; queries=1; score=4",
-      "error": ""
-    },
-    {
-      "domain": "affiliate.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://affiliate.amazon.co.jp",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://affiliate.amazon.co.jp"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "asharqiyah.com.sa",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://asharqiyah.com.sa",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://asharqiyah.com.sa"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "barcelona.callejero.net",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://barcelona.callejero.net",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://barcelona.callejero.net"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "calendrier-jours-feries.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://calendrier-jours-feries.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://calendrier-jours-feries.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "collections.louvre.fr",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://collections.louvre.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 3,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://collections.louvre.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "dubai.dubizzle.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://dubai.dubizzle.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "user"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "user"
-        ],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://dubai.dubizzle.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=user; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "dxzhgl.miit.gov.cn",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "用户"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "用户"
-        ],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=用户; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "dxzhgl.miit.gov.cn",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "用户"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "用户"
-        ],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=用户; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "dxzhgl.miit.gov.cn",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [
-          "用户"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "用户"
-        ],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://dxzhgl.miit.gov.cn/dxxzsp/xkz/xkzgl/resource/qiyereport.jsp?num=caf04fa4-bd8a-4d9e-80b6-2aa1b86c1509&type=yreport"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=用户; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "help.netflix.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://help.netflix.com/en",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://help.netflix.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "kdp.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://kdp.amazon.co.jp/ja_JP/",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://kdp.amazon.co.jp"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "komputerny-ekspert.ru",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://komputerny-ekspert.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://komputerny-ekspert.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "monitorium.vercel.app",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://monitorium.vercel.app",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://monitorium.vercel.app"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "ncnp.gov.sa",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://ncnp.gov.sa/en",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://ncnp.gov.sa"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "okcalc.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://okcalc.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://okcalc.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "petitlouvre.louvre.fr",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://petitlouvre.louvre.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://petitlouvre.louvre.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "remontka.pro",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://remontka.pro",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 2,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://remontka.pro"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "unilocal.es",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://unilocal.es/index?city=madrid&country=espana",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
+        "forms": 4,
         "app_path_hits": [
-          "/search"
-        ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://unilocal.es"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "winnote.ru",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://winnote.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [
+          "/blog",
           "/tag"
         ],
         "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://winnote.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.amazon.co.jp",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.amazon.co.jp"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.avito.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.avito.ru",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [
-          "/blog"
-        ],
-        "ui_signal": true,
         "crawled_pages": 2,
         "query_urls": [
-          "https://www.avito.ru"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.calculator.io",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.calculator.io",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.calculator.io"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.calendrier-365.fr",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.calendrier-365.fr/calendrier-2026.html",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.calendrier-365.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.calendriergratuit.fr",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.calendriergratuit.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 4,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.calendriergratuit.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.faire-le-pont.fr",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.faire-le-pont.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.faire-le-pont.fr"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.mapsofworld.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.mapsofworld.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [
-          "/post"
+          "https://nextjs.org/"
         ],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.mapsofworld.com"
-        ]
+        "direct_trusted": false
       },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
+      "reason": "platform=-; brands=-; service=frontend,proxy; identity=post,user,profile; queries=1; score=14",
       "error": ""
     },
     {
-      "domain": "www.online-calculator.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.online-calculator.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.online-calculator.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.pchardwarepro.com",
+      "domain": "f-droid.org",
       "platform": "reddit",
       "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.pchardwarepro.com",
+      "score": 10,
+      "query_count": 2,
+      "final_url": "https://f-droid.org/",
       "evidence": {
         "core_hits": [],
         "platform_hits": [],
         "brand_hits": [],
         "header_brand_hits": [],
-        "trusted_sources": [],
+        "trusted_sources": [
+          "Alternative frontends 3",
+          "Alternative frontends 4"
+        ],
         "service_hits": [],
-        "identity_hits": [],
+        "identity_hits": [
+          "user"
+        ],
         "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 1,
-        "app_path_hits": [],
-        "ui_signal": true,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.pchardwarepro.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
-      "error": ""
-    },
-    {
-      "domain": "www.service-public.gouv.fr",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.service-public.gouv.fr",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
+        "body_identity_hits": [
+          "user"
+        ],
         "forms": 2,
         "app_path_hits": [],
         "ui_signal": true,
         "crawled_pages": 1,
         "query_urls": [
-          "https://www.service-public.gouv.fr"
-        ]
+          "https://f-droid.org/"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=-; identity=user; queries=2; score=10",
+      "error": ""
+    },
+    {
+      "domain": "f-droid.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://f-droid.org/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 3"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "user"
+        ],
+        "forms": 2,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://f-droid.org/"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=-; identity=user; queries=1; score=6",
+      "error": ""
+    },
+    {
+      "domain": "fdroid.gitlab.io",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://fdroid.gitlab.io/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 3"
+        ],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://fdroid.gitlab.io/"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "fdroid.gitlab.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://fdroid.gitlab.io/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 3"
+        ],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": true,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://fdroid.gitlab.io/"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "jpf-reddit.netlify.app",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://jpf-reddit.netlify.app/",
+      "evidence": {
+        "core_hits": [
+          "reddit"
+        ],
+        "platform_hits": [
+          "reddit"
+        ],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 4"
+        ],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://jpf-reddit.netlify.app/"
+        ],
+        "direct_trusted": false
+      },
+      "reason": "platform=reddit; brands=-; service=-; identity=-; queries=1; score=4",
+      "error": ""
+    },
+    {
+      "domain": "www.xeddit.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://www.xeddit.com/",
+      "evidence": {
+        "core_hits": [],
+        "platform_hits": [],
+        "brand_hits": [],
+        "header_brand_hits": [],
+        "trusted_sources": [
+          "Alternative frontends 4"
+        ],
+        "service_hits": [],
+        "identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "forms": 0,
+        "app_path_hits": [],
+        "ui_signal": false,
+        "crawled_pages": 1,
+        "query_urls": [
+          "https://www.xeddit.com/"
+        ],
+        "direct_trusted": false
       },
       "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=2",
       "error": ""
     },
     {
-      "domain": "ae.indeed.com",
+      "domain": "git.kalli.st",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://ae.indeed.com",
+      "final_url": "https://git.kalli.st/",
       "evidence": {},
       "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "RemoteDisconnected: Remote end closed connection without response"
     },
     {
-      "domain": "apkpure.com",
+      "domain": "kddit.kalli.st",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://kddit.kalli.st/",
+      "evidence": {},
+      "reason": "",
+      "error": "RemoteDisconnected: Remote end closed connection without response"
+    },
+    {
+      "domain": "nitter.catsarch.com",
       "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://nitter.catsarch.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "nitter.kareem.one",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://nitter.kareem.one/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "nitter.poast.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://nitter.poast.org/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "nitter.tiekoetter.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://nitter.tiekoetter.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "nuku.trabun.org",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://nuku.trabun.org/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "red.artemislena.eu",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://red.artemislena.eu/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.catsarch.com",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 2,
-      "final_url": "https://apkpure.com/cn/x-formerly-twitter/com.twitter.android",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "apkpure.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://apkpure.com/cn/reddit-app/com.reddit.frontpage",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "app.netflix.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://app.netflix.com",
-      "evidence": {},
-      "reason": "candidate validation crashed safely",
-      "error": "IncompleteRead: IncompleteRead(474235 bytes read)"
-    },
-    {
-      "domain": "baike.baidu.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://baike.baidu.com/item/%E7%BA%A2%E8%BF%AA/67081520",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "beian.miit.gov.cn",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://beian.miit.gov.cn",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 521: "
-    },
-    {
-      "domain": "beian.miit.gov.cn",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://beian.miit.gov.cn",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 521: "
-    },
-    {
-      "domain": "beian.miit.gov.cn",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://beian.miit.gov.cn",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 521: "
-    },
-    {
-      "domain": "beian.mps.gov.cn",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360",
+      "final_url": "https://redlib.catsarch.com/",
       "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360"
-        ]
+        "already_covered": true
       },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
+      "reason": "already covered by blocklist.txt",
       "error": ""
     },
     {
-      "domain": "beian.mps.gov.cn",
-      "platform": "tumblr",
+      "domain": "redlib.cow.rip",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
-      "query_count": 1,
-      "final_url": "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360",
+      "query_count": 2,
+      "final_url": "https://redlib.cow.rip/",
       "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360"
-        ]
+        "already_covered": true
       },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
+      "reason": "already covered by blocklist.txt",
       "error": ""
     },
     {
-      "domain": "beian.mps.gov.cn",
+      "domain": "redlib.nadeko.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://redlib.nadeko.net/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.privacyredirect.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://redlib.privacyredirect.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.privadency.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 2,
+      "final_url": "https://redlib.privadency.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "redlib.r4fo.com",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360",
+      "final_url": "https://redlib.r4fo.com/",
       "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://beian.mps.gov.cn/#/query/webSearch?code=11010802047360"
-        ]
+        "already_covered": true
       },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
+      "reason": "already covered by blocklist.txt",
       "error": ""
     },
     {
-      "domain": "cc.bingj.com",
-      "platform": "twitter",
+      "domain": "safereddit.com",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 3,
-      "final_url": "https://cc.bingj.com/cache.aspx?q=(%22twitter%22+OR+%22nitter%22+OR+%22xcancel%22+OR+%22twiiit%22)+(%22%e6%9f%a5%e7%9c%8b%e5%99%a8%22+OR+%22%e6%9b%bf%e4%bb%a3%e5%89%8d%e7%ab%af%22+OR+%22%e9%95%9c%e5%83%8f%22+OR+%22%e4%bb%a3%e7%90%86%22+OR+%22%e5%89%8d%e7%ab%af%22+OR+%22%e5%ae%9e%e4%be%8b%22)+(%22tweet%22+OR+%22tweets%22+OR+%22user%22+OR+%22profile%22+OR+%22post%22+OR+%22%e4%b8%aa%e4%ba%ba%e8%b5%84%e6%96%99%22+OR+%22%e7%94%a8%e6%88%b7%22+OR+%22%e5%b8%96%e5%ad%90%22+OR+%22%e5%8d%9a%e6%96%87%22)\\u0026d={0}\\u0026mkt=zh-CN\\u0026setlang=zh-CN\\u0026w={1}",
-      "evidence": {},
-      "reason": "",
-      "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
-    },
-    {
-      "domain": "cc.bingj.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://cc.bingj.com/cache.aspx?q=(%22tumblr%22+OR+%22priviblur%22)+(%22viewer%22+OR+%22frontend%22+OR+%22mirror%22+OR+%22proxy%22+OR+%22alternative+frontend%22+OR+%22instance%22)+(%22blog%22+OR+%22blogs%22+OR+%22post%22+OR+%22posts%22+OR+%22user%22+OR+%22profile%22)\\u0026d={0}\\u0026mkt=en-US\\u0026setlang=en-US\\u0026w={1}",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 400: Bad Request"
-    },
-    {
-      "domain": "czn-region.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://czn-region.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "czn.mos.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://czn.mos.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "URLError: <urlopen error timed out>"
-    },
-    {
-      "domain": "dryclean.ru",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://dryclean.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "RemoteDisconnected: Remote end closed connection without response"
-    },
-    {
-      "domain": "gizmodo.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://gizmodo.com",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "go.microsoft.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://help.bing.microsoft.com/#apex/18/en-US/10016/0",
+      "final_url": "https://safereddit.com/",
       "evidence": {
-        "redirect_host": "help.bing.microsoft.com"
+        "already_covered": true
       },
-      "reason": "redirected outside candidate host",
+      "reason": "already covered by blocklist.txt",
       "error": ""
     },
     {
-      "domain": "go.microsoft.com",
+      "domain": "stats.uptimerobot.com",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://help.bing.microsoft.com/#apex/18/en-US/10016/0",
-      "evidence": {
-        "redirect_host": "help.bing.microsoft.com"
-      },
-      "reason": "redirected outside candidate host",
-      "error": ""
-    },
-    {
-      "domain": "go.microsoft.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.microsoft.com/en-us/privacy/privacystatement",
-      "evidence": {
-        "redirect_host": "www.microsoft.com"
-      },
-      "reason": "redirected outside candidate host",
-      "error": ""
-    },
-    {
-      "domain": "jingyan.baidu.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://jingyan.baidu.com/article/f3e34a126af080f5eb6535e3.html",
-      "evidence": {},
-      "reason": "search result points to an article/news page",
-      "error": ""
-    },
-    {
-      "domain": "joblab.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://joblab.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "logistics.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://logistics.amazon.co.jp",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://logistics.amazon.co.jp"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
-      "error": ""
-    },
-    {
-      "domain": "mo.dryclean.ru",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://mo.dryclean.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "RemoteDisconnected: Remote end closed connection without response"
-    },
-    {
-      "domain": "moovitapp.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://moovitapp.com",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://moovitapp.com"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
-      "error": ""
-    },
-    {
-      "domain": "music.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://music.amazon.co.jp",
-      "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://music.amazon.co.jp"
-        ]
-      },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
-      "error": ""
-    },
-    {
-      "domain": "schemas.live.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "http://schemas.live.com/Web/",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 417: Expectation Failed"
-    },
-    {
-      "domain": "schemas.live.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "http://schemas.live.com/Web/",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 417: Expectation Failed"
-    },
-    {
-      "domain": "schemas.live.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "http://schemas.live.com/Web/",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 417: Expectation Failed"
-    },
-    {
-      "domain": "shigoto.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://shigoto.amazon.co.jp",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "shop.dryclean.ru",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://shop.dryclean.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "RemoteDisconnected: Remote end closed connection without response"
-    },
-    {
-      "domain": "staging-bing-int.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://staging-bing-int.com/telemetry?cat='",
-      "evidence": {},
-      "reason": "",
-      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'staging-bing-int.com'. (_ssl.c:1010)>"
-    },
-    {
-      "domain": "staging-bing-int.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://staging-bing-int.com/telemetry?cat='",
-      "evidence": {},
-      "reason": "",
-      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'staging-bing-int.com'. (_ssl.c:1010)>"
-    },
-    {
-      "domain": "storage.live.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "https://storage.live.com/users/0x{0}/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1\\u0026ex=720\\u0026sid=3F5C340AACA867D2057223EDAD8B6623\\u0026fofoff=1",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 400: Bad Request"
-    },
-    {
-      "domain": "storage.live.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "https://storage.live.com/users/0x{0}/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1\\u0026ex=720\\u0026sid=01DAD3B5F5096E9E2770C452F43F6FED\\u0026fofoff=1",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 400: Bad Request"
-    },
-    {
-      "domain": "storage.live.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "https://storage.live.com/users/0x{0}/myprofile/expressionprofile/profilephoto:UserTileStatic/p?ck=1\\u0026ex=720\\u0026sid=2337EEDF105A6AAD268AF93811E76B8A\\u0026fofoff=1",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 400: Bad Request"
-    },
-    {
-      "domain": "support.microsoft.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://support.microsoft.com/topic/82d20721-2d6f-4012-a13d-d1910ccf203f&clcid=0x04",
+      "final_url": "https://stats.uptimerobot.com/",
       "evidence": {},
       "reason": "",
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
-      "domain": "t.bingparachute.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://t.bingparachute.com/telemetry?cat='",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Ip Forbidden"
-    },
-    {
-      "domain": "t.bingparachute.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://t.bingparachute.com/telemetry?cat='",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Ip Forbidden"
-    },
-    {
-      "domain": "trudvsem.ru",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://trudvsem.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 460: "
-    },
-    {
-      "domain": "tula.dryclean.ru",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://tula.dryclean.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "RemoteDisconnected: Remote end closed connection without response"
-    },
-    {
-      "domain": "tver.dryclean.ru",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://tver.dryclean.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "RemoteDisconnected: Remote end closed connection without response"
-    },
-    {
-      "domain": "vacances-scolaires.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://vacances-scolaires.com",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "vladimir.dryclean.ru",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://vladimir.dryclean.ru",
-      "evidence": {},
-      "reason": "",
-      "error": "RemoteDisconnected: Remote end closed connection without response"
-    },
-    {
-      "domain": "www.bayt.com",
+      "domain": "t.sneed.network",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://www.bayt.com",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.britannica.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 3,
-      "final_url": "https://www.britannica.com",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.canva.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.canva.com",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.cdn.amazon.co.jp",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.cdn.amazon.co.jp",
-      "evidence": {},
-      "reason": "",
-      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.cdn.amazon.co.jp'. (_ssl.c:1010)>"
-    },
-    {
-      "domain": "www.cylex.es",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.cylex.es",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.desmos.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.desmos.com",
+      "final_url": "https://t.sneed.network/",
       "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.desmos.com"
-        ]
+        "already_covered": true
       },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
+      "reason": "already covered by blocklist.txt",
       "error": ""
     },
     {
-      "domain": "www.gulftalent.com",
+      "domain": "teddit.domain.glass",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://www.gulftalent.com",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.naukrigulf.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.naukrigulf.com",
-      "evidence": {},
-      "reason": "",
-      "error": "TimeoutError: The read operation timed out"
-    },
-    {
-      "domain": "www.netflix.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.netflix.com",
-      "evidence": {},
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "www.saudiexchange.sa",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.saudiexchange.sa",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.threads.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.threads.com",
+      "final_url": "https://teddit.domain.glass/",
       "evidence": {
-        "core_hits": [],
-        "platform_hits": [],
-        "brand_hits": [],
-        "header_brand_hits": [],
-        "trusted_sources": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "forms": 0,
-        "app_path_hits": [],
-        "ui_signal": false,
-        "crawled_pages": 1,
-        "query_urls": [
-          "https://www.threads.com"
-        ]
+        "already_covered": true
       },
-      "reason": "platform=-; brands=-; service=-; identity=-; queries=1; score=0",
+      "reason": "already covered by blocklist.txt",
       "error": ""
     },
     {
-      "domain": "www.w3.org",
+      "domain": "teddit.no-logs.com",
       "platform": "reddit",
       "accepted": false,
       "score": 0,
-      "query_count": 10,
-      "final_url": "http://www.w3.org/1999/xhtml",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "query_count": 1,
+      "final_url": "https://3233.io/",
+      "evidence": {
+        "redirect_host": "3233.io"
+      },
+      "reason": "redirected outside candidate host",
+      "error": ""
     },
     {
-      "domain": "www.w3.org",
+      "domain": "teddit.privacytools.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://teddit.privacytools.io/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
+      "error": ""
+    },
+    {
+      "domain": "xcancel.com",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
-      "query_count": 10,
-      "final_url": "http://www.w3.org/1999/xhtml",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www.w3.org",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "http://www.w3.org/1999/xhtml",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "domain": "www2.stage.netflix.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
       "query_count": 1,
-      "final_url": "https://www2.stage.netflix.com",
-      "evidence": {},
-      "reason": "challenge/parked page detected",
+      "final_url": "https://xcancel.com/",
+      "evidence": {
+        "already_covered": true
+      },
+      "reason": "already covered by blocklist.txt",
       "error": ""
-    },
-    {
-      "domain": "zhuanlan.zhihu.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://zhuanlan.zhihu.com/p/2049897326093787745",
-      "evidence": {},
-      "reason": "",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
     }
-  ],
-  "search_errors": [],
-  "note": "Publish guard triggered; output list was not replaced."
+  ]
 }

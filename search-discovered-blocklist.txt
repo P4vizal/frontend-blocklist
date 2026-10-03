@@ -1,4 +1,29 @@
-# Generated from Google discovery + page validation.
-# Domains are published only after multi-signal validation.
-# Existing domains from blocklist.txt are omitted.
-# The first successful discovery run will replace this file.
+# Generated from trusted frontend registries + SearXNG discovery + page validation.
+# Only newly discovered domains are included; domains already in blocklist.txt are omitted.
+||teddit.net^
+||nitter.net^
+||troddit.com^
+||www.troddit.com^
+||i.opnxng.com^
+||lightbrd.com^
+||nitter.space^
+||rdt.trom.tf^
+||reddit.lol^
+||snoo.ioens.is^
+||td.vern.cc^
+||teddit.adminforge.de^
+||teddit.bus-hit.me^
+||teddit.froth.zone^
+||teddit.garudalinux.org^
+||teddit.ggc-project.de^
+||teddit.hostux.net^
+||teddit.httpjames.space^
+||teddit.laserdisc.tokyo^
+||teddit.projectsegfau.lt^
+||teddit.pussthecat.org^
+||teddit.rawbit.ninja^
+||teddit.sethforprivacy.com^
+||teddit.tinfoil-hat.net^
+||teddit.tokhmi.xyz^
+||teddit.xbdm.fun^
+||teddit.zaggy.nl^

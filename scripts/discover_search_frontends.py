@@ -42,6 +42,11 @@ SEARCH_TIMEOUT = 7
 SEARCH_DELAY = 0.2
 SEARCH_RETRIES = 0
 
+# Keep temporarily unreachable, high-signal candidates in the report so later
+# daily runs can re-check them without lowering the publication threshold.
+PENDING_VERIFICATION_MAX = 120
+PENDING_VERIFICATION_TTL_DAYS = 21
+
 # Keep the daily search bounded, but let service-intent queries in every
 # configured language reach the second results page.
 
@@ -562,6 +567,77 @@ def read_discovered_domains() -> set[str]:
             if host:
                 out.add(host)
     return out
+
+
+def read_pending_verification() -> list[dict]:
+    """Read a bounded set of recent candidates that were strong but unreachable."""
+    if not REPORT.exists():
+        return []
+    try:
+        data = json.loads(REPORT.read_text(encoding="utf-8", errors="replace"))
+    except (OSError, json.JSONDecodeError):
+        return []
+
+    raw = data.get("pending_verification", [])
+    if not isinstance(raw, list):
+        return []
+
+    cutoff = time.time() - (PENDING_VERIFICATION_TTL_DAYS * 86400)
+    out: list[dict] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        domain = normalize_host(item.get("domain", ""))
+        platform = item.get("platform")
+        if not domain or platform not in PLATFORMS:
+            continue
+        try:
+            last_attempt_epoch = float(item.get("last_attempt_epoch", 0) or 0)
+        except (TypeError, ValueError):
+            last_attempt_epoch = 0
+        if last_attempt_epoch and last_attempt_epoch < cutoff:
+            continue
+
+        out.append({
+            "domain": domain,
+            "platform": platform,
+            "queries": [q for q in item.get("queries", []) if isinstance(q, str)][:12],
+            "urls": [u for u in item.get("urls", []) if isinstance(u, str)][:12],
+            "sources": [s for s in item.get("sources", []) if isinstance(s, str)][:8],
+            "providers": [p for p in item.get("providers", []) if isinstance(p, str)][:8],
+            "search_evidence": [
+                e for e in item.get("search_evidence", []) if isinstance(e, str)
+            ][:12],
+            "first_seen": str(item.get("first_seen", "")),
+            "last_attempt": str(item.get("last_attempt", "")),
+            "last_attempt_epoch": last_attempt_epoch,
+            "attempts": int(item.get("attempts", 0) or 0),
+        })
+
+    out.sort(key=lambda item: (
+        -len(item["sources"]),
+        -len(item["search_evidence"]),
+        -len(item["queries"]),
+        -item["last_attempt_epoch"],
+        item["domain"],
+    ))
+    return out[:PENDING_VERIFICATION_MAX]
+
+
+def pending_hits_from_report(entries: list[dict]) -> dict[tuple[str, str], SearchHit]:
+    found: dict[tuple[str, str], SearchHit] = {}
+    for item in entries:
+        key = (item["platform"], item["domain"])
+        found[key] = SearchHit(
+            item["domain"],
+            item["platform"],
+            list(item["queries"]),
+            list(item["urls"]),
+            [],
+            list(item["providers"]),
+            list(item["search_evidence"]),
+        )
+    return found
 
 
 def cfg_lang_service(lang: str, index: int) -> str:
@@ -2247,6 +2323,8 @@ def main() -> int:
         common_crawl_sources,
         urlscan_sources,
     )
+    pending_entries = read_pending_verification()
+    pending_hits = pending_hits_from_report(pending_entries)
     for source_map in source_maps:
         for key, hit in source_map.items():
             if key not in candidate_map:
@@ -2262,6 +2340,18 @@ def main() -> int:
                 for url in hit.urls:
                     if url not in current.urls:
                         current.urls.append(url)
+
+    for key, hit in pending_hits.items():
+        if key not in candidate_map:
+            candidate_map[key] = hit
+        else:
+            current = candidate_map[key]
+            current.queries.extend(q for q in hit.queries if q not in current.queries)
+            current.urls.extend(u for u in hit.urls if u not in current.urls)
+            current.providers.extend(p for p in hit.providers if p not in current.providers)
+            current.search_evidence.extend(
+                e for e in hit.search_evidence if e not in current.search_evidence
+            )
 
     seed_candidate_count = len(seeds)
     verified_seed_domains = sorted(seeds)
@@ -2322,8 +2412,20 @@ def main() -> int:
             h.domain,
         ),
     )
+    pending_keys = set(pending_hits)
+    pending_search_hits = [
+        h for h in candidate_map.values()
+        if not h.sources
+        and h.domain not in known_domains
+        and (h.platform, h.domain) in pending_keys
+    ]
     search_hits = sorted(
-        [h for h in candidate_map.values() if not h.sources and h.domain not in known_domains],
+        [
+            h for h in candidate_map.values()
+            if not h.sources
+            and h.domain not in known_domains
+            and (h.platform, h.domain) not in pending_keys
+        ],
         key=lambda h: (
             -len(h.providers),
             -len([q for q in h.queries if not q.startswith("SOURCE:") and not q.startswith("SEED:")]),
@@ -2335,7 +2437,15 @@ def main() -> int:
     # blocklist.txt. They are not re-added; validation is for report accuracy
     # and catches stale/incorrect seed metadata without touching the list.
     seed_hits = list(seeds.values())
-    hits = seed_hits + (priority_hits + search_hits)[:MAX_CANDIDATES]
+    remaining_capacity = max(0, MAX_CANDIDATES - len(seed_hits) - len(priority_hits))
+    pending_selected = min(len(pending_search_hits), remaining_capacity)
+    search_capacity = max(0, remaining_capacity - pending_selected)
+    hits = (
+        seed_hits
+        + priority_hits
+        + pending_search_hits[:pending_selected]
+        + search_hits[:search_capacity]
+    )
 
     already_known_candidates = sum(
         1 for h in candidate_map.values() if h.domain in known_domains
@@ -2345,6 +2455,7 @@ def main() -> int:
     print(f"Candidates discovered: {len(candidate_map)}")
     print(f"Candidates selected for validation: {len(hits)}")
     print(f"Previously known candidates skipped: {already_known_candidates}")
+    print(f"Pending verification candidates rechecked: {len(pending_search_hits)}")
     expected_search_pages = sum(len(search_pages_for(lang, query)) for lang, _, query in query_specs)
     print(f"Search mode: {DISCOVERY_MODE}; active languages: {', '.join(active_search_languages()) or 'none'}")
     print(f"Search pages succeeded: {search_pages_succeeded}/{expected_search_pages}")
@@ -2398,6 +2509,70 @@ def main() -> int:
         accepted_by_domain.values(),
         key=lambda e: (-e.score, e.domain),
     )
+
+    evaluation_hits = {(hit.platform, hit.domain): hit for hit in hits}
+    pending_state = {
+        (item["platform"], item["domain"]): item
+        for item in pending_entries
+    }
+    now_epoch = time.time()
+    now_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+    for evaluation in evaluations:
+        key = (evaluation.platform, evaluation.domain)
+        source_hit = evaluation_hits.get(key)
+
+        if evaluation.accepted or evaluation.domain in known_domains:
+            pending_state.pop(key, None)
+            continue
+
+        if evaluation.reason != "page unavailable":
+            pending_state.pop(key, None)
+            continue
+
+        if source_hit is None:
+            continue
+
+        meaningful_signal = (
+            is_seed_candidate(source_hit)
+            or bool(source_hit.sources)
+            or search_result_has_strong_service_evidence(source_hit)
+            or search_query_intent_hits(source_hit) >= 1
+            or SEARCH_SERVICE_HOST_RE.search(source_hit.domain)
+            or any(
+                path_looks_like_service(urlparse(url).path.lower())
+                for url in source_hit.urls
+            )
+        )
+        if not meaningful_signal:
+            pending_state.pop(key, None)
+            continue
+
+        previous = pending_state.get(key, {})
+        pending_state[key] = {
+            "domain": evaluation.domain,
+            "platform": evaluation.platform,
+            "queries": source_hit.queries[:12],
+            "urls": source_hit.urls[:12],
+            "sources": source_hit.sources[:8],
+            "providers": source_hit.providers[:8],
+            "search_evidence": source_hit.search_evidence[:12],
+            "first_seen": previous.get("first_seen") or now_iso,
+            "last_attempt": now_iso,
+            "last_attempt_epoch": now_epoch,
+            "attempts": int(previous.get("attempts", 0) or 0) + 1,
+        }
+
+    pending_verification = sorted(
+        pending_state.values(),
+        key=lambda item: (
+            -len(item.get("sources", [])),
+            -len(item.get("search_evidence", [])),
+            -len(item.get("queries", [])),
+            -float(item.get("last_attempt_epoch", 0) or 0),
+            item.get("domain", ""),
+        ),
+    )[:PENDING_VERIFICATION_MAX]
 
     rejection_reason_counts = {}
     for evaluation in evaluations:
@@ -2474,6 +2649,8 @@ def main() -> int:
                     "validation_crash_count": validation_crash_count,
                     "candidates_discovered": len(candidate_map),
                     "validated_candidates": len(evaluations),
+                    "pending_verification_count": len(pending_verification),
+                    "pending_verification": pending_verification,
                     "retained_historical_count": len(historical),
                     "retained_total_count": len(historical),
                     "append_only": True,
@@ -2538,10 +2715,12 @@ def main() -> int:
         "verified_frontend_domains": verified_frontend_domains,
         "trusted_candidate_count": trusted_candidate_count,
         "github_discovered_candidate_count": github_candidate_count,
-        "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + low-concurrency rotated search + sequential backend fallback + parallel validation",
+        "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded multilingual rotated search with language-aware page-2 expansion + query-level intent scoring + persistent pending verification + parallel validation",
         "trusted_source_names": trusted_source_names,
         "candidates_discovered": len(candidate_map),
         "validated_candidates": len(evaluations),
+        "pending_verification_count": len(pending_verification),
+        "pending_verification": pending_verification,
         "accepted_count": len(accepted),
         "newly_accepted_count": len(accepted),
         "retained_historical_count": len(historical),

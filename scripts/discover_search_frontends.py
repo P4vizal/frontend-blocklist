@@ -1,3 +1,4 @@
+# CI: shell verification hardening retest.
 # CI: retest after disabling Python bytecode writes in Actions.
 # CI: syntax validation is deliberately side-effect free.
 # CI trigger: keep discovery workflow immediately testable without touching stable blocklist files.

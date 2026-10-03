@@ -1,26 +1,40 @@
-# Generated from maintained frontend registries + GitHub + DDGS auto metasearch + page validation.
-# Only newly discovered domains are included; domains already in blocklist.txt are omitted.
-||twitterviewer.net^
-||tweetviewer.com^
-||twiiit.com^
+# Generated from maintained frontend registries + GitHub + DDGS auto search + page validation.
+# Append-only discovery history: previously accepted domains are never removed.
+# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
+||bai.tools^
+||carryfeed.com^
+||deletedby.com^
+||ghostddit.aeddit.com^
+||lessie.ai^
+||lessie.cn^
+||libreddit.org^
+||mediascroll.io^
+||nitter.ca^
+||painonsocial.com^
+||parental-control.flashget.com^
+||peekvault.com^
+||profileri.com^
+||rdx.overdevs.com^
+||rebloq.app^
+||reddit-viewer.vercel.app^
 ||redlite.app^
+||snapany.com^
 ||snaplytics.io^
 ||tryadlicio.com^
-||tweetgrok.ai^
-||twiewer.com^
-||twitee.co^
-||viewri.com^
-||www.getxapi.com^
-||xtwitterviewer.com^
-||lessie.ai^
-||rebloq.app^
-||carryfeed.com^
-||lessie.cn^
-||mediascroll.io^
-||parental-control.flashget.com^
-||profileri.com^
-||snapany.com^
 ||tuffermagazine.com^
+||tweetgrok.ai^
+||tweetviewer.com^
+||twiewer.com^
+||twiiit.com^
+||twitee.co^
+||twitterviewer.net^
+||twitviewer.net^
+||viewari.com^
+||viewri.com^
+||viiewerr.com^
+||www.downelink.com^
+||www.getxapi.com^
 ||www.tweetbinder.com^
-||rdx.overdevs.com^
-||bai.tools^
+||www.twitterviewer.io^
+||xapis.dev^
+||xtwitterviewer.com^

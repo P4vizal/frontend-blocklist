@@ -167,7 +167,10 @@ PLATFORMS = {
             "x twitter viewer alternatives to xcancel twiiit",
         ],
         "query_object": "profile",
-        "identity_extra": ["tweet", "tweets", "user", "profile", "post"],
+        "identity_extra": [
+            "tweet", "tweets", "user", "profile", "post", "posts",
+            "timeline", "handle", "media",
+        ],
     },
     "reddit": {
         "platform_terms": ["reddit"],
@@ -178,7 +181,10 @@ PLATFORMS = {
             "{platform} {service2} {object} viewer similar to teddit troddit",
         ],
         "query_object": "subreddit",
-        "identity_extra": ["subreddit", "subreddits", "comment", "comments", "post", "posts", "user", "profile"],
+        "identity_extra": [
+            "subreddit", "subreddits", "comment", "comments", "post", "posts",
+            "user", "profile", "thread",
+        ],
     },
     "tumblr": {
         "platform_terms": ["tumblr"],
@@ -189,7 +195,10 @@ PLATFORMS = {
             "{platform} {service2} {object} viewer similar to priviblur",
         ],
         "query_object": "blog",
-        "identity_extra": ["blog", "blogs", "post", "posts", "user", "profile"],
+        "identity_extra": [
+            "blog", "blogs", "post", "posts", "user", "profile",
+            "avatar", "tag", "tags",
+        ],
     },
 }
 
@@ -1732,24 +1741,29 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     article_structure_hint = any(
         p.get("article_count", 0) >= 1 for p in all_pages
     )
+    def twitter_x_context_ok(text: str) -> bool:
+        if hit.platform != "twitter" or not term_present("x", text):
+            return False
+        return bool(
+            re.search(
+                r"(?<![\w-])x\s+(?:viewer|browser|frontend|profile|profiles|post|posts|"
+                r"tweet|tweets|timeline|reader)(?![\w-])",
+                text,
+                re.IGNORECASE,
+            )
+            or any(term_present(other, text) for other in ("twitter", "tweet", "nitter"))
+        )
+
     platform_hits = [
         t for t in pcfg["platform_terms"]
         if term_present(t, total)
-        and (
-            hit.platform != "twitter"
-            or t != "x"
-            or any(term_present(other, total) for other in ("twitter", "tweet", "nitter"))
-        )
+        and (hit.platform != "twitter" or t != "x" or twitter_x_context_ok(total))
     ]
     brand_hits = [t for t in pcfg["brands"] if term_present(t, total)]
     header_platform_hits = [
         t for t in pcfg["platform_terms"]
         if term_present(t, header_text)
-        and (
-            hit.platform != "twitter"
-            or t != "x"
-            or any(term_present(other, header_text) for other in ("twitter", "tweet", "nitter"))
-        )
+        and (hit.platform != "twitter" or t != "x" or twitter_x_context_ok(header_text))
     ]
     header_brand_hits = [t for t in pcfg["brands"] if term_present(t, header_text)]
 
@@ -2037,6 +2051,7 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
 
     evidence = {
         "platform_hits": platform_hits,
+        "twitter_x_context_ok": twitter_x_context_ok(total),
         "brand_hits": brand_hits,
         "header_platform_hits": header_platform_hits,
         "header_brand_hits": header_brand_hits,

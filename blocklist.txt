@@ -1,3 +1,4 @@
+||0bin.ch^
 ||0x573e6188.static.cust.fastspeed.dk^
 ||1-163-203-60.dynamic-ip.hinet.net^
 ||147.202.76.83.dynamic.cust.swisscom.net^
@@ -266,6 +267,7 @@
 ||lmdb.ngn.tf^
 ||lost-skunk.cc^
 ||lucy.im-in.space^
+||lukisko.eu^
 ||luna.sys.tiekoetter.net^
 ||lx.benike.monster^
 ||lx.vern.cc^
@@ -302,6 +304,7 @@
 ||mzh.dc09.xyz^
 ||nerdculture.com^
 ||neuters.de^
+||nitt.tr^
 ||nitter.anoxinon.de^
 ||nitter.ca^
 ||nitter.catsarch.com^
@@ -312,6 +315,7 @@
 ||nitter.kabii.moe^
 ||nitter.kareem.one^
 ||nitter.meowing.monster^
+||nitter.miningtcup.me^
 ||nitter.net^
 ||nitter.netbub.com^
 ||nitter.poast.org^
@@ -713,6 +717,7 @@
 ||twiiit.com^
 ||twineo.drgns.space^
 ||twineo.exozy.me^
+||twit.0r.cx^
 ||twitch.blitzw.in^
 ||twitch.sudovanilla.org^
 ||twitee.co^

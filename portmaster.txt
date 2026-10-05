@@ -365,6 +365,7 @@ parental-control.flashget.com
 paste.coalserver.de
 paste.encrypt.co.il
 paste.ononoki.org
+paste.plus
 paste.skynetcloud.site
 paulgo.io
 pb.bloat.cat
@@ -454,6 +455,7 @@ redlib.catsarch.com
 redlib.cow.rip
 redlib.freedit.eu
 redlib.nadeko.net
+redlib.nohost.network
 redlib.privacyredirect.com
 redlib.privadency.com
 redlib.r4fo.com

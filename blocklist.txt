@@ -104,6 +104,7 @@
 ||breezewiki.woodland.cafe^
 ||buffon.cloud^
 ||bw.artemislena.eu^
+||c-73-124-58-161.hsd1.fl.comcast.net^
 ||carryfeed.com^
 ||cascadr.co^
 ||ch.skysend.ch^
@@ -160,6 +161,7 @@
 ||geonode.com^
 ||ghostddit.aeddit.com^
 ||git.kareem.one^
+||gitfield.org^
 ||gothub.dev.projectsegfau.lt^
 ||gothub.libre.tw^
 ||gothub.lunar.icu^
@@ -363,6 +365,7 @@
 ||paimon.sev.monster^
 ||painonsocial.com^
 ||parental-control.flashget.com^
+||paste.07f.de^
 ||paste.coalserver.de^
 ||paste.encrypt.co.il^
 ||paste.ononoki.org^
@@ -371,6 +374,7 @@
 ||paulgo.io^
 ||pb.bloat.cat^
 ||pb.cleberg.net^
+||pb.fbin.in^
 ||pb.foobar.vip^
 ||pb.proxik.cloud^
 ||pc.mogeringo.com^
@@ -396,6 +400,7 @@
 ||privatebin.cc^
 ||privatebin.net^
 ||privatebin.oxidizer.de^
+||privatebin.unige.ch^
 ||privatebin.wildberries.ru^
 ||priviblur.canine.tools^
 ||priviblur.privadency.com^
@@ -536,6 +541,7 @@
 ||search.im-in.space^
 ||search.indst.eu^
 ||search.inetol.net^
+||search.jeremyh.xyz^
 ||search.liuzj.net^
 ||search.lumy.live^
 ||search.madreyk.xyz^

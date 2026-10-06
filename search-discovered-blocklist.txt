@@ -24,6 +24,7 @@
 ||fr.xtwitt.com^
 ||geonode.com^
 ||ghostddit.aeddit.com^
+||gitfield.org^
 ||hiddenme.net^
 ||i.opnxng.com^
 ||iamprovider.com^

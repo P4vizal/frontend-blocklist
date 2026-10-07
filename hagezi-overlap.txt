@@ -1,6 +1,6 @@
 # Informational only: Hagezi Pro is NOT imported into blocklist.txt.
-# Generated domains: 829
-# Hagezi domains parsed: 197704
+# Generated domains: 830
+# Hagezi domains parsed: 198604
 # Overlap: 0
 
 

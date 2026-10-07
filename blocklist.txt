@@ -369,7 +369,9 @@
 ||parental-control.flashget.com^
 ||paste.07f.de^
 ||paste.coalserver.de^
+||paste.cracktek.eu^
 ||paste.encrypt.co.il^
+||paste.helkor.eu^
 ||paste.ononoki.org^
 ||paste.plus^
 ||paste.skynetcloud.site^
@@ -609,6 +611,8 @@
 ||searxng.website^
 ||searxng.wuemeli.com^
 ||secret.timeweb.ru^
+||secrets.l25.cloud^
+||secure.4it.com.au^
 ||send.adminforge.de^
 ||send.aezafiles.net^
 ||send.artemislena.eu^

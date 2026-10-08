@@ -126,6 +126,8 @@ da.opnxng.com
 de.operack.com
 de.skysend.ch
 deggo.fyi
+degoog.ogservers.org
+degoog.org
 deletedby.com
 dev.co
 dev.to
@@ -293,6 +295,7 @@ mediascroll.io
 medium.hostux.net
 meet.jit.si
 meet.sev.monster
+mirnir.com
 mozhi.adminforge.de
 mozhi.aryak.me
 mozhi.bloat.cat
@@ -307,6 +310,7 @@ mutix.tr
 mx.meowing.monster
 mx.mizuki.st
 mzh.dc09.xyz
+nepnir.com
 nerdculture.com
 neuters.de
 nitt.tr
@@ -659,6 +663,7 @@ static.139.160.90.157.clients.your-server.de
 static.139.241.4.46.clients.your-server.de
 static.18.236.105.178.clients.your-server.de
 static.60.99.4.46.clients.your-server.de
+static.84.216.75.5.clients.your-server.de
 status.sev.monster
 sx.catgirl.cloud
 sx.xo.st
@@ -750,12 +755,14 @@ velia.net
 viewanonymous.com
 viewari.com
 viewri.com
+viewtube.io
 viiewerr.com
 vojk.au
 vps-31677213.vps.ovh.ca
 vps-773e829a.vps.ovh.ca
 vps-84f729f8.vps.ovh.us
 vps-ebe9aed2.vps.ovh.us
+vt.ra-phi.ch
 vx.maid.zone
 vx2.maid.zone
 w.sneed.network

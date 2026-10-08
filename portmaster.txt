@@ -324,6 +324,7 @@ nitter.miningtcup.me
 nitter.net
 nitter.netbub.com
 nitter.poast.org
+nitter.pp.ua
 nitter.privacyredirect.com
 nitter.space
 nitter.tiekoetter.com

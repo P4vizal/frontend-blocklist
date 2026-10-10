@@ -14,6 +14,12 @@ assert discovery.normalize_host("https://kddit.kalli.st/") == "kddit.kalli.st"
 assert discovery.normalize_host("https://nitter.app/") == "nitter.app"
 assert discovery.STATIC_BLOCK_RULES == ("||*.st^", "*/x-viewer*$document", "*/reddit-viewer*$document", "*/tumblr-viewer*$document", "*/xviewer*$document", "*/tweetviewer*$document", "*/twitterviewer*$document", "*/tumblr*$document", "*/twitter*$document", "*/reddit*$document", "*/tweet*$document",)
 
+# The committed AdGuard list must contain the persistent rules and requested domains.
+blocklist_lines = set(Path("search-discovered-blocklist.txt").read_text(encoding="utf-8").splitlines())
+assert set(discovery.STATIC_BLOCK_RULES) <= blocklist_lines
+for domain in ("anonviewr.com", "previewerly.com", "vieworaa.com", "viewvra.com"):
+    assert f"||{domain}^" in blocklist_lines
+
 candidates = {}
 discovery.merge_search_result(
     candidates,

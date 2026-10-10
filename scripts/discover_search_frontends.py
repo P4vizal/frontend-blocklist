@@ -101,21 +101,6 @@ EDITORIAL_HOSTS = {
 
 AUDITED_FALSE_POSITIVE_HOSTS = {"www.osfinder.net"}
 
-# Skip .st hosts: they are already blocked by another list.
-BLOCKED_HOST_SUFFIXES = (".st",)
-STATIC_BLOCK_RULES = (
-    "*/x-viewer*$document",
-    "*/reddit-viewer*$document",
-    "*/tumblr-viewer*$document",
-    "*/xviewer*$document",
-    "*/tweetviewer*$document",
-    "*/twitterviewer*$document",
-    "*/tumblr*$document",
-    "*/twitter*$document",
-    "*/reddit*$document",
-    "*/tweet*$document",
-)
-
 SEARCH_SERVICE_HOST_RE = re.compile(
     r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
     r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
@@ -443,8 +428,6 @@ def normalize_host(value: str) -> str | None:
         return None
     host = host.rstrip(".").lower()
     if host in EXCLUDED_HOSTS or any(host.endswith(s) for s in EXCLUDED_SUFFIXES):
-        return None
-    if host.endswith(BLOCKED_HOST_SUFFIXES):
         return None
     if host.endswith((".onion", ".i2p", ".loki")):
         return None
@@ -3500,8 +3483,6 @@ def main() -> int:
         "# Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.\n"
         "# Append-only discovery history: previously accepted domains are never removed.\n"
         "# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.\n"
-        + "\n".join(STATIC_BLOCK_RULES)
-        + "\n"
         + "\n".join(f"||{domain}^" for domain in sorted(retained_domains))
         + "\n",
         encoding="utf-8",

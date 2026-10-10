@@ -1,7 +1,9 @@
 # Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.
 # Append-only discovery history: previously accepted domains are never removed.
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
+#LOS DOMINIOS BLOQUEADOS CON *. DEBEN IR AL PRINCIPIO Y SER AÑADIDOS TAMBIEN EN EL SCRIPT SI ALGUN NUEVO *. SE AÑADE
 ||*.st^
+||*.io^
 ||alternativeto.net^
 ||anonviewr.com^
 ||anonymousamericans.com^
@@ -186,7 +188,6 @@
 ||gitee.com^
 ||twiview.io^
 ||twilog.org^
-||*.io^
 ||rosint.dev^
 ||pullpush.io^
 ||twstalker.com^

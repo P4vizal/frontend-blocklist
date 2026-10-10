@@ -103,6 +103,7 @@ AUDITED_FALSE_POSITIVE_HOSTS = {"www.osfinder.net"}
 
 # Reject the .st namespace by default; keep only explicitly requested service hosts.
 BLOCKED_HOST_SUFFIXES = (".st",)
+STATIC_BLOCK_RULES = ("||*.st^",)
 ALLOWED_BLOCKED_SUFFIX_HOSTS = {"git.kalli.st", "kddit.kalli.st"}
 
 SEARCH_SERVICE_HOST_RE = re.compile(
@@ -3489,6 +3490,8 @@ def main() -> int:
         "# Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.\n"
         "# Append-only discovery history: previously accepted domains are never removed.\n"
         "# A domain is added once; later runs skip it when it is already in this file or blocklist.txt.\n"
+        + "\n".join(STATIC_BLOCK_RULES)
+        + "\n"
         + "\n".join(f"||{domain}^" for domain in sorted(retained_domains))
         + "\n",
         encoding="utf-8",

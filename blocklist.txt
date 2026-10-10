@@ -44,6 +44,7 @@
 ||anonoverflow.moonshadow.dev^
 ||anonpaste.org^
 ||anonsearch.win^
+||anonviewr.com^
 ||anonymousamericans.com^
 ||anonymousoverflow.catsarch.com^
 ||anonymousoverflow.privacyfucking.rocks^
@@ -147,6 +148,7 @@
 ||dumb.jeikobu.net^
 ||eds-v2.piped.xn--17b.net^
 ||einfachzocken.eu^
+||en.download.it^
 ||encryp.ch^
 ||enjoys.rocks^
 ||esm-cell1.ip.inetol.net^
@@ -167,6 +169,7 @@
 ||genius.fsky.io^
 ||geonode.com^
 ||ghostddit.aeddit.com^
+||git.kalli.st^
 ||git.kareem.one^
 ||gitfield.org^
 ||gothub.dev.projectsegfau.lt^
@@ -220,6 +223,7 @@
 ||ip82-165-150-90.pbiaas.com^
 ||kantan.cat^
 ||kawarimidoll.com^
+||kddit.kalli.st^
 ||kg.lus.lu^
 ||kg.meowing.de^
 ||kittygr.am^
@@ -299,6 +303,7 @@
 ||meet.jit.si^
 ||meet.sev.monster^
 ||mirnir.com^
+||morelogin.com^
 ||mozhi.adminforge.de^
 ||mozhi.aryak.me^
 ||mozhi.bloat.cat^
@@ -318,6 +323,7 @@
 ||neuters.de^
 ||nitt.tr^
 ||nitter.anoxinon.de^
+||nitter.app^
 ||nitter.ca^
 ||nitter.catsarch.com^
 ||nitter.cf^
@@ -411,6 +417,7 @@
 ||pixivfe.thebunny.zone^
 ||poketube.fun^
 ||pool-173-66-9-251.washdc.fios.verizon.net^
+||previewerly.com^
 ||priv.au^
 ||privacyredirect.com^
 ||privatebin.cc^
@@ -474,6 +481,7 @@
 ||reddit.com^
 ||reddit.lol^
 ||redditprofile.com^
+||reddtastic.com^
 ||redlib.catsarch.com^
 ||redlib.cow.rip^
 ||redlib.freedit.eu^
@@ -658,10 +666,14 @@
 ||simplytranslate.org^
 ||skunky.bloat.cat^
 ||skunkyart.lumaeris.com^
+||smtools.org^
+||smviewer.com^
 ||snapany.com^
 ||snaplytics.io^
 ||sneed.network^
 ||snoo.ioens.is^
+||socialsharepreview.com^
+||socialwalls.com^
 ||soflow.nerdvpn.de^
 ||sotwe.in^
 ||soundcloak.nadeko.net^
@@ -694,6 +706,7 @@
 ||teddit.httpjames.space^
 ||teddit.laserdisc.tokyo^
 ||teddit.net^
+||teddit.no-logs.com^
 ||teddit.privacytools.io^
 ||teddit.projectsegfau.lt^
 ||teddit.pussthecat.org^
@@ -716,6 +729,7 @@
 ||tl.bloat.cat^
 ||tl.dc09.xyz^
 ||tl.maid.zone^
+||tmblrviewer.com^
 ||tn.maid.zone^
 ||toene.hoffnungfuerdiezukunft.net^
 ||tok.adminforge.de^
@@ -759,13 +773,16 @@
 ||unredacted.org^
 ||unsubbed.co^
 ||upload.nolog.cz^
+||useqwitter.com^
 ||v2202410236833289134.ultrasrv.de^
 ||v2202609218911521413.hotsrv.de^
 ||velia.net^
 ||viewanonymous.com^
 ||viewari.com^
+||vieworaa.com^
 ||viewri.com^
 ||viewtube.io^
+||viewvra.com^
 ||viiewerr.com^
 ||vojk.au^
 ||vps-31677213.vps.ovh.ca^
@@ -776,6 +793,7 @@
 ||vx.maid.zone^
 ||vx2.maid.zone^
 ||w.sneed.network^
+||wallstag.com^
 ||web.ips.indst.eu^
 ||web.nue-de.as.tiekoetter.net^
 ||web35.weingaertner-it.de^
@@ -810,10 +828,12 @@
 ||www.getxapi.com^
 ||www.gruble.de^
 ||www.hatpublic.com^
+||www.henghengmao.com^
 ||www.isci.si^
 ||www.journaldufreenaute.fr^
 ||www.kantan.cat^
 ||www.libresearch.space^
+||www.morelogin.com^
 ||www.mujico.org^
 ||www.openstreetmap.org^
 ||www.peekstr.com^
@@ -827,6 +847,7 @@
 ||www.searxng.site^
 ||www.searxng.tiekoetter.com^
 ||www.searxng.tiekoetter.net^
+||www.sotwe.com^
 ||www.subredditviewer.com^
 ||www.tech2geek.net^
 ||www.troddit.com^
@@ -850,3 +871,4 @@
 ||yt.chocolatemoo53.com^
 ||z.opnxng.com^
 ||zoomblr.com^
+||zz.su27.net^

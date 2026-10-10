@@ -13,6 +13,7 @@
 */reddit*$document
 */tweet*$document
 ||alternativeto.net^
+||anonviewr.com^
 ||anonymousamericans.com^
 ||api.sorsa.io^
 ||arctic-shift.photon-reddit.com^
@@ -64,6 +65,7 @@
 ||peekstr.com^
 ||peekvault.com^
 ||peerpush.com^
+||previewerly.com^
 ||profilepictureviewer.com^
 ||profileri.com^
 ||rankflo.io^
@@ -123,7 +125,9 @@
 ||unsubbed.co^
 ||viewanonymous.com^
 ||viewari.com^
+||vieworaa.com^
 ||viewri.com^
+||viewvra.com^
 ||viiewerr.com^
 ||www.aiseesoft.com^
 ||www.archivlyx.com^

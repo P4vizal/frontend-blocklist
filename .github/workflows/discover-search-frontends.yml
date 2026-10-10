@@ -129,18 +129,7 @@ jobs:
 
           report_path = Path("search-discovered-report.json")
           output_path = Path("search-discovered-blocklist.txt")
-          static_rules = {
-              "*/x-viewer*$document",
-              "*/reddit-viewer*$document",
-              "*/tumblr-viewer*$document",
-              "*/xviewer*$document",
-              "*/tweetviewer*$document",
-              "*/twitterviewer*$document",
-              "*/tumblr*$document",
-              "*/twitter*$document",
-              "*/reddit*$document",
-              "*/tweet*$document",
-          }
+          static_rules = set()
 
           report = json.loads(report_path.read_text(encoding="utf-8"))
           assert int(report.get("validation_crash_count", 0)) == 0, (

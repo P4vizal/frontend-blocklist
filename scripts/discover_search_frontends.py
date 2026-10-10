@@ -105,16 +105,16 @@ AUDITED_FALSE_POSITIVE_HOSTS = {"www.osfinder.net"}
 BLOCKED_HOST_SUFFIXES = (".st",)
 STATIC_BLOCK_RULES = (
     "||*.st^",
-    "*/x-viewer*",
-    "*/reddit-viewer*",
-    "*/tumblr-viewer*",
-    "*/xviewer*",
-    "*/tweetviewer*",
-    "*/twitterviewer*",
-    "*/tumblr*",
-    "*/twitter*",
-    "*/reddit*",
-    "*/tweet*",
+    "*/x-viewer*$document",
+    "*/reddit-viewer*$document",
+    "*/tumblr-viewer*$document",
+    "*/xviewer*$document",
+    "*/tweetviewer*$document",
+    "*/twitterviewer*$document",
+    "*/tumblr*$document",
+    "*/twitter*$document",
+    "*/reddit*$document",
+    "*/tweet*$document",
 )
 ALLOWED_BLOCKED_SUFFIX_HOSTS = {"git.kalli.st", "kddit.kalli.st"}
 

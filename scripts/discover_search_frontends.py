@@ -697,16 +697,24 @@ def read_existing_domains() -> set[str]:
 
 
 def read_discovered_domains() -> set[str]:
-    """Read the historical discovery list; entries are append-only."""
+    """Read historical domains and preserve configured DNS wildcards."""
     if not OUTPUT.exists():
         return set()
     out = set()
-    for line in OUTPUT.read_text(encoding="utf-8", errors="replace").splitlines():
-        m = re.match(r"^\|\|([^\^/\s]+)\^", line.strip())
-        if m:
-            host = normalize_host(m.group(1))
-            if host:
-                out.add(host)
+    for line in OUTPUT.read_text(
+        encoding="utf-8", errors="replace"
+    ).splitlines():
+        match = re.fullmatch(r"\|\|([^\^/\s]+)\^", line.strip())
+        if not match:
+            continue
+        raw_host = match.group(1).lower()
+        # Preserve existing DNS rules without treating them as candidates.
+        if raw_host in {"*.io", "*.st"}:
+            out.add(raw_host)
+            continue
+        host = normalize_host(raw_host)
+        if host:
+            out.add(host)
     return out
 
 

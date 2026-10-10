@@ -5,6 +5,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import scripts.discover_search_frontends as discovery
 
+# Reject the .st suffix by default, with only the two explicitly requested
+# alternative-frontend hosts allowed through the candidate normalizer.
+assert discovery.normalize_host("https://random-instance.st/") is None
+assert discovery.normalize_host("https://sub.random-instance.st/") is None
+assert discovery.normalize_host("https://git.kalli.st/") == "git.kalli.st"
+assert discovery.normalize_host("https://kddit.kalli.st/") == "kddit.kalli.st"
+assert discovery.normalize_host("https://nitter.app/") == "nitter.app"
+
 candidates = {}
 discovery.merge_search_result(
     candidates,

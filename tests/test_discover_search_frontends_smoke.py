@@ -66,9 +66,9 @@ assert len(set(queries)) == len(queries)
 assert discovery.active_search_languages()
 assert len(discovery.active_search_languages()) == 4
 assert sum("-news -article -guide -review" in q[2] for q in queries) == 24
-assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == (1, 2)
+assert discovery.search_pages_for("en", "twitter viewer alternatives to nitter") == discovery.SEARCH_PAGES
 fr_pages = discovery.search_pages_for("fr", "twitter viewer")
-assert fr_pages in ((1,), (1, 2))
+assert fr_pages in ((1,), discovery.SEARCH_PAGES)
 parser = discovery.PageParser()
 parser.feed(
     '<html><head><title>Reddit Viewer</title></head>'
@@ -306,7 +306,7 @@ seeded = discovery.SearchHit(
 assert discovery.pending_candidate_has_strong_signal(seeded)
 assert discovery.search_pages_for(
     "en", "view Twitter profiles without login"
-) == (1, 2)
+) == discovery.SEARCH_PAGES
 assert discovery.DISCOVERY_MODE == "daily"
 assert discovery.GITHUB_REPOSITORY_CATALOG_LIMIT == 48
 assert discovery.REPORT_SCHEMA_VERSION == 2

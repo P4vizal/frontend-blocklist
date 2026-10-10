@@ -96,6 +96,7 @@
 ||teddit.tokhmi.xyz^
 ||teddit.xbdm.fun^
 ||teddit.zaggy.nl^
+||tmblrviewer.com^
 ||troddit.com^
 ||tryadlicio.com^
 ||tuffermagazine.com^

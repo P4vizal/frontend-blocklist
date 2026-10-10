@@ -103,7 +103,19 @@ AUDITED_FALSE_POSITIVE_HOSTS = {"www.osfinder.net"}
 
 # Reject the .st namespace by default; keep only explicitly requested service hosts.
 BLOCKED_HOST_SUFFIXES = (".st",)
-STATIC_BLOCK_RULES = ("||*.st^",)
+STATIC_BLOCK_RULES = (
+    "||*.st^",
+    "*/x-viewer*",
+    "*/reddit-viewer*",
+    "*/tumblr-viewer*",
+    "*/xviewer*",
+    "*/tweetviewer*",
+    "*/twitterviewer*",
+    "*/tumblr*",
+    "*/twitter*",
+    "*/reddit*",
+    "*/tweet*",
+)
 ALLOWED_BLOCKED_SUFFIX_HOSTS = {"git.kalli.st", "kddit.kalli.st"}
 
 SEARCH_SERVICE_HOST_RE = re.compile(

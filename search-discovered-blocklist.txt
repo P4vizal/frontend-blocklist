@@ -162,7 +162,7 @@
 ||togetter.com^
 ||posfie.com^
 ||prowlo.com^
-^||oia.zhihu.com
+||oia.zhihu.com^
 ||zhihu.com^
 ||dat.2chan.net^
 ||2chan.net^

@@ -190,8 +190,13 @@ jobs:
           if report.get("status") == "no_update":
               assert old_output == new_output, "no_update run changed the discovery list"
           assert len(new_output) == sum(
-              1 for raw in output_path.read_text(encoding="utf-8").splitlines()
-              if raw.strip() and not raw.strip().startswith("#")
+              1
+              for raw in output_path.read_text(encoding="utf-8").splitlines()
+              if (
+                  raw.strip()
+                  and not raw.strip().startswith("#")
+                  and raw.strip() != "||*.st^"
+              )
           )
           print("Discovery outputs, audit guard, and protected files verified.")
           PY

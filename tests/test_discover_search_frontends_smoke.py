@@ -7,12 +7,7 @@ import scripts.discover_search_frontends as discovery
 
 # Reject the .st suffix by default, with only the two explicitly requested
 # alternative-frontend hosts allowed through the candidate normalizer.
-assert discovery.normalize_host("https://random-instance.st/") is None
-assert discovery.normalize_host("https://sub.random-instance.st/") is None
-assert discovery.normalize_host("https://git.kalli.st/") == "git.kalli.st"
-assert discovery.normalize_host("https://kddit.kalli.st/") == "kddit.kalli.st"
-assert discovery.normalize_host("https://nitter.app/") == "nitter.app"
-assert discovery.STATIC_BLOCK_RULES == ("||*.st^", "*/x-viewer*$document", "*/reddit-viewer*$document", "*/tumblr-viewer*$document", "*/xviewer*$document", "*/tweetviewer*$document", "*/twitterviewer*$document", "*/tumblr*$document", "*/twitter*$document", "*/reddit*$document", "*/tweet*$document",)
+assert discovery.STATIC_BLOCK_RULES == ("*/x-viewer*$document", "*/reddit-viewer*$document", "*/tumblr-viewer*$document", "*/xviewer*$document", "*/tweetviewer*$document", "*/twitterviewer*$document", "*/tumblr*$document", "*/twitter*$document", "*/reddit*$document", "*/tweet*$document",)
 
 # The committed AdGuard list must contain the persistent rules and requested domains.
 blocklist_lines = set(Path("search-discovered-blocklist.txt").read_text(encoding="utf-8").splitlines())

@@ -79,6 +79,7 @@
 ||biblioreads.privacyfucking.rocks^
 ||biblioreads.privacyredirect.com^
 ||biblioreads.snine.nl^
+||biblioreads.utilibre.org^
 ||biblioreads.vercel.app^
 ||binge.whatever.social^
 ||binge.whateveritworks.org^
@@ -372,7 +373,9 @@
 ||p4fd9a5e0.dip0.t-ipconnect.de^
 ||page.search^
 ||paimon.sev.monster^
+||pain.thirtysix.pw^
 ||painonsocial.com^
+||painterest.franklyflawless.org^
 ||parental-control.flashget.com^
 ||paste.07f.de^
 ||paste.coalserver.de^
@@ -395,6 +398,7 @@
 ||pekidi.com^
 ||perennialte.ch^
 ||phantom.nadeko.net^
+||pin.dc09.ru^
 ||piped-material.ftp.sh^
 ||piped-material.xn--17b.net^
 ||piped.ducks.party^
@@ -430,6 +434,7 @@
 ||proxitok.privacydev.net^
 ||proxitok.pussthecat.org^
 ||proxitok.r4fo.com^
+||pt.bloat.cat^
 ||q.307200.xyz^
 ||q.opnxng.com^
 ||qr.vern.cc^
@@ -543,6 +548,7 @@
 ||search.ctq.ro^
 ||search.davidovski.xyz^
 ||search.decentrala.org^
+||search.drescher.network^
 ||search.einfachzocken.eu^
 ||search.ethibox.fr^
 ||search.femboy.ad^

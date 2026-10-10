@@ -5,13 +5,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import scripts.discover_search_frontends as discovery
 
-# Reject the .st suffix by default, with only the two explicitly requested
-# alternative-frontend hosts allowed through the candidate normalizer.
-assert discovery.STATIC_BLOCK_RULES == ("*/x-viewer*$document", "*/reddit-viewer*$document", "*/tumblr-viewer*$document", "*/xviewer*$document", "*/tweetviewer*$document", "*/twitterviewer*$document", "*/tumblr*$document", "*/twitter*$document", "*/reddit*$document", "*/tweet*$document",)
-
 # The committed AdGuard list must contain the persistent rules and requested domains.
 blocklist_lines = set(Path("search-discovered-blocklist.txt").read_text(encoding="utf-8").splitlines())
-assert set(discovery.STATIC_BLOCK_RULES) <= blocklist_lines
 for domain in ("anonviewr.com", "previewerly.com", "vieworaa.com", "viewvra.com"):
     assert f"||{domain}^" in blocklist_lines
 

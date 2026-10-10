@@ -52,6 +52,7 @@
 ||lightbrd.com^
 ||linuxdork.com^
 ||mediascroll.io^
+||morelogin.com^
 ||nerdculture.com^
 ||nitter.app^
 ||nitter.ca^
@@ -83,9 +84,13 @@
 ||rentry.co^
 ||rola-ip.co^
 ||ru.dicloak.com^
+||smtools.org^
+||smviewer.com^
 ||snapany.com^
 ||snaplytics.io^
 ||snoo.ioens.is^
+||socialsharepreview.com^
+||socialwalls.com^
 ||sotwe.in^
 ||spyx.com^
 ||status.d420.de^
@@ -124,12 +129,14 @@
 ||twitviewer.net^
 ||unifapi.com^
 ||unsubbed.co^
+||useqwitter.com^
 ||viewanonymous.com^
 ||viewari.com^
 ||vieworaa.com^
 ||viewri.com^
 ||viewvra.com^
 ||viiewerr.com^
+||wallstag.com^
 ||www.aiseesoft.com^
 ||www.archivlyx.com^
 ||www.begindot.com^
@@ -137,6 +144,7 @@
 ||www.funkyspacemonkey.com^
 ||www.getxapi.com^
 ||www.hatpublic.com^
+||www.henghengmao.com^
 ||www.journaldufreenaute.fr^
 ||www.mujico.org^
 ||www.peekstr.com^
@@ -155,3 +163,4 @@
 ||xnspy.com^
 ||xtwitterviewer.com^
 ||zoomblr.com^
+||zz.su27.net^

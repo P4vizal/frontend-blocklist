@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import base64
 import concurrent.futures
 import html
 import ipaddress
@@ -38,7 +39,12 @@ VALIDATION_DELAY = 0.0
 SEARCH_BACKENDS = ("bing-rss", "bing-html")
 SEARCH_BACKEND = "bing-rss-fallback"
 SEARCH_MAX_RESULTS = 10
-SEARCH_PAGES = (1, 2)
+# Expand Bing pagination without adding fragile HTML search providers.
+# Keep this bounded: each extra page adds requests for service-intent queries.
+SEARCH_PAGE_COUNT = int(os.environ.get("SEARCH_PAGE_COUNT", "5"))
+if not 1 <= SEARCH_PAGE_COUNT <= 10:
+    raise ValueError("SEARCH_PAGE_COUNT must be between 1 and 10")
+SEARCH_PAGES = tuple(range(1, SEARCH_PAGE_COUNT + 1))
 SEARCH_TIMEOUT = 7
 SEARCH_DELAY = 0.2
 SEARCH_RETRIES = 0
@@ -238,6 +244,16 @@ TRUSTED_SOURCES = [
     ("Alternative frontends 6", "text", "https://raw.githubusercontent.com/ParniDEO/alternative-front-ends-unofficial/main/README.md"),
     ("Alternative frontends 7", "text", "https://raw.githubusercontent.com/duyfken/alternative-front-ends/web/README.md"),
 ]
+
+# Optional additional Markdown directories, separated by commas. Each must
+# contain Twitter/Reddit/Tumblr headings. New sources are NOT direct-trusted.
+for _index, _url in enumerate(os.environ.get("EXTRA_SOURCE_URLS", "").split(","), 1):
+    _url = _url.strip()
+    if not _url:
+        continue
+    if not _url.startswith("https://"):
+        raise ValueError("EXTRA_SOURCE_URLS entries must use HTTPS")
+    TRUSTED_SOURCES.append((f"Extra directory {_index}", "text", _url))
 
 DIRECT_TRUSTED_SOURCES = {"Farside", "Redlib", "Libreddit", "LibRedirect", "Priviblur"}
 
@@ -439,23 +455,75 @@ def normalize_host(value: str) -> str | None:
     return host if DOMAIN_RE.fullmatch(host) else None
 
 
+def canonical_search_url(href: str) -> str:
+    """Unwrap Bing tracking links and drop fragments for duplicate detection."""
+    href = html.unescape(href).strip()
+    parsed = urlparse(href)
+    if parsed.hostname in {"bing.com", "www.bing.com"} and parsed.path.startswith("/ck/a"):
+        encoded = parse_qs(parsed.query).get("u", [""])[0]
+        if encoded.startswith("a1"):
+            try:
+                payload = encoded[2:]
+                decoded = base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4)).decode("utf-8")
+                if decoded.startswith(("https://", "http://")):
+                    href = decoded
+            except (ValueError, UnicodeError):
+                pass
+    parsed = urlparse(href)
+    return urlunparse(parsed._replace(fragment=""))
+
+
 class SearchResultParser(HTMLParser):
+    """Read organic Bing result blocks, never navigation or unrelated links."""
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.hrefs: list[str] = []
+        self.results: list[dict] = []
+        self.li_depth = 0
+        self.result_depth = 0
+        self.heading_depth = 0
+        self.skip_depth = 0
+        self.current: dict | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag.lower() != "a":
+        tag = tag.lower()
+        values = dict(attrs)
+        if tag in {"script", "style"}:
+            self.skip_depth += 1
+        if tag == "li":
+            self.li_depth += 1
+            if "b_algo" in (values.get("class") or "").split() and self.current is None:
+                self.result_depth = self.li_depth
+                self.current = {"href": "", "title": "", "body": ""}
+        if self.current is None or self.skip_depth:
             return
-        attrs_map = dict(attrs)
-        href = attrs_map.get("href")
-        classes = set((attrs_map.get("class") or "").split())
-        if not href:
-            return
-        if "result__a" in classes or "b_algo" in classes or href.startswith(("/url?", "https://www.google.com/url?")):
-            self.hrefs.append(href)
-        elif href.startswith(("http://", "https://")):
-            self.hrefs.append(href)
+        if tag == "h2":
+            self.heading_depth += 1
+        if tag == "a" and self.heading_depth and not self.current["href"]:
+            href = canonical_search_url(values.get("href") or "")
+            if href.startswith(("https://", "http://")):
+                self.current["href"] = href
+
+    def handle_data(self, data: str) -> None:
+        if self.current is not None and not self.skip_depth:
+            field = "title" if self.heading_depth else "body"
+            self.current[field] += " " + data
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.lower()
+        if tag in {"script", "style"}:
+            self.skip_depth = max(0, self.skip_depth - 1)
+        if tag == "h2":
+            self.heading_depth = max(0, self.heading_depth - 1)
+        if tag == "li":
+            if self.current is not None and self.li_depth == self.result_depth:
+                result = {key: " ".join(value.split()) for key, value in self.current.items()}
+                if result["href"]:
+                    self.results.append(result)
+                    self.hrefs.append(result["href"])
+                self.current = None
+                self.heading_depth = 0
+            self.li_depth = max(0, self.li_depth - 1)
 
 
 class PageParser(HTMLParser):
@@ -748,12 +816,19 @@ def cfg_lang_service(lang: str, index: int) -> str:
 def active_search_languages() -> tuple[str, ...]:
     if DISCOVERY_MODE == "deep":
         return ()
+    if DISCOVERY_MODE == "all":
+        return tuple(dict.fromkeys(("en", "es", *LANGUAGE_ROTATION)))
     day_index = int(time.time() // 86400)
     extras = (
         LANGUAGE_ROTATION[(day_index * 2) % len(LANGUAGE_ROTATION)],
         LANGUAGE_ROTATION[(day_index * 2 + 1) % len(LANGUAGE_ROTATION)],
     )
-    return ("en", "es", *extras)
+    configured = os.environ.get("SEARCH_EXTRA_LANGUAGES", "").split(",")
+    configured = tuple(lang.strip() for lang in configured if lang.strip())
+    unknown = set(configured) - set(LANGUAGES)
+    if unknown:
+        raise ValueError(f"Unknown SEARCH_EXTRA_LANGUAGES: {sorted(unknown)}")
+    return tuple(dict.fromkeys(("en", "es", *extras, *configured)))
 
 
 def search_pages_for(lang: str, query: str = "") -> tuple[int, ...]:
@@ -1112,11 +1187,12 @@ def search_with_bing_html(query: str, cfg: dict, page: int) -> list[dict]:
     parser.feed(payload)
     results: list[dict] = []
     seen: set[str] = set()
-    for href in parser.hrefs:
+    for result in parser.results:
+        href = result["href"]
         if href in seen:
             continue
         seen.add(href)
-        results.append({"href": href, "title": "", "body": ""})
+        results.append(result)
         if len(results) >= SEARCH_MAX_RESULTS:
             break
     return results
@@ -1148,6 +1224,8 @@ def run_search_spec(
     results_by_page: list[tuple[int, str, list[dict]]] = []
     errors: list[dict] = []
     fallback_count = 0
+    seen_urls: set[str] = set()
+    exhausted_pages = 0
 
     for page in search_pages_for(lang, query):
         page_results: list[dict] = []
@@ -1157,10 +1235,18 @@ def run_search_spec(
         for backend in SEARCH_BACKENDS:
             try:
                 results = search_with_backend(query, cfg, page, backend)
-                if results:
-                    page_results = results
+                fresh_results = []
+                local_seen: set[str] = set()
+                for result in results:
+                    href = canonical_search_url(result.get("href", ""))
+                    if not href or href in seen_urls or href in local_seen:
+                        continue
+                    local_seen.add(href)
+                    fresh_results.append({**result, "href": href})
+                if fresh_results:
+                    page_results = fresh_results
                     page_backend = backend
-                    if page_attempt_errors:
+                    if backend != SEARCH_BACKENDS[0]:
                         fallback_count += 1
                     break
             except (HTTPError, URLError, OSError, ValueError, ET.ParseError) as exc:
@@ -1176,10 +1262,17 @@ def run_search_spec(
             if SEARCH_DELAY:
                 time.sleep(SEARCH_DELAY)
 
+        # Keep failures visible even when the fallback succeeds.
+        errors.extend(page_attempt_errors)
         if page_results:
+            seen_urls.update(result["href"] for result in page_results)
             results_by_page.append((page, page_backend, page_results))
-        elif page_attempt_errors:
-            errors.extend(page_attempt_errors)
+            exhausted_pages = 0
+        elif not page_attempt_errors:
+            exhausted_pages += 1
+            # Two empty/repeated pages mean no useful pagination progress.
+            if exhausted_pages >= 2:
+                break
 
         if SEARCH_DELAY:
             time.sleep(SEARCH_DELAY)
@@ -1424,12 +1517,13 @@ def extract_section_urls(text: str, platform: str) -> set[str]:
     in_section = False
 
     for line in text.splitlines():
-        heading = re.match(r"^\s*(#{2,6})\s+(.+?)\s*#*\s*$", line)
+        heading = re.match(r"^\s*(#{1,6})\s+(.+?)\s*#*\s*$", line)
         if heading:
             level = len(heading.group(1))
             title = fold(heading.group(2))
             if in_section and section_level is not None and level <= section_level:
-                break
+                in_section = False
+                section_level = None
             if any(term_present(alias, title) for alias in aliases[platform]):
                 in_section = True
                 section_level = level
@@ -1851,9 +1945,19 @@ def trusted_candidates() -> tuple[dict[tuple[str, str], SearchHit], dict[str, di
                 text = fetch_text(url)
                 if text is None:
                     raise OSError("empty source response")
-                for platform in PLATFORMS:
-                    for host in extract_section_urls(text, platform):
-                        add(platform, host, source_name)
+                if source_name == "Priviblur":
+                    # This dedicated registry uses "Instances", not "Tumblr".
+                    # Limit extraction to its instance section, not every URL.
+                    instance_text = re.sub(
+                        r"(?im)^(#{1,6})\s+instances\s*:?[ \t]*$",
+                        r"\1 Tumblr", text,
+                    )
+                    for host in extract_section_urls(instance_text, "tumblr"):
+                        add("tumblr", host, source_name)
+                else:
+                    for platform in PLATFORMS:
+                        for host in extract_section_urls(text, platform):
+                            add(platform, host, source_name)
 
             health[source_name] = {
                 "status": "ok",
@@ -2324,6 +2428,12 @@ def evaluate_candidate(hit: SearchHit, existing: set[str]) -> Evaluation:
     for candidate_url in candidate_urls[:4]:
         candidate_html, candidate_meta = fetch_html(candidate_url)
         if candidate_html is None:
+            # Preserve the actual failure, including HTTP status, for retries.
+            # Prefer the root failure: a missing optional route is not proof
+            # that the whole service is permanently unavailable.
+            if candidate_url == root_url or fetch_meta.get("error") == "fetch failed":
+                fetch_meta = dict(candidate_meta)
+                first_url = candidate_url
             continue
         candidate_final = candidate_meta.get("final_url") or candidate_url
         candidate_final_host = normalize_host(candidate_final)
@@ -3188,15 +3298,24 @@ def main() -> int:
     # Always validate the small, curated seed set even when it is already in
     # blocklist.txt. They are not re-added; validation is for report accuracy
     # and catches stale/incorrect seed metadata without touching the list.
-    seed_hits = list(seeds.values())
-    remaining_capacity = max(0, MAX_CANDIDATES - len(seed_hits) - len(priority_hits))
-    pending_selected = min(len(pending_search_hits), remaining_capacity)
-    search_capacity = max(0, remaining_capacity - pending_selected)
+    seed_hits = list(seeds.values())[:MAX_CANDIDATES]
+    remaining_capacity = max(0, MAX_CANDIDATES - len(seed_hits))
+    # Reserve up to one third for new search discoveries. Registry candidates
+    # cannot consume the entire budget; unused reservations are reclaimed.
+    search_reserved = min(len(search_hits), remaining_capacity // 3)
+    pending_selected = min(len(pending_search_hits), remaining_capacity // 6)
+    priority_capacity = remaining_capacity - search_reserved - pending_selected
+    selected_priority = priority_hits[:priority_capacity]
+    search_capacity = remaining_capacity - len(selected_priority) - pending_selected
+    selected_search = search_hits[:search_capacity]
+    spare = remaining_capacity - len(selected_priority) - pending_selected - len(selected_search)
+    if spare:
+        selected_priority += priority_hits[priority_capacity:priority_capacity + spare]
     hits = (
         seed_hits
-        + priority_hits
+        + selected_priority
         + pending_search_hits[:pending_selected]
-        + search_hits[:search_capacity]
+        + selected_search
     )
 
     already_known_candidates = sum(
@@ -3279,7 +3398,6 @@ def main() -> int:
     pending_state = {
         (item["platform"], item["domain"]): item
         for item in pending_entries
-        if (item["platform"], item["domain"]) in pending_hits
     }
     now_epoch = time.time()
     now_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())

@@ -76,6 +76,7 @@
 ||reddit-viewer.vercel.app^
 ||reddit.lol^
 ||redditprofile.com^
+||reddtastic.com^
 ||redlib.freedit.eu^
 ||redlibinstances.com^
 ||redlite.app^

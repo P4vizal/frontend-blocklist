@@ -2,16 +2,16 @@
 # Append-only discovery history: previously accepted domains are never removed.
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
 ||*.st^
-*/x-viewer*
-*/reddit-viewer*
-*/tumblr-viewer*
-*/xviewer*
-*/tweetviewer*
-*/twitterviewer*
-*/tumblr*
-*/twitter*
-*/reddit*
-*/tweet*
+*/x-viewer*$document
+*/reddit-viewer*$document
+*/tumblr-viewer*$document
+*/xviewer*$document
+*/tweetviewer*$document
+*/twitterviewer*$document
+*/tumblr*$document
+*/twitter*$document
+*/reddit*$document
+*/tweet*$document
 ||alternativeto.net^
 ||anonymousamericans.com^
 ||api.sorsa.io^

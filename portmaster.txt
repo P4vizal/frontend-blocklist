@@ -129,6 +129,7 @@ de.skysend.ch
 deggo.fyi
 degoog.ogservers.org
 degoog.org
+degoog.utilibre.org
 deletedby.com
 dev.co
 dev.to
@@ -391,6 +392,7 @@ pc.mogeringo.com
 peekstr.com
 peekvault.com
 peerpush.com
+pekidi.com
 perennialte.ch
 phantom.nadeko.net
 piped-material.ftp.sh
@@ -579,6 +581,7 @@ search.zeroish.xyz
 search.zina.dev
 searx.dresden.network
 searx.ecdsa.ssl-cert.tiekoetter.net
+searx.githo.st
 searx.gnu.style
 searx.linxx.net
 searx.mastodontech.de

@@ -101,6 +101,10 @@ EDITORIAL_HOSTS = {
 
 AUDITED_FALSE_POSITIVE_HOSTS = {"www.osfinder.net"}
 
+# Reject the .st namespace by default; keep only explicitly requested service hosts.
+BLOCKED_HOST_SUFFIXES = (".st",)
+ALLOWED_BLOCKED_SUFFIX_HOSTS = {"git.kalli.st", "kddit.kalli.st"}
+
 SEARCH_SERVICE_HOST_RE = re.compile(
     r"(viewer|frontend|browser|slideshow|reader|nitter|xcancel|twiiit|tweetviewer|twitterviewer|"
     r"twiewer|xviewer|redlib|libreddit|teddit|troddit|redlite|eddrit|"
@@ -428,6 +432,8 @@ def normalize_host(value: str) -> str | None:
         return None
     host = host.rstrip(".").lower()
     if host in EXCLUDED_HOSTS or any(host.endswith(s) for s in EXCLUDED_SUFFIXES):
+        return None
+    if host.endswith(BLOCKED_HOST_SUFFIXES) and host not in ALLOWED_BLOCKED_SUFFIX_HOSTS:
         return None
     if host.endswith((".onion", ".i2p", ".loki")):
         return None

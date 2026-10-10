@@ -1,68 +1,106 @@
 {
-  "generated": "2026-10-10T15:00:59Z",
+  "generated": "2026-10-10T15:33:23Z",
   "report_schema_version": 2,
-  "status": "updated",
-  "append_only": true,
-  "output_preserved": false,
-  "newly_discovered_count": 1,
-  "verified_existing_seed_count": 9,
-  "verified_existing_seeds": [
-    "redditprofile.com",
-    "tryadlicio.com",
-    "viewanonymous.com",
-    "www.peekstr.com",
-    "cascadr.co",
-    "ilo.so",
-    "tweetviewer.com",
-    "twitterviewer.net",
-    "www.twitter-viewer.com"
+  "status": "no_update",
+  "accepted": [],
+  "accepted_count": 0,
+  "trusted_candidate_count": 85,
+  "audited_false_positive_domains": [
+    "www.osfinder.net"
   ],
-  "rejection_reason_counts": {
-    "article/content page, not a frontend endpoint": 4,
-    "page unavailable": 13,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 4,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 6,
-    "platform=-; service=-; identity=user/tag; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0": 2,
-    "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=投稿; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=1": 2,
-    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 2,
-    "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=4": 1,
-    "platform=-; service=frontend/browser; identity=用户; search_intent=0; providers=0; queries=4": 1,
-    "platform=-; service=frontend; identity=profile; search_intent=0; providers=0; queries=0": 1,
-    "platform=-; service=reader; identity=-; search_intent=0; providers=0; queries=1": 1,
-    "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0": 2,
-    "platform=reddit; service=-; identity=comments/posts; search_intent=0; providers=0; queries=2": 1,
-    "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/profile; search_intent=1; providers=1; queries=1": 1,
-    "platform=tumblr; service=-; identity=blog/post/posts; search_intent=0; providers=0; queries=1": 1,
-    "platform=tumblr; service=viewer; identity=posts/profile; search_intent=1; providers=1; queries=1": 1,
-    "platform=tumblr; service=viewer; identity=profile; search_intent=0; providers=0; queries=1": 1
+  "audited_false_positive_count": 1,
+  "trusted_source_names": [
+    "Alternative frontends 1",
+    "Alternative frontends 3",
+    "Alternative frontends 4",
+    "Alternative frontends 5",
+    "Alternative frontends 6",
+    "Farside",
+    "GitHub:digitalblossom/alternative-frontends",
+    "LibRedirect",
+    "Libreddit",
+    "Redlib"
+  ],
+  "trusted_source_health": {
+    "Farside": {
+      "status": "ok",
+      "kind": "json",
+      "url": "https://raw.githubusercontent.com/benbusby/farside/main/services-full.json",
+      "candidate_count": 43
+    },
+    "Redlib": {
+      "status": "ok",
+      "kind": "json",
+      "url": "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json",
+      "candidate_count": 2
+    },
+    "Libreddit": {
+      "status": "ok",
+      "kind": "json",
+      "url": "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json",
+      "candidate_count": 0
+    },
+    "LibRedirect": {
+      "status": "ok",
+      "kind": "json",
+      "url": "https://raw.githubusercontent.com/libredirect/instances/main/data.json",
+      "candidate_count": 24
+    },
+    "Priviblur": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md",
+      "candidate_count": 0
+    },
+    "Alternative frontends 8": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/techietwintoes/alt-front-ends/web/README.md",
+      "candidate_count": 0
+    },
+    "Alternative frontends 1": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md",
+      "candidate_count": 2
+    },
+    "Alternative frontends 2": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md",
+      "candidate_count": 0
+    },
+    "Alternative frontends 3": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md",
+      "candidate_count": 5
+    },
+    "Alternative frontends 4": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/mendel5/alternative-front-ends/main/README.md",
+      "candidate_count": 5
+    },
+    "Alternative frontends 5": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/skynet2982/awesome-alternative-front-ends/main/README.md",
+      "candidate_count": 4
+    },
+    "Alternative frontends 6": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/ParniDEO/alternative-front-ends-unofficial/main/README.md",
+      "candidate_count": 0
+    },
+    "Alternative frontends 7": {
+      "status": "ok",
+      "kind": "text",
+      "url": "https://raw.githubusercontent.com/duyfken/alternative-front-ends/web/README.md",
+      "candidate_count": 0
+    }
   },
-  "search_queries": 72,
-  "search_backend": "bing-rss-fallback",
-  "search_backends": [
-    "bing-rss",
-    "bing-html"
-  ],
-  "search_pages": [
-    1,
-    2
-  ],
-  "search_backend_disabled": false,
-  "search_pages_succeeded": 138,
-  "search_queries_with_results": 72,
-  "search_queries_without_results": 0,
-  "search_backend_failures": 0,
-  "source_candidate_counts": {
-    "github": 4,
-    "gitlab": 0,
-    "codeberg": 0,
-    "common_crawl": 0,
-    "urlscan": 0
-  },
-  "validation_crash_count": 0,
   "verified_web_seed_count": 12,
   "verified_seed_domains": [
     {
@@ -186,7 +224,19 @@
       "validation_reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/handle/media; search_intent=0; providers=0; queries=0"
     }
   ],
-  "verified_frontend_count": 10,
+  "verified_frontend_count": 9,
+  "verified_existing_seed_count": 9,
+  "verified_existing_seeds": [
+    "redditprofile.com",
+    "tryadlicio.com",
+    "viewanonymous.com",
+    "www.peekstr.com",
+    "cascadr.co",
+    "ilo.so",
+    "tweetviewer.com",
+    "twitterviewer.net",
+    "www.twitter-viewer.com"
+  ],
   "verified_frontend_domains": [
     {
       "platform": "reddit",
@@ -241,115 +291,56 @@
       "domain": "www.twitter-viewer.com",
       "kind": "verified_seed",
       "verified": true
-    },
-    {
-      "platform": "tumblr",
-      "domain": "tmblrviewer.com",
-      "kind": "newly_discovered",
-      "verified": true
     }
   ],
-  "trusted_candidate_count": 85,
-  "audited_false_positive_domains": [
-    "www.osfinder.net"
-  ],
-  "audited_false_positive_count": 1,
+  "newly_discovered_count": 0,
   "github_discovered_candidate_count": 4,
-  "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded multilingual rotated search with language-aware page-2 expansion + query-level intent scoring + persistent pending verification + parallel validation",
-  "trusted_source_names": [
-    "Alternative frontends 1",
-    "Alternative frontends 3",
-    "Alternative frontends 4",
-    "Alternative frontends 5",
-    "Alternative frontends 6",
-    "Farside",
-    "GitHub:digitalblossom/alternative-frontends",
-    "LibRedirect",
-    "Libreddit",
-    "Redlib"
+  "search_queries": 72,
+  "search_backend": "bing-rss-fallback",
+  "discovery_mode": "daily",
+  "active_search_languages": [
+    "en",
+    "es",
+    "zh",
+    "ja"
   ],
-  "trusted_source_health": {
-    "Farside": {
-      "status": "ok",
-      "kind": "json",
-      "url": "https://raw.githubusercontent.com/benbusby/farside/main/services-full.json",
-      "candidate_count": 43
-    },
-    "Redlib": {
-      "status": "ok",
-      "kind": "json",
-      "url": "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json",
-      "candidate_count": 2
-    },
-    "Libreddit": {
-      "status": "ok",
-      "kind": "json",
-      "url": "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json",
-      "candidate_count": 0
-    },
-    "LibRedirect": {
-      "status": "ok",
-      "kind": "json",
-      "url": "https://raw.githubusercontent.com/libredirect/instances/main/data.json",
-      "candidate_count": 24
-    },
-    "Priviblur": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/syeopite/priviblur/master/instances.md",
-      "candidate_count": 0
-    },
-    "Alternative frontends 8": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/techietwintoes/alt-front-ends/web/README.md",
-      "candidate_count": 0
-    },
-    "Alternative frontends 1": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/digitalblossom/alternative-frontends/main/README.md",
-      "candidate_count": 2
-    },
-    "Alternative frontends 2": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/toka-kun/alternative-front-ends/web/README.md",
-      "candidate_count": 0
-    },
-    "Alternative frontends 3": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/Myzel394/awesome-alternative-frontends/main/README.md",
-      "candidate_count": 5
-    },
-    "Alternative frontends 4": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/mendel5/alternative-front-ends/main/README.md",
-      "candidate_count": 5
-    },
-    "Alternative frontends 5": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/skynet2982/awesome-alternative-front-ends/main/README.md",
-      "candidate_count": 4
-    },
-    "Alternative frontends 6": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/ParniDEO/alternative-front-ends-unofficial/main/README.md",
-      "candidate_count": 0
-    },
-    "Alternative frontends 7": {
-      "status": "ok",
-      "kind": "text",
-      "url": "https://raw.githubusercontent.com/duyfken/alternative-front-ends/web/README.md",
-      "candidate_count": 0
-    }
+  "language_rotation": [
+    "fr",
+    "de",
+    "zh",
+    "ja",
+    "ko",
+    "hi",
+    "ru",
+    "ar",
+    "pt",
+    "it"
+  ],
+  "search_page2_rotating_language": "zh",
+  "search_backends": [
+    "bing-rss",
+    "bing-html"
+  ],
+  "search_pages": [
+    1,
+    2
+  ],
+  "search_backend_disabled": false,
+  "search_pages_succeeded": 138,
+  "search_queries_with_results": 72,
+  "search_queries_without_results": 0,
+  "search_backend_failures": 0,
+  "search_fallbacks": 0,
+  "source_candidate_counts": {
+    "github": 4,
+    "gitlab": 0,
+    "codeberg": 0,
+    "common_crawl": 0,
+    "urlscan": 0
   },
-  "candidates_discovered": 155,
-  "validated_candidates": 58,
+  "validation_crash_count": 0,
+  "candidates_discovered": 173,
+  "validated_candidates": 75,
   "pending_verification_count": 5,
   "pending_status_counts": {
     "search_strong_but_page_unverified": 2,
@@ -360,8 +351,8 @@
       "domain": "www.tumlook.com",
       "platform": "tumblr",
       "queries": [
-        "\"tumblr viewer\" \"without account\"",
         "\"tumblr viewer\" \"without login\"",
+        "\"tumblr viewer\" \"without account\"",
         "\"Tumblr profile viewer\" -news -article -guide -review"
       ],
       "urls": [
@@ -374,14 +365,14 @@
       "search_evidence": [
         "bing-rss:about us | tumlook learn more about tumlook, a unique platform designed to enhance your tumblr browsing experience. discover our features, mission, and values."
       ],
-      "first_seen": "2026-10-10T15:00:59Z",
-      "last_attempt": "2026-10-10T15:00:59Z",
-      "last_attempt_epoch": 1791644459.5436041,
+      "first_seen": "2026-10-10T15:33:23Z",
+      "last_attempt": "2026-10-10T15:33:23Z",
+      "last_attempt_epoch": 1791646403.5675507,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 17,
-      "next_retry_epoch": 1791730859.5436041
+      "next_retry_epoch": 1791732803.5675507
     },
     {
       "domain": "lemmy.world",
@@ -400,14 +391,14 @@
       "search_evidence": [
         "bing-rss:lurkers of reddit - my read-only, ad-free, open source reddit viewer ... it makes one call to reddit to get the json file to display contents. cloudflare’s anonymous analytics are used now but i am looking for an alternative."
       ],
-      "first_seen": "2026-10-10T15:00:59Z",
-      "last_attempt": "2026-10-10T15:00:59Z",
-      "last_attempt_epoch": 1791644459.5436041,
+      "first_seen": "2026-10-10T15:33:23Z",
+      "last_attempt": "2026-10-10T15:33:23Z",
+      "last_attempt_epoch": 1791646403.5675507,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 14,
-      "next_retry_epoch": 1791730859.5436041
+      "next_retry_epoch": 1791732803.5675507
     },
     {
       "domain": "redship.io",
@@ -425,14 +416,14 @@
       "search_evidence": [
         "bing-rss:reddit profile viewer & account analyzer (free) view any reddit profile without logging in. see karma, account age, most active subreddits, posting hours, and top posts and comments on one screen. free."
       ],
-      "first_seen": "2026-10-10T15:00:59Z",
-      "last_attempt": "2026-10-10T15:00:59Z",
-      "last_attempt_epoch": 1791644459.5436041,
+      "first_seen": "2026-10-10T15:33:23Z",
+      "last_attempt": "2026-10-10T15:33:23Z",
+      "last_attempt_epoch": 1791646403.5675507,
       "attempts": 1,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/profile; search_intent=1; providers=1; queries=1",
       "discovery_score": 10,
-      "next_retry_epoch": 1791730859.5436041
+      "next_retry_epoch": 1791732803.5675507
     },
     {
       "domain": "soundc.com",
@@ -450,14 +441,14 @@
       "search_evidence": [
         "bing-rss:tumblr profile viewer – view profiles anonymously | soundc how to use tumblr profile viewer paste any tumblr profile url and view it without leaving a trace."
       ],
-      "first_seen": "2026-10-10T15:00:59Z",
-      "last_attempt": "2026-10-10T15:00:59Z",
-      "last_attempt_epoch": 1791644459.5436041,
+      "first_seen": "2026-10-10T15:33:23Z",
+      "last_attempt": "2026-10-10T15:33:23Z",
+      "last_attempt_epoch": 1791646403.5675507,
       "attempts": 1,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=tumblr; service=viewer; identity=posts/profile; search_intent=1; providers=1; queries=1",
       "discovery_score": 10,
-      "next_retry_epoch": 1791730859.5436041
+      "next_retry_epoch": 1791732803.5675507
     },
     {
       "domain": "www.instalker.org",
@@ -475,17 +466,17 @@
       "search_evidence": [
         "bing-rss:instalker - twitter search web viewer & trend tracker instalker is a free twitter web viewer that lets you explore twitter content without an account. search any username to view profiles, tweets, and media anonymously."
       ],
-      "first_seen": "2026-10-10T15:00:59Z",
-      "last_attempt": "2026-10-10T15:00:59Z",
-      "last_attempt_epoch": 1791644459.5436041,
+      "first_seen": "2026-10-10T15:33:23Z",
+      "last_attempt": "2026-10-10T15:33:23Z",
+      "last_attempt_epoch": 1791646403.5675507,
       "attempts": 1,
       "status": "temporary_unavailable",
       "last_reason": "page unavailable",
       "discovery_score": 10,
-      "next_retry_epoch": 1791730859.5436041
+      "next_retry_epoch": 1791732803.5675507
     }
   ],
-  "near_miss_count": 13,
+  "near_miss_count": 18,
   "top_near_misses": [
     {
       "domain": "zoomblr.com",
@@ -526,6 +517,24 @@
       }
     },
     {
+      "domain": "support.reddithelp.com",
+      "platform": "reddit",
+      "discovery_score": 18,
+      "validation_score": 0,
+      "reason": "page unavailable",
+      "status": "temporary_unavailable",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss",
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 18
+      }
+    },
+    {
       "domain": "www.tumlook.com",
       "platform": "tumblr",
       "discovery_score": 17,
@@ -544,7 +553,7 @@
     },
     {
       "domain": "zhuanlan.zhihu.com",
-      "platform": "twitter",
+      "platform": "reddit",
       "discovery_score": 16,
       "validation_score": 9,
       "reason": "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=4",
@@ -567,7 +576,80 @@
         "ui_signal": false,
         "inputs": 2,
         "forms": 1,
-        "buttons": 8,
+        "buttons": 9,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://zhuanlan.zhihu.com/p/9985814781",
+          "https://zhuanlan.zhihu.com/p/2049897326093787745"
+        ],
+        "discovery_score": 16
+      }
+    },
+    {
+      "domain": "zhuanlan.zhihu.com",
+      "platform": "twitter",
+      "discovery_score": 16,
+      "validation_score": 9,
+      "reason": "platform=-; service=frontend/实例/browser; identity=-; search_intent=0; providers=0; queries=4",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "frontend",
+          "实例",
+          "browser"
+        ],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 9,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -614,11 +696,89 @@
       }
     },
     {
-      "domain": "zhuanlan.zhihu.com",
+      "domain": "www.36kr.com",
       "platform": "reddit",
       "discovery_score": 16,
-      "validation_score": 9,
-      "reason": "platform=-; service=frontend/browser; identity=用户; search_intent=0; providers=0; queries=4",
+      "validation_score": 8,
+      "reason": "platform=reddit; service=-; identity=subreddit/user/用户/帖子; search_intent=0; providers=0; queries=4",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "subreddit",
+          "用户",
+          "帖子"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "subreddit",
+          "user",
+          "用户",
+          "帖子"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit"
+        ],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://www.36kr.com/p/1722357481473"
+        ],
+        "discovery_score": 16
+      }
+    },
+    {
+      "domain": "baike.baidu.com",
+      "platform": "reddit",
+      "discovery_score": 16,
+      "validation_score": 7,
+      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=4",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [],
@@ -627,22 +787,19 @@
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
+        "header_identity_hits": [
           "用户"
         ],
-        "service_hits": [
-          "frontend",
-          "browser"
-        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
         "identity_hits": [
           "用户"
         ],
         "ui_signal": false,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 10,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -670,20 +827,15 @@
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "frontend",
-          "browser"
-        ],
-        "runtime_framework_hits": [
-          "react"
-        ],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://zhuanlan.zhihu.com/p/9985814781"
+          "https://baike.baidu.com/item/%E7%BA%A2%E8%BF%AA/67081520"
         ],
         "discovery_score": 16
       }
@@ -1060,6 +1212,159 @@
       }
     },
     {
+      "domain": "www.microsoft.com",
+      "platform": "tumblr",
+      "discovery_score": 10,
+      "validation_score": 6,
+      "reason": "platform=-; service=-; identity=blog; search_intent=0; providers=0; queries=2",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "blog"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "user",
+          "profile"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "user",
+          "profile"
+        ],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 23,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "blog",
+          "twitter",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [
+          "tracker",
+          "tracking"
+        ],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://www.microsoft.com/en-us/investor/default",
+          "https://www.microsoft.com/",
+          "https://www.microsoft.com/zh-hk/software-download/windows11",
+          "https://www.microsoft.com/zh-cn/windows/get-windows-11"
+        ],
+        "discovery_score": 10
+      }
+    },
+    {
+      "domain": "baike.baidu.com",
+      "platform": "tumblr",
+      "discovery_score": 10,
+      "validation_score": 5,
+      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=2",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "用户"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "用户"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://baike.baidu.com/item/MSFT/1196498",
+          "https://baike.baidu.com/item/uphold/20712925",
+          "https://baike.baidu.com/item/upheld/53584648"
+        ],
+        "discovery_score": 10
+      }
+    },
+    {
       "domain": "www.instalker.org",
       "platform": "twitter",
       "discovery_score": 10,
@@ -1077,609 +1382,1148 @@
       }
     }
   ],
-  "candidate_selection_score_top": [
-    {
-      "domain": "www.tumlook.com",
-      "platform": "tumblr",
-      "discovery_score": 17,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"tumblr viewer\" \"without account\"",
-        "\"tumblr viewer\" \"without login\"",
-        "\"Tumblr profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "apkpure.com",
-      "platform": "twitter",
-      "discovery_score": 16,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"twitter 查看器\" \"无登录\"",
-        "\"twitter 查看器\" \"无需账户\"",
-        "\"twitter 网页查看器\"",
-        "\"twitter 匿名 查看器\""
-      ]
-    },
-    {
-      "domain": "go.microsoft.com",
-      "platform": "twitter",
-      "discovery_score": 16,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"twitter 查看器\" \"无登录\"",
-        "\"twitter 查看器\" \"无需账户\"",
-        "\"twitter 网页查看器\"",
-        "\"twitter 匿名 查看器\""
-      ]
-    },
-    {
-      "domain": "redditinc.com",
-      "platform": "reddit",
-      "discovery_score": 16,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"reddit 查看器\" \"无需账户\"",
-        "\"reddit 查看器\" \"无登录\"",
-        "\"reddit 网页查看器\"",
-        "\"reddit 匿名 查看器\""
-      ]
-    },
-    {
-      "domain": "zhuanlan.zhihu.com",
-      "platform": "twitter",
-      "discovery_score": 16,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"twitter 查看器\" \"无登录\"",
-        "\"twitter 查看器\" \"无需账户\"",
-        "\"twitter 网页查看器\"",
-        "\"twitter 匿名 查看器\""
-      ]
-    },
-    {
-      "domain": "zhuanlan.zhihu.com",
-      "platform": "reddit",
-      "discovery_score": 16,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"reddit 查看器\" \"无需账户\"",
-        "\"reddit 查看器\" \"无登录\"",
-        "\"reddit 网页查看器\"",
-        "\"reddit 匿名 查看器\""
-      ]
-    },
-    {
-      "domain": "lemmy.world",
-      "platform": "reddit",
-      "discovery_score": 14,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"reddit anonymous viewer\"",
-        "\"Reddit anonymous viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "redship.io",
-      "platform": "reddit",
-      "discovery_score": 10,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Reddit profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "rosint.dev",
-      "platform": "reddit",
-      "discovery_score": 10,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Reddit post viewer\" -news -article -guide -review",
-        "\"Reddit profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "soundc.com",
-      "platform": "tumblr",
-      "discovery_score": 10,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Tumblr profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "www.instalker.org",
-      "platform": "twitter",
-      "discovery_score": 10,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"tweet viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "tmblrviewer.com",
-      "platform": "tumblr",
-      "discovery_score": 9,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Tumblr profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "dtax.shanxi.chinatax.gov.cn",
-      "platform": "tumblr",
-      "discovery_score": 8,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无登录\""
-      ]
-    },
-    {
-      "domain": "etax.shanxi.chinatax.gov.cn",
-      "platform": "tumblr",
-      "discovery_score": 8,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无登录\""
-      ]
-    },
-    {
-      "domain": "f-droid.org",
-      "platform": "reddit",
-      "discovery_score": 8,
-      "sources": [
-        "Alternative frontends 3",
-        "Alternative frontends 4",
-        "Alternative frontends 5",
-        "Alternative frontends 6"
-      ],
-      "providers": [],
-      "queries": [
-        "SOURCE:Alternative frontends 3",
-        "SOURCE:Alternative frontends 4",
-        "SOURCE:Alternative frontends 5",
-        "SOURCE:Alternative frontends 6"
-      ]
-    },
-    {
-      "domain": "weread.qq.com",
-      "platform": "tumblr",
-      "discovery_score": 8,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无需账户\""
-      ]
-    },
-    {
-      "domain": "apps.apple.com",
-      "platform": "twitter",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"X profile viewer\" \"no login\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "baike.baidu.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无需账户\""
-      ]
-    },
-    {
-      "domain": "bbs.3dmgame.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "eddrit.com",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [
-        "Alternative frontends 5"
-      ],
-      "providers": [],
-      "queries": [
-        "SOURCE:Alternative frontends 5"
-      ]
-    },
-    {
-      "domain": "f-droid.org",
-      "platform": "twitter",
-      "discovery_score": 6,
-      "sources": [
-        "Alternative frontends 3",
-        "Alternative frontends 5"
-      ],
-      "providers": [],
-      "queries": [
-        "SOURCE:Alternative frontends 3",
-        "SOURCE:Alternative frontends 5"
-      ]
-    },
-    {
-      "domain": "gl.ali213.net",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "jpf-reddit.netlify.app",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [
-        "Alternative frontends 4",
-        "Alternative frontends 6"
-      ],
-      "providers": [],
-      "queries": [
-        "SOURCE:Alternative frontends 4",
-        "SOURCE:Alternative frontends 6"
-      ]
-    },
-    {
-      "domain": "nextjs.org",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [
-        "Alternative frontends 1",
-        "GitHub:digitalblossom/alternative-frontends"
-      ],
-      "providers": [],
-      "queries": [
-        "SOURCE:Alternative frontends 1",
-        "SOURCE:GitHub:digitalblossom/alternative-frontends"
-      ]
-    },
-    {
-      "domain": "reddit.fandom.com",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"subreddit viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "rogerhub.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Tumblr profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "search.pullpush.io",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Reddit post viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "tieba.baidu.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "tikt.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"Tumblr profile viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "www.1800flowers.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无登录\""
-      ]
-    },
-    {
-      "domain": "www.3dmgame.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "www.9game.cn",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "www.bbc.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无需账户\""
-      ]
-    },
-    {
-      "domain": "www.bilibili.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "www.gamersky.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 网页查看器\""
-      ]
-    },
-    {
-      "domain": "www.mofcom.gov.cn",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无需账户\""
-      ]
-    },
-    {
-      "domain": "www.president.gov.tw",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "queries": [
-        "\"tumblr 查看器\" \"无需账户\""
-      ]
-    },
-    {
-      "domain": "www.producthunt.com",
-      "platform": "tumblr",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"tumblr viewer\" \"without login\""
-      ]
-    },
-    {
-      "domain": "www.redditshuffle.com",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "queries": [
-        "\"subreddit viewer\" -news -article -guide -review"
-      ]
-    },
-    {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "discovery_score": 6,
-      "sources": [
-        "Alternative frontends 4",
-        "Alternative frontends 6"
-      ],
-      "providers": [],
-      "queries": [
-        "SOURCE:Alternative frontends 4",
-        "SOURCE:Alternative frontends 6"
-      ]
-    }
-  ],
-  "accepted_count": 1,
-  "newly_accepted_count": 1,
-  "retained_historical_count": 137,
+  "retained_historical_count": 138,
   "retained_total_count": 138,
   "output_domain_count": 138,
-  "already_covered_count": 104,
-  "already_discovered_count": 68,
-  "known_candidates_skipped_before_validation": 109,
-  "search_results_seen": 1373,
-  "search_errors": [],
-  "accepted": [
+  "append_only": true,
+  "output_preserved": true,
+  "rejection_reason_counts": {
+    "page unavailable": 21,
+    "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=4": 1,
+    "platform=-; service=frontend/实例/browser; identity=-; search_intent=0; providers=0; queries=4": 1,
+    "platform=reddit; service=-; identity=subreddit/user/用户/帖子; search_intent=0; providers=0; queries=4": 1,
+    "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=4": 1,
+    "article/content page, not a frontend endpoint": 7,
+    "platform=tumblr; service=viewer; identity=posts/profile; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/profile; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=-; identity=comments/posts; search_intent=0; providers=0; queries=2": 1,
+    "platform=-; service=-; identity=blog; search_intent=0; providers=0; queries=2": 1,
+    "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=2": 1,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 6,
+    "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0": 2,
+    "platform=tumblr; service=viewer; identity=profile; search_intent=0; providers=0; queries=1": 1,
+    "platform=tumblr; service=-; identity=blog/post/posts; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=frontend; identity=profile; search_intent=0; providers=0; queries=0": 1,
+    "platform=-; service=browser/reader; identity=profile/tag; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=blog/blogs/posts/tags; search_intent=0; providers=0; queries=1": 1,
+    "platform=reddit; service=-; identity=-; search_intent=0; providers=0; queries=0": 2,
+    "platform=-; service=viewer/browser; identity=-; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 2,
+    "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=browser; identity=个人资料/用户; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=instance/browser; identity=blog/user; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 4,
+    "platform=-; service=代理; identity=用户; search_intent=0; providers=0; queries=1": 1,
+    "non-frontend service/tool page": 3
+  },
+  "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
+  "candidates": [
     {
-      "domain": "tmblrviewer.com",
+      "domain": "tryadlicio.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 29,
+      "query_count": 4,
+      "final_url": "https://tryadlicio.com/tools/reddit-viewer",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser",
+          "visor",
+          "visualizador"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "visor",
+          "visualizador",
+          "browser"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 4,
+        "forms": 4,
+        "buttons": 8,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "profile",
+          "post"
+        ],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": true,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 4,
+        "search_signal_hits": 5,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://tryadlicio.com/tools/reddit-viewer",
+          "bing-rss:reddit viewer: browse any subreddit, post or profile, no login free reddit viewer. read any public subreddit, post with comments, or user profile without a reddit account or app. search comments and export csv."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit",
+          "subreddit"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [
+          "analyzer",
+          "statistics"
+        ],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://tryadlicio.com/tools/reddit-viewer"
+        ],
+        "discovery_score": 25
+      },
+      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=1; providers=1; queries=4",
+      "error": ""
+    },
+    {
+      "domain": "twitterviewer.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 34,
+      "query_count": 2,
+      "final_url": "https://twitterviewer.net/",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "header_service_hits": [
+          "viewer",
+          "gallery"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 0,
+        "buttons": 44,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "tweet",
+          "twitter",
+          "paste"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [
+          "analytics",
+          "statistics"
+        ],
+        "service_kind": "viewer/frontend+tool",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 2,
+        "query_intent_hits": 2,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://twitterviewer.net/",
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account what is a twitter viewer? a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x. since twitter's policy changes removed anonymous access, tools like our anonymous twitter viewer fill this gap — providing a seamless, secure ...",
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! instantly view any public tweet, user profile, and replies online – no account or login required. the best nitter alternative with video downloading."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter",
+          "tweet",
+          "nitter"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "frontend"
+        ],
+        "runtime_framework_hits": [
+          "nuxt"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 7,
+        "tool_signal_hits": [
+          "analytics",
+          "tracking",
+          "statistics"
+        ],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://twitterviewer.net/"
+        ],
+        "discovery_score": 22
+      },
+      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "www.peekstr.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 26,
+      "query_count": 3,
+      "final_url": "https://www.peekstr.com/view-reddit-without-login",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "browser",
+          "slideshow"
+        ],
+        "header_identity_hits": [
+          "subreddit",
+          "post",
+          "thread"
+        ],
+        "body_service_hits": [
+          "browser",
+          "slideshow",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "comments",
+          "post",
+          "posts",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser",
+          "slideshow",
+          "gallery"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "comments",
+          "post",
+          "posts",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 3,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "post",
+          "reddit",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "top "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 2,
+        "query_intent_hits": 3,
+        "search_signal_hits": 5,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 3,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://www.peekstr.com/",
+          "bing-rss:view reddit without logging in, no account | peekstr peekstr is a clean, full-screen way to browse public reddit images and videos in your browser. no account, no app, no cookies, and every post links back to its original reddit thread.",
+          "bing-rss:peekstr - view any subreddit’s images & videos full-screen. no account ... turn any subreddit into a full-screen image & video slideshow with an ai multi-reddit builder. no account, no app, no cookies."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit",
+          "subreddit"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser",
+          "slideshow",
+          "gallery"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 7,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://www.peekstr.com/",
+          "https://www.peekstr.com/view-reddit-without-login"
+        ],
+        "discovery_score": 21
+      },
+      "reason": "platform=reddit; service=browser/slideshow; identity=subreddit/post/thread; search_intent=2; providers=1; queries=3",
+      "error": ""
+    },
+    {
+      "domain": "ilo.so",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 26,
+      "query_count": 2,
+      "final_url": "https://ilo.so/twitter-viewer",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer",
+          "reader"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "profile",
+          "post",
+          "posts",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser",
+          "reader"
+        ],
+        "body_identity_hits": [
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "mirror",
+          "browser",
+          "reader"
+        ],
+        "identity_hits": [
+          "tweet",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 42,
+        "article_count": 3,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "username",
+          "profile",
+          "post"
+        ],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [
+          "author"
+        ],
+        "non_frontend_service_hits": [
+          "analytics"
+        ],
+        "service_kind": "viewer/frontend+tool",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 2,
+        "search_signal_hits": 3,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://ilo.so/twitter-viewer",
+          "bing-rss:twitter viewer: public x profiles and posts without login | ilo use a twitter web viewer to open one public x profile or post without logging in. see recent posts, media, dates, and public engagement counts."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "reader"
+        ],
+        "runtime_framework_hits": [
+          "astro"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 6,
+        "tool_signal_hits": [
+          "analyzer",
+          "analytics",
+          "profile analyzer"
+        ],
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://ilo.so/twitter-viewer"
+        ],
+        "discovery_score": 19
+      },
+      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "cascadr.co",
       "platform": "tumblr",
       "accepted": true,
-      "score": 10,
-      "query_count": 1,
-      "final_url": "http://tmblrviewer.com/",
+      "score": 20,
+      "query_count": 2,
+      "final_url": "https://cascadr.co/",
       "evidence": {
         "platform_hits": [
           "tumblr"
         ],
         "twitter_x_context_ok": false,
         "brand_hits": [],
-        "header_platform_hits": [],
+        "header_platform_hits": [
+          "tumblr"
+        ],
         "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "blog"
+        ],
         "body_service_hits": [],
-        "body_identity_hits": [
-          "post",
-          "posts"
+        "body_identity_hits": [],
+        "service_hits": [
+          "viewer"
         ],
-        "service_hits": [],
         "identity_hits": [
-          "post",
-          "posts"
+          "blog"
         ],
-        "ui_signal": true,
-        "inputs": 9,
-        "forms": 1,
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
         "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
         "service_path_hint": false,
-        "host_service_hint": true,
+        "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
+        "header_service_identity_hint": true,
         "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
+        "header_verified_search_service_ok": true,
+        "search_intent_hits": 1,
+        "query_intent_hits": 2,
+        "search_signal_hits": 3,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 2,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:tmblrviewer.com https://.tumblr.com/ show total post count: | show direct urls to photos: | show photos: | show videos: posts from number: | posts to number:"
+          "Web-verified viewer seed: https://cascadr.co/",
+          "bing-rss:cascadr | a tumblr image viewer cascadr is a tumblr image viewer, a different way to view tumblr that allows you to easily and quickly scan through a blog to find the images that you want."
         ],
-        "trusted_sources": [],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 1,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "http://tmblrviewer.com/"
+          "https://cascadr.co/"
         ],
-        "discovery_score": 9
+        "discovery_score": 17
       },
-      "reason": "platform=tumblr; service=-; identity=post/posts; search_intent=0; providers=0; queries=1",
+      "reason": "platform=tumblr; service=viewer; identity=blog; search_intent=1; providers=1; queries=2",
       "error": ""
-    }
-  ],
-  "rejected_sample": [
+    },
+    {
+      "domain": "redditprofile.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 26,
+      "query_count": 1,
+      "final_url": "https://redditprofile.com/reddit-profile-viewer",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 4,
+        "forms": 0,
+        "buttons": 16,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "post",
+          "reddit"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [
+          "analyzer"
+        ],
+        "service_kind": "viewer/frontend+tool",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": true,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://redditprofile.com/reddit-profile-viewer",
+          "bing-rss:reddit profile viewer and analyzer, free lookup view a reddit user's public profile in one place: karma breakdown, account age, and recent posts and comments."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 4,
+        "tool_signal_hits": [
+          "analyzer"
+        ],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://redditprofile.com/reddit-profile-viewer"
+        ],
+        "discovery_score": 13
+      },
+      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=1; providers=1; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "viewanonymous.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 23,
+      "query_count": 0,
+      "final_url": "https://viewanonymous.com/tools/reddit/link/",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "comments",
+          "posts"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "frontend",
+          "browser"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 4,
+        "forms": 0,
+        "buttons": 20,
+        "article_count": 1,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "user",
+          "reddit",
+          "paste"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 0,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "Web-verified viewer seed"
+        ],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [
+          "Web-verified viewer seed: https://viewanonymous.com/tools/reddit/link/"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "frontend",
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [
+          "tracking"
+        ],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://viewanonymous.com/tools/reddit/link/"
+        ],
+        "discovery_score": 7
+      },
+      "reason": "platform=reddit; service=viewer; identity=comments/posts; search_intent=1; providers=1; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "tweetviewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 24,
+      "query_count": 0,
+      "final_url": "https://tweetviewer.com/",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 30,
+        "article_count": 9,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "username",
+          "user",
+          "tweet",
+          "twitter",
+          "paste",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best ",
+          "top ",
+          "guide"
+        ],
+        "editorial_marker_hits": [
+          "subscribe"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [
+          "Web-verified viewer seed: https://tweetviewer.com/"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter",
+          "tweet"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 6,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://tweetviewer.com/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
+      "domain": "www.twitter-viewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 23,
+      "query_count": 0,
+      "final_url": "https://www.twitter-viewer.com/twitter-profile-viewer",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 6,
+        "forms": 0,
+        "buttons": 53,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "guide"
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [
+          "Web-verified viewer seed: https://www.twitter-viewer.com/twitter-profile-viewer"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter"
+        ],
+        "runtime_service_hits": [
+          "viewer"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 4,
+        "tool_signal_hits": [
+          "tracking"
+        ],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://www.twitter-viewer.com/twitter-profile-viewer"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/handle/media; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
     {
       "domain": "zoomblr.com",
       "platform": "tumblr",
@@ -1723,6 +2567,26 @@
       "error": ""
     },
     {
+      "domain": "support.reddithelp.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
+      "final_url": "https://support.reddithelp.com/hc/zh-cn/articles/204533569-%E4%BB%80%E4%B9%88%E6%98%AF%E7%A4%BE%E5%8C%BA%E6%88%96-Subreddit",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss",
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 18
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
       "domain": "www.tumlook.com",
       "platform": "tumblr",
       "accepted": false,
@@ -1743,7 +2607,7 @@
     },
     {
       "domain": "zhuanlan.zhihu.com",
-      "platform": "twitter",
+      "platform": "reddit",
       "accepted": false,
       "score": 9,
       "query_count": 4,
@@ -1766,7 +2630,82 @@
         "ui_signal": false,
         "inputs": 2,
         "forms": 1,
-        "buttons": 8,
+        "buttons": 9,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://zhuanlan.zhihu.com/p/9985814781",
+          "https://zhuanlan.zhihu.com/p/2049897326093787745"
+        ],
+        "discovery_score": 16
+      },
+      "reason": "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=4",
+      "error": ""
+    },
+    {
+      "domain": "zhuanlan.zhihu.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 9,
+      "query_count": 4,
+      "final_url": "https://zhuanlan.zhihu.com/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "frontend",
+          "实例",
+          "browser"
+        ],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 9,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -1811,16 +2750,96 @@
         ],
         "discovery_score": 16
       },
-      "reason": "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=4",
+      "reason": "platform=-; service=frontend/实例/browser; identity=-; search_intent=0; providers=0; queries=4",
       "error": ""
     },
     {
-      "domain": "zhuanlan.zhihu.com",
+      "domain": "www.36kr.com",
       "platform": "reddit",
       "accepted": false,
-      "score": 9,
+      "score": 8,
       "query_count": 4,
-      "final_url": "https://zhuanlan.zhihu.com/",
+      "final_url": "https://www.36kr.com/p/1722357481473",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "subreddit",
+          "用户",
+          "帖子"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "subreddit",
+          "user",
+          "用户",
+          "帖子"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit"
+        ],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://www.36kr.com/p/1722357481473"
+        ],
+        "discovery_score": 16
+      },
+      "reason": "platform=reddit; service=-; identity=subreddit/user/用户/帖子; search_intent=0; providers=0; queries=4",
+      "error": ""
+    },
+    {
+      "domain": "baike.baidu.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 7,
+      "query_count": 4,
+      "final_url": "https://baike.baidu.com/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -1828,22 +2847,19 @@
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
+        "header_identity_hits": [
           "用户"
         ],
-        "service_hits": [
-          "frontend",
-          "browser"
-        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
         "identity_hits": [
           "用户"
         ],
         "ui_signal": false,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 10,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -1871,24 +2887,19 @@
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "frontend",
-          "browser"
-        ],
-        "runtime_framework_hits": [
-          "react"
-        ],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://zhuanlan.zhihu.com/p/9985814781"
+          "https://baike.baidu.com/item/%E7%BA%A2%E8%BF%AA/67081520"
         ],
         "discovery_score": 16
       },
-      "reason": "platform=-; service=frontend/browser; identity=用户; search_intent=0; providers=0; queries=4",
+      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=4",
       "error": ""
     },
     {
@@ -2298,6 +3309,163 @@
       "error": ""
     },
     {
+      "domain": "www.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 6,
+      "query_count": 2,
+      "final_url": "https://www.microsoft.com/en-us/investor/default",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "blog"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "user",
+          "profile"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "user",
+          "profile"
+        ],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 23,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "blog",
+          "twitter",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [
+          "tracker",
+          "tracking"
+        ],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://www.microsoft.com/en-us/investor/default",
+          "https://www.microsoft.com/",
+          "https://www.microsoft.com/zh-hk/software-download/windows11",
+          "https://www.microsoft.com/zh-cn/windows/get-windows-11"
+        ],
+        "discovery_score": 10
+      },
+      "reason": "platform=-; service=-; identity=blog; search_intent=0; providers=0; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "baike.baidu.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 5,
+      "query_count": 2,
+      "final_url": "https://baike.baidu.com/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "用户"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [
+          "用户"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://baike.baidu.com/item/MSFT/1196498",
+          "https://baike.baidu.com/item/uphold/20712925",
+          "https://baike.baidu.com/item/upheld/53584648"
+        ],
+        "discovery_score": 10
+      },
+      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=2",
+      "error": ""
+    },
+    {
       "domain": "www.instalker.org",
       "platform": "twitter",
       "accepted": false,
@@ -2317,12 +3485,12 @@
       "error": ""
     },
     {
-      "domain": "weread.qq.com",
+      "domain": "jp.mercari.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 8,
       "query_count": 1,
-      "final_url": "https://weread.qq.com/web/search/books?keyword=%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86",
+      "final_url": "https://jp.mercari.com/search?keyword=%E3%83%AB%E3%83%BC%E3%83%8CEX20",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -2333,14 +3501,12 @@
         "header_identity_hits": [],
         "body_service_hits": [],
         "body_identity_hits": [],
-        "service_hits": [
-          "reader"
-        ],
+        "service_hits": [],
         "identity_hits": [],
         "ui_signal": true,
         "inputs": 4,
-        "forms": 0,
-        "buttons": 12,
+        "forms": 1,
+        "buttons": 15,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -2364,7 +3530,7 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:毛泽东选集-全部作品在线阅读-微信读书 《毛泽东选集》共四卷,收录了毛泽东 1925 - 1949 年间 159 篇极具代表性的著作,经毛泽东本人审校,由人民出版社于 1951 - 1960 年间陆续出版。 第一卷聚焦第一次国内革命战争至土地革命时期,有《湖南农民运动考察报告》《实践论》等,分析了阶级状况与革命问题,阐述了重要哲学思想。 第二卷、第三卷围绕抗日战争时期,含《论持久战》《新民主主义论》等,明确抗战战略方针,阐释新民主主义革命理论。 第四卷收录解放战争时期著作,像《党委会的工作方法》等,为解放战争胜利提供理论与策略指引。 全书集中体现毛泽东思想,是马克思主义中国化的重要成果。 《<毛泽东选集>英译研究》是国家社科基金成果。"
+          "bing-rss:【2026年最新】ルーヌex20の人気アイテム - メルカリ ルーヌex20の人気アイテム「メルカリ」でお得に通販、誰でも安心して簡単に売り買いが楽しめるフリマサービスです。新品/未使用品も多数、支払いはクレジットカード・キャリア決済・コンビニ・銀行atmが利用可能で、品物が届いてから出品者に入金さ ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -2376,87 +3542,13 @@
         "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://weread.qq.com/web/search/books?keyword=%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=reader; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "dtax.shanxi.chinatax.gov.cn",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 7,
-      "query_count": 1,
-      "final_url": "https://dtax.shanxi.chinatax.gov.cn/app/appvcs/view/appvcs/home?area=140000",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "browser"
-        ],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:电子税务局 山西省电子税务局提供便捷的在线税务服务,助力纳税人高效办理税务事项。"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "browser"
-        ],
-        "runtime_framework_hits": [
-          "vue",
-          "vite"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://dtax.shanxi.chinatax.gov.cn/app/appvcs/view/appvcs/home?area=140000"
+          "https://jp.mercari.com/search?keyword=%E3%83%AB%E3%83%BC%E3%83%8CEX20"
         ],
         "discovery_score": 8
       },
-      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -2531,75 +3623,6 @@
         "discovery_score": 8
       },
       "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "etax.shanxi.chinatax.gov.cn",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://etax.shanxi.chinatax.gov.cn:8443/xxbg/view/zhsffw/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:电子税务局 we're sorry but 电子税务局 doesn't work properly without javascript enabled. please enable it to continue."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [
-          "vue"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://etax.shanxi.chinatax.gov.cn:8443/xxbg/view/zhsffw/"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -2872,12 +3895,12 @@
       "error": ""
     },
     {
-      "domain": "www.zhihu.com",
+      "domain": "dictionary.cambridge.org",
       "platform": "tumblr",
       "accepted": false,
-      "score": 11,
+      "score": 8,
       "query_count": 1,
-      "final_url": "https://www.zhihu.com/signin?next=%2F",
+      "final_url": "https://dictionary.cambridge.org/zhs/%E8%AF%8D%E5%85%B8/%E8%8B%B1%E8%AF%AD-%E6%B1%89%E8%AF%AD-%E7%AE%80%E4%BD%93/uphold",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -2886,21 +3909,27 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "frontend",
+        "body_service_hits": [
           "browser"
         ],
-        "identity_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "browser",
+          "reader"
+        ],
+        "identity_hits": [
+          "profile",
+          "tag"
+        ],
         "ui_signal": true,
-        "inputs": 4,
-        "forms": 2,
-        "buttons": 30,
-        "article_count": 0,
-        "article_structure_hint": false,
+        "inputs": 16,
+        "forms": 6,
+        "buttons": 262,
+        "article_count": 1,
+        "article_structure_hint": true,
         "interactive_target_hits": [
-          "username"
+          "user",
+          "view"
         ],
         "service_path_hint": false,
         "host_service_hint": false,
@@ -2927,32 +3956,111 @@
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [
-          "frontend",
-          "browser"
+          "reader"
         ],
-        "runtime_framework_hits": [
-          "react"
-        ],
+        "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 3,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 1,
         "query_urls": [
-          "https://www.zhihu.com/question/370066637",
-          "https://www.zhihu.com/question/314188166",
-          "https://www.zhihu.com/question/54461443",
-          "https://www.zhihu.com/question/536746911",
-          "https://www.zhihu.com/question/24577401",
-          "https://www.zhihu.com/question/19927667",
-          "https://www.zhihu.com/question/404728935",
-          "https://www.zhihu.com/question/472515644",
-          "https://www.zhihu.com/tardis/bd/art/673659167",
-          "https://www.zhihu.com/question/539249679"
+          "https://dictionary.cambridge.org/zhs/%E8%AF%8D%E5%85%B8/%E8%8B%B1%E8%AF%AD-%E6%B1%89%E8%AF%AD-%E7%AE%80%E4%BD%93/uphold"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=frontend/browser; identity=-; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=browser/reader; identity=profile/tag; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "techcommunity.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 7,
+      "query_count": 1,
+      "final_url": "https://techcommunity.microsoft.com/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "blog",
+          "blogs",
+          "posts",
+          "tags"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "blogs",
+          "user",
+          "profile"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "blogs",
+          "posts",
+          "user",
+          "profile",
+          "tag",
+          "tags"
+        ],
+        "ui_signal": true,
+        "inputs": 1,
+        "forms": 1,
+        "buttons": 9,
+        "article_count": 34,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "profile",
+          "blog",
+          "reddit",
+          "account",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [
+          "tracking"
+        ],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 1,
+        "query_urls": [
+          "https://techcommunity.microsoft.com/discussions/windowsinsiderprogram/win11-%e7%b3%bb%e7%bb%9f%e6%9b%b4%e6%96%b0-%e5%ae%89%e8%a3%85%e5%92%8c%e4%b8%8b%e8%bd%bd%e9%94%99%e8%af%af---0x80070005/3161996"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=-; identity=blog/blogs/posts/tags; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -3098,12 +4206,12 @@
       "error": ""
     },
     {
-      "domain": "baike.baidu.com",
+      "domain": "solarsystem.nasa.gov",
       "platform": "tumblr",
       "accepted": false,
-      "score": 4,
+      "score": 5,
       "query_count": 1,
-      "final_url": "https://baike.baidu.com/",
+      "final_url": "https://solarsystem.nasa.gov/gltf_embed/2372/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3111,15 +4219,16 @@
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
-        "header_identity_hits": [
-          "用户"
+        "header_identity_hits": [],
+        "body_service_hits": [
+          "browser"
         ],
-        "body_service_hits": [],
         "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "用户"
+        "service_hits": [
+          "viewer",
+          "browser"
         ],
+        "identity_hits": [],
         "ui_signal": false,
         "inputs": 0,
         "forms": 0,
@@ -3144,35 +4253,40 @@
         "search_provider_hits": [],
         "distinct_queries": 1,
         "search_providers": [
-          "bing-html"
+          "bing-rss"
         ],
-        "search_evidence": [],
+        "search_evidence": [
+          "bing-rss:mars 3d model – nasa solar system exploration you are using an outdated browser. please upgrade your browser to improve your experience."
+        ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
-        "runtime_service_hits": [],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://baike.baidu.com/item/%E5%8F%B0%E6%B9%BE%E7%9C%81/761219"
+          "https://solarsystem.nasa.gov/gltf_embed/2372/"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=viewer/browser; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "www.1800flowers.com",
+      "domain": "tw.stock.yahoo.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 4,
       "query_count": 1,
-      "final_url": "https://www.1800flowers.com/always-on-my-mind-flower-bouquet-191244",
+      "final_url": "https://tw.stock.yahoo.com/quote/MSFT",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3188,9 +4302,9 @@
         ],
         "identity_hits": [],
         "ui_signal": false,
-        "inputs": 2,
-        "forms": 1,
-        "buttons": 11,
+        "inputs": 29,
+        "forms": 5,
+        "buttons": 135,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -3228,18 +4342,9 @@
         "positive_frontend_signals": 1,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
+        "internal_routes_checked": 3,
         "query_urls": [
-          "https://www.1800flowers.com/magnificent-roses-preserved-roses-156598",
-          "https://www.1800flowers.com/lovely-lavender-medley-191173",
-          "https://www.1800flowers.com/always-on-my-mind-flower-bouquet-191244",
-          "https://www.1800flowers.com/european-sympathy-dish-garden-4213",
-          "https://www.1800flowers.com/bestsellingflowers",
-          "https://www.1800flowers.com/lavender-garden-bouquet-160557",
-          "https://www.1800flowers.com/red-rose-lily-floor-basket-sympathy-147300",
-          "https://www.1800flowers.com/coastal-breeze-191300",
-          "https://www.1800flowers.com/justbecause",
-          "https://www.1800flowers.com/garden-pathway-225291"
+          "https://tw.stock.yahoo.com/quote/MSFT"
         ],
         "discovery_score": 6
       },
@@ -3247,12 +4352,12 @@
       "error": ""
     },
     {
-      "domain": "www.3dmgame.com",
+      "domain": "www.iciba.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 4,
       "query_count": 1,
-      "final_url": "https://www.3dmgame.com/gl/3941108_71.html",
+      "final_url": "https://www.iciba.com/word?w=uphold",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3260,162 +4365,17 @@
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
-        "header_identity_hits": [],
+        "header_identity_hits": [
+          "用户"
+        ],
         "body_service_hits": [],
         "body_identity_hits": [],
         "service_hits": [],
         "identity_hits": [
-          "user",
-          "tag"
-        ],
-        "ui_signal": true,
-        "inputs": 21,
-        "forms": 1,
-        "buttons": 2,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
-        "tool_signal_hits": [
-          "statistics"
-        ],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://www.3dmgame.com/gl/3941108_71.html"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=user/tag; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.9game.cn",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.9game.cn/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "用户"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "用户"
-        ],
-        "service_hits": [],
-        "identity_hits": [
           "用户"
         ],
         "ui_signal": false,
-        "inputs": 8,
-        "forms": 1,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 1,
-        "query_urls": [
-          "https://www.9game.cn/news/10198482.html"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.gamersky.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 4,
-      "query_count": 1,
-      "final_url": "https://www.gamersky.com/handbook/202406/1775983.shtml",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "投稿"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "投稿"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "投稿"
-        ],
-        "ui_signal": false,
-        "inputs": 4,
+        "inputs": 1,
         "forms": 0,
         "buttons": 0,
         "article_count": 0,
@@ -3451,13 +4411,310 @@
         "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://www.gamersky.com/handbook/202406/1775983.shtml"
+          "https://www.iciba.com/word?w=uphold"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=投稿; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=-; identity=用户; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "apps.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 3,
+      "query_count": 1,
+      "final_url": "https://apps.microsoft.com/detail/9n6lv70qbbss?hl=zh-CN&gl=CN",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "browser"
+        ],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://apps.microsoft.com/detail/9wzdncrfhwkn?hl=zh-CN&gl=CN",
+          "https://apps.microsoft.com/detail/9n6lv70qbbss?hl=zh-CN&gl=CN"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "support.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 3,
+      "query_count": 1,
+      "final_url": "https://support.microsoft.com/zh-cn/windows/deployment/install-upgrade/getting-ready-for-the-windows-11-upgrade",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "个人资料",
+          "用户"
+        ],
+        "service_hits": [
+          "browser"
+        ],
+        "identity_hits": [
+          "个人资料",
+          "用户"
+        ],
+        "ui_signal": false,
+        "inputs": 28,
+        "forms": 4,
+        "buttons": 46,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 1,
+        "query_urls": [
+          "https://support.microsoft.com/zh-cn/windows/deployment/install-upgrade/getting-ready-for-the-windows-11-upgrade",
+          "https://support.microsoft.com/zh-cn/windows/hardware/input-devices/language-packs-for-windows"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=browser; identity=个人资料/用户; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "uphold.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 3,
+      "query_count": 1,
+      "final_url": "https://uphold.com/en-gb",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "blog",
+          "user"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "blog",
+          "user"
+        ],
+        "service_hits": [
+          "instance",
+          "browser"
+        ],
+        "identity_hits": [
+          "blog",
+          "post",
+          "user",
+          "profile"
+        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 5,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [
+          "last updated"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://uphold.com/en-us",
+          "https://uphold.com/en-gb"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=instance/browser; identity=blog/user; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "community.spotify.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 2,
+      "query_count": 1,
+      "final_url": "https://community.spotify.com/forum/en/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:[bb] download spotify for blackberry i'm trying to install spotify on my blackberry by typing m.spotify.com in the phone's browser, i am allways redirected to www.spotify.com. is there another way to download the app for blackberry? greets thomas solved! go to solution."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://community.spotify.com/t5/Other-Podcasts-Partners-etc/BB-Download-Spotify-for-Blackberry/td-p/280264"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -3527,12 +4784,12 @@
       "error": ""
     },
     {
-      "domain": "bbs.3dmgame.com",
+      "domain": "www.xueqiu.com",
       "platform": "tumblr",
       "accepted": false,
-      "score": 1,
+      "score": 2,
       "query_count": 1,
-      "final_url": "https://bbs.3dmgame.com/archiver/tid-6514313.html",
+      "final_url": "https://www.xueqiu.com/S/MSFT",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3546,7 +4803,7 @@
         "service_hits": [],
         "identity_hits": [],
         "ui_signal": false,
-        "inputs": 0,
+        "inputs": 2,
         "forms": 0,
         "buttons": 0,
         "article_count": 0,
@@ -3577,14 +4834,16 @@
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
-        "runtime_framework_hits": [],
+        "runtime_framework_hits": [
+          "vue"
+        ],
         "runtime_service_hint": false,
         "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://bbs.3dmgame.com/archiver/tid-6514313.html"
+          "https://www.xueqiu.com/S/MSFT"
         ],
         "discovery_score": 6
       },
@@ -3592,12 +4851,12 @@
       "error": ""
     },
     {
-      "domain": "gl.ali213.net",
+      "domain": "en.jideqiao.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 1,
       "query_count": 1,
-      "final_url": "https://gl.ali213.net/html/2024-6/1426079.html",
+      "final_url": "https://en.jideqiao.com/dict?word=uphold",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3611,75 +4870,9 @@
         "service_hits": [],
         "identity_hits": [],
         "ui_signal": false,
-        "inputs": 3,
-        "forms": 1,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://gl.ali213.net/html/2024-6/1429617.html",
-          "https://gl.ali213.net/html/2024-6/1426079.html"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.bbc.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 1,
-      "query_count": 1,
-      "final_url": "https://www.bbc.com/zhongwen/simp/chinese-news-59977332",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
+        "inputs": 4,
         "forms": 0,
-        "buttons": 29,
+        "buttons": 12,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -3713,10 +4906,9 @@
         "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
+        "internal_routes_checked": 3,
         "query_urls": [
-          "https://www.bbc.com/zhongwen/topics/cd6qem06z92t/simp",
-          "https://www.bbc.com/zhongwen/simp/chinese-news-59977332"
+          "https://en.jideqiao.com/dict?word=uphold"
         ],
         "discovery_score": 6
       },
@@ -3724,12 +4916,12 @@
       "error": ""
     },
     {
-      "domain": "www.bilibili.com",
+      "domain": "stock.finance.sina.com.cn",
       "platform": "tumblr",
       "accepted": false,
       "score": 1,
       "query_count": 1,
-      "final_url": "https://www.bilibili.com/list/ml3192773738?oid=1456132908&bvid=BV1ti421Y7ce",
+      "final_url": "https://stock.finance.sina.com.cn/usstock/quotes/msft.html",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3739,146 +4931,19 @@
         "header_service_hits": [],
         "header_identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
+        "body_identity_hits": [
+          "用户"
         ],
-        "search_evidence": [],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://www.bilibili.com/list/ml3192773738?oid=1456132908&bvid=BV1ti421Y7ce",
-          "https://www.bilibili.com/zh-Hans/video/BV1ti421Y7ce/"
+        "service_hits": [
+          "代理"
         ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.mofcom.gov.cn",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 1,
-      "query_count": 1,
-      "final_url": "https://www.mofcom.gov.cn/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://www.mofcom.gov.cn/dl/gbdqzn/upload/zhongguotaiwan.pdf"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.president.gov.tw",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 1,
-      "query_count": 1,
-      "final_url": "https://www.president.gov.tw/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
         "identity_hits": [
-          "user"
+          "用户"
         ],
         "ui_signal": false,
-        "inputs": 11,
-        "forms": 0,
-        "buttons": 47,
+        "inputs": 93,
+        "forms": 6,
+        "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -3914,11 +4979,163 @@
         "editorial_signal_count": 0,
         "internal_routes_checked": 2,
         "query_urls": [
-          "https://www.president.gov.tw/"
+          "https://stock.finance.sina.com.cn/usstock/quotes/msft.html"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=代理; identity=用户; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "wallet.uphold.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 1,
+      "query_count": 1,
+      "final_url": "https://wallet.uphold.com/login",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://wallet.uphold.com/login"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "www.samco-plasma.cn",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 1,
+      "query_count": 1,
+      "final_url": "https://www.samco-plasma.cn/about/global-office-location/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 8,
+        "forms": 2,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://www.samco-plasma.cn/contact/",
+          "https://www.samco-plasma.cn/about/global-office-location/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "adoption.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://adoption.microsoft.com/zh-cn/windows-11/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "top "
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -3934,6 +5151,103 @@
           "best ",
           "review"
         ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": true,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "cn.investing.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://cn.investing.com/equities/microsoft-corp",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "finance.yahoo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://finance.yahoo.com/quote/MSFT/",
+      "evidence": {
+        "non_frontend_service_hits": [
+          "statistics"
+        ],
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "non-frontend service/tool page",
+      "error": ""
+    },
+    {
+      "domain": "forum.wordreference.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://forum.wordreference.com/",
+      "evidence": {
+        "non_frontend_service_hits": [
+          "statistics"
+        ],
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "non-frontend service/tool page",
+      "error": ""
+    },
+    {
+      "domain": "gizmodo.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://gizmodo.com/download/x-twitter",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "learn.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://learn.microsoft.com/zh-cn/answers/questions/3987735/win10-win11",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [],
         "editorial_marker_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
@@ -4003,12 +5317,51 @@
       "error": ""
     },
     {
-      "domain": "tieba.baidu.com",
+      "domain": "stockanalysis.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://tieba.baidu.com/p/9057164937",
+      "final_url": "https://stockanalysis.com/stocks/msft/",
+      "evidence": {
+        "non_frontend_service_hits": [
+          "statistics"
+        ],
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "non-frontend service/tool page",
+      "error": ""
+    },
+    {
+      "domain": "www.collinsdictionary.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.collinsdictionary.com/zh/dictionary/english/uphold",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.cybo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.cybo.com/CN-biz/pizza-hut_1387c",
       "evidence": {
         "trusted_sources": [],
         "search_providers": [
@@ -4060,6 +5413,109 @@
         "discovery_score": 6
       },
       "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.traveloka.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.traveloka.com/en-en/hotel/china/zijin-hotel-9000008152348",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "www.trip.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.trip.com/hotels/beijing-hotel-detail-133579468/zijin-hotel/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "what are ",
+          "how to ",
+          "best ",
+          "top ",
+          "guide",
+          "comparison"
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.yewuzhong.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.yewuzhong.com/beijing-tuofei-xinrong-technology-co-ltd_1H-010-8265-0585",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "yellowpages-zh.cybo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://yellowpages-zh.cybo.com/CN-biz/beijing-shiheng-huamao-technology-co-ltd",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "zh.cybo.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://zh.cybo.com/CN-biz/beijing-aiti-chuangxin-technology-co-ltd",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
       "error": ""
     },
     {
@@ -4133,7 +5589,7 @@
     },
     {
       "domain": "fdroid.gitlab.io",
-      "platform": "reddit",
+      "platform": "twitter",
       "accepted": false,
       "score": 1,
       "query_count": 0,
@@ -4198,7 +5654,7 @@
     },
     {
       "domain": "fdroid.gitlab.io",
-      "platform": "twitter",
+      "platform": "reddit",
       "accepted": false,
       "score": 1,
       "query_count": 0,
@@ -4345,5 +5801,7 @@
       "reason": "page unavailable",
       "error": ""
     }
-  ]
+  ],
+  "search_errors": [],
+  "note": "Publish guard triggered; output list was not replaced."
 }

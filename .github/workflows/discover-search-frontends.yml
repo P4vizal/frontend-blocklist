@@ -129,6 +129,19 @@ jobs:
 
           report_path = Path("search-discovered-report.json")
           output_path = Path("search-discovered-blocklist.txt")
+          static_rules = {
+              "||*.st^",
+              "*/x-viewer*$document",
+              "*/reddit-viewer*$document",
+              "*/tumblr-viewer*$document",
+              "*/xviewer*$document",
+              "*/tweetviewer*$document",
+              "*/twitterviewer*$document",
+              "*/tumblr*$document",
+              "*/twitter*$document",
+              "*/reddit*$document",
+              "*/tweet*$document",
+          }
 
           report = json.loads(report_path.read_text(encoding="utf-8"))
           assert int(report.get("validation_crash_count", 0)) == 0, (
@@ -170,7 +183,7 @@ jobs:
               line = raw.strip()
               if not line or line.startswith("#"):
                   continue
-              if line == "||*.st^":
+              if line in static_rules:
                   continue
               if not re.fullmatch(r"\|\|[^\^/\s]+\^", line):
                   bad.append((line_no, raw))
@@ -179,7 +192,8 @@ jobs:
                   new_output.add(domain)
                   new_output_lines.append(domain)
           assert not bad, f"Malformed discovery output lines: {bad[:5]}"
-          assert "||*.st^" in output_path.read_text(encoding="utf-8").splitlines()
+          output_lines = set(output_path.read_text(encoding="utf-8").splitlines())
+          assert static_rules <= output_lines, f"Missing static block rules: {sorted(static_rules - output_lines)}"
           assert new_output_lines == sorted(new_output_lines), "Discovery output is not sorted"
           assert len(new_output_lines) == len(new_output), "Discovery output contains duplicate domains"
           audited_false_positives = set(report.get("audited_false_positive_domains", []))
@@ -195,7 +209,7 @@ jobs:
               if (
                   raw.strip()
                   and not raw.strip().startswith("#")
-                  and raw.strip() != "||*.st^"
+                  and raw.strip() not in static_rules
               )
           )
           print("Discovery outputs, audit guard, and protected files verified.")

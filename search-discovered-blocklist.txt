@@ -24,6 +24,7 @@
 ||fr.xtwitt.com^
 ||geonode.com^
 ||ghostddit.aeddit.com^
+||git.kalli.st^
 ||gitfield.org^
 ||hiddenme.net^
 ||i.opnxng.com^
@@ -31,6 +32,7 @@
 ||ilo.so^
 ||instag.com^
 ||kawarimidoll.com^
+||kddit.kalli.st^
 ||labmemo.com^
 ||lessie.ai^
 ||lessie.cn^
@@ -39,6 +41,7 @@
 ||linuxdork.com^
 ||mediascroll.io^
 ||nerdculture.com^
+||nitter.app^
 ||nitter.ca^
 ||nitter.cf^
 ||nitter.net^
@@ -84,6 +87,7 @@
 ||teddit.httpjames.space^
 ||teddit.laserdisc.tokyo^
 ||teddit.net^
+||teddit.no-logs.com^
 ||teddit.projectsegfau.lt^
 ||teddit.pussthecat.org^
 ||teddit.rawbit.ninja^
@@ -120,6 +124,7 @@
 ||www.mujico.org^
 ||www.peekstr.com^
 ||www.rapidseedbox.com^
+||www.sotwe.com^
 ||www.subredditviewer.com^
 ||www.tech2geek.net^
 ||www.troddit.com^

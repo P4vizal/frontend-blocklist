@@ -344,3 +344,40 @@ try:
         pass
 finally:
     discovery.run_search_spec = original_run_search_spec
+
+
+# Regression: every report-generation path must emit the status consumed by
+# the publication guard. Check the actual report dictionaries, not just a
+# sample JSON file from a previous run.
+import ast
+
+discovery_source = Path(discovery.__file__).read_text(encoding="utf-8")
+discovery_ast = ast.parse(discovery_source)
+report_statuses = set()
+for node in ast.walk(discovery_ast):
+    if not isinstance(node, ast.Dict):
+        continue
+    literal_keys = {
+        key.value
+        for key in node.keys
+        if isinstance(key, ast.Constant) and isinstance(key.value, str)
+    }
+    if not {"status", "report_schema_version", "accepted", "trusted_source_health"} <= literal_keys:
+        continue
+    status_value = next(
+        (
+            value.value
+            for key, value in zip(node.keys, node.values)
+            if isinstance(key, ast.Constant)
+            and key.value == "status"
+            and isinstance(value, ast.Constant)
+        ),
+        None,
+    )
+    if status_value is not None:
+        report_statuses.add(status_value)
+
+assert {"no_update", "updated"} <= report_statuses, (
+    "Both no-update and updated discovery reports must include status; "
+    f"found report statuses: {sorted(report_statuses)}"
+)

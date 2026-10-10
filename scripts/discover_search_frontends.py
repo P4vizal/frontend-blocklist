@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from __future__ import annotations
+from __future__ import annotation
 
 import base64
 import concurrent.futures

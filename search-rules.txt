@@ -16,3 +16,14 @@
 *x-viewer*$document
 *x_viewer*$document
 *x/viewer*$document
+
+*/reddit-viewer*$document
+*/reddit*$document
+*/tumblr-viewer*$document
+*/tumblr*$document
+*/tweet*$document
+*/tweetviewer*$document
+*/twitter*$document
+*/twitterviewer*$document
+*/x-viewer*$document
+*/xviewer*$document

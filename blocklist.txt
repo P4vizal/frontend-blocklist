@@ -9,6 +9,7 @@
 ||192-3-85-205-host.colocrossing.com^
 ||2001-b011-200b-bc51-0000-0000-0000-0245.dynamic-ip6.hinet.net^
 ||23-94-26-74-host.colocrossing.com^
+||2chan.net^
 ||4.nboeck.de^
 ||4g.opnxng.com^
 ||4get.aishiteiru.moe^
@@ -49,6 +50,8 @@
 ||anonymousoverflow.catsarch.com^
 ||anonymousoverflow.privacyfucking.rocks^
 ||anonymousoverflow.privacyredirect.com^
+||anonymtwitter.com^
+||anonytg.com^
 ||antifandom.com^
 ||ao.bloat.cat^
 ||ao.bunk.lol^
@@ -114,6 +117,7 @@
 ||cascadr.co^
 ||ch.skysend.ch^
 ||check.searx.space^
+||chetmail.com^
 ||code.whatever.social^
 ||code.xbdm.fun^
 ||contact.html^
@@ -126,6 +130,7 @@
 ||curate.liv.town^
 ||d.opnxng.com^
 ||da.opnxng.com^
+||dat.2chan.net^
 ||de.operack.com^
 ||de.skysend.ch^
 ||deggo.fyi^
@@ -139,6 +144,7 @@
 ||discuss.privacyguides.net^
 ||dns.sev.monster^
 ||docs.searxng.org^
+||dokeyai.com^
 ||dopingconsomme.blogspot.com^
 ||drop.chapril.org^
 ||dumb.artemislena.eu^
@@ -146,6 +152,7 @@
 ||dumb.canine.tools^
 ||dumb.ducks.party^
 ||dumb.jeikobu.net^
+||eddrit.com^
 ||eds-v2.piped.xn--17b.net^
 ||einfachzocken.eu^
 ||en.download.it^
@@ -171,7 +178,12 @@
 ||ghostddit.aeddit.com^
 ||git.kalli.st^
 ||git.kareem.one^
+||gitee.com^
+||giters.com^
 ||gitfield.org^
+||gitfront.io^
+||github1s.com^
+||gitvize.com^
 ||gothub.dev.projectsegfau.lt^
 ||gothub.libre.tw^
 ||gothub.lunar.icu^
@@ -232,6 +244,7 @@
 ||kittygram.nadeko.net^
 ||kittygram.nexussfan.cz^
 ||kittygram.pussthecat.org^
+||knightlab.com^
 ||koub.bloat.cat^
 ||labmemo.com^
 ||lb.ethibox.fr^
@@ -286,7 +299,9 @@
 ||lx.benike.monster^
 ||lx.vern.cc^
 ||lxv.dc09.ru^
+||m.bilibili.com^
 ||m.opnxng.com^
+||m.weibo.cn^
 ||mail.buffon.cloud^
 ||mail.einfachzocken.eu^
 ||mail.mxchange.org^
@@ -303,6 +318,9 @@
 ||meet.jit.si^
 ||meet.sev.monster^
 ||mirnir.com^
+||misskey-hub.net^
+||misskey.io^
+||moooi.jp^
 ||morelogin.com^
 ||mozhi.adminforge.de^
 ||mozhi.aryak.me^
@@ -314,6 +332,7 @@
 ||mrpaulblack.paulgo.page^
 ||music.adminforge.de^
 ||music.pfcd.me^
+||muskviewer.com^
 ||mutix.tr^
 ||mx.meowing.monster^
 ||mx.mizuki.st^
@@ -353,8 +372,11 @@
 ||o.iii.st^
 ||o.sudovanilla.org^
 ||observatory.mozilla.org^
+||oia.zhihu.com^
 ||oloke.xyz^
 ||ononoki.org^
+||onstipe.com^
+||open2ch.net^
 ||openpgpkey.sev.monster^
 ||operack.com^
 ||opnxng.com^
@@ -400,6 +422,7 @@
 ||pc.mogeringo.com^
 ||peekstr.com^
 ||peekvault.com^
+||peekviewer.com^
 ||peerpush.com^
 ||pekidi.com^
 ||perennialte.ch^
@@ -417,6 +440,7 @@
 ||pixivfe.thebunny.zone^
 ||poketube.fun^
 ||pool-173-66-9-251.washdc.fios.verizon.net^
+||posfie.com^
 ||previewerly.com^
 ||priv.au^
 ||privacyredirect.com^
@@ -432,6 +456,7 @@
 ||profilepictureviewer.com^
 ||profileri.com^
 ||projectsegfau.lt^
+||prowlo.com^
 ||proxigram.lunar.icu^
 ||proxigram.privacyredirect.com^
 ||proxitok.belloworld.it^
@@ -442,6 +467,8 @@
 ||proxitok.pussthecat.org^
 ||proxitok.r4fo.com^
 ||pt.bloat.cat^
+||public.iotechnologies.com^
+||pullpush.io^
 ||q.307200.xyz^
 ||q.opnxng.com^
 ||qr.vern.cc^
@@ -462,6 +489,7 @@
 ||quetre.r4fo.com^
 ||quetre.tokhmi.xyz^
 ||quora.nerdvpn.de^
+||qwice.com^
 ||r.opnxng.com^
 ||r.sudovanilla.org^
 ||rankflo.io^
@@ -473,13 +501,18 @@
 ||read.freedit.eu^
 ||read.seitan-ayoub.lol^
 ||read.whateveritworks.org^
+||reader.duckpsycho.dev^
 ||reads.nezumi.party^
 ||rebloq.app^
 ||red.artemislena.eu^
 ||redd.it^
+||reddinbox.com^
 ||reddit-viewer.vercel.app^
 ||reddit.com^
+||reddit.idevicehacked.com^
 ||reddit.lol^
+||reddit.rtrace.io^
+||redditery.com^
 ||redditprofile.com^
 ||reddtastic.com^
 ||redlib.catsarch.com^
@@ -516,6 +549,7 @@
 ||rmgur.com^
 ||rockeaters.net^
 ||rola-ip.co^
+||rosint.dev^
 ||ru.dicloak.com^
 ||s.307200.xyz^
 ||s.dyox.in^
@@ -716,6 +750,8 @@
 ||teddit.tokhmi.xyz^
 ||teddit.xbdm.fun^
 ||teddit.zaggy.nl^
+||telemetr.io^
+||telemetryapp.io^
 ||tenor.fsky.io^
 ||tenor.nadeko.net^
 ||tent.bloat.cat^
@@ -723,6 +759,9 @@
 ||tent.deep-swarm.xyz^
 ||tent.private.coffee^
 ||tent.sny.sh^
+||tg.me^
+||tgstat.com^
+||threadreaderapp.com^
 ||tiekoetter.com^
 ||tiktok.wpme.pl^
 ||time.is^
@@ -732,6 +771,7 @@
 ||tmblrviewer.com^
 ||tn.maid.zone^
 ||toene.hoffnungfuerdiezukunft.net^
+||togetter.com^
 ||tok.adminforge.de^
 ||tok.artemislena.eu^
 ||tok.habedieeh.re^
@@ -750,16 +790,25 @@
 ||tube.boritsch.de^
 ||tube.cadence.moe^
 ||tuffermagazine.com^
+||tumbex.com^
 ||tumblr.com^
 ||tumblr.nerdvpn.de^
+||tumblrviewer.co^
+||tumgik.com^
+||tumlook.com^
 ||turn.kantan.cat^
 ||turn.sev.monster^
 ||tuta.com^
 ||tw.eir-nya.gay^
+||tweet-viewer.vercel.app^
 ||tweetgrok.ai^
 ||tweetviewer.com^
+||twexapi.io^
+||twfan.net^
 ||twiewer.com^
 ||twiiit.com^
+||twillot.com^
+||twilog.org^
 ||twineo.drgns.space^
 ||twineo.exozy.me^
 ||twit.0r.cx^
@@ -767,8 +816,11 @@
 ||twitch.sudovanilla.org^
 ||twitee.co^
 ||twitter.com^
+||twitterapi.io^
 ||twitterviewer.net^
 ||twitviewer.net^
+||twiview.io^
+||twstalker.com^
 ||unifapi.com^
 ||unredacted.org^
 ||unsubbed.co^
@@ -797,6 +849,7 @@
 ||web.ips.indst.eu^
 ||web.nue-de.as.tiekoetter.net^
 ||web35.weingaertner-it.de^
+||weibo.com^
 ||whoogle.lunar.icu^
 ||whoogle.privacydev.net^
 ||wiki.adminforge.de^
@@ -856,11 +909,14 @@
 ||www.tweeteraser.com^
 ||www.twitter-viewer.com^
 ||www.twitterviewer.io^
+||www.v2ex.com^
 ||www.webshare.io^
 ||www.xka.cz^
 ||www1.gruble.de^
+||x-threadreader.com^
 ||x.com^
 ||x.n0g.xyz^
+||x.yuuki.sh^
 ||xapis.dev^
 ||xcancel.com^
 ||xcopy.uk^
@@ -870,5 +926,6 @@
 ||xtwitterviewer.com^
 ||yt.chocolatemoo53.com^
 ||z.opnxng.com^
+||zhihu.com^
 ||zoomblr.com^
 ||zz.su27.net^

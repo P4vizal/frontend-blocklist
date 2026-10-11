@@ -503,6 +503,7 @@ read.seitan-ayoub.lol
 read.whateveritworks.org
 reader.duckpsycho.dev
 reads.nezumi.party
+reallyaweso.me
 rebloq.app
 red.artemislena.eu
 redd.it
@@ -523,6 +524,7 @@ redlib.nohost.network
 redlib.privacyredirect.com
 redlib.privadency.com
 redlib.r4fo.com
+redlib.reallyaweso.me
 redlibinstances.com
 redlite.app
 registry.kantan.cat

@@ -439,6 +439,7 @@ pixivfe.ducks.party
 pixivfe.exozy.me
 pixivfe.thebunny.zone
 poketube.fun
+pool-173-66-2-41.washdc.fios.verizon.net
 pool-173-66-9-251.washdc.fios.verizon.net
 posfie.com
 previewerly.com

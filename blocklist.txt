@@ -195,6 +195,7 @@
 ||gruble.de^
 ||guestbook.html^
 ||hbubli.cc^
+||helpdesk.pekidi.com^
 ||hiddenme.net^
 ||hosting.cz-pro.cz^
 ||hp.ggtyler.dev^

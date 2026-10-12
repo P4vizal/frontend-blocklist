@@ -1,8 +1,6 @@
-#LOS DOMINIOS BLOQUEADOS CON *. DEBEN IR AL PRINCIPIO Y SER AÑADIDOS TAMBIEN EN EL SCRIPT SI ALGUN NUEVO *. SE AÑADE
 # Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.
 # Append-only discovery history: previously accepted domains are never removed.
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
-#LOS DOMINIOS BLOQUEADOS CON *. DEBEN IR AL PRINCIPIO Y SER AÑADIDOS TAMBIEN EN EL SCRIPT SI ALGUN NUEVO *. SE AÑADE
 ||*.io^
 ||*.st^
 ||2chan.net^
@@ -195,6 +193,7 @@
 ||www.journaldufreenaute.fr^
 ||www.morelogin.com^
 ||www.mujico.org^
+||www.nitter.com^
 ||www.peekstr.com^
 ||www.rapidseedbox.com^
 ||www.sotwe.com^

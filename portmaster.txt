@@ -893,6 +893,7 @@ www.libresearch.space
 www.master.cz
 www.morelogin.com
 www.mujico.org
+www.nitter.com
 www.openstreetmap.org
 www.peekstr.com
 www.privacytools.io

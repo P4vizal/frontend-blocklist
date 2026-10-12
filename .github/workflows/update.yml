@@ -2,6 +2,11 @@ name: Update frontend blocklist
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "blocklist.txt"
+      - ".github/workflows/update.yml"
   schedule:
     - cron: "17 */6 * * *"
 

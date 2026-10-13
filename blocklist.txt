@@ -510,6 +510,7 @@
 ||drop.chapril.org^
 ||dropmefiles.com^
 ||drtuber.com^
+||dsl217-132-34-220.bb.netvision.net.il^
 ||dtf.ru^
 ||duckduckgo.com^
 ||dujiaoshouai.com^

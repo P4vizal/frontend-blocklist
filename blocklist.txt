@@ -20,6 +20,7 @@
 ||23965517484.gpt-appstore.com^
 ||24f69e5f313a0.com^
 ||24porn.com^
+||2a0f-6280-1800-0300-0000-0000-0000-0010.no-dns.hyehost.net^
 ||2amagzine.com^
 ||2chan.net^
 ||3movs.com^
@@ -848,8 +849,10 @@
 ||iamprovider.com^
 ||iclip.systems^
 ||iclipsystem.com^
+||id.yuri.llc^
 ||ideafast.pro^
 ||ideogram.ai^
+||idp.yuri.llc^
 ||ig.opnxng.com^
 ||ig.snine.nl^
 ||igdetective.com^
@@ -984,6 +987,7 @@
 ||krakenfiles.com^
 ||krea.ai^
 ||kunalganglani.com^
+||l.yuri.llc^
 ||labmemo.com^
 ||labs.google^
 ||ladybird.org^
@@ -1104,6 +1108,7 @@
 ||mail.rhscz.eu^
 ||mail.unbox.at^
 ||mail.xenorio.xyz^
+||mail.yuri.llc^
 ||mail.zina.run^
 ||mails.org^
 ||mailx.0ms.app^

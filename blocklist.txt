@@ -667,6 +667,7 @@
 ||freewaremirror.com^
 ||frontpagemetrics.com^
 ||frontpagestats.com^
+||friter.cc^
 ||funkyspacemonkey.com^
 ||fuq.com^
 ||fux.com^
@@ -764,7 +765,6 @@
 ||gogs.io^
 ||gogunlocked.com^
 ||gonewildarchive.net^
-||google.com^
 ||goomview.com^
 ||gotgayporn.com^
 ||gothub.dev.projectsegfau.lt^

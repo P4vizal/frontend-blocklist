@@ -13,6 +13,7 @@
 ||147.202.76.83.dynamic.cust.swisscom.net^
 ||18videosz.com^
 ||192-3-85-205-host.colocrossing.com^
+||199.47.240.43.no-dns.hyehost.net^
 ||1fichier.com^
 ||2001-b011-200b-bc51-0000-0000-0000-0245.dynamic-ip6.hinet.net^
 ||220vk.com^
@@ -1639,6 +1640,7 @@
 ||redgifs.com^
 ||reditr.com^
 ||redlib-1.privadency.com^
+||redlib.cakez.net^
 ||redlib.catsarch.com^
 ||redlib.cow.rip^
 ||redlib.freedit.eu^

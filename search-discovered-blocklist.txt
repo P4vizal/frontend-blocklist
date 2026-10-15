@@ -103,6 +103,7 @@
 ||redditery.com^
 ||redditprofile.com^
 ||reddtastic.com^
+||redlib.cakez.net^
 ||redlib.freedit.eu^
 ||redlibinstances.com^
 ||redlite.app^

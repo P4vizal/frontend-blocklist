@@ -665,9 +665,9 @@
 ||freewarehome.com^
 ||freewarelovers.com^
 ||freewaremirror.com^
+||friter.cc^
 ||frontpagemetrics.com^
 ||frontpagestats.com^
-||friter.cc^
 ||funkyspacemonkey.com^
 ||fuq.com^
 ||fux.com^

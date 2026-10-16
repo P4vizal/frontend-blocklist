@@ -43,6 +43,7 @@
 ||gitfront.io^
 ||github1s.com^
 ||gitvize.com^
+||haraj.com.sa^
 ||hiddenme.net^
 ||i.opnxng.com^
 ||iamprovider.com^
@@ -67,6 +68,8 @@
 ||morelogin.com^
 ||muskviewer.com^
 ||nerdculture.com^
+||newportal.goyang.go.kr^
+||nextjs.org^
 ||nitter.app^
 ||nitter.ca^
 ||nitter.cf^
@@ -83,6 +86,7 @@
 ||peekvault.com^
 ||peekviewer.com^
 ||peerpush.com^
+||pf-reddit.netlify.app^
 ||posfie.com^
 ||previewerly.com^
 ||profilepictureviewer.com^

@@ -3,6 +3,7 @@
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
 ||*.io^
 ||*.st^
+||*.blue^
 ||2chan.net^
 ||alternativeto.net^
 ||anonviewr.com^

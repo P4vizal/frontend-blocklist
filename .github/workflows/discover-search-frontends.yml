@@ -87,29 +87,6 @@ jobs:
           DISCOVERY_MODE: daily
         run: python scripts/discover_search_frontends.py
 
-      - name: Preserve manual domain retention metadata in report
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          report_path = Path("search-discovered-report.json")
-          overrides_path = Path("manual-domain-overrides.json")
-
-          report = json.loads(report_path.read_text(encoding="utf-8"))
-          overrides = json.loads(overrides_path.read_text(encoding="utf-8"))
-          report["manual_curation"] = overrides["manual_curation"]
-          report["manual_curation"]["last_automatic_report_generated"] = report.get("generated")
-          report["manual_curation"]["last_automatic_report_status"] = report.get("status")
-          report["manual_curation"]["output_domain_count"] = report.get("output_domain_count")
-          report_path.write_text(
-              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-          )
-          print("Manual retention overrides merged; automatic validator results were not changed.")
-          PY
-
       - name: Verify discovery outputs and protected files
         shell: bash
         run: |
@@ -184,7 +161,7 @@ jobs:
               ["git", "show", "HEAD:search-discovered-blocklist.txt"], text=True
           ).splitlines():
               line = raw.strip()
-              if line.startswith("||") and line.endswith("^") and line not in {"||*.io^", "||*.st^"}:
+              if line.startswith("||") and line.endswith("^") and line != "||*.st^":
                   old_output.add(line[2:-1])
 
           new_output = set()

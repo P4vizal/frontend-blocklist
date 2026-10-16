@@ -700,9 +700,9 @@
   ],
   "accepted_count": 1,
   "newly_accepted_count": 1,
-  "retained_historical_count": 222,
-  "retained_total_count": 223,
-  "output_domain_count": 223,
+  "retained_historical_count": 226,
+  "retained_total_count": 227,
+  "output_domain_count": 227,
   "already_covered_count": 100,
   "already_discovered_count": 52,
   "known_candidates_skipped_before_validation": 104,
@@ -1598,6 +1598,114 @@
         "rule": "||www.tumlook.com^",
         "status": "manually_included",
         "automated_validator_accepted": false
+      },
+      {
+        "domain": "haraj.com.sa",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "not_approved_by_automated_validator",
+        "reason": "Added as an explicit manual domain rule despite the automated validator's insufficient frontend evidence; this is not an automated pass.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||haraj.com.sa^",
+        "status": "manually_added_by_user_request",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "think-pol.com",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "already_covered_in_existing_rule",
+        "reason": "Already has an explicit rule in blocklist.txt; no duplicate rule is needed.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||think-pol.com^",
+        "status": "already_covered_in_main_blocklist",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "alexjenkins.tech",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "already_covered_in_existing_rule",
+        "reason": "Already has an explicit rule in blocklist.txt; no duplicate rule is needed.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||alexjenkins.tech^",
+        "status": "already_covered_in_main_blocklist",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "www.tumviews.com",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "already_covered_in_existing_rule",
+        "reason": "Already has an explicit rule in both discovery output and blocklist.txt.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||www.tumviews.com^",
+        "status": "already_covered_in_discovery_and_main",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "www.sotwe.com",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "already_covered_in_existing_rule",
+        "reason": "Already has an explicit rule in both discovery output and blocklist.txt.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||www.sotwe.com^",
+        "status": "already_covered_in_discovery_and_main",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "nextjs.org",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "not_approved_by_automated_validator",
+        "reason": "Added as a user-requested domain rule despite being a general framework/documentation site; the rule blocks the whole domain.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||nextjs.org^",
+        "status": "manually_added_by_user_request",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "pf-reddit.netlify.app",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "not_approved_by_automated_validator",
+        "reason": "Added using the exact spelling requested; this host has not been verified as an operating Reddit frontend.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||pf-reddit.netlify.app^",
+        "status": "manually_added_by_user_request",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "www.xeddit.com",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "already_covered_in_existing_rule",
+        "reason": "The existing ||xeddit.com^ rule in blocklist.txt covers the www subdomain.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||xeddit.com^",
+        "status": "already_covered_by_parent_rule",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
+      },
+      {
+        "domain": "newportal.goyang.go.kr",
+        "platform": "user_requested_manual_domain",
+        "previous_automated_status": "not_approved_by_automated_validator",
+        "reason": "Added as a user-requested domain rule despite being an official municipal portal unrelated to the normal frontend criteria.",
+        "evidence_urls": [],
+        "caution": "Manual retention is not represented as an automated validation pass.",
+        "rule": "||newportal.goyang.go.kr^",
+        "status": "manually_added_by_user_request",
+        "automated_validator_accepted": false,
+        "retain_even_if_automatic_validation_rejects": true
       }
     ],
     "prior_pending_records_resolved_by_manual_curation": [
@@ -1731,6 +1839,197 @@
         ]
       }
     ],
-    "note": "These are transparent manual list decisions, not retroactive claims that the automated validator accepted the entries. Domain-level AdGuard rules block the whole named host and its subdomains."
+    "note": "Manual inclusion/retention records are human decisions, not claims that automated validation passed. Some requested domains are general-purpose or unrelated sites; AdGuard domain rules apply to the full host.",
+    "manually_included_count": 11,
+    "retention_policy": {
+      "mode": "append_only_plus_explicit_manual_keep",
+      "instruction": "Keep the explicitly listed domains in the discovery output even if an automatic validation attempt rejects or cannot reach them. Do not rewrite those failures as automatic validation passes.",
+      "automated_validation_results_remain_truthful": true,
+      "output_removed_automatically": false
+    },
+    "manual_domain_decisions": [
+      {
+        "domain": "redlib.perennialte.ch",
+        "decision": "manual_keep_in_discovery_list",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already in the discovery output; preserve despite automatic challenge-page result.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||redlib.perennialte.ch^"
+      },
+      {
+        "domain": "haraj.com.sa",
+        "decision": "manually_added_by_user_request",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Added as an explicit manual domain rule despite the automated validator's insufficient frontend evidence; this is not an automated pass.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||haraj.com.sa^"
+      },
+      {
+        "domain": "redlib.tiekoetter.com",
+        "decision": "manual_keep_in_discovery_list",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already in the discovery output; preserve despite insufficient page-level validation.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||redlib.tiekoetter.com^"
+      },
+      {
+        "domain": "www.tumlook.com",
+        "decision": "manual_keep_in_discovery_list",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already in the discovery output; preserve despite an anti-bot challenge.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||www.tumlook.com^"
+      },
+      {
+        "domain": "www.postel.app",
+        "decision": "manual_keep_in_discovery_list",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already in the discovery output; preserve despite inconclusive automated validation.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||www.postel.app^"
+      },
+      {
+        "domain": "redship.io",
+        "decision": "manual_keep_in_discovery_list",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already in the discovery output; preserve as a manual decision despite inconclusive automated validation.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||redship.io^"
+      },
+      {
+        "domain": "soundc.com",
+        "decision": "manual_keep_in_discovery_list",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Previously manually added; preserve it as an explicit manual inclusion.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||soundc.com^"
+      },
+      {
+        "domain": "think-pol.com",
+        "decision": "already_covered_in_main_blocklist",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already has an explicit rule in blocklist.txt; no duplicate rule is needed.",
+        "files": [
+          "blocklist.txt"
+        ],
+        "adguard_rule": "||think-pol.com^"
+      },
+      {
+        "domain": "alexjenkins.tech",
+        "decision": "already_covered_in_main_blocklist",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already has an explicit rule in blocklist.txt; no duplicate rule is needed.",
+        "files": [
+          "blocklist.txt"
+        ],
+        "adguard_rule": "||alexjenkins.tech^"
+      },
+      {
+        "domain": "www.tumviews.com",
+        "decision": "already_covered_in_discovery_and_main",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already has an explicit rule in both discovery output and blocklist.txt.",
+        "files": [
+          "blocklist.txt",
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||www.tumviews.com^"
+      },
+      {
+        "domain": "www.sotwe.com",
+        "decision": "already_covered_in_discovery_and_main",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Already has an explicit rule in both discovery output and blocklist.txt.",
+        "files": [
+          "blocklist.txt",
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||www.sotwe.com^"
+      },
+      {
+        "domain": "nextjs.org",
+        "decision": "manually_added_by_user_request",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Added as a user-requested domain rule despite being a general framework/documentation site; the rule blocks the whole domain.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||nextjs.org^"
+      },
+      {
+        "domain": "pf-reddit.netlify.app",
+        "decision": "manually_added_by_user_request",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Added using the exact spelling requested; this host has not been verified as an operating Reddit frontend.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||pf-reddit.netlify.app^"
+      },
+      {
+        "domain": "www.xeddit.com",
+        "decision": "already_covered_by_parent_rule",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "The existing ||xeddit.com^ rule in blocklist.txt covers the www subdomain.",
+        "files": [
+          "blocklist.txt"
+        ],
+        "adguard_rule": null
+      },
+      {
+        "domain": "newportal.goyang.go.kr",
+        "decision": "manually_added_by_user_request",
+        "retained": true,
+        "automated_validation_passed": false,
+        "validation_status": "not_claimed_as_passed",
+        "reason": "Added as a user-requested domain rule despite being an official municipal portal unrelated to the normal frontend criteria.",
+        "files": [
+          "search-discovered-blocklist.txt"
+        ],
+        "adguard_rule": "||newportal.goyang.go.kr^"
+      }
+    ]
   }
 }

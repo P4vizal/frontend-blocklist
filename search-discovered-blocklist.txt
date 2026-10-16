@@ -1,9 +1,9 @@
 # Generated from maintained frontend registries + GitHub + resilient search-engine fallback + page validation.
 # Append-only discovery history: previously accepted domains are never removed.
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
+||*.blue^
 ||*.io^
 ||*.st^
-||*.blue^
 ||2chan.net^
 ||alternativeto.net^
 ||anonviewr.com^
@@ -48,6 +48,7 @@
 ||iamprovider.com^
 ||ilo.so^
 ||instag.com^
+||jpf-reddit.netlify.app^
 ||kawarimidoll.com^
 ||kddit.kalli.st^
 ||knightlab.com^
@@ -106,8 +107,11 @@
 ||reddtastic.com^
 ||redlib.cakez.net^
 ||redlib.freedit.eu^
+||redlib.perennialte.ch^
+||redlib.tiekoetter.com^
 ||redlibinstances.com^
 ||redlite.app^
+||redship.io^
 ||rentry.co^
 ||rola-ip.co^
 ||rosint.dev^
@@ -120,6 +124,7 @@
 ||socialsharepreview.com^
 ||socialwalls.com^
 ||sotwe.in^
+||soundc.com^
 ||spyx.com^
 ||status.d420.de^
 ||td.vern.cc^
@@ -198,11 +203,13 @@
 ||www.mujico.org^
 ||www.nitter.com^
 ||www.peekstr.com^
+||www.postel.app^
 ||www.rapidseedbox.com^
 ||www.sotwe.com^
 ||www.subredditviewer.com^
 ||www.tech2geek.net^
 ||www.troddit.com^
+||www.tumlook.com^
 ||www.tumviews.com^
 ||www.tweetbinder.com^
 ||www.tweeteraser.com^

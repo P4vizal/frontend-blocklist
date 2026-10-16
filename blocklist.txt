@@ -1,4 +1,3 @@
-||*.blue^
 ||01net.com^
 ||0bin.ch^
 ||0x573e6188.static.cust.fastspeed.dk^
@@ -981,6 +980,7 @@
 ||hailuoai.video^
 ||handbrake.fr^
 ||handjobhub.com^
+||haraj.com.sa^
 ||hardsextube.com^
 ||harvesterhci.io^
 ||hashicorp.com^
@@ -1142,6 +1142,7 @@
 ||jizzonline.com^
 ||josefacchin.com^
 ||journaldufreenaute.fr^
+||jpf-reddit.netlify.app^
 ||justusboys.com^
 ||k-meleon.org^
 ||k2s.cc^
@@ -1487,10 +1488,12 @@
 ||neuroflash.com^
 ||neuters.de^
 ||newapi.pro^
+||newportal.goyang.go.kr^
 ||news.abplive.com^
 ||news.ycombinator.com^
 ||newsensations.com^
 ||nextcloud.com^
+||nextjs.org^
 ||ngi.eu^
 ||nicheprowler.com^
 ||nijijourney.com^
@@ -1725,6 +1728,7 @@
 ||perplexityalternative.com^
 ||pervclips.com^
 ||petdii.com^
+||pf-reddit.netlify.app^
 ||pgcahdnze.pixnet.net^
 ||phantom.nadeko.net^
 ||phantombuster.com^
@@ -2044,6 +2048,7 @@
 ||redlib.nirn.quest^
 ||redlib.nohost.network^
 ||redlib.orangenet.cc^
+||redlib.perennialte.ch^
 ||redlib.privacy.com.de^
 ||redlib.privacy.deals^
 ||redlib.privacyredirect.com^
@@ -2054,6 +2059,7 @@
 ||redlib.seasi.dev^
 ||redlib.thebunny.zone^
 ||redlib.thepixora.com^
+||redlib.tiekoetter.com^
 ||redlib.trom.tf^
 ||redlib.tux.pizza^
 ||redlib.xn--hackerhhle-kcb.org^
@@ -2062,6 +2068,7 @@
 ||rednotedownloader.com^
 ||redporn.xxx^
 ||redreap.com^
+||redship.io^
 ||redsky.pages.dev^
 ||redster.org^
 ||redtube.com^
@@ -2161,6 +2168,7 @@
 ||savett.cc^
 ||savetumblr.com^
 ||savetweetvid.com^
+||savetwitter.net^
 ||sbercloud.ru^
 ||sberdevices.ru^
 ||sbstjn.com^
@@ -2273,7 +2281,6 @@
 ||searx.roflcopter.fr^
 ||searx.ru^
 ||searx.sev.monster^
-||searx.space^
 ||searx.thefloatinglab.world^
 ||searx.tiekoetter.com^
 ||searx.tiekoetter.net^
@@ -2482,7 +2489,6 @@
 ||static.18.236.105.178.clients.your-server.de^
 ||static.60.99.4.46.clients.your-server.de^
 ||static.84.216.75.5.clients.your-server.de^
-||status.d420.de^
 ||status.sev.monster^
 ||stepfun.com^
 ||stockmark.co.jp^
@@ -2872,6 +2878,7 @@
 ||twiview.io^
 ||twiviewer.com^
 ||twixive.net^
+||twmate.com^
 ||twstalker.co.uk^
 ||twstalker.com^
 ||twstalker.fit^
@@ -2880,6 +2887,7 @@
 ||twtimez.com^
 ||twtsave.com^
 ||twuko.com^
+||twvideodownloader.net^
 ||txxx.com^
 ||typefully.com^
 ||uc.cn^
@@ -3146,6 +3154,7 @@
 ||www.pabbly.com^
 ||www.peekstr.com^
 ||www.plataformamedia.com^
+||www.postel.app^
 ||www.postman.com^
 ||www.postmcpai.com^
 ||www.privacytools.io^
@@ -3167,6 +3176,7 @@
 ||www.tempo.co^
 ||www.theserverside.com^
 ||www.troddit.com^
+||www.tumlook.com^
 ||www.tumviews.com^
 ||www.tunepocket.com^
 ||www.tunnelbear.com^
@@ -3287,7 +3297,3 @@
 ||zz.su27.net^
 ||zzcartoon.com^
 ||zzgays.com^
-||twvideodownloader.net^
-||savetwitter.net^
-||twmate.com^
-||anydownloader.com^

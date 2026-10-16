@@ -161,7 +161,7 @@ jobs:
               ["git", "show", "HEAD:search-discovered-blocklist.txt"], text=True
           ).splitlines():
               line = raw.strip()
-              if line.startswith("||") and line.endswith("^") and line != "||*.st^":
+              if line.startswith("||") and line.endswith("^") and line not in {"||*.io^", "||*.st^"}:
                   old_output.add(line[2:-1])
 
           new_output = set()

@@ -168,6 +168,7 @@
 ||twilog.org^
 ||twitee.co^
 ||twitterapi.io^
+||twitterviewer.app^
 ||twitterviewer.net^
 ||twitviewer.net^
 ||twiview.io^

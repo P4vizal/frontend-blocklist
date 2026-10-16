@@ -774,6 +774,7 @@
 ||gothub.r4fo.com^
 ||gothub.wuemeli.com^
 ||gpt4all.io^
+||gram.utilibre.org^
 ||gram.whatever.social^
 ||gramfile.com^
 ||gramhir.net^
@@ -2569,6 +2570,7 @@
 ||xka.cz^
 ||xkits.cc^
 ||xmoviesforyou.com^
+||xnologin.com^
 ||xnspy.com^
 ||xnxx.com^
 ||xnxxhamster.net^

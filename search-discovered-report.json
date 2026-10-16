@@ -2,8 +2,251 @@
   "generated": "2026-10-16T19:19:24Z",
   "report_schema_version": 2,
   "status": "no_update",
-  "accepted": [],
-  "accepted_count": 0,
+  "accepted": [
+    {
+      "domain": "redlib.perennialte.ch",
+      "platform": "reddit",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "challenge_blocked",
+      "reason": "Manual acceptance requested by repository owner; crawler previously detected a challenge/parked page.",
+      "adguard_rule": "||redlib.perennialte.ch^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "haraj.com.sa",
+      "platform": "marketplace",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance requested by repository owner; the automatic report did not verify this as a social frontend.",
+      "adguard_rule": "||haraj.com.sa^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "redlib.tiekoetter.com",
+      "platform": "reddit",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance requested by repository owner; live-page verification was inconclusive.",
+      "adguard_rule": "||redlib.tiekoetter.com^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "www.tumlook.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "challenge_blocked",
+      "reason": "Manual acceptance requested by repository owner; crawler previously encountered an anti-bot challenge.",
+      "adguard_rule": "||www.tumlook.com^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "www.postel.app",
+      "platform": "twitter/x",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
+      "adguard_rule": "||www.postel.app^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "redship.io",
+      "platform": "reddit",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
+      "adguard_rule": "||redship.io^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "soundc.com",
+      "platform": "multi-platform viewer/downloader",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance retained per repository owner decision.",
+      "adguard_rule": "||soundc.com^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "think-pol.com",
+      "platform": "reddit",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance; already covered by the existing main blocklist.",
+      "adguard_rule": "||think-pol.com^",
+      "covered_by_files": [
+        "blocklist.txt"
+      ]
+    },
+    {
+      "domain": "alexjenkins.tech",
+      "platform": "reddit/tumblr",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "search_strong_but_page_unverified",
+      "reason": "Manual acceptance; already covered by the existing main blocklist.",
+      "adguard_rule": "||alexjenkins.tech^",
+      "covered_by_files": [
+        "blocklist.txt"
+      ]
+    },
+    {
+      "domain": "www.tumviews.com",
+      "platform": "tumblr",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "page_unavailable",
+      "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
+      "adguard_rule": "||www.tumviews.com^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt",
+        "blocklist.txt"
+      ]
+    },
+    {
+      "domain": "www.sotwe.com",
+      "platform": "twitter/x",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "challenge_blocked",
+      "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
+      "adguard_rule": "||www.sotwe.com^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt",
+        "blocklist.txt"
+      ]
+    },
+    {
+      "domain": "nextjs.org",
+      "platform": "general framework/documentation site",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "rejected_not_frontend",
+      "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
+      "adguard_rule": "||nextjs.org^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "pf-reddit.netlify.app",
+      "platform": "unconfirmed",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "not_verified",
+      "reason": "Manual acceptance requested with the exact spelling supplied by the repository owner; live service not independently verified.",
+      "adguard_rule": "||pf-reddit.netlify.app^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "jpf-reddit.netlify.app",
+      "platform": "reddit",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "rejected_insufficient_page_signals",
+      "reason": "Manual acceptance based on curated source references; current live functionality not independently confirmed.",
+      "adguard_rule": "||jpf-reddit.netlify.app^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    },
+    {
+      "domain": "www.xeddit.com",
+      "platform": "reddit",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "rejected_insufficient_service_signals",
+      "reason": "Manual acceptance; already covered by the existing parent-domain rule in the main blocklist.",
+      "adguard_rule": "||xeddit.com^",
+      "covered_by_files": [
+        "blocklist.txt"
+      ]
+    },
+    {
+      "domain": "newportal.goyang.go.kr",
+      "platform": "municipal government portal",
+      "accepted": true,
+      "acceptance_type": "manual_override",
+      "manual_override": true,
+      "automated_validator_accepted": false,
+      "automated_validation_passed": false,
+      "previous_automated_status": "rejected_not_frontend",
+      "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
+      "adguard_rule": "||newportal.goyang.go.kr^",
+      "covered_by_files": [
+        "search-discovered-blocklist.txt"
+      ]
+    }
+  ],
+  "accepted_count": 16,
   "trusted_candidate_count": 89,
   "audited_false_positive_domains": [
     "www.osfinder.net"
@@ -360,9 +603,9 @@
   "validation_crash_count": 0,
   "candidates_discovered": 130,
   "validated_candidates": 31,
-  "pending_verification_count": 5,
+  "pending_verification_count": 1,
   "pending_status_counts": {
-    "search_strong_but_page_unverified": 5
+    "search_strong_but_page_unverified": 1
   },
   "pending_verification": [
     {
@@ -393,109 +636,6 @@
       "last_reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
       "discovery_score": 18,
       "next_retry_epoch": 1792264764.9976377
-    },
-    {
-      "domain": "haraj.com.sa",
-      "platform": "reddit",
-      "queries": [
-        "\"reddit عارض ويب\"",
-        "\"reddit عارض مجهول\""
-      ],
-      "urls": [
-        "https://haraj.com.sa/search/%D8%A3%D9%88%D8%B1%D9%8A%D8%BA%D9%88%D9%86%2B%D8%B3%D8%AA%D9%8A%D8%AA%2B%D8%A8%D9%8A%D9%81%D8%B1%D8%B2%2B%D8%B6%D8%AF%2B%D8%AA%D9%83%D8%B3%D8%A7%D8%B3%2B%D8%AA%D9%83%2B%D8%B1%D9%8A%D8%AF%2B%D8%B1%D8%A7%D9%8A%D8%AF%D8%B1%D8%B2%2B%D8%A7%D9%84%D8%AC%D8%AF%D9%88%D9%84/",
-        "https://haraj.com.sa/search/%D9%87%D9%84%2B%D8%A7%D9%8A%D8%B3%2B%D8%AA%D9%8A%2B%D8%B3%D8%B9%D9%88%D8%AF%D9%8A/city/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "search_evidence": [
-        "bing-html:أوريغون+ ستيت + بيفرز +ضد+تكساس+تك+ريد+رايدرز+الجدول haraj.com.sa https://haraj.com.sa › search › أوريغون+ستيت+بيفرز+ضد+تكساس+تك... افضل عروض (أوريغون+ستيت+بيفرز+ضد+تكساس+تك+ريد+رايدرز+الجدول) جديد و مستعمل في السعودية",
-        "bing-html:افضل عروض ( هل+ايس+تي+سعودي ) جديد و مستعمل في السعودية | موقع حراج haraj.com.sa https://haraj.com.sa › search › هل+ايس+تي+سعودي › city › الرياض افضل عروض (هل+ايس+تي+سعودي) جديد و مستعمل في السعودية"
-      ],
-      "first_seen": "2026-10-12T04:00:58Z",
-      "last_attempt": "2026-10-15T04:12:50Z",
-      "last_attempt_epoch": 1792037570.7755482,
-      "attempts": 2,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=-; service=وكيل; identity=-; search_intent=0; providers=0; queries=2",
-      "discovery_score": 12,
-      "next_retry_epoch": 1792210370.7755482
-    },
-    {
-      "domain": "think-pol.com",
-      "platform": "reddit",
-      "queries": [
-        "\"Reddit post viewer\" -news -article -guide -review"
-      ],
-      "urls": [
-        "https://think-pol.com/tools/reddit-search"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "search_evidence": [
-        "bing-rss:reddit search — free archive search and post viewer — thinkpol free reddit search and post viewer across a 30 billion post archive, deleted and removed content included. full-text search back to 2005, no account."
-      ],
-      "first_seen": "2026-10-10T22:15:15Z",
-      "last_attempt": "2026-10-15T04:12:50Z",
-      "last_attempt_epoch": 1792037570.7755482,
-      "attempts": 3,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comments/post/posts/user; search_intent=1; providers=1; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1792383170.7755482
-    },
-    {
-      "domain": "alexjenkins.tech",
-      "platform": "tumblr",
-      "queries": [
-        "\"Priviblur alternative\" viewer -news -article -guide -review"
-      ],
-      "urls": [
-        "https://alexjenkins.tech/apps/priviblur/"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "search_evidence": [
-        "bing-rss:priviblur: a private front-end for tumblr priviblur is a privacy-focused alternative front-end for tumblr that proxies requests so you can browse blogs without tracking or an account. agpl-3.0."
-      ],
-      "first_seen": "2026-10-12T04:00:58Z",
-      "last_attempt": "2026-10-12T04:00:58Z",
-      "last_attempt_epoch": 1791777658.381344,
-      "attempts": 1,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=tumblr; service=frontend/proxy/instance; identity=blogs/tags; search_intent=0; providers=0; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1791864058.381344
-    },
-    {
-      "domain": "alexjenkins.tech",
-      "platform": "reddit",
-      "queries": [
-        "\"Redlib alternative\" viewer -news -article -guide -review"
-      ],
-      "urls": [
-        "https://alexjenkins.tech/apps/redlib/"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "search_evidence": [
-        "bing-rss:redlib: a private front-end for reddit redlib is a private, lightweight alternative front-end for reddit in rust, the libreddit successor, with no javascript, ads or tracking. agpl-3.0."
-      ],
-      "first_seen": "2026-10-12T04:00:58Z",
-      "last_attempt": "2026-10-12T04:00:58Z",
-      "last_attempt_epoch": 1791777658.381344,
-      "attempts": 1,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=reddit; service=frontend/proxy/instance/browser/reader; identity=subreddits/posts/user/profile; search_intent=0; providers=0; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1791864058.381344
     }
   ],
   "near_miss_count": 1,
@@ -2887,5 +3027,284 @@
     }
   ],
   "search_errors": [],
-  "note": "Publish guard triggered; output list was not replaced."
+  "note": "Publish guard triggered; output list was not replaced.",
+  "automatic_accepted_count": 0,
+  "manual_accepted_count": 16,
+  "manual_curation": {
+    "updated_at": "2026-10-16T19:20:22.258Z",
+    "status": "manual_acceptance_for_publication",
+    "policy": "Manual entries are accepted for list publication by owner decision. This does not rewrite their historical automated validation outcome.",
+    "manually_accepted_count": 16,
+    "manually_accepted_domains": [
+      {
+        "domain": "redlib.perennialte.ch",
+        "platform": "reddit",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "challenge_blocked",
+        "reason": "Manual acceptance requested by repository owner; crawler previously detected a challenge/parked page.",
+        "adguard_rule": "||redlib.perennialte.ch^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "haraj.com.sa",
+        "platform": "marketplace",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance requested by repository owner; the automatic report did not verify this as a social frontend.",
+        "adguard_rule": "||haraj.com.sa^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "redlib.tiekoetter.com",
+        "platform": "reddit",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance requested by repository owner; live-page verification was inconclusive.",
+        "adguard_rule": "||redlib.tiekoetter.com^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "www.tumlook.com",
+        "platform": "tumblr",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "challenge_blocked",
+        "reason": "Manual acceptance requested by repository owner; crawler previously encountered an anti-bot challenge.",
+        "adguard_rule": "||www.tumlook.com^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "www.postel.app",
+        "platform": "twitter/x",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
+        "adguard_rule": "||www.postel.app^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "redship.io",
+        "platform": "reddit",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
+        "adguard_rule": "||redship.io^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "soundc.com",
+        "platform": "multi-platform viewer/downloader",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance retained per repository owner decision.",
+        "adguard_rule": "||soundc.com^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "think-pol.com",
+        "platform": "reddit",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance; already covered by the existing main blocklist.",
+        "adguard_rule": "||think-pol.com^",
+        "covered_by_files": [
+          "blocklist.txt"
+        ]
+      },
+      {
+        "domain": "alexjenkins.tech",
+        "platform": "reddit/tumblr",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "search_strong_but_page_unverified",
+        "reason": "Manual acceptance; already covered by the existing main blocklist.",
+        "adguard_rule": "||alexjenkins.tech^",
+        "covered_by_files": [
+          "blocklist.txt"
+        ]
+      },
+      {
+        "domain": "www.tumviews.com",
+        "platform": "tumblr",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "page_unavailable",
+        "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
+        "adguard_rule": "||www.tumviews.com^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt",
+          "blocklist.txt"
+        ]
+      },
+      {
+        "domain": "www.sotwe.com",
+        "platform": "twitter/x",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "challenge_blocked",
+        "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
+        "adguard_rule": "||www.sotwe.com^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt",
+          "blocklist.txt"
+        ]
+      },
+      {
+        "domain": "nextjs.org",
+        "platform": "general framework/documentation site",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "rejected_not_frontend",
+        "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
+        "adguard_rule": "||nextjs.org^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "pf-reddit.netlify.app",
+        "platform": "unconfirmed",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "not_verified",
+        "reason": "Manual acceptance requested with the exact spelling supplied by the repository owner; live service not independently verified.",
+        "adguard_rule": "||pf-reddit.netlify.app^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "jpf-reddit.netlify.app",
+        "platform": "reddit",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "rejected_insufficient_page_signals",
+        "reason": "Manual acceptance based on curated source references; current live functionality not independently confirmed.",
+        "adguard_rule": "||jpf-reddit.netlify.app^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      },
+      {
+        "domain": "www.xeddit.com",
+        "platform": "reddit",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "rejected_insufficient_service_signals",
+        "reason": "Manual acceptance; already covered by the existing parent-domain rule in the main blocklist.",
+        "adguard_rule": "||xeddit.com^",
+        "covered_by_files": [
+          "blocklist.txt"
+        ]
+      },
+      {
+        "domain": "newportal.goyang.go.kr",
+        "platform": "municipal government portal",
+        "accepted": true,
+        "acceptance_type": "manual_override",
+        "manual_override": true,
+        "automated_validator_accepted": false,
+        "automated_validation_passed": false,
+        "previous_automated_status": "rejected_not_frontend",
+        "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
+        "adguard_rule": "||newportal.goyang.go.kr^",
+        "covered_by_files": [
+          "search-discovered-blocklist.txt"
+        ]
+      }
+    ],
+    "note": "Some entries are known to be general-purpose or unrelated to social-frontends. The manual acceptance controls list inclusion only; automated validator facts remain recorded separately.",
+    "prior_pending_items_resolved_by_manual_acceptance": [
+      {
+        "domain": "haraj.com.sa",
+        "platform": "reddit",
+        "previous_status": "search_strong_but_page_unverified",
+        "previous_reason": "platform=-; service=وكيل; identity=-; search_intent=0; providers=0; queries=2"
+      },
+      {
+        "domain": "think-pol.com",
+        "platform": "reddit",
+        "previous_status": "search_strong_but_page_unverified",
+        "previous_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comments/post/posts/user; search_intent=1; providers=1; queries=1"
+      },
+      {
+        "domain": "alexjenkins.tech",
+        "platform": "tumblr",
+        "previous_status": "search_strong_but_page_unverified",
+        "previous_reason": "platform=tumblr; service=frontend/proxy/instance; identity=blogs/tags; search_intent=0; providers=0; queries=1"
+      },
+      {
+        "domain": "alexjenkins.tech",
+        "platform": "reddit",
+        "previous_status": "search_strong_but_page_unverified",
+        "previous_reason": "platform=reddit; service=frontend/proxy/instance/browser/reader; identity=subreddits/posts/user/profile; search_intent=0; providers=0; queries=1"
+      }
+    ]
+  }
 }

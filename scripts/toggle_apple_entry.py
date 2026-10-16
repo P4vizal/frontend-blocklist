@@ -1,21 +1,41 @@
 #!/usr/bin/env python3
-"""Keep apps.apple.com out of apple.txt on Sundays from 00:00 to 23:00 Madrid time."""
+"""Schedule the AdGuard DNS rule for apps.apple.com."""
 
+import argparse
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 APPLE_FILE = REPOSITORY_ROOT / "apple.txt"
-ENTRY = "apps.apple.com"
+
+# AdGuard DNS adblock-style rule: blocks this hostname and its subdomains.
+ENTRY = "||apps.apple.com^"
+# Remove the old domains-only form too, so an upgrade cannot leave a duplicate.
+LEGACY_ENTRY = "apps.apple.com"
 TIME_ZONE = ZoneInfo("Europe/Madrid")
 
 
 def main() -> None:
-    now = datetime.now(TIME_ZONE)
+    parser = argparse.ArgumentParser(
+        description=(
+            "Remove the apps.apple.com rule on Sundays from 00:00 to 23:00 "
+            "Madrid time, and keep it present at other times."
+        )
+    )
+    parser.add_argument(
+        "--action",
+        choices=("auto", "add", "remove"),
+        default="auto",
+        help="Force add/remove for testing, or use the Madrid-time schedule (default).",
+    )
+    action = parser.parse_args().action
 
-    # The entry is absent on Sunday from 00:00 up to (but not including) 23:00.
-    should_include_entry = not (now.weekday() == 6 and now.hour < 23)
+    if action == "auto":
+        now = datetime.now(TIME_ZONE)
+        should_include_entry = not (now.weekday() == 6 and now.hour < 23)
+    else:
+        should_include_entry = action == "add"
 
     original_content = (
         APPLE_FILE.read_text(encoding="utf-8")
@@ -24,8 +44,11 @@ def main() -> None:
     )
     lines = original_content.splitlines()
 
-    # Only manage the exact target entry; preserve all other lines in apple.txt.
-    lines_without_entry = [line for line in lines if line.strip() != ENTRY]
+    # Manage only this rule and its old plain-domain form; keep every other line.
+    managed_entries = {ENTRY, LEGACY_ENTRY}
+    lines_without_entry = [
+        line for line in lines if line.strip() not in managed_entries
+    ]
 
     if should_include_entry:
         lines = lines_without_entry + [ENTRY]
@@ -41,7 +64,8 @@ def main() -> None:
         state = "present" if should_include_entry else "absent"
         print(f"Updated apple.txt: {ENTRY} is now {state}.")
     else:
-        print(f"No change needed in apple.txt for {ENTRY}.")
+        state = "present" if should_include_entry else "absent"
+        print(f"No change needed: {ENTRY} is already {state}.")
 
 
 if __name__ == "__main__":

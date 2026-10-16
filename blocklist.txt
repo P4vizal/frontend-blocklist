@@ -1,3 +1,4 @@
+||*.blue^
 ||01net.com^
 ||0bin.ch^
 ||0x573e6188.static.cust.fastspeed.dk^
@@ -84,6 +85,7 @@
 ||alayanew.com^
 ||aleph-alpha.com^
 ||alexjenkins.tech^
+||alexwlchan.net^
 ||alljapanesepass.com^
 ||allnarfedup.blog^
 ||allofgfs.com^
@@ -93,6 +95,7 @@
 ||alotporn.com^
 ||alphaporno.com^
 ||alpine.sev.monster^
+||alpscode.com^
 ||altcatalog.com^
 ||alternative.tools^
 ||alternativesatlas.com^
@@ -106,6 +109,7 @@
 ||androidapksfree.com^
 ||androiddrawer.com^
 ||androidfreeware.net^
+||androidphoria.com^
 ||anon-v.com^
 ||anonfile.io^
 ||anonflow.aketawi.space^
@@ -129,6 +133,7 @@
 ||antifandom.com^
 ||anxz.com^
 ||anydoor.cc^
+||anydownloader.com^
 ||anyscale.com^
 ||anyshemale.com^
 ||anythingllm.com^
@@ -142,7 +147,12 @@
 ||aosus.org^
 ||api.sorsa.io^
 ||api30.com^
+||apidog.com^
+||apievangelist.com^
+||apifox.com^
 ||apify.com^
+||apispine.com^
+||apix-drive.com^
 ||apk-dl.com^
 ||apk4all.com^
 ||apk4fun.com^
@@ -171,7 +181,9 @@
 ||appagg.com^
 ||appgallery.huawei.com^
 ||apponic.com^
+||appreciationengine.com^
 ||apps.apple.com^
+||apps.make.com^
 ||apps.microsoft.com^
 ||apps.yunohost.org^
 ||apps24.org^
@@ -190,6 +202,7 @@
 ||art.bloat.cat^
 ||artbreeder.com^
 ||arxivlens.com^
+||arynews.tv^
 ||ask.habedieeh.re^
 ||ask.sudovanilla.org^
 ||askcerebrum.org^
@@ -198,9 +211,12 @@
 ||assemblyai.com^
 ||astian.org^
 ||atomgit.com^
+||atproto.com^
+||atprotodart.com^
 ||auditmysocials.com^
 ||auth.seddens.net^
 ||auto.munroenet.com^
+||automate-labo.com^
 ||avg.com^
 ||avn.com^
 ||awaisora.com^
@@ -271,10 +287,12 @@
 ||blinkviewer.com^
 ||blog.clevguard.com^
 ||blog.google^
+||blog.temboo.com^
 ||blue.mackuba.eu^
 ||bluefacts.app^
 ||bluescreen.blue^
 ||blueskyanalytics.net^
+||blueskybio.com^
 ||blueskydirectory.com^
 ||blueskyfeeds.com^
 ||blueskypulse.com^
@@ -286,6 +304,7 @@
 ||bonus01.hwb0307.com^
 ||booruview.com^
 ||boostfluence.com^
+||botize.com^
 ||boysfood.com^
 ||br.bloat.cat^
 ||braincash.com^
@@ -320,6 +339,7 @@
 ||browsioz.com^
 ||bsky.network^
 ||bsky.sh^
+||bsky.to^
 ||bsky.uno^
 ||bskycheck.com^
 ||bskygrowth.com^
@@ -330,8 +350,10 @@
 ||bskystats.me^
 ||bskysuite.com^
 ||buddyxtheme.com^
+||buffer.com^
 ||buffon.cloud^
 ||builtwith.com^
+||bundle.social^
 ||buythefollows.com^
 ||buzzing.cc^
 ||buzzlytics.com^
@@ -364,7 +386,9 @@
 ||chocolatey.org^
 ||chonglangbiji.com^
 ||chrome-stats.com^
+||chromewebstore.google.com^
 ||chutes.ai^
+||circleboom.com^
 ||citrix.com^
 ||civitai.com^
 ||claptools.com^
@@ -381,6 +405,7 @@
 ||cloudstack.apache.org^
 ||clova.ai^
 ||clubic.com^
+||cly7796.net^
 ||cmunroe.us^
 ||cnb.cool^
 ||cobalt.tools^
@@ -392,9 +417,12 @@
 ||codecguide.com^
 ||codeium.com^
 ||coding.net^
+||codivupload.com^
 ||cohere.com^
 ||colima.run^
 ||combot.org^
+||community.make.com^
+||community.obsidian.md^
 ||computerbase.de^
 ||computerbild.de^
 ||connectedpapers.com^
@@ -442,7 +470,9 @@
 ||daredorm.com^
 ||daringfireball.net^
 ||dash.tweetbinder.com^
+||dashboard.unipile.com^
 ||dat.2chan.net^
+||data365.co^
 ||daum.net^
 ||ddfnetwork.com^
 ||de.operack.com^
@@ -463,6 +493,9 @@
 ||descript.com^
 ||dev.co^
 ||dev.to^
+||developer.android.com^
+||developer.talkwalker.com^
+||developers.google.com^
 ||deviantart.com^
 ||deviantclip.com^
 ||devpost.com^
@@ -474,6 +507,7 @@
 ||dillo-browser.org^
 ||dillo.org^
 ||discuss.privacyguides.net^
+||divriots.com^
 ||divxland.org^
 ||dlandroid.com^
 ||dlinprogress.com^
@@ -481,6 +515,8 @@
 ||dobreprogramy.pl^
 ||docker.com^
 ||docs.searxng.org^
+||docs.wpwebelite.com^
+||docs.zernio.com^
 ||doctalk.site^
 ||dogpile.com^
 ||dokeyai.com^
@@ -490,6 +526,7 @@
 ||dorcelclub.com^
 ||doshitemodayo.com^
 ||doubao.com^
+||down.blue^
 ||downelink.com^
 ||download.cnet.com^
 ||download.documentfoundation.org^
@@ -510,6 +547,7 @@
 ||downzen.com^
 ||dp-vids.com^
 ||dreamina.com^
+||dribbble.com^
 ||droid-ify.eu.org^
 ||droidmirror.com^
 ||drop.chapril.org^
@@ -537,6 +575,7 @@
 ||eggporncomics.com^
 ||einfachzocken.eu^
 ||elevenlabs.io^
+||elfsight.com^
 ||elicit.com^
 ||elinks.or.cz^
 ||eliteai.tool^
@@ -549,6 +588,7 @@
 ||encryp.ch^
 ||engadget.com^
 ||enjoys.rocks^
+||ensembledata.com^
 ||entreresource.com^
 ||eporner.com^
 ||erasa.net^
@@ -640,7 +680,9 @@
 ||forkgram.org^
 ||forum.allinsider.net^
 ||forum.cloudron.io^
+||forum.kodi.tv^
 ||forum.yunohost.org^
+||fossbytes.com^
 ||fosshub.com^
 ||fossies.org^
 ||fossify.org^
@@ -673,6 +715,7 @@
 ||fuq.com^
 ||fux.com^
 ||fxtwitter.com^
+||gadgetstouse.com^
 ||galaxystore.samsung.com^
 ||gameloop.com^
 ||gamma.app^
@@ -716,6 +759,7 @@
 ||ghproxy.link^
 ||ghproxy.net^
 ||ghproxylist.com^
+||giacomocerquone.com^
 ||gibiru.com^
 ||gigaverse.com^
 ||girlsway.com^
@@ -774,6 +818,7 @@
 ||gothub.projectsegfau.lt^
 ||gothub.r4fo.com^
 ||gothub.wuemeli.com^
+||gouldguides.carleton.edu^
 ||gpt4all.io^
 ||gram.utilibre.org^
 ||gram.whatever.social^
@@ -821,6 +866,7 @@
 ||hentaipulse.com^
 ||heptapod.net^
 ||heygen.com^
+||heytasky.com^
 ||hhm.tkhacker.net^
 ||hiddenme.net^
 ||home.kingsoft.jp^
@@ -871,6 +917,7 @@
 ||ilsoftware.it^
 ||im-in.space^
 ||imdb.nerdvpn.de^
+||imgbb.com^
 ||imginn.com^
 ||imgur.artemislena.eu^
 ||imgur.nerdvpn.de^
@@ -878,12 +925,14 @@
 ||incogram.com^
 ||incogsnoo.com^
 ||indiehackers.com^
+||indieweb.org^
 ||indigo-cat-04577.zap.cloud^
 ||indown.io^
 ||indst.eu^
 ||infini.wtf^
 ||inflact.com^
 ||inflection.ai^
+||inspiretothrive.com^
 ||insta-finsta.com^
 ||insta-stories-viewer.com^
 ||instaanon.com^
@@ -894,6 +943,7 @@
 ||install.download^
 ||instanavigation.org^
 ||instances.top^
+||instant-thinking.de^
 ||instapicuki.com^
 ||instapviewer.com^
 ||instasaved.net^
@@ -965,6 +1015,7 @@
 ||kg.lus.lu^
 ||kg.meowing.de^
 ||khoj.dev^
+||kid0725.usamimi.info^
 ||kimi.com^
 ||kinkyfamily.com^
 ||kittygr.am^
@@ -995,6 +1046,7 @@
 ||labs.google^
 ||ladybird.org^
 ||lamini.ai^
+||latenode.com^
 ||launchingnext.com^
 ||launchpad.net^
 ||lb.ethibox.fr^
@@ -1090,6 +1142,7 @@
 ||lumo.proton.me^
 ||luna.sys.tiekoetter.net^
 ||lunascape.tv^
+||lurkapi.com^
 ||lutan.ch^
 ||lx.benike.monster^
 ||lx.vern.cc^
@@ -1105,6 +1158,7 @@
 ||macupdate.com^
 ||madthumbs.com^
 ||magic.dev^
+||magne.tools^
 ||mail.buffon.cloud^
 ||mail.einfachzocken.eu^
 ||mail.mxchange.org^
@@ -1125,6 +1179,7 @@
 ||manus.im^
 ||manusights.com^
 ||marginalia.nu^
+||marketplace.visualstudio.com^
 ||martau.com^
 ||maskifyr.com^
 ||maskster.com^
@@ -1139,6 +1194,7 @@
 ||mediaboss.fr^
 ||mediapuller.com^
 ||mediascroll.io^
+||medium.com^
 ||medium.hostux.net^
 ||meet.jit.si^
 ||meet.sev.monster^
@@ -1155,6 +1211,7 @@
 ||midjourney.com^
 ||midori-browser.org^
 ||mike.sg^
+||mikepope.com^
 ||minbrowser.org^
 ||mindber.com^
 ||mingw-w64.org^
@@ -1173,6 +1230,7 @@
 ||mojeek.com^
 ||mollygram.com^
 ||mollygram.online^
+||moltbook.com^
 ||monica.im^
 ||moonshot.ai^
 ||moooi.jp^
@@ -1211,6 +1269,7 @@
 ||mywot.com^
 ||mzh.dc09.xyz^
 ||napkin.ai^
+||nathanlegakis.com^
 ||nathantech.net^
 ||naver.com^
 ||navigationinsta.net^
@@ -1226,6 +1285,7 @@
 ||neura.market^
 ||neuroflash.com^
 ||neuters.de^
+||news.abplive.com^
 ||news.ycombinator.com^
 ||newsensations.com^
 ||nextcloud.com^
@@ -1260,6 +1320,7 @@
 ||nitter.xitter.cc^
 ||nitter.zebes.info^
 ||nittertwitter.com^
+||niuproxy.com^
 ||nlnet.nl^
 ||nnscholar.com^
 ||nonktube.com^
@@ -1267,6 +1328,8 @@
 ||notabug.org^
 ||note.com^
 ||notebooklm.google.com^
+||noticias.beehiiv.com^
+||notx.blue^
 ||novelai.moe^
 ||novelai.net^
 ||novita.ai^
@@ -1289,6 +1352,7 @@
 ||oblachek.eu^
 ||observatory.mozilla.org^
 ||obsproject.com^
+||octolens.com^
 ||oia.zhihu.com^
 ||okkproxy.com^
 ||okumuralab.org^
@@ -1298,6 +1362,7 @@
 ||oloke.xyz^
 ||on4t.com^
 ||onedev.io^
+||onepostly.com^
 ||onlinedown.net^
 ||ononoki.org^
 ||onstipe.com^
@@ -1308,6 +1373,7 @@
 ||openassistant.io^
 ||opencollective.com^
 ||opennebula.io^
+||openpeek.site^
 ||openpgpkey.sev.monster^
 ||opensourceforu.com^
 ||openstack.org^
@@ -1321,6 +1387,7 @@
 ||opnxng.com^
 ||opstt.com^
 ||orgasm.com^
+||orrsella.com^
 ||osboxes.org^
 ||osrepos.com^
 ||ossalternatives.org^
@@ -1352,6 +1419,7 @@
 ||packages.linuxmint.com^
 ||packages.msys2.org^
 ||packages.vmware.com^
+||packagist.org^
 ||page.search^
 ||pagure.io^
 ||paimon.sev.monster^
@@ -1404,7 +1472,9 @@
 ||perplexityalternative.com^
 ||pervclips.com^
 ||petdii.com^
+||pgcahdnze.pixnet.net^
 ||phantom.nadeko.net^
+||philna.sh^
 ||phind.com^
 ||pholder.com^
 ||photon-reddit.com^
@@ -1479,7 +1549,10 @@
 ||portableapps.com^
 ||portalprogramas.com^
 ||posfie.com^
+||posteora.com^
+||posthubify.com^
 ||postmetrica.com^
+||postmyish.com^
 ||poviai.com^
 ||predibase.com^
 ||presearch.com^
@@ -1505,6 +1578,7 @@
 ||profilepictureviewer.com^
 ||profileri.com^
 ||programas-gratis.net^
+||programming-zero.net^
 ||programosy.pl^
 ||prohoster.info^
 ||projectsegfau.lt^
@@ -1523,7 +1597,9 @@
 ||proxy.jesusysustics.com^
 ||pt.bloat.cat^
 ||pt.semrush.com^
+||public-api.org^
 ||public.iotechnologies.com^
+||publishq.com^
 ||pullpush.io^
 ||pullpush.moe^
 ||punishbang.com^
@@ -1534,6 +1610,7 @@
 ||q.307200.xyz^
 ||q.opnxng.com^
 ||qianwen.com^
+||qiita.com^
 ||qr.vern.cc^
 ||qt.bloat.cat^
 ||quantnode.org^
@@ -1571,6 +1648,7 @@
 ||rancher.com^
 ||rancherdesktop.io^
 ||rankflo.io^
+||rapidapi.com^
 ||rapidgator.net^
 ||rapidsave.com^
 ||rapidseedbox.com^
@@ -1594,7 +1672,9 @@
 ||red.artemislena.eu^
 ||red.bazz.li^
 ||red4u.xyz^
+||redaccs.com^
 ||redd.it^
+||reddapi.online^
 ||reddifier.com^
 ||reddigraph.com^
 ||reddinbox.com^
@@ -1660,6 +1740,7 @@
 ||redtube.com^
 ||redveal.com^
 ||reedditapp.com^
+||reefapi.com^
 ||refact.ai^
 ||refortek.com^
 ||registry.kantan.cat^
@@ -1674,6 +1755,7 @@
 ||replysocial.co^
 ||repo.or.cz^
 ||repology.org^
+||requestly.com^
 ||resemble.ai^
 ||reveddit.com^
 ||rg.kuuro.net^
@@ -1703,6 +1785,7 @@
 ||rockettube.com^
 ||rogerhub.com^
 ||rola-ip.co^
+||rollout.com^
 ||roo.dev^
 ||rosint.dev^
 ||rsload.net^
@@ -1736,6 +1819,7 @@
 ||savefrom.net^
 ||saveig.app^
 ||savett.cc^
+||sbstjn.com^
 ||sc.bloat.cat^
 ||sc.monochrome.tf^
 ||sc.opnxng.com^
@@ -1749,8 +1833,11 @@
 ||scisummary.com^
 ||scite.ai^
 ||scoop.sh^
+||scrapecreators.com^
+||scraper.tech^
 ||scrapersocial.com^
 ||scrapeunblocker.com^
+||scrappa.co^
 ||scribe.nixnet.services^
 ||scribe.privacyredirect.com^
 ||scribe.r4fo.com^
@@ -1906,6 +1993,7 @@
 ||sigmaios.com^
 ||siliconflow.cn^
 ||similarweb.com^
+||simonwillison.net^
 ||simpcity.cr^
 ||simple-web.org^
 ||simplytranslate.aketawi.space^
@@ -1931,6 +2019,7 @@
 ||slutload.com^
 ||slutroulette.com^
 ||smartos.org^
+||smartphones.gadgethacks.com^
 ||smoke.signal.blue^
 ||smtools.org^
 ||smviewer.com^
@@ -1944,12 +2033,14 @@
 ||snapsave.onl^
 ||snaptik.app^
 ||sneed.network^
+||snipeitapp.com^
 ||snoo.habedieeh.re^
 ||snoo.ioens.is^
 ||snoosnoop.com^
 ||social-searcher.com^
 ||social-status.co^
 ||socialatoz.com^
+||socialbee.com^
 ||socialblade.com^
 ||socialgrep.com^
 ||socialoapp.com^
@@ -1976,6 +2067,8 @@
 ||softwaretested.com^
 ||softzone.es^
 ||sogou.com^
+||somacomunicacion.com^
+||sorteio.blue^
 ||sotrender.com^
 ||sotwe.com^
 ||sotwe.in^
@@ -2005,6 +2098,7 @@
 ||ssyoutube.com^
 ||st.adast.dk^
 ||stability.ai^
+||stackblogger.com^
 ||staging.elkford.ca^
 ||stalkblr.com^
 ||stalkeonocturno.com^
@@ -2012,6 +2106,7 @@
 ||stalkstory.com^
 ||start.onlyfans.com^
 ||startpage.com^
+||statcounter.com^
 ||static.139.160.90.157.clients.your-server.de^
 ||static.139.241.4.46.clients.your-server.de^
 ||static.18.236.105.178.clients.your-server.de^
@@ -2030,6 +2125,7 @@
 ||stract.com^
 ||stringtalk.org^
 ||stripchat.com^
+||stripe.com^
 ||su27.net^
 ||subharbor.com^
 ||submityourflicks.com^
@@ -2053,11 +2149,13 @@
 ||syften.com^
 ||sync.com^
 ||synthesia.io^
+||sysarmy.com^
 ||t.co^
 ||t.me^
 ||t.opnxng.com^
 ||t.sneed.network^
 ||tabbyml.com^
+||tagembed.com^
 ||taimienphi.vn^
 ||tavily.com^
 ||tavily.org^
@@ -2066,12 +2164,14 @@
 ||tdesktop.com^
 ||tdirectory.me^
 ||teamskeet.com^
+||tech-notes.maxmasnick.com^
 ||tech2geek.net^
 ||techbii.com^
 ||techpowerup.com^
 ||techspot.com^
 ||techtactician.com^
 ||techviral.net^
+||tecnoblog.net^
 ||teddit.adminforge.de^
 ||teddit.bus-hit.me^
 ||teddit.domain.glass^
@@ -2132,6 +2232,7 @@
 ||tgstat.com^
 ||thegigabrain.com^
 ||themarketingagency.ca^
+||thenextweb.com^
 ||thepicuki.com^
 ||theporndude.com^
 ||thinkwithada.com^
@@ -2145,6 +2246,7 @@
 ||threadsdashboard.com^
 ||threadsviewer.net^
 ||threadsviewer.online^
+||thriendly.com^
 ||thumbzilla.com^
 ||tiava.com^
 ||tieba.baidu.com^
@@ -2190,13 +2292,17 @@
 ||tokviewr.com^
 ||tomelliott.com^
 ||tongyi.com^
+||tools.airfire.org^
 ||tools.osintnewsletter.com^
+||toolzerhub.com^
 ||topalternativas.com^
 ||topapps.fr^
 ||topfreepornvideos.com^
+||topherchris.com^
 ||toppornmap.com^
 ||toppornsites.com^
 ||touslesdrivers.com^
+||toys.tumblrist.com^
 ||trackawesomelist.com^
 ||trackmyhashtag.com^
 ||tracygram.com^
@@ -2253,10 +2359,12 @@
 ||turn.kantan.cat^
 ||turn.sev.monster^
 ||tuta.com^
+||tutorialrays.in^
 ||tutowin10.com^
 ||tw.eir-nya.gay^
 ||tweet-viewer.vercel.app^
 ||tweetan.net^
+||tweetapi.com^
 ||tweetbinder.com^
 ||tweeteraser.com^
 ||tweetexport.extensionsfox.com^
@@ -2318,6 +2426,8 @@
 ||twtdata.com^
 ||twuko.com^
 ||txxx.com^
+||typefully.com^
+||udemy.benesse.co.jp^
 ||udio.com^
 ||unddit.com^
 ||uneed.best^
@@ -2326,9 +2436,12 @@
 ||unigram.chat^
 ||uninstalr.com^
 ||unredacted.org^
+||unroll.loa212.com^
+||unrollthread.com^
 ||unseenprofile.com^
 ||unsubbed.co^
 ||updatestar.com^
+||updf.com^
 ||updowntoday.com^
 ||upload.ee^
 ||upload.nolog.cz^
@@ -2337,6 +2450,7 @@
 ||upstage.ai^
 ||uptodown.com^
 ||ur-browser.com^
+||urlbox.com^
 ||urlebird.com^
 ||urlebird.uk^
 ||urlebird.us^
@@ -2347,6 +2461,7 @@
 ||userscopely.com^
 ||usersdrive.com^
 ||usitility.com^
+||uvnc.com^
 ||v0.dev^
 ||v2202410236833289134.ultrasrv.de^
 ||v2202609218911521413.hotsrv.de^
@@ -2355,6 +2470,7 @@
 ||vapi.ai^
 ||vates.tech^
 ||vbox.me^
+||vc.ru^
 ||vector.co.jp^
 ||vedbex.com^
 ||velia.net^
@@ -2362,6 +2478,7 @@
 ||ventoy.net^
 ||verifyix.com^
 ||verifyor.com^
+||verra.org^
 ||versiontracker.com^
 ||via-browser.com^
 ||video.twimg.com^
@@ -2439,9 +2556,11 @@
 ||web.nue-de.as.tiekoetter.net^
 ||web.uforio.com^
 ||web35.weingaertner-it.de^
+||webapps.stackexchange.com^
 ||webcatalog.io^
 ||webinternetarchive.com^
 ||webogram.org^
+||webs2pdf.com^
 ||weibo.com^
 ||wenxin.baidu.com^
 ||wget.nero.com^
@@ -2481,6 +2600,7 @@
 ||wnbb-et-fra3if-x2.w420.net^
 ||wolvic.com^
 ||woolyss.com^
+||wordpress.com^
 ||wordtune.com^
 ||workupload.com^
 ||wormhole.app^
@@ -2497,31 +2617,67 @@
 ||ww.uptodown.com^
 ||ww19.dumpoir.com^
 ||www.aiseesoft.com^
+||www.androidauthority.com^
 ||www.archivlyx.com^
+||www.armemberplugin.com^
+||www.ayrshare.com^
+||www.bbvaapimarket.com^
 ||www.begindot.com^
+||www.blogdumoderateur.com^
+||www.clrn.org^
 ||www.cmunroe.us^
 ||www.cups.moe^
+||www.datatrend.nl^
+||www.developerdrive.com^
+||www.dignited.com^
 ||www.downelink.com^
 ||www.etsi.me^
+||www.f5.com^
+||www.familyorbit.com^
+||www.fool.com^
 ||www.funkyspacemonkey.com^
+||www.g2.com^
+||www.genbeta.com^
+||www.getphyllo.com^
 ||www.getxapi.com^
 ||www.gruble.de^
+||www.guru99.com^
 ||www.hatpublic.com^
 ||www.henghengmao.com^
 ||www.henghengmao.net^
+||www.hyperclapper.com^
+||www.indiatoday.in^
 ||www.indst.eu^
+||www.ingresosviaweb.com^
+||www.iortizdezarate.com^
 ||www.isci.si^
+||www.itechguides.com^
 ||www.journaldufreenaute.fr^
+||www.jxxy.net^
+||www.kai-arzheimer.com^
 ||www.kantan.cat^
+||www.koukoku.jp^
 ||www.libresearch.space^
+||www.m365princess.com^
+||www.makeuseof.com^
 ||www.master.cz^
 ||www.morelogin.com^
 ||www.mujico.org^
 ||www.nitter.com^
+||www.npmjs.com^
 ||www.openstreetmap.org^
+||www.outstand.so^
+||www.oxinabox.net^
+||www.pabbly.com^
 ||www.peekstr.com^
+||www.plataformamedia.com^
+||www.postman.com^
+||www.postmcpai.com^
 ||www.privacytools.io^
 ||www.rapidseedbox.com^
+||www.raymondcamden.com^
+||www.razumny.no^
+||www.scrapestorm.net^
 ||www.search.tiekoetter.com^
 ||www.search.tiekoetter.net^
 ||www.searx.ro^
@@ -2533,15 +2689,27 @@
 ||www.sotwe.com^
 ||www.subredditviewer.com^
 ||www.tech2geek.net^
+||www.tempo.co^
+||www.theserverside.com^
 ||www.troddit.com^
 ||www.tumviews.com^
+||www.tunepocket.com^
+||www.tunnelbear.com^
+||www.tweepy.org^
 ||www.tweetbinder.com^
 ||www.tweeteraser.com^
+||www.twilio.com^
 ||www.twitter-viewer.com^
+||www.twitterapis.com^
 ||www.twitterviewer.io^
+||www.twittrapi.com^
+||www.unipile.com^
+||www.upload-post.com^
 ||www.v2ex.com^
+||www.vozidea.com^
 ||www.webshare.io^
 ||www.xka.cz^
+||www.yewknee.com^
 ||www1.gruble.de^
 ||x-threadreader.com^
 ||x-viewer.xyz^
@@ -2580,6 +2748,7 @@
 ||xposterai.com^
 ||xprivo.com^
 ||xranks.com^
+||xtracticle.com^
 ||xtube.com^
 ||xtwitterviewer.com^
 ||xunroll.com^
@@ -2592,6 +2761,7 @@
 ||xxxaporn.com^
 ||xxxbunker.com^
 ||xxxvideos247.com^
+||xyzscripts.com^
 ||y2mate.com^
 ||y2mate.nu^
 ||yahoo.com^
@@ -2620,6 +2790,7 @@
 ||zed.dev^
 ||zen-browser.app^
 ||zen-browser.org^
+||zernio.com^
 ||zhihu.com^
 ||zhipuai.cn^
 ||zocialviewer.com^

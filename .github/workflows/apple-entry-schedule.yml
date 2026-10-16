@@ -1,0 +1,65 @@
+name: Schedule Apple entry window
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
+      timezone: "Europe/Madrid"
+    - cron: "0 23 * * 0"
+      timezone: "Europe/Madrid"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: schedule-apple-entry-window
+  cancel-in-progress: false
+
+jobs:
+  update-apple-entry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update only apple.txt
+        run: python scripts/toggle_apple_entry.py
+
+      - name: Commit only apple.txt when changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- apple.txt
+
+          if git diff --cached --quiet; then
+            echo "apple.txt already has the desired content."
+            exit 0
+          fi
+
+          git commit -m "chore: update scheduled Apple entry"
+
+          # Rebase safely if another workflow pushed a commit at the same time.
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git rebase --abort || true
+            fi
+            sleep 2
+          done
+
+          echo "Unable to push after 5 attempts."
+          exit 1

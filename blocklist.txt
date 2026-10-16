@@ -1,4 +1,3 @@
-||*.blue^
 ||01net.com^
 ||0bin.ch^
 ||0x573e6188.static.cust.fastspeed.dk^
@@ -2465,6 +2464,7 @@
 ||v0.dev^
 ||v2202410236833289134.ultrasrv.de^
 ||v2202609218911521413.hotsrv.de^
+||v2202609382694530172.goodsrv.de^
 ||v2ex.com^
 ||vagrantbox.es^
 ||vapi.ai^

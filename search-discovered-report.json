@@ -1,253 +1,10 @@
 {
-  "generated": "2026-10-16T19:19:24Z",
+  "generated": "2026-10-17T04:09:43Z",
   "report_schema_version": 2,
   "status": "no_update",
-  "accepted": [
-    {
-      "domain": "redlib.perennialte.ch",
-      "platform": "reddit",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "challenge_blocked",
-      "reason": "Manual acceptance requested by repository owner; crawler previously detected a challenge/parked page.",
-      "adguard_rule": "||redlib.perennialte.ch^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "haraj.com.sa",
-      "platform": "marketplace",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance requested by repository owner; the automatic report did not verify this as a social frontend.",
-      "adguard_rule": "||haraj.com.sa^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "redlib.tiekoetter.com",
-      "platform": "reddit",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance requested by repository owner; live-page verification was inconclusive.",
-      "adguard_rule": "||redlib.tiekoetter.com^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "www.tumlook.com",
-      "platform": "tumblr",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "challenge_blocked",
-      "reason": "Manual acceptance requested by repository owner; crawler previously encountered an anti-bot challenge.",
-      "adguard_rule": "||www.tumlook.com^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "www.postel.app",
-      "platform": "twitter/x",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
-      "adguard_rule": "||www.postel.app^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "redship.io",
-      "platform": "reddit",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
-      "adguard_rule": "||redship.io^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "soundc.com",
-      "platform": "multi-platform viewer/downloader",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance retained per repository owner decision.",
-      "adguard_rule": "||soundc.com^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "think-pol.com",
-      "platform": "reddit",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance; already covered by the existing main blocklist.",
-      "adguard_rule": "||think-pol.com^",
-      "covered_by_files": [
-        "blocklist.txt"
-      ]
-    },
-    {
-      "domain": "alexjenkins.tech",
-      "platform": "reddit/tumblr",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "search_strong_but_page_unverified",
-      "reason": "Manual acceptance; already covered by the existing main blocklist.",
-      "adguard_rule": "||alexjenkins.tech^",
-      "covered_by_files": [
-        "blocklist.txt"
-      ]
-    },
-    {
-      "domain": "www.tumviews.com",
-      "platform": "tumblr",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "page_unavailable",
-      "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
-      "adguard_rule": "||www.tumviews.com^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt",
-        "blocklist.txt"
-      ]
-    },
-    {
-      "domain": "www.sotwe.com",
-      "platform": "twitter/x",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "challenge_blocked",
-      "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
-      "adguard_rule": "||www.sotwe.com^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt",
-        "blocklist.txt"
-      ]
-    },
-    {
-      "domain": "nextjs.org",
-      "platform": "general framework/documentation site",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "rejected_not_frontend",
-      "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
-      "adguard_rule": "||nextjs.org^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "pf-reddit.netlify.app",
-      "platform": "unconfirmed",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "not_verified",
-      "reason": "Manual acceptance requested with the exact spelling supplied by the repository owner; live service not independently verified.",
-      "adguard_rule": "||pf-reddit.netlify.app^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "jpf-reddit.netlify.app",
-      "platform": "reddit",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "rejected_insufficient_page_signals",
-      "reason": "Manual acceptance based on curated source references; current live functionality not independently confirmed.",
-      "adguard_rule": "||jpf-reddit.netlify.app^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    },
-    {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "rejected_insufficient_service_signals",
-      "reason": "Manual acceptance; already covered by the existing parent-domain rule in the main blocklist.",
-      "adguard_rule": "||xeddit.com^",
-      "covered_by_files": [
-        "blocklist.txt"
-      ]
-    },
-    {
-      "domain": "newportal.goyang.go.kr",
-      "platform": "municipal government portal",
-      "accepted": true,
-      "acceptance_type": "manual_override",
-      "manual_override": true,
-      "automated_validator_accepted": false,
-      "automated_validation_passed": false,
-      "previous_automated_status": "rejected_not_frontend",
-      "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
-      "adguard_rule": "||newportal.goyang.go.kr^",
-      "covered_by_files": [
-        "search-discovered-blocklist.txt"
-      ]
-    }
-  ],
-  "accepted_count": 16,
-  "trusted_candidate_count": 89,
+  "accepted": [],
+  "accepted_count": 0,
+  "trusted_candidate_count": 90,
   "audited_false_positive_domains": [
     "www.osfinder.net"
   ],
@@ -277,19 +34,19 @@
       "status": "ok",
       "kind": "json",
       "url": "https://raw.githubusercontent.com/redlib-org/redlib-instances/main/instances.json",
-      "candidate_count": 2
+      "candidate_count": 1
     },
     "Libreddit": {
       "status": "ok",
       "kind": "json",
       "url": "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json",
-      "candidate_count": 0
+      "candidate_count": 1
     },
     "LibRedirect": {
       "status": "ok",
       "kind": "json",
       "url": "https://raw.githubusercontent.com/libredirect/instances/main/data.json",
-      "candidate_count": 27
+      "candidate_count": 28
     },
     "Priviblur": {
       "status": "ok",
@@ -446,7 +203,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=2"
+      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=0; providers=0; queries=1"
     },
     {
       "platform": "twitter",
@@ -560,8 +317,8 @@
   "active_search_languages": [
     "en",
     "es",
-    "ko",
-    "hi"
+    "ru",
+    "ar"
   ],
   "language_rotation": [
     "fr",
@@ -575,7 +332,7 @@
     "pt",
     "it"
   ],
-  "search_page2_rotating_language": "ko",
+  "search_page2_rotating_language": "ru",
   "search_backends": [
     "bing-rss",
     "bing-html"
@@ -588,11 +345,11 @@
     5
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 98,
-  "search_queries_with_results": 60,
-  "search_queries_without_results": 12,
+  "search_pages_succeeded": 176,
+  "search_queries_with_results": 72,
+  "search_queries_without_results": 0,
   "search_backend_failures": 0,
-  "search_fallbacks": 38,
+  "search_fallbacks": 106,
   "source_candidate_counts": {
     "github": 14,
     "gitlab": 0,
@@ -601,11 +358,11 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 130,
-  "validated_candidates": 31,
-  "pending_verification_count": 1,
+  "candidates_discovered": 139,
+  "validated_candidates": 35,
+  "pending_verification_count": 3,
   "pending_status_counts": {
-    "search_strong_but_page_unverified": 1
+    "search_strong_but_page_unverified": 3
   },
   "pending_verification": [
     {
@@ -636,44 +393,190 @@
       "last_reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
       "discovery_score": 18,
       "next_retry_epoch": 1792264764.9976377
+    },
+    {
+      "domain": "dubai.dubizzle.com",
+      "platform": "twitter",
+      "queries": [
+        "\"twitter عارض\" \"بدون تسجيل دخول\"",
+        "\"twitter عارض\" \"بدون حساب\""
+      ],
+      "urls": [
+        "https://dubai.dubizzle.com/jobs/search/"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-html",
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
+        "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
+      ],
+      "first_seen": "2026-10-17T04:09:43Z",
+      "last_attempt": "2026-10-17T04:09:43Z",
+      "last_attempt_epoch": 1792210183.1668053,
+      "attempts": 1,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "discovery_score": 14,
+      "next_retry_epoch": 1792296583.1668053
+    },
+    {
+      "domain": "www.linkedin.com",
+      "platform": "twitter",
+      "queries": [
+        "\"twitter عارض\" \"بدون تسجيل دخول\"",
+        "\"twitter عارض\" \"بدون حساب\""
+      ],
+      "urls": [
+        "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-html",
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
+        "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
+      ],
+      "first_seen": "2026-10-17T04:09:43Z",
+      "last_attempt": "2026-10-17T04:09:43Z",
+      "last_attempt_epoch": 1792210183.1668053,
+      "attempts": 1,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "discovery_score": 14,
+      "next_retry_epoch": 1792296583.1668053
     }
   ],
-  "near_miss_count": 1,
+  "near_miss_count": 2,
   "top_near_misses": [
     {
-      "domain": "www.yna.co.kr",
+      "domain": "www.linkedin.com",
       "platform": "twitter",
-      "discovery_score": 18,
-      "validation_score": 10,
-      "reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
+      "discovery_score": 14,
+      "validation_score": 16,
+      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
       "status": "search_strong_but_page_unverified",
       "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "user"
         ],
-        "twitter_x_context_ok": true,
+        "body_service_hits": [
+          "front end"
+        ],
+        "body_identity_hits": [
+          "user",
+          "posts"
+        ],
+        "service_hits": [
+          "browser"
+        ],
+        "identity_hits": [
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 79,
+        "forms": 13,
+        "buttons": 180,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "user"
+        ],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to ",
+          "top "
+        ],
+        "editorial_marker_hits": [
+          "table of contents"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": true,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html",
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
+          "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [
+          "analytics"
+        ],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
+        ],
+        "discovery_score": 14
+      }
+    },
+    {
+      "domain": "dubai.dubizzle.com",
+      "platform": "twitter",
+      "discovery_score": 14,
+      "validation_score": 4,
+      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
+        "body_service_hits": [
+          "browser"
+        ],
+        "body_identity_hits": [
+          "user"
+        ],
         "service_hits": [
-          "reader",
-          "gallery"
+          "browser"
         ],
         "identity_hits": [
-          "media",
-          "publication"
+          "user"
         ],
-        "ui_signal": true,
-        "inputs": 81,
+        "ui_signal": false,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 265,
-        "article_count": 2,
-        "article_structure_hint": true,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [],
         "service_path_hint": true,
         "host_service_hint": false,
@@ -686,36 +589,34 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 3,
-        "search_signal_hits": 3,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 3,
+        "distinct_queries": 2,
         "search_providers": [
-          "bing-rss",
-          "bing-html"
+          "bing-html",
+          "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 주의 일부 마을이 러시아군에 점령됐다. 미콜라이우와 드니프로페트로우스크 등 2개 주의 접경지역에도 소규모이긴 하지만 러시아군 점령지가 ...",
-          "bing-html:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 yna.co.kr https://www.yna.co.kr › view 2025년 9월 24일 · 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 ..."
+          "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
+          "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
-        ],
+        "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 1,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://www.yna.co.kr/view/AKR20250924061300009"
+          "https://dubai.dubizzle.com/jobs/search/"
         ],
-        "discovery_score": 18
+        "discovery_score": 14
       }
     }
   ],
@@ -725,170 +626,23 @@
   "append_only": true,
   "output_preserved": true,
   "rejection_reason_counts": {
-    "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3": 1,
-    "platform=-; service=-; identity=post/사용자/포스트; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=viewer; identity=blog; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2": 2,
+    "platform=-; service=frontend/visor/reader; identity=-; search_intent=0; providers=0; queries=1": 2,
+    "platform=-; service=-; identity=مشاركة; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=gallery; identity=-; search_intent=0; providers=0; queries=1": 2,
+    "platform=twitter/x; service=viewer; identity=profile/post/posts/media; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=عارض; identity=مستخدم; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=posts; search_intent=0; providers=0; queries=1": 1,
+    "platform=twitter/x; service=mirror/browser/gallery; identity=tweet/profile/post/posts/media; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=comments/post/пост; search_intent=0; providers=0; queries=1": 1,
     "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 5,
-    "platform=-; service=-; identity=blog; search_intent=0; providers=0; queries=1": 1,
-    "article/content page, not a frontend endpoint": 5,
+    "article/content page, not a frontend endpoint": 3,
     "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=0": 1,
     "page unavailable": 2,
     "challenge/parked page detected": 1
   },
   "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
   "candidates": [
-    {
-      "domain": "twitterviewer.net",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 34,
-      "query_count": 2,
-      "final_url": "https://twitterviewer.net/twitter-advanced-search",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "header_brand_hits": [
-          "nitter"
-        ],
-        "header_service_hits": [
-          "viewer",
-          "gallery"
-        ],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "handle",
-          "media"
-        ],
-        "body_service_hits": [
-          "viewer",
-          "frontend",
-          "browser",
-          "gallery"
-        ],
-        "body_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "post",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "service_hits": [
-          "viewer",
-          "frontend",
-          "browser",
-          "gallery"
-        ],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "post",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 4,
-        "forms": 0,
-        "buttons": 88,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username",
-          "tweet",
-          "twitter",
-          "paste"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [
-          "analytics",
-          "statistics"
-        ],
-        "service_kind": "viewer/frontend+tool",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 2,
-        "query_intent_hits": 2,
-        "search_signal_hits": 4,
-        "strong_search_evidence_hint": true,
-        "search_provider_hits": [
-          "bing-rss"
-        ],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "Web-verified viewer seed: https://twitterviewer.net/",
-          "bing-rss:twitter (x) advanced search — free, no login required search twitter (x) by account, date, engagement and more — results appear right on the page. no account or login required.",
-          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! view any public tweet, profile, and replies online – no account required. the best nitter alternative.",
-          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! instantly view any public tweet, user profile, and replies online – no account or login required. the best nitter alternative with video downloading."
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
-        ],
-        "runtime_service_hits": [
-          "browser"
-        ],
-        "runtime_framework_hits": [
-          "nuxt"
-        ],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 6,
-        "tool_signal_hits": [
-          "analytics",
-          "tracking",
-          "statistics"
-        ],
-        "editorial_signal_count": 3,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://twitterviewer.net/",
-          "https://twitterviewer.net/twitter-advanced-search"
-        ],
-        "discovery_score": 22
-      },
-      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=2",
-      "error": ""
-    },
     {
       "domain": "ilo.so",
       "platform": "twitter",
@@ -1019,6 +773,152 @@
         "discovery_score": 19
       },
       "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "twitterviewer.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 31,
+      "query_count": 1,
+      "final_url": "https://twitterviewer.net/twitter-advanced-search",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "header_service_hits": [
+          "viewer",
+          "gallery"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 4,
+        "forms": 0,
+        "buttons": 88,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "tweet",
+          "twitter",
+          "paste"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [
+          "analytics",
+          "statistics"
+        ],
+        "service_kind": "viewer/frontend+tool",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://twitterviewer.net/",
+          "bing-rss:twitter (x) advanced search — free, no login required build advanced twitter (x) searches by keyword, account, date and likes — see results instantly on this page. free, no account needed, works on mobile."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter"
+        ],
+        "runtime_service_hits": [
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "nuxt"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 6,
+        "tool_signal_hits": [
+          "analytics",
+          "tracking",
+          "statistics"
+        ],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://twitterviewer.net/",
+          "https://twitterviewer.net/twitter-advanced-search"
+        ],
+        "discovery_score": 12
+      },
+      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -1331,9 +1231,7 @@
         "host_service_hint": true,
         "content_path_hint": false,
         "content_title_hits": [],
-        "editorial_marker_hits": [
-          "published"
-        ],
+        "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": true,
@@ -1362,7 +1260,7 @@
         "tool_signal_hits": [
           "statistics"
         ],
-        "editorial_signal_count": 1,
+        "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
           "https://www.tumviews.com/"
@@ -2027,39 +1925,131 @@
       "error": ""
     },
     {
-      "domain": "www.yna.co.kr",
+      "domain": "www.linkedin.com",
       "platform": "twitter",
       "accepted": false,
-      "score": 10,
-      "query_count": 3,
-      "final_url": "https://www.yna.co.kr/view/AKR20250924061300009",
+      "score": 16,
+      "query_count": 2,
+      "final_url": "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai",
       "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "user"
         ],
-        "twitter_x_context_ok": true,
+        "body_service_hits": [
+          "front end"
+        ],
+        "body_identity_hits": [
+          "user",
+          "posts"
+        ],
+        "service_hits": [
+          "browser"
+        ],
+        "identity_hits": [
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 79,
+        "forms": 13,
+        "buttons": 180,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "user"
+        ],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to ",
+          "top "
+        ],
+        "editorial_marker_hits": [
+          "table of contents"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": true,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html",
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
+          "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [
+          "analytics"
+        ],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
+        ],
+        "discovery_score": 14
+      },
+      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "dubai.dubizzle.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 4,
+      "query_count": 2,
+      "final_url": "https://dubai.dubizzle.com/jobs/search/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
+        "body_service_hits": [
+          "browser"
+        ],
+        "body_identity_hits": [
+          "user"
+        ],
         "service_hits": [
-          "reader",
-          "gallery"
+          "browser"
         ],
         "identity_hits": [
-          "media",
-          "publication"
+          "user"
         ],
-        "ui_signal": true,
-        "inputs": 81,
+        "ui_signal": false,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 265,
-        "article_count": 2,
-        "article_structure_hint": true,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [],
         "service_path_hint": true,
         "host_service_hint": false,
@@ -2072,18 +2062,424 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 3,
-        "search_signal_hits": 3,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 3,
+        "distinct_queries": 2,
         "search_providers": [
-          "bing-rss",
+          "bing-html",
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
+          "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://dubai.dubizzle.com/jobs/search/"
+        ],
+        "discovery_score": 14
+      },
+      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "2gis.ru",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://2gis.ru/balashikha/search/%D0%91%D0%BB%D0%B8%D0%B6%D0%B0%D0%B9%D1%88%D0%B0%D1%8F%20%D1%85%D0%B8%D0%BC%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D0%BE%D0%B1%D1%83%D0%B2%D0%B8",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "frontend",
+          "visor",
+          "reader"
+        ],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 58,
+        "forms": 3,
+        "buttons": 894,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
           "bing-html"
         ],
         "search_evidence": [
-          "bing-rss:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 주의 일부 마을이 러시아군에 점령됐다. 미콜라이우와 드니프로페트로우스크 등 2개 주의 접경지역에도 소규모이긴 하지만 러시아군 점령지가 ...",
-          "bing-html:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 yna.co.kr https://www.yna.co.kr › view 2025년 9월 24일 · 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 ..."
+          "bing-html:ближайшая химчистка обуви в г. балашиха на карте: ☎ ... 2gis.ru https://2gis.ru › balashikha › search › ближайшая химчистка обуви результаты поиска по запросу ближайшая химчистка обуви на карте в г. балашиха. также люди ищут: химчистка, ...",
+          "bing-html:химчистка на реутовской в москве на карте: ☎ телефоны, ★ ... 2gis.ru https://2gis.ru › moscow › search › химчистка на реутовской результаты поиска по запросу химчистка на реутовской на карте в москве. также люди ищут: химчистка, химчистки, ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "reader",
+          "visor"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://2gis.ru/balashikha/search/%D0%91%D0%BB%D0%B8%D0%B6%D0%B0%D0%B9%D1%88%D0%B0%D1%8F%20%D1%85%D0%B8%D0%BC%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D0%BE%D0%B1%D1%83%D0%B2%D0%B8",
+          "https://2gis.ru/moscow/search/%D0%A5%D0%B8%D0%BC%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D1%80%D0%B5%D1%83%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B9"
+        ],
+        "discovery_score": 8
+      },
+      "reason": "platform=-; service=frontend/visor/reader; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "2gis.ru",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 11,
+      "query_count": 1,
+      "final_url": "https://2gis.ru/moscow/search/%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%8B%20%D0%BA%D1%80%D0%B5%D0%BC%D0%BB%D1%8C",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "frontend",
+          "visor",
+          "reader"
+        ],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 170,
+        "forms": 4,
+        "buttons": 88,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:рестораны кремль в москве на карте: ☎ телефоны, ★ отзывы — ... 2gis.ru https://2gis.ru › moscow › search › рестораны кремль рестораны кремль: адреса на карте, ☎ телефоны, сайты, часы работы, ★ отзывы, фото, ⚑ поиск проезда на городском ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "reader",
+          "visor"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://2gis.ru/moscow/search/%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%8B%20%D0%BA%D1%80%D0%B5%D0%BC%D0%BB%D1%8C"
+        ],
+        "discovery_score": 8
+      },
+      "reason": "platform=-; service=frontend/visor/reader; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "hadeethenc.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 10,
+      "query_count": 1,
+      "final_url": "https://hadeethenc.com/ar/browse/hadith/65117",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "مشاركة"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "مشاركة"
+        ],
+        "ui_signal": true,
+        "inputs": 84,
+        "forms": 12,
+        "buttons": 145,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": true,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:شرح وترجمة حديث: الآن يا عمر - موسوعة الأحاديث النبوية شرح وترجمة حديث: الآن يا عمر - موسوعة الأحاديث النبوية عَنْ عَبْدَ اللَّهِ بْنَ هِشَامٍ، قَالَ: كُنَّا مَعَ النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ وَهُوَ آخِذٌ بِيَدِ عُمَرَ بْنِ الخَطَّابِ، فَقَالَ لَهُ عُمَرُ ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://hadeethenc.com/ar/browse/hadith/65117"
+        ],
+        "discovery_score": 8
+      },
+      "reason": "platform=-; service=-; identity=مشاركة; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "yandex.ru",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://yandex.ru/maps/213/moscow/search/%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%8B/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [
+          "gallery"
+        ],
+        "body_identity_hits": [],
+        "service_hits": [
+          "gallery"
+        ],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:рестораны в москве на карте рядом со мной: цены, адреса, ... yandex.ru https://yandex.ru › maps › moscow › search › рестораны рестораны в москве: выбрать место по ценам, меню, рейтингу, отзывам, фото, записаться онлайн, узнать режим работы, ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://yandex.ru/maps/213/moscow/search/%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%8B/"
+        ],
+        "discovery_score": 8
+      },
+      "reason": "platform=-; service=gallery; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "similarlabs.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://similarlabs.com/p/twitterviewer",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "profile",
+          "post",
+          "posts",
+          "media"
+        ],
+        "body_service_hits": [
+          "browser"
+        ],
+        "body_identity_hits": [
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "media",
+          "publication"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "media",
+          "publication"
+        ],
+        "ui_signal": true,
+        "inputs": 1,
+        "forms": 0,
+        "buttons": 49,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "profile",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "best ",
+          "review"
+        ],
+        "editorial_marker_hits": [
+          "published"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:twitterviewer - view public x content without an x account or login ... twitterviewer is a web tool that lets users access public x (formerly twitter) posts, threads, replies, profiles, and media without requiring an x account or login."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -2096,23 +2492,283 @@
         "runtime_service_hint": false,
         "positive_frontend_signals": 2,
         "tool_signal_hits": [],
-        "editorial_signal_count": 0,
+        "editorial_signal_count": 4,
         "internal_routes_checked": 3,
         "query_urls": [
-          "https://www.yna.co.kr/view/AKR20250924061300009"
+          "https://similarlabs.com/p/twitterviewer"
         ],
-        "discovery_score": 18
+        "discovery_score": 6
       },
-      "reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
+      "reason": "platform=twitter/x; service=viewer; identity=profile/post/posts/media; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "price.enuri.com",
+      "domain": "sa.aqar.fm",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 15,
+      "query_count": 1,
+      "final_url": "https://sa.aqar.fm/%D8%A3%D8%B1%D8%A7%D8%B6%D9%8A-%D9%84%D9%84%D8%A8%D9%8A%D8%B9/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%AD%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D9%8A%D9%81/%D8%B4%D8%A7%D8%B1%D8%B9-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B5%D9%85%D8%AF-%D8%A7%D9%84%D8%A8%D8%B2%D8%A7%D8%B1-%D8%AD%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D9%8A%D9%81-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-3371123",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "عارض"
+        ],
+        "header_identity_hits": [
+          "مستخدم"
+        ],
+        "body_service_hits": [
+          "عارض"
+        ],
+        "body_identity_hits": [
+          "مستخدم"
+        ],
+        "service_hits": [
+          "عارض",
+          "وكيل"
+        ],
+        "identity_hits": [
+          "blog",
+          "user",
+          "مستخدم"
+        ],
+        "ui_signal": true,
+        "inputs": 5,
+        "forms": 0,
+        "buttons": 36,
+        "article_count": 21,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "twitter"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:أرض للبيع في شارع عبدالصمد البزار ، حي المصيف ، الرياض ، الرياض aqar.fm https://sa.aqar.fm › أراضي-للبيع › الرياض › شمال... أرض للبيع في شارع عبدالصمد البزار ، حي المصيف ، الرياض ، الرياض محذوفة حي بنبان (827)حي العارض (500)حي النرجس (433)حي القيروان (241)حي الملقا (129)حي العقيق (70) خيارات ...",
+          "bing-html:أرض للبيع في شارع عبدالصمد البزار ، حي المصيف ، الرياض ، الرياض aqar.fm https://sa.aqar.fm › أراضي-للبيع › الرياض › شمال... أرض للبيع في شارع عبدالصمد البزار ، حي المصيف ، الرياض ، الرياض محذوفة حي بنبان (829)حي العارض (511)حي النرجس (428)حي القيروان (256)حي الملقا (131)حي العقيق (72) خيارات ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://sa.aqar.fm/%D8%A3%D8%B1%D8%A7%D8%B6%D9%8A-%D9%84%D9%84%D8%A8%D9%8A%D8%B9/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%AD%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D9%8A%D9%81/%D8%B4%D8%A7%D8%B1%D8%B9-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B5%D9%85%D8%AF-%D8%A7%D9%84%D8%A8%D8%B2%D8%A7%D8%B1-%D8%AD%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D9%8A%D9%81-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-3371123",
+          "https://sa.aqar.fm/%D8%A3%D8%B1%D8%A7%D8%B6%D9%8A-%D9%84%D9%84%D8%A8%D9%8A%D8%B9/%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%B4%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/%D8%AD%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D9%8A%D9%81/%D8%B4%D8%A7%D8%B1%D8%B9-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B5%D9%85%D8%AF-%D8%A7%D9%84%D8%A8%D8%B2%D8%A7%D8%B1-%D8%AD%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D9%8A%D9%81-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-3499255"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=عارض; identity=مستخدم; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "blog.aqarmap.sa",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 9,
+      "query_count": 1,
+      "final_url": "https://blog.aqarmap.sa/ar/riyadh-al-masif-district/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "posts"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "مستخدم",
+          "منشور"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "blog",
+          "posts",
+          "tag",
+          "مستخدم",
+          "منشور"
+        ],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "post"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:فرص التملك في حي المصيف بالرياض والموقع ودليل العقارات والخدمات aqarmap.sa https://blog.aqarmap.sa › ar › riyadh-al-masif-district حي المصيف من الأحياء السكنية المعروفة في شمال الرياض ، ويتميز بموقعه المميز وقربه من عدد من الطرق الرئيسية والمراكز التجارية ومناطق الأعمال المهمة في العاصمة. كما يوفر الحي مجموعة ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 1,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://blog.aqarmap.sa/ar/riyadh-al-masif-district/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=-; identity=posts; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "www.apkmirror.com",
       "platform": "twitter",
       "accepted": false,
       "score": 8,
       "query_count": 1,
-      "final_url": "https://price.enuri.com/search?keyword=SUS304%2050x50x5t%20angle%20price%20Korea",
+      "final_url": "https://www.apkmirror.com/apk/x-corp/twitter/",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [
+          "browser",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "post",
+          "posts",
+          "media"
+        ],
+        "service_hits": [
+          "mirror",
+          "browser",
+          "gallery"
+        ],
+        "identity_hits": [
+          "tweet",
+          "profile",
+          "post",
+          "posts",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 28,
+        "forms": 4,
+        "buttons": 31,
+        "article_count": 1,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "twitter",
+          "reddit"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:download x apks for android - apkmirror x isn’t just another social media app, it’s the ultimate destination for staying well informed, sharing ideas, and building communities. with x, you’re always in the loop with relevant trending topics and breaking news, delivered instantly to your screen, raw and unfiltered."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter"
+        ],
+        "runtime_service_hits": [
+          "gallery"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://www.apkmirror.com/apk/x-corp/twitter/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=twitter/x; service=mirror/browser/gallery; identity=tweet/profile/post/posts/media; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "index.kodifikant.ru",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 6,
+      "query_count": 1,
+      "final_url": "https://index.kodifikant.ru/post/143905",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -2123,168 +2779,23 @@
         "header_identity_hits": [],
         "body_service_hits": [],
         "body_identity_hits": [
-          "사용자",
-          "포스트"
+          "пост"
         ],
         "service_hits": [],
         "identity_hits": [
+          "comments",
           "post",
-          "사용자",
-          "포스트"
+          "пост"
         ],
         "ui_signal": true,
-        "inputs": 218,
+        "inputs": 28,
         "forms": 4,
-        "buttons": 1684,
-        "article_count": 18,
-        "article_structure_hint": true,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:sus304 50x50x5t angle price korea 최저가 검색 - 에누리 가격비교 enuri.com https://price.enuri.com › search sus304 50x50x5t angle price korea 검색 결과 | sus304 50x50x5t angle price korea 인기 상품 한 눈에 비교하고 최저가로 구매하세요."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://price.enuri.com/search?keyword=SUS304%2050x50x5t%20angle%20price%20Korea"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=-; identity=post/사용자/포스트; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "tenor.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 8,
-      "query_count": 1,
-      "final_url": "https://tenor.com/search/size-matters-gifs",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [
-          "browser"
-        ],
-        "body_identity_hits": [],
-        "service_hits": [
-          "browser"
-        ],
-        "identity_hits": [],
-        "ui_signal": true,
-        "inputs": 4,
-        "forms": 4,
-        "buttons": 12,
+        "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "best "
+        "interactive_target_hits": [
+          "post"
         ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:size matters gifs | tenor tenor.com https://tenor.com › search › size-matters-gifs with tenor, maker of gif keyboard, add popular size matters animated gifs to your conversations. share the best gifs now >>>"
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://tenor.com/search/size-matters-gifs"
-        ],
-        "discovery_score": 8
-      },
-      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "m.blog.naver.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 6,
-      "query_count": 1,
-      "final_url": "https://m.blog.naver.com/medinote/224433792770",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "blog"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "viewer"
-        ],
-        "identity_hits": [
-          "blog"
-        ],
-        "ui_signal": false,
-        "inputs": 1,
-        "forms": 1,
-        "buttons": 25,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
@@ -2305,98 +2816,25 @@
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:코로나 증상 재유행 독감과 차이, 격리 며칠 잠복기까지 naver.com https://m.blog.naver.com › medinote 2026년 10월 7일 · https://www.nhs.uk/conditions/covid-19/covid-19-symptoms-and-what-to-do/ ... q. 집에서 한 자가검사키트가 ...",
-          "bing-html:서울 피자 맛집 리스트 - 네이버 블로그 naver.com https://m.blog.naver.com 2022년 12월 29일 · 서울에서 프랜차이즈 부터 ~ 미국식피자 등등 다양한 피자를 먹었는데 그 중에서 기억에 남았던. 피자집들을 ..."
+          "bing-html:индекс 143905 - отделение почты \"свердлова ул, 23\" kodifikant.ru https://index.kodifikant.ru › post индекс 143905 - отделение почты \"свердлова ул, 23\" индекс, адрес отделения на карте, режим работы, телефон, отзывы."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "viewer"
-        ],
+        "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
         "positive_frontend_signals": 1,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
+        "internal_routes_checked": 2,
         "query_urls": [
-          "https://m.blog.naver.com/medinote/224433792770",
-          "https://m.blog.naver.com/seven_luck93/222969640906"
+          "https://index.kodifikant.ru/post/143905"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=viewer; identity=blog; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "www.tiktok.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://www.tiktok.com/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:#sizedoesntmatter - tiktok tiktok.com https://www.tiktok.com › tag › sizedoesntmatter size doesnt matter | 37.3k posts watch the latest videos about #sizedoesntmatter on tiktok."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [
-          "react"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://www.tiktok.com/tag/sizedoesntmatter"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=-; identity=comments/post/пост; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -2466,12 +2904,12 @@
       "error": ""
     },
     {
-      "domain": "blog.naver.com",
-      "platform": "tumblr",
+      "domain": "st-regis-saadiyat-island.abudhabi-hotels-ae.com",
+      "platform": "reddit",
       "accepted": false,
       "score": 1,
       "query_count": 1,
-      "final_url": "https://blog.naver.com/jcrst07/224425898562",
+      "final_url": "https://st-regis-saadiyat-island.abudhabi-hotels-ae.com/ar/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -2480,16 +2918,18 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "blog"
+        "body_service_hits": [
+          "gallery"
         ],
+        "body_identity_hits": [],
+        "service_hits": [
+          "gallery"
+        ],
+        "identity_hits": [],
         "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
+        "inputs": 50,
+        "forms": 7,
+        "buttons": 6,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -2513,8 +2953,7 @@
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:2026 요즘 코로나 증상 총정리|목 아픔·콧물이면 코로나일까 ... naver.com https://blog.naver.com 결론부터 말씀드리면 \"올여름 다시 늘어났다가, 규모는 작년보다 작을 것으로 보는 상황\"이에요. 먼저 짚고 갈 게 하나 있어요. ...",
-          "bing-html:' 서울 피자 성지 리스트'광고 없이 찐 입소문으로만 ' 서울 피자 ... naver.com https://blog.naver.com › rightway- 이미 알 만한 사람들은 다 안다는 '서울 피자 성지 리스트' 유행이라서, 광고라서 가는 곳이 아니라 지인들을 데려가도 절대 욕먹지 ..."
+          "bing-html:منتجع سانت ريجيس جزيرة السعديات، أبو ظبي abudhabi-hotels-ae.com https://st-regis-saadiyat-island.abudhabi-hotels-ae.com › ar يقع ‏ منتجع سانت ريجيس جزيرة السعديات، أبو ظبي ‏ ذو ‏5‏ نجوم على بعد ‏5‏ دقيقة فقط سيرا على الأقدام عن ‏salwa zeidan gallery‏ وعلى بعد ‏3‏ كم من ‏متحف اللوفر أبو ظبي‏، ويوفّر ‏حمام ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -2528,69 +2967,24 @@
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://blog.naver.com/jcrst07/224425898562",
-          "https://blog.naver.com/rightway-/224208538549"
+          "https://st-regis-saadiyat-island.abudhabi-hotels-ae.com/ar/"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=blog; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=gallery; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "footprintiq.app",
+      "domain": "forums.commentcamarche.net",
       "platform": "twitter",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://footprintiq.app/twitter-search-without-account",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is "
-        ],
-        "editorial_marker_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": false,
-        "discovery_score": 6
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "suizaespanol.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://suizaespanol.com/",
+      "final_url": "https://forums.commentcamarche.net/forum/affich-8126991-pas-de-son-video-facebook",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [],
         "editorial_marker_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": true,
-        "discovery_score": 6
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.who.int",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.who.int/news-room/questions-and-answers/item/coronavirus-disease-%28covid-19%29-post-covid-19-condition",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [
-          "review"
-        ],
-        "editorial_marker_hits": [
-          "published"
-        ],
         "service_path_hint": false,
         "host_service_hint": false,
         "article_structure_hint": true,
@@ -3027,284 +3421,5 @@
     }
   ],
   "search_errors": [],
-  "note": "Publish guard triggered; output list was not replaced.",
-  "automatic_accepted_count": 0,
-  "manual_accepted_count": 16,
-  "manual_curation": {
-    "updated_at": "2026-10-16T19:20:22.258Z",
-    "status": "manual_acceptance_for_publication",
-    "policy": "Manual entries are accepted for list publication by owner decision. This does not rewrite their historical automated validation outcome.",
-    "manually_accepted_count": 16,
-    "manually_accepted_domains": [
-      {
-        "domain": "redlib.perennialte.ch",
-        "platform": "reddit",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "challenge_blocked",
-        "reason": "Manual acceptance requested by repository owner; crawler previously detected a challenge/parked page.",
-        "adguard_rule": "||redlib.perennialte.ch^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "haraj.com.sa",
-        "platform": "marketplace",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance requested by repository owner; the automatic report did not verify this as a social frontend.",
-        "adguard_rule": "||haraj.com.sa^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "redlib.tiekoetter.com",
-        "platform": "reddit",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance requested by repository owner; live-page verification was inconclusive.",
-        "adguard_rule": "||redlib.tiekoetter.com^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "www.tumlook.com",
-        "platform": "tumblr",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "challenge_blocked",
-        "reason": "Manual acceptance requested by repository owner; crawler previously encountered an anti-bot challenge.",
-        "adguard_rule": "||www.tumlook.com^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "www.postel.app",
-        "platform": "twitter/x",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
-        "adguard_rule": "||www.postel.app^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "redship.io",
-        "platform": "reddit",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance requested by repository owner; automated verification was inconclusive.",
-        "adguard_rule": "||redship.io^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "soundc.com",
-        "platform": "multi-platform viewer/downloader",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance retained per repository owner decision.",
-        "adguard_rule": "||soundc.com^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "think-pol.com",
-        "platform": "reddit",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance; already covered by the existing main blocklist.",
-        "adguard_rule": "||think-pol.com^",
-        "covered_by_files": [
-          "blocklist.txt"
-        ]
-      },
-      {
-        "domain": "alexjenkins.tech",
-        "platform": "reddit/tumblr",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "search_strong_but_page_unverified",
-        "reason": "Manual acceptance; already covered by the existing main blocklist.",
-        "adguard_rule": "||alexjenkins.tech^",
-        "covered_by_files": [
-          "blocklist.txt"
-        ]
-      },
-      {
-        "domain": "www.tumviews.com",
-        "platform": "tumblr",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "page_unavailable",
-        "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
-        "adguard_rule": "||www.tumviews.com^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt",
-          "blocklist.txt"
-        ]
-      },
-      {
-        "domain": "www.sotwe.com",
-        "platform": "twitter/x",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "challenge_blocked",
-        "reason": "Manual acceptance; already present in both the discovery and main blocklists.",
-        "adguard_rule": "||www.sotwe.com^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt",
-          "blocklist.txt"
-        ]
-      },
-      {
-        "domain": "nextjs.org",
-        "platform": "general framework/documentation site",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "rejected_not_frontend",
-        "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
-        "adguard_rule": "||nextjs.org^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "pf-reddit.netlify.app",
-        "platform": "unconfirmed",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "not_verified",
-        "reason": "Manual acceptance requested with the exact spelling supplied by the repository owner; live service not independently verified.",
-        "adguard_rule": "||pf-reddit.netlify.app^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "jpf-reddit.netlify.app",
-        "platform": "reddit",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "rejected_insufficient_page_signals",
-        "reason": "Manual acceptance based on curated source references; current live functionality not independently confirmed.",
-        "adguard_rule": "||jpf-reddit.netlify.app^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      },
-      {
-        "domain": "www.xeddit.com",
-        "platform": "reddit",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "rejected_insufficient_service_signals",
-        "reason": "Manual acceptance; already covered by the existing parent-domain rule in the main blocklist.",
-        "adguard_rule": "||xeddit.com^",
-        "covered_by_files": [
-          "blocklist.txt"
-        ]
-      },
-      {
-        "domain": "newportal.goyang.go.kr",
-        "platform": "municipal government portal",
-        "accepted": true,
-        "acceptance_type": "manual_override",
-        "manual_override": true,
-        "automated_validator_accepted": false,
-        "automated_validation_passed": false,
-        "previous_automated_status": "rejected_not_frontend",
-        "reason": "Manual acceptance requested by repository owner, outside the automated frontend-discovery criteria.",
-        "adguard_rule": "||newportal.goyang.go.kr^",
-        "covered_by_files": [
-          "search-discovered-blocklist.txt"
-        ]
-      }
-    ],
-    "note": "Some entries are known to be general-purpose or unrelated to social-frontends. The manual acceptance controls list inclusion only; automated validator facts remain recorded separately.",
-    "prior_pending_items_resolved_by_manual_acceptance": [
-      {
-        "domain": "haraj.com.sa",
-        "platform": "reddit",
-        "previous_status": "search_strong_but_page_unverified",
-        "previous_reason": "platform=-; service=وكيل; identity=-; search_intent=0; providers=0; queries=2"
-      },
-      {
-        "domain": "think-pol.com",
-        "platform": "reddit",
-        "previous_status": "search_strong_but_page_unverified",
-        "previous_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comments/post/posts/user; search_intent=1; providers=1; queries=1"
-      },
-      {
-        "domain": "alexjenkins.tech",
-        "platform": "tumblr",
-        "previous_status": "search_strong_but_page_unverified",
-        "previous_reason": "platform=tumblr; service=frontend/proxy/instance; identity=blogs/tags; search_intent=0; providers=0; queries=1"
-      },
-      {
-        "domain": "alexjenkins.tech",
-        "platform": "reddit",
-        "previous_status": "search_strong_but_page_unverified",
-        "previous_reason": "platform=reddit; service=frontend/proxy/instance/browser/reader; identity=subreddits/posts/user/profile; search_intent=0; providers=0; queries=1"
-      }
-    ]
-  }
+  "note": "Publish guard triggered; output list was not replaced."
 }

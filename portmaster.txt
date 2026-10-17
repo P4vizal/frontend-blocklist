@@ -21,12 +21,14 @@
 23965517484.gpt-appstore.com
 24f69e5f313a0.com
 24porn.com
+256haruhi.f5.si
 2a0f-6280-1800-0300-0000-0000-0000-0010.no-dns.hyehost.net
 2amagzine.com
 2chan.net
 3movs.com
 4.nboeck.de
 4european.com
+4everland.org
 4everproxy.com
 4g.opnxng.com
 4get.aishiteiru.moe
@@ -118,6 +120,7 @@ altcatalog.com
 alternative.tools
 alternativesatlas.com
 alternativeto.net
+ameblo.jp
 anaimg.starbeamrainbowlabs.com
 analyzezen.com
 anartia.kelinci.net
@@ -473,6 +476,7 @@ cloud.omnissahorizon.com
 cloud.ru
 cloud.yandex.ru
 cloudbase.it
+cloudflare-ipfs.co
 cloudstack.apache.org
 clova.ai
 clubic.com
@@ -582,6 +586,7 @@ dev.co
 dev.to
 developer.android.com
 developer.talkwalker.com
+developers.cloudflare.com
 developers.google.com
 developers.sber.ru
 deviantart.com
@@ -601,6 +606,7 @@ divxland.org
 dl-reddit.com
 dlandroid.com
 dlinprogress.com
+dlsite.com
 dns.sev.monster
 dobreprogramy.pl
 docker.com
@@ -1221,6 +1227,7 @@ lessie.cn
 letsjerk.is
 lexica.art
 lexicon.garden
+lib.rs
 libguestfs.org
 libhunt.com
 libmedium.batsense.net
@@ -1304,6 +1311,7 @@ lmware.com
 lo4d.com
 loader.to
 localai.io
+lofter.com
 lookkle.com
 lost-skunk.cc
 lovable.dev
@@ -1326,6 +1334,7 @@ luna.sys.tiekoetter.net
 lunascape.org
 lunascape.tv
 lurkapi.com
+lurkmore.nl
 lutan.ch
 lx.benike.monster
 lx.vern.cc
@@ -1334,6 +1343,7 @@ lycan.feeds.blue
 lynx.invisible-island.net
 m-shokai.jp
 m.bilibili.com
+m.diandian.com
 m.opnxng.com
 m.search.naver.com
 m.weibo.cn
@@ -1369,6 +1379,7 @@ mashagpt.ru
 maskifyr.com
 maskster.com
 master.cz
+matoken.org
 matthewbilyeu.com
 maxim.com
 maxintel.org
@@ -1444,6 +1455,7 @@ mozhi.ducks.party
 mozhi.pussthecat.org
 mozilla.org
 mrpaulblack.paulgo.page
+msafely.com
 mse.360.cn
 msty.app
 mujico.org
@@ -1608,6 +1620,7 @@ oldversion.com
 ollama.com
 oloke.xyz
 on4t.com
+one.one.one.one
 onedev.io
 onepostly.com
 onionbrowser.com
@@ -1783,6 +1796,7 @@ poketube.fun
 polarbite.eu
 pollinations.ai
 polza.ai
+pommu.jp
 ponder.ing
 pool-173-66-2-41.washdc.fios.verizon.net
 pool-173-66-9-251.washdc.fios.verizon.net
@@ -1947,6 +1961,7 @@ reader.duckpsycho.dev
 reads.nezumi.party
 realitykings.com
 reallyaweso.me
+reblogme.com
 rebloq.app
 reclipco.com
 recraft.ai
@@ -2142,6 +2157,7 @@ rytr.me
 s.307200.xyz
 s.dyox.in
 s.opnxng.com
+s21g.com
 sa.dc09.ru
 sa.orehus.club
 saashub.com
@@ -2405,6 +2421,8 @@ snipeitapp.com
 snoo.habedieeh.re
 snoo.ioens.is
 snoosnoop.com
+sns-tora.jp
+social-dog.net
 social-searcher.com
 social-status.co
 socialatoz.com
@@ -2539,8 +2557,10 @@ t.opnxng.com
 t.sneed.network
 tabbyml.com
 tabnine.com
+tabtter.jp
 tagembed.com
 taimienphi.vn
+taittsuu.com
 tavily.com
 tavily.org
 tb.opnxng.com
@@ -2726,6 +2746,7 @@ topfreepornvideos.com
 topherchris.com
 toppornmap.com
 toppornsites.com
+tor2web.org
 torproject.org
 touslesdrivers.com
 toys.tumblrist.com
@@ -2736,6 +2757,7 @@ tranny.one
 transfer.sh
 transfernow.net
 translate.dr460nf1r3.org
+translate.google.com
 translate.igna.wtf
 translate.jae.fi
 translate.nerdvpn.de
@@ -2795,12 +2817,14 @@ tuta.com
 tutorialrays.in
 tutowin10.com
 tw.eir-nya.gay
+twdown.co
 twdown.net
 tweet-viewer.vercel.app
 tweet.lambda.dance
 tweetan.net
 tweetapi.com
 tweetbinder.com
+tweetdeleter.com
 tweeteraser.com
 tweetexport.extensionsfox.com
 tweetgoon.com
@@ -2813,6 +2837,7 @@ tweetviewer.com
 twexapi.io
 twfan.net
 twi-dl.net
+twi-getter.com
 twicoco.com
 twicomi.com
 twicopy-com.zproxy.org
@@ -2826,15 +2851,18 @@ twiflix.jp
 twihozon.com
 twiigle.com
 twiiit.com
+twiiza.com
 twikeep.com
 twiking.com
 twilightsex.com
+twilio.com
 twillot.com
 twilog.org
 twimg.com
 twineo.drgns.space
 twineo.exozy.me
 twinkstar.com
+twipl.net
 twipu.com
 twispy.com
 twistysnetwork.com
@@ -2853,6 +2881,7 @@ twitsave.com
 twitter-thread.com
 twitter-viewer.com
 twitter.com
+twitter.lurkmore.com
 twitter.theinfo.org
 twitterapi.io
 twitterapis.com
@@ -2879,6 +2908,7 @@ twiview.io
 twiviewer.com
 twixive.net
 twmate.com
+twpro.jp
 twstalker.co.uk
 twstalker.com
 twstalker.fit
@@ -3048,6 +3078,7 @@ wenxin.baidu.com
 wget.nero.com
 whoogle.lunar.icu
 whoogle.privacydev.net
+whotwi.com
 wiby.me
 wiki.adminforge.de
 wiki.froth.zone
@@ -3196,6 +3227,7 @@ www.webshare.io
 www.xka.cz
 www.yewknee.com
 www1.gruble.de
+x-sou.com
 x-threadreader.com
 x-viewer.xyz
 x.ai
@@ -3219,6 +3251,7 @@ xenserver.com
 xfixup.com
 xfuliji.org
 xfyun.cn
+xgetapp.com
 xhamster.com
 xhancer.com
 xhozon.com

@@ -360,6 +360,7 @@
 ||braincash.com^
 ||brand24.com^
 ||brantaq.com^
+||bras-base-otwaon0906w-grc-07-142-126-139-194.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-18-142-126-191-47.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-27-70-52-162-17.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-28-184-147-148-190.dsl.bell.ca^

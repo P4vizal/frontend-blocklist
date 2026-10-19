@@ -47,6 +47,7 @@
 4get.silly.computer
 4get.sny.sh
 4get.sudovanilla.org
+4get.zzls.xyz
 4kdownload.com
 4tube.com
 504e1e9b.host.njalla.net
@@ -62,6 +63,7 @@
 9553.com
 9xbuddy.in
 a.opnxng.com
+aaronsaray.com
 about.opnxng.com
 abueloinformatico.es
 adblockbrowser.org
@@ -141,6 +143,7 @@ anonoverflow.frontendfriendly.xyz
 anonoverflow.moonshadow.dev
 anonpaste.org
 anonsearch.win
+anonsx.com
 anontiktokviewer.com
 anontwitterviewer.com
 anonviewr.com
@@ -432,6 +435,7 @@ captapi.com
 carryfeed.com
 cascadr.co
 cascadr.com
+casrai.org
 catalog.tg
 catalogtelegram.ru
 ccleaner.com
@@ -493,6 +497,7 @@ coco.su27.net
 cocroz.com
 code.whatever.social
 code.xbdm.fun
+codebahn.net
 codecguide.com
 codegeex.cn
 codeium.com
@@ -615,6 +620,7 @@ dobreprogramy.pl
 docker.com
 dockerproxy.link
 dockerproxy.net
+docs.dataops.live
 docs.searxng.org
 docs.wpwebelite.com
 docs.zernio.com
@@ -741,6 +747,7 @@ fapster.xxx
 fastdl.app
 fastgit.org
 fastlancer.org
+favstar.fm
 fbdownloader.net
 fdown.net
 fdown.tools
@@ -963,6 +970,7 @@ gptunnel.ru
 gram.js.org
 gram.utilibre.org
 gram.whatever.social
+gram.whatever.socials
 gramfile.com
 gramhir.net
 grammarly.com
@@ -1152,6 +1160,7 @@ jizzonline.com
 josefacchin.com
 journaldufreenaute.fr
 jpf-reddit.netlify.app
+juejin.cn
 justusboys.com
 k-meleon.org
 k2s.cc
@@ -1177,6 +1186,7 @@ kid0725.usamimi.info
 kimi.com
 kinkyfamily.com
 kinza.jp
+kitsunee.me
 kittygr.am
 kittygram.irelephant.net
 kittygram.kareem.one
@@ -1210,6 +1220,7 @@ labmemo.com
 labs.google
 ladybird.org
 lamini.ai
+landwrac.com
 latenode.com
 launchingnext.com
 launchpad.net
@@ -1279,6 +1290,7 @@ librex.ratakor.com
 librex.retro-hax.net
 librex.yogeshlamichhane.com.np
 librex.zzls.xyz
+librey.darkness.services
 libtar.de
 liebao.cn
 lightbrd.com
@@ -1401,6 +1413,7 @@ meet.jit.si
 meet.sev.monster
 mega.io
 mega.nz
+megacomments.com
 meiwzj.com
 memuplay.com
 meta.ai
@@ -1803,6 +1816,7 @@ pommu.jp
 ponder.ing
 pool-173-66-2-41.washdc.fios.verizon.net
 pool-173-66-9-251.washdc.fios.verizon.net
+popular.pics
 porcore.com
 porn.com
 porn300.xxx
@@ -2100,6 +2114,7 @@ registry.kantan.cat
 reka.ai
 relatedrepos.com
 relay.feeds.blue
+release-assets.githubusercontent.com
 remove.bg
 removeddit.com
 removereddit.net
@@ -2258,6 +2273,7 @@ search.pi.vps.pw
 search.rhscz.eu
 search.rowie.at
 search.serpensin.com
+search.sethforprivacy.com
 search.spaceint.fr
 search.spiralab.org
 search.stinpriza.org
@@ -2325,6 +2341,7 @@ secret.timeweb.ru
 secrets.l25.cloud
 secretviewr.com
 secure.4it.com.au
+seedeletedtweets.com
 semrush.com
 send.adminforge.de
 send.aezafiles.net
@@ -2376,9 +2393,11 @@ simpcity.cr
 simple-web.org
 simplytranslate.aketawi.space
 simplytranslate.ducks.party
+simplytranslate.leemoon.network
 simplytranslate.org
 sinaimg.cn
 sinaimg.com
+sing.whatever.social
 sionic.ai
 siteindices.com
 sitelike.org
@@ -2477,6 +2496,7 @@ soundcloak.tijn.dev
 sourceforge.net
 sourcegraph.com
 sourcely.net
+soyo.site
 spankbang.com
 spankwire.com
 spark.xfyun.cn
@@ -2495,6 +2515,8 @@ ssvtiktok.com
 ssxtwitter.com
 ssyoutube.com
 st.adast.dk
+st.odyssey346.dev
+st.privacydev.net
 stability.ai
 stackblogger.com
 staging.elkford.ca
@@ -2649,6 +2671,7 @@ tensor.art
 tent.bloat.cat
 tent.canine.tools
 tent.deep-swarm.xyz
+tent.nbh.ax
 tent.private.coffee
 tent.sny.sh
 terabox.com
@@ -2692,6 +2715,7 @@ threadsviewer.net
 threadsviewer.online
 thriendly.com
 thumbzilla.com
+thunderbit.com
 tiangong.cn
 tiava.com
 tieba.baidu.com
@@ -2767,6 +2791,7 @@ translate.nerdvpn.de
 translate.plausibility.cloud
 translate.privacyredirect.com
 translate.projectsegfau.lt
+translate.tiekoetter.com
 translate.utilibre.org
 trends24.in
 troddit.com
@@ -2790,6 +2815,7 @@ tubegals.com
 tubev.sex
 tucows.com
 tuffermagazine.com
+tui.xun.me
 tuinformaticafacil.com
 tumbex.com
 tumbig.com
@@ -2841,6 +2867,7 @@ twexapi.io
 twfan.net
 twi-dl.net
 twi-getter.com
+twibird.com
 twicoco.com
 twicomi.com
 twicopy-com.zproxy.org
@@ -2997,6 +3024,7 @@ viewari.com
 viewdeletedreddit.com
 viewdesisex.com
 vieweno.com
+viewerr.co.uk
 viewersafetylab.com
 viewifi.com
 viewinsta.com
@@ -3135,12 +3163,14 @@ ww.uptodown.com
 ww19.dumpoir.com
 www.aiseesoft.com
 www.androidauthority.com
+www.appinn.com
 www.archivlyx.com
 www.armemberplugin.com
 www.ayrshare.com
 www.bbvaapimarket.com
 www.begindot.com
 www.blogdumoderateur.com
+www.chiliproject.org
 www.clrn.org
 www.cmunroe.us
 www.cups.moe
@@ -3154,6 +3184,7 @@ www.familyorbit.com
 www.fool.com
 www.funkyspacemonkey.com
 www.g2.com
+www.geelark.com
 www.genbeta.com
 www.getphyllo.com
 www.getxapi.com
@@ -3180,6 +3211,7 @@ www.makeuseof.com
 www.master.cz
 www.morelogin.com
 www.mujico.org
+www.mytwitter.ru
 www.nitter.com
 www.npmjs.com
 www.openstreetmap.org
@@ -3195,6 +3227,7 @@ www.privacytools.io
 www.rapidseedbox.com
 www.raymondcamden.com
 www.razumny.no
+www.redditarchive.com
 www.scrapestorm.net
 www.search.tiekoetter.com
 www.search.tiekoetter.net
@@ -3226,6 +3259,7 @@ www.unipile.com
 www.upload-post.com
 www.v2ex.com
 www.vozidea.com
+www.waterfox.com
 www.webshare.io
 www.xka.cz
 www.yewknee.com
@@ -3302,6 +3336,7 @@ yandex.com
 yasdl.com
 yayadaohang.com
 yep.com
+yewtu.be
 you.com
 youjizz.com
 youporn.com

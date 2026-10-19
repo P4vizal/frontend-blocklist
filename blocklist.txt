@@ -1,5 +1,3 @@
-||*.me^
-||*.moe^
 ||01net.com^
 ||0bin.ch^
 ||0x573e6188.static.cust.fastspeed.dk^
@@ -35,7 +33,6 @@
 ||4everproxy.com^
 ||4g.opnxng.com^
 ||4get.aishiteiru.moe^
-||4get.ca^
 ||4get.canine.tools^
 ||4get.dcs0.hu^
 ||4get.edmateo.site^

@@ -1563,6 +1563,7 @@
 ||nitter.lunar.icu^
 ||nitter.manasiwibi.com^
 ||nitter.meowing.monster^
+||nitter.mie.foundation^
 ||nitter.miningtcup.me^
 ||nitter.mint.lgbt^
 ||nitter.moomoo.me^

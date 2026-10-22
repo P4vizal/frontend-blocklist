@@ -3062,6 +3062,7 @@
 ||vps-31677213.vps.ovh.ca^
 ||vps-773e829a.vps.ovh.ca^
 ||vps-84f729f8.vps.ovh.us^
+||vps-b24f0293.vps.ovh.us^
 ||vps-ebe9aed2.vps.ovh.us^
 ||vrcock.com^
 ||vrcosplay.com^

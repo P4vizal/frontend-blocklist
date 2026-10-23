@@ -1692,6 +1692,7 @@
 ||overflow.smnz.de^
 ||overflow.snine.nl^
 ||ovirt.org^
+||p.bittenbyt.es^
 ||p200300d0df01b3000000000000000004.dip0.t-ipconnect.de^
 ||p200300d0df34b8000000000000000004.dip0.t-ipconnect.de^
 ||p30download.com^
@@ -1862,6 +1863,7 @@
 ||privacyredirect.com^
 ||privacywall.org^
 ||privatebin.cc^
+||privatebin.lol^
 ||privatebin.net^
 ||privatebin.oxidizer.de^
 ||privatebin.unige.ch^

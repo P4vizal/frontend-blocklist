@@ -3,6 +3,7 @@
 # A domain is added once; later runs skip it when it is already in this file or blocklist.txt.
 ||2chan.net^
 ||alternativeto.net^
+||americansviewer.com^
 ||anonviewr.com^
 ||anonymousamericans.com^
 ||anonymtwitter.com^
@@ -208,6 +209,7 @@
 ||www.rapidseedbox.com^
 ||www.sotwe.com^
 ||www.subredditviewer.com^
+||www.sumatrapdfreader.org^
 ||www.tech2geek.net^
 ||www.troddit.com^
 ||www.tumlook.com^

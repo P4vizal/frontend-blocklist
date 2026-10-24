@@ -1722,6 +1722,7 @@
 ||paste.cracktek.eu^
 ||paste.encrypt.co.il^
 ||paste.helkor.eu^
+||paste.loryy.dev^
 ||paste.ononoki.org^
 ||paste.plus^
 ||paste.skynetcloud.site^

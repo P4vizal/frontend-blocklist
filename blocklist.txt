@@ -126,6 +126,7 @@
 ||alternativesatlas.com^
 ||alternativeto.net^
 ||ameblo.jp^
+||americansviewer.com^
 ||anaimg.starbeamrainbowlabs.com^
 ||analyzezen.com^
 ||anartia.kelinci.net^
@@ -3247,6 +3248,7 @@
 ||www.searxng.tiekoetter.net^
 ||www.sotwe.com^
 ||www.subredditviewer.com^
+||www.sumatrapdfreader.org^
 ||www.tech2geek.net^
 ||www.tempo.co^
 ||www.theserverside.com^

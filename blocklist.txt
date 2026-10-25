@@ -235,6 +235,7 @@
 ||archive.today^
 ||archivlyx.com^
 ||arctic-shift.photon-reddit.com^
+||ardenpark.wightman.ca^
 ||are.na^
 ||argand.org^
 ||ark.cn-beijing.volces.com^

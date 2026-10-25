@@ -7,6 +7,7 @@
 1-163-212-122.dynamic-ip.hinet.net
 1-163-218-70.dynamic-ip.hinet.net
 1-164-169-73.dynamic-ip.hinet.net
+1-164-182-236.dynamic-ip.hinet.net
 100searchengines.com
 109-186-197-156.bb.netvision.net.il
 109-186-209-36.bb.netvision.net.il
@@ -17,6 +18,7 @@
 192-3-85-205-host.colocrossing.com
 199.47.240.43.no-dns.hyehost.net
 1fichier.com
+2001-b011-200b-b404-0000-0000-0000-0245.dynamic-ip6.hinet.net
 2001-b011-200b-bc51-0000-0000-0000-0245.dynamic-ip6.hinet.net
 220vk.com
 23-94-26-74-host.colocrossing.com

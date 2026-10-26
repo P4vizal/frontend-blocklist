@@ -1572,6 +1572,7 @@
 ||nitter.mie.foundation^
 ||nitter.miningtcup.me^
 ||nitter.mint.lgbt^
+||nitter.mizuki.st^
 ||nitter.moomoo.me^
 ||nitter.net^
 ||nitter.netbub.com^
@@ -2256,6 +2257,7 @@
 ||search.brave.com^
 ||search.catboy.house^
 ||search.chocolatemoo53.com^
+||search.coffeelover.uk^
 ||search.ctq.ro^
 ||search.davidovski.xyz^
 ||search.decentrala.org^

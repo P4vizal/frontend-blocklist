@@ -117,6 +117,7 @@
 ||rentry.co^
 ||rola-ip.co^
 ||rosint.dev^
+||rosintplus.github.io^
 ||ru.dicloak.com^
 ||smtools.org^
 ||smviewer.com^

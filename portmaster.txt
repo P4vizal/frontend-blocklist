@@ -14,6 +14,7 @@
 109-186-215-9.bb.netvision.net.il
 109-186-217-211.bb.netvision.net.il
 147.202.76.83.dynamic.cust.swisscom.net
+149.28.133.101.vultrusercontent.com
 18videosz.com
 192-3-85-205-host.colocrossing.com
 199.47.240.43.no-dns.hyehost.net
@@ -1492,6 +1493,7 @@ musk-viewer.com
 muskviewer.com
 mutix.tr
 mvd.suwenune.net
+mx.mailgt.dev
 mx.meowing.monster
 mx.mizuki.st
 mynixos.com
@@ -1698,6 +1700,7 @@ overflow.r4fo.com
 overflow.smnz.de
 overflow.snine.nl
 ovirt.org
+oziway.net
 p.bittenbyt.es
 p200300d0df01b3000000000000000004.dip0.t-ipconnect.de
 p200300d0df34b8000000000000000004.dip0.t-ipconnect.de
@@ -2174,6 +2177,7 @@ rola-ip.co
 rollout.com
 roo.dev
 rosint.dev
+rosintplus.github.io
 rsload.net
 ru.dicloak.com
 rudalle.ru
@@ -2295,6 +2299,7 @@ search.tiekoetter.net
 search.tildevarsh.in
 search.undertale.uk
 search.unredacted.org
+search.utilibre.org
 search.yahoo.co.jp
 search.yahoo.com
 search.yonderly.org
@@ -2340,6 +2345,7 @@ searxng.cups.moe
 searxng.deggo.fyi
 searxng.eshnetwork.space
 searxng.gdebest.net
+searxng.jaydenha.uk
 searxng.moonshadow.dev
 searxng.org
 searxng.paralaxitaentomology.org
@@ -2520,6 +2526,7 @@ spokeo.com
 spyderproxy.com
 spyx.com
 sr.ht
+srv1769029.hstgr.cloud
 srware.net
 sssinstagram.com
 ssstik.io
@@ -3232,6 +3239,7 @@ www.npmjs.com
 www.openstreetmap.org
 www.outstand.so
 www.oxinabox.net
+www.oziway.net
 www.pabbly.com
 www.peekstr.com
 www.plataformamedia.com

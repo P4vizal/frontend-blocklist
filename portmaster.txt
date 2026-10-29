@@ -1591,6 +1591,7 @@ nitter.privacydev.net
 nitter.privacyredirect.com
 nitter.private.coffee
 nitter.qwik.space
+nitter.r4fo.com
 nitter.rawbit.ninja
 nitter.simpleprivacy.fr
 nitter.soopy.moe
@@ -3327,6 +3328,7 @@ xiazai.com
 xiazaiba.com
 xinghuo.xfyun.cn
 xingyeai.com
+xitter.cf
 xka.cz
 xkits.cc
 xmoviesforyou.com

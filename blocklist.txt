@@ -5,6 +5,7 @@
 ||1-163-195-173.dynamic-ip.hinet.net^
 ||1-163-203-60.dynamic-ip.hinet.net^
 ||1-163-212-122.dynamic-ip.hinet.net^
+||1-163-216-226.dynamic-ip.hinet.net^
 ||1-163-218-70.dynamic-ip.hinet.net^
 ||1-164-169-73.dynamic-ip.hinet.net^
 ||1-164-182-236.dynamic-ip.hinet.net^

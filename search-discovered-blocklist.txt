@@ -224,6 +224,7 @@
 ||x-threadreader.com^
 ||x.yuuki.sh^
 ||xapis.dev^
+||xitter.cf^
 ||xnspy.com^
 ||xtwitterviewer.com^
 ||zhihu.com^

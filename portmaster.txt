@@ -761,6 +761,7 @@ fbdownloader.net
 fdown.net
 fdown.tools
 fdownloader.net
+federated.nexus
 feixon.com
 fellody.com
 felo.ai
@@ -3293,6 +3294,7 @@ www.yewknee.com
 www1.gruble.de
 x-sou.com
 x-threadreader.com
+x-twitter-viewer.com
 x-viewer.xyz
 x.ai
 x.com

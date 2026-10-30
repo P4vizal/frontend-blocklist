@@ -27,6 +27,7 @@
 ||dopingconsomme.blogspot.com^
 ||eddrit.com^
 ||en.download.it^
+||federated.nexus^
 ||finderlaunch.com^
 ||floppydata.com^
 ||forum.cloudron.io^
@@ -222,6 +223,7 @@
 ||www.v2ex.com^
 ||www.webshare.io^
 ||x-threadreader.com^
+||x-twitter-viewer.com^
 ||x.yuuki.sh^
 ||xapis.dev^
 ||xitter.cf^

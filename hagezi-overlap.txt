@@ -1,6 +1,6 @@
 # Informational only: Hagezi Pro is NOT imported into blocklist.txt.
 # Generated domains: 3400
-# Hagezi domains parsed: 211636
+# Hagezi domains parsed: 214168
 # Overlap: 17
 
 apponic.com

@@ -1433,6 +1433,7 @@
 ||metaso.cn^
 ||metricool.com^
 ||metrika.run^
+||mezzo.libre.tw^
 ||midjourney.com^
 ||midori-browser.org^
 ||miibo.jp^

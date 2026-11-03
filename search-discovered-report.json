@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-02T04:40:38Z",
+  "generated": "2026-11-03T11:21:48Z",
   "report_schema_version": 2,
   "status": "no_update",
   "accepted": [],
   "accepted_count": 0,
-  "trusted_candidate_count": 91,
+  "trusted_candidate_count": 90,
   "audited_false_positive_domains": [
     "www.osfinder.net"
   ],
@@ -20,7 +20,6 @@
     "GitHub:digitalblossom/alternative-frontends",
     "GitHub:highda/stealth-continued",
     "LibRedirect",
-    "Libreddit",
     "Priviblur",
     "Redlib"
   ],
@@ -41,7 +40,7 @@
       "status": "ok",
       "kind": "json",
       "url": "https://raw.githubusercontent.com/libreddit/libreddit-instances/master/instances.json",
-      "candidate_count": 1
+      "candidate_count": 0
     },
     "LibRedirect": {
       "status": "ok",
@@ -124,7 +123,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=0; providers=0; queries=0"
+      "validation_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=1; providers=1; queries=1"
     },
     {
       "platform": "reddit",
@@ -173,8 +172,8 @@
       "in_blocklist": true,
       "in_discovery_history": true,
       "verified_seed": true,
-      "validation_accepted": false,
-      "validation_reason": "page unavailable"
+      "validation_accepted": true,
+      "validation_reason": "platform=tumblr; service=viewer; identity=blog/post/posts/profile/avatar; search_intent=0; providers=0; queries=0"
     },
     {
       "platform": "twitter",
@@ -184,7 +183,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=1"
+      "validation_reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=2"
     },
     {
       "platform": "twitter",
@@ -194,7 +193,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=0; providers=0; queries=0"
+      "validation_reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=2; providers=1; queries=1"
     },
     {
       "platform": "twitter",
@@ -204,7 +203,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=0; providers=0; queries=0"
+      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=2"
     },
     {
       "platform": "twitter",
@@ -227,14 +226,15 @@
       "validation_reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/handle/media; search_intent=0; providers=0; queries=0"
     }
   ],
-  "verified_frontend_count": 9,
-  "verified_existing_seed_count": 9,
+  "verified_frontend_count": 10,
+  "verified_existing_seed_count": 10,
   "verified_existing_seeds": [
     "redditprofile.com",
     "tryadlicio.com",
     "viewanonymous.com",
     "www.peekstr.com",
     "cascadr.co",
+    "zoomblr.com",
     "ilo.so",
     "tweetviewer.com",
     "twitterviewer.net",
@@ -272,6 +272,12 @@
       "verified": true
     },
     {
+      "platform": "tumblr",
+      "domain": "zoomblr.com",
+      "kind": "verified_seed",
+      "verified": true
+    },
+    {
       "platform": "twitter",
       "domain": "ilo.so",
       "kind": "verified_seed",
@@ -304,8 +310,8 @@
   "active_search_languages": [
     "en",
     "es",
-    "pt",
-    "it"
+    "fr",
+    "de"
   ],
   "language_rotation": [
     "fr",
@@ -319,7 +325,7 @@
     "pt",
     "it"
   ],
-  "search_page2_rotating_language": "pt",
+  "search_page2_rotating_language": "fr",
   "search_backends": [
     "bing-rss",
     "bing-html"
@@ -332,11 +338,11 @@
     5
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 164,
+  "search_pages_succeeded": 131,
   "search_queries_with_results": 72,
   "search_queries_without_results": 0,
   "search_backend_failures": 0,
-  "search_fallbacks": 93,
+  "search_fallbacks": 59,
   "source_candidate_counts": {
     "github": 14,
     "gitlab": 0,
@@ -345,11 +351,11 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 141,
-  "validated_candidates": 43,
-  "pending_verification_count": 17,
+  "candidates_discovered": 150,
+  "validated_candidates": 45,
+  "pending_verification_count": 18,
   "pending_status_counts": {
-    "challenge_blocked": 3,
+    "challenge_blocked": 4,
     "search_strong_but_page_unverified": 13,
     "temporary_unavailable": 1
   },
@@ -376,6 +382,36 @@
       "last_reason": "challenge/parked page detected",
       "discovery_score": 12,
       "next_retry_epoch": 1793420775.2256784
+    },
+    {
+      "domain": "wenku.baidu.com",
+      "platform": "tumblr",
+      "queries": [
+        "\"tumblr 网页查看器\"",
+        "\"tumblr 匿名 查看器\""
+      ],
+      "urls": [
+        "https://wenku.baidu.com/view/905e9a4da1e9856a561252d380eb6294dd88229d.html",
+        "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
+        "https://wenku.baidu.com/view/8ea34742b3360b4c2e3f5727a5e9856a561226e5.html"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-html"
+      ],
+      "search_evidence": [
+        "bing-html:中国 四大 地理区域划分详解: 东部 、 中部 、 西部 、 东北 各有 ... baidu.com https://wenku.baidu.com › view 中国四大地理区域划分详解:东部、中部、西部、东北各有哪些省份? 中国四大地理区域,是指依据地理位置和省级行政区划,综合 ...",
+        "bing-html:一日之计在于晨 , 一年之计在于春 :全文、出处与含义详解 baidu.com https://wenku.baidu.com › view 一年之计在于春:指一年的计划要在春季考虑安排。 春天是播种和规划的关键季节,只有在年初定好目标、打好基础,才能为全年的 ...",
+        "bing-html:一日之计在于晨 , 一年之计在于春 :完整原文、出处及作者详解 baidu.com https://wenku.baidu.com › view “一年之计在于春,一日之计在于晨”这句脍炙人口的格言,其更完整的版本为“一年之计在于春,一日之计在于晨,一家之计在于和,一 ..."
+      ],
+      "first_seen": "2026-10-30T04:26:49Z",
+      "last_attempt": "2026-11-03T11:21:48Z",
+      "last_attempt_epoch": 1793704908.5829244,
+      "attempts": 3,
+      "status": "challenge_blocked",
+      "last_reason": "challenge/parked page detected",
+      "discovery_score": 12,
+      "next_retry_epoch": 1793877708.5829244
     },
     {
       "domain": "www.yelp.com",
@@ -406,36 +442,6 @@
       "last_reason": "challenge/parked page detected",
       "discovery_score": 12,
       "next_retry_epoch": 1793767238.4373426
-    },
-    {
-      "domain": "wenku.baidu.com",
-      "platform": "tumblr",
-      "queries": [
-        "\"tumblr 网页查看器\"",
-        "\"tumblr 匿名 查看器\""
-      ],
-      "urls": [
-        "https://wenku.baidu.com/view/905e9a4da1e9856a561252d380eb6294dd88229d.html",
-        "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
-        "https://wenku.baidu.com/view/8ea34742b3360b4c2e3f5727a5e9856a561226e5.html"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-html"
-      ],
-      "search_evidence": [
-        "bing-html:中国 四大 地理区域划分详解: 东部 、 中部 、 西部 、 东北 各有 ... baidu.com https://wenku.baidu.com › view 中国四大地理区域划分详解:东部、中部、西部、东北各有哪些省份? 中国四大地理区域,是指依据地理位置和省级行政区划,综合 ...",
-        "bing-html:一日之计在于晨 , 一年之计在于春 :全文、出处与含义详解 baidu.com https://wenku.baidu.com › view 一年之计在于春:指一年的计划要在春季考虑安排。 春天是播种和规划的关键季节,只有在年初定好目标、打好基础,才能为全年的 ...",
-        "bing-html:一日之计在于晨 , 一年之计在于春 :完整原文、出处及作者详解 baidu.com https://wenku.baidu.com › view “一年之计在于春,一日之计在于晨”这句脍炙人口的格言,其更完整的版本为“一年之计在于春,一日之计在于晨,一家之计在于和,一 ..."
-      ],
-      "first_seen": "2026-10-30T04:26:49Z",
-      "last_attempt": "2026-11-01T04:30:53Z",
-      "last_attempt_epoch": 1793507453.846317,
-      "attempts": 2,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
-      "discovery_score": 12,
-      "next_retry_epoch": 1793680253.846317
     },
     {
       "domain": "www.yna.co.kr",
@@ -541,13 +547,13 @@
         "bing-rss:x 75 vc bios +dump — yandex: found 3 thousand results asus - asus x75vc | vinafix.com technical download for asus x75vc. resource type: bios / firmware dump. spi flash capacity: 8 mb. the archive contains 1 entries."
       ],
       "first_seen": "2026-10-22T04:16:42Z",
-      "last_attempt": "2026-11-01T04:30:53Z",
-      "last_attempt_epoch": 1793507453.846317,
-      "attempts": 5,
+      "last_attempt": "2026-11-03T11:21:48Z",
+      "last_attempt_epoch": 1793704908.5829244,
+      "attempts": 6,
       "status": "challenge_blocked",
       "last_reason": "challenge/parked page detected",
       "discovery_score": 8,
-      "next_retry_epoch": 1793680253.846317
+      "next_retry_epoch": 1793877708.5829244
     },
     {
       "domain": "www.wap.yandex.com",
@@ -626,6 +632,81 @@
       "last_reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
       "discovery_score": 12,
       "next_retry_epoch": 1794112253.846317
+    },
+    {
+      "domain": "sotwe.co.uk",
+      "platform": "twitter",
+      "queries": [
+        "\"twitter anonymous viewer\""
+      ],
+      "urls": [
+        "https://sotwe.co.uk/"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
+      ],
+      "first_seen": "2026-10-26T04:18:31Z",
+      "last_attempt": "2026-11-03T11:21:48Z",
+      "last_attempt_epoch": 1793704908.5829244,
+      "attempts": 4,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1794309708.5829244
+    },
+    {
+      "domain": "viewvix.com",
+      "platform": "reddit",
+      "queries": [
+        "\"Reddit profile viewer\" -news -article -guide -review"
+      ],
+      "urls": [
+        "https://viewvix.com/reddit/user/"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
+      ],
+      "first_seen": "2026-10-26T04:18:31Z",
+      "last_attempt": "2026-11-03T11:21:48Z",
+      "last_attempt_epoch": 1793704908.5829244,
+      "attempts": 4,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1794309708.5829244
+    },
+    {
+      "domain": "xarchive.net",
+      "platform": "reddit",
+      "queries": [
+        "\"Reddit post viewer\" -news -article -guide -review"
+      ],
+      "urls": [
+        "https://xarchive.net/archive-reddit"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:reddit archive search, viewer & offline export tool | xarchive search reddit archive snapshots by subreddit, user page, or direct url, then export public wayback machine captures in html, csv, or json."
+      ],
+      "first_seen": "2026-11-03T11:21:48Z",
+      "last_attempt": "2026-11-03T11:21:48Z",
+      "last_attempt_epoch": 1793704908.5829244,
+      "attempts": 1,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=reddit; service=viewer; identity=subreddit/comments/post/posts/user/profile/thread; search_intent=1; providers=1; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1793791308.5829244
     },
     {
       "domain": "aijourn.com",
@@ -751,66 +832,16 @@
       "last_reason": "platform=tumblr; service=viewer/browser/reader; identity=blogs/post/posts; search_intent=1; providers=1; queries=1",
       "discovery_score": 10,
       "next_retry_epoch": 1794025451.9964852
-    },
-    {
-      "domain": "sotwe.co.uk",
-      "platform": "twitter",
-      "queries": [
-        "\"twitter anonymous viewer\""
-      ],
-      "urls": [
-        "https://sotwe.co.uk/"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "search_evidence": [
-        "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
-      ],
-      "first_seen": "2026-10-26T04:18:31Z",
-      "last_attempt": "2026-10-30T04:26:49Z",
-      "last_attempt_epoch": 1793334409.511598,
-      "attempts": 3,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1793680009.511598
-    },
-    {
-      "domain": "viewvix.com",
-      "platform": "reddit",
-      "queries": [
-        "\"Reddit profile viewer\" -news -article -guide -review"
-      ],
-      "urls": [
-        "https://viewvix.com/reddit/user/"
-      ],
-      "sources": [],
-      "providers": [
-        "bing-rss"
-      ],
-      "search_evidence": [
-        "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
-      ],
-      "first_seen": "2026-10-26T04:18:31Z",
-      "last_attempt": "2026-10-30T04:26:49Z",
-      "last_attempt_epoch": 1793334409.511598,
-      "attempts": 3,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1793680009.511598
     }
   ],
   "near_miss_count": 6,
   "top_near_misses": [
     {
-      "domain": "www.yna.co.kr",
+      "domain": "twitter.en.softonic.com",
       "platform": "twitter",
-      "discovery_score": 18,
-      "validation_score": 10,
-      "reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
+      "discovery_score": 16,
+      "validation_score": 9,
+      "reason": "platform=twitter/x; service=browser; identity=tweets/user/profile/post/posts/media/publication; search_intent=0; providers=0; queries=4",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
@@ -819,174 +850,36 @@
         ],
         "twitter_x_context_ok": true,
         "brand_hits": [],
-        "header_platform_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "reader",
-          "gallery"
+        "body_service_hits": [
+          "browser"
         ],
-        "identity_hits": [
+        "body_identity_hits": [
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
           "media",
           "publication"
         ],
-        "ui_signal": true,
-        "inputs": 81,
-        "forms": 0,
-        "buttons": 265,
-        "article_count": 2,
-        "article_structure_hint": true,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 3,
-        "search_signal_hits": 3,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 3,
-        "search_providers": [
-          "bing-rss",
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-rss:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 주의 일부 마을이 러시아군에 점령됐다. 미콜라이우와 드니프로페트로우스크 등 2개 주의 접경지역에도 소규모이긴 하지만 러시아군 점령지가 ...",
-          "bing-html:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 yna.co.kr https://www.yna.co.kr › view 2025년 9월 24일 · 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
-        ],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://www.yna.co.kr/view/AKR20250924061300009"
-        ],
-        "discovery_score": 18
-      }
-    },
-    {
-      "domain": "www.linkedin.com",
-      "platform": "twitter",
-      "discovery_score": 14,
-      "validation_score": 13,
-      "reason": "platform=-; service=-; identity=user/media; search_intent=0; providers=0; queries=2",
-      "status": "search_strong_but_page_unverified",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [
-          "front end"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 120,
-        "forms": 20,
-        "buttons": 208,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing-html",
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
-          "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "front end"
-        ],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 4,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
-        ],
-        "discovery_score": 14
-      }
-    },
-    {
-      "domain": "dubai.dubizzle.com",
-      "platform": "twitter",
-      "discovery_score": 14,
-      "validation_score": 4,
-      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
-      "status": "search_strong_but_page_unverified",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [
-          "browser"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
         "service_hits": [
           "browser"
         ],
         "identity_hits": [
-          "user"
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "media",
+          "publication"
         ],
         "ui_signal": false,
         "inputs": 0,
@@ -995,49 +888,58 @@
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
-        "service_path_hint": true,
+        "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "service_kind": "unknown",
         "header_service_identity_hint": false,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 2,
+        "distinct_queries": 4,
         "search_providers": [
-          "bing-html",
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
-          "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
+          "bing-rss:x (twitter) - download x, formerly known as twitter, is a free social and communication app that lets you post gifs, pictures, links, polls, text, and videos to a profile in posts that are formerly called ‘ tweets’."
         ],
         "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
+        "fetch_via": "jina",
+        "fetch_status_code": null,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
+        "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://dubai.dubizzle.com/jobs/search/"
+          "https://twitter.en.softonic.com/"
         ],
-        "discovery_score": 14
+        "discovery_score": 16
       }
     },
     {
-      "domain": "www.yelp.com",
+      "domain": "support.reddithelp.com",
+      "platform": "reddit",
+      "discovery_score": 16,
+      "validation_score": 0,
+      "reason": "challenge/parked page detected",
+      "status": "challenge_blocked",
+      "evidence": {
+        "discovery_score": 16
+      }
+    },
+    {
+      "domain": "wenku.baidu.com",
       "platform": "tumblr",
       "discovery_score": 12,
       "validation_score": 0,
@@ -1048,22 +950,19 @@
       }
     },
     {
-      "domain": "aijourn.com",
+      "domain": "sotwe.co.uk",
       "platform": "twitter",
       "discovery_score": 10,
       "validation_score": 23,
-      "reason": "platform=twitter/x; service=viewer; identity=profile/posts/media; search_intent=1; providers=1; queries=1",
+      "reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
           "twitter",
-          "x",
-          "nitter"
+          "x"
         ],
         "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
+        "brand_hits": [],
         "header_platform_hits": [
           "twitter",
           "x"
@@ -1073,61 +972,50 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "profile",
+          "user",
           "posts",
           "media"
         ],
-        "body_service_hits": [
-          "viewer",
-          "front-end",
-          "alternative front-end",
-          "reader"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
-          "posts",
-          "timeline",
           "media"
         ],
         "service_hits": [
-          "viewer",
-          "frontend",
-          "instance",
-          "reader"
+          "viewer"
         ],
         "identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
           "posts",
-          "timeline",
           "media"
         ],
         "ui_signal": true,
-        "inputs": 50,
-        "forms": 14,
-        "buttons": 46,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 7,
         "article_count": 1,
         "article_structure_hint": true,
         "interactive_target_hits": [
-          "username"
+          "username",
+          "twitter",
+          "account",
+          "view"
         ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "how to ",
-          "best "
+          "what is "
         ],
         "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "non_frontend_service_hits": [
+          "tracking"
+        ],
+        "service_kind": "viewer/frontend+tool",
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
@@ -1143,44 +1031,39 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:best 7 twitter private account viewer tools | the ai journal a private twitter viewer is most useful when it’s honest about limits and focused on public browsing. the best tools help you review public profiles, public posts, trends, and hashtags without forcing a login."
+          "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [
-          "twitter",
-          "tweet"
+          "twitter"
         ],
         "runtime_service_hits": [
-          "viewer",
-          "frontend",
-          "front end",
-          "alternative front end",
-          "reader"
+          "viewer"
         ],
         "runtime_framework_hits": [],
         "runtime_service_hint": true,
-        "positive_frontend_signals": 8,
+        "positive_frontend_signals": 3,
         "tool_signal_hits": [
           "analytics",
           "tracker",
           "tracking"
         ],
-        "editorial_signal_count": 2,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://aijourn.com/best-7-twitter-private-account-viewer-tools/"
+          "https://sotwe.co.uk/"
         ],
         "discovery_score": 10
       }
     },
     {
-      "domain": "event-theme.com",
+      "domain": "viewvix.com",
       "platform": "reddit",
       "discovery_score": 10,
       "validation_score": 23,
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/post/posts/profile; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
@@ -1196,47 +1079,38 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "post",
           "posts",
+          "user",
           "profile"
         ],
         "body_service_hits": [
           "viewer"
         ],
         "body_identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "service_hits": [
           "viewer",
           "frontend"
         ],
         "identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "ui_signal": true,
-        "inputs": 9,
+        "inputs": 18,
         "forms": 2,
-        "buttons": 10,
-        "article_count": 18,
+        "buttons": 11,
+        "article_count": 20,
         "article_structure_hint": true,
         "interactive_target_hits": [
-          "username",
           "user",
           "reddit",
           "paste"
@@ -1245,6 +1119,7 @@
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
+          "what is ",
           "review"
         ],
         "editorial_marker_hits": [],
@@ -1265,7 +1140,7 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:reddit anonymous viewer – browse posts, profiles & subreddits anonymously view reddit posts, profiles & stories anonymously with event theme's reddit anonymous viewer. no login, fast & private."
+          "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -1281,10 +1156,128 @@
         "runtime_service_hint": true,
         "positive_frontend_signals": 4,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 0,
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://event-theme.com/tools/social-viewer/reddit-anonymous/"
+          "https://viewvix.com/reddit/user/"
+        ],
+        "discovery_score": 10
+      }
+    },
+    {
+      "domain": "xarchive.net",
+      "platform": "reddit",
+      "discovery_score": 10,
+      "validation_score": 21,
+      "reason": "platform=reddit; service=viewer; identity=subreddit/comments/post/posts/user/profile/thread; search_intent=1; providers=1; queries=1",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "subreddit",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "body_service_hits": [
+          "browser"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 7,
+        "forms": 1,
+        "buttons": 25,
+        "article_count": 37,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "twitter",
+          "reddit"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best ",
+          "top ",
+          "review"
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:reddit archive search, viewer & offline export tool | xarchive search reddit archive snapshots by subreddit, user page, or direct url, then export public wayback machine captures in html, csv, or json."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit",
+          "subreddit"
+        ],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 5,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://xarchive.net/archive-reddit"
         ],
         "discovery_score": 10
       }
@@ -1296,31 +1289,178 @@
   "append_only": true,
   "output_preserved": true,
   "rejection_reason_counts": {
-    "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3": 1,
-    "platform=-; service=-; identity=user/media; search_intent=0; providers=0; queries=2": 1,
-    "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2": 1,
-    "challenge/parked page detected": 2,
-    "platform=twitter/x; service=viewer; identity=profile/posts/media; search_intent=1; providers=1; queries=1": 1,
-    "platform=reddit; service=viewer; identity=subreddit/subreddits/post/posts/profile; search_intent=1; providers=1; queries=1": 1,
+    "platform=twitter/x; service=browser; identity=tweets/user/profile/post/posts/media/publication; search_intent=0; providers=0; queries=4": 1,
+    "challenge/parked page detected": 4,
+    "article/content page, not a frontend endpoint": 9,
+    "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=viewer; identity=subreddit/comments/post/posts/user/profile/thread; search_intent=1; providers=1; queries=1": 1,
     "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 1,
-    "platform=twitter/x; service=viewer; identity=profile/posts/media; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=gallery; identity=tag; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=gallery; identity=profile/post/posts/media; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=post; search_intent=0; providers=0; queries=1": 2,
+    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=browser; identity=post; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=browser; identity=profil; search_intent=0; providers=0; queries=1": 1,
     "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 5,
-    "article/content page, not a frontend endpoint": 7,
-    "non-frontend service/tool page": 1,
     "page unavailable": 7,
+    "non-frontend service/tool page": 1,
     "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=0": 1
   },
   "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
   "candidates": [
     {
+      "domain": "twitterviewer.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 34,
+      "query_count": 2,
+      "final_url": "https://twitterviewer.net/",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "header_service_hits": [
+          "viewer",
+          "gallery"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 0,
+        "buttons": 41,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "tweet",
+          "twitter",
+          "paste"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [
+          "analytics",
+          "statistics"
+        ],
+        "service_kind": "viewer/frontend+tool",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 2,
+        "query_intent_hits": 2,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://twitterviewer.net/",
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! view any public tweet, profile, and replies online – no account required. the best nitter alternative.",
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account view tweets and replies without an account – just paste a twitter or x url. we do not track you or collect personal data. an anonymous twitter viewer that keeps you secure. enjoy a distraction-free, mobile-friendly design inspired by the classic twitter look. see complete tweet content, user profiles, replies, images, and videos (when available)."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter",
+          "tweet",
+          "nitter"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "frontend"
+        ],
+        "runtime_framework_hits": [
+          "nuxt"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 7,
+        "tool_signal_hits": [
+          "analytics",
+          "tracking",
+          "statistics"
+        ],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://twitterviewer.net/"
+        ],
+        "discovery_score": 22
+      },
+      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=2",
+      "error": ""
+    },
+    {
       "domain": "ilo.so",
       "platform": "twitter",
       "accepted": true,
-      "score": 25,
-      "query_count": 1,
+      "score": 26,
+      "query_count": 2,
       "final_url": "https://ilo.so/twitter-viewer",
       "evidence": {
         "platform_hits": [
@@ -1401,13 +1541,13 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 1,
-        "query_intent_hits": 1,
-        "search_signal_hits": 2,
+        "query_intent_hits": 2,
+        "search_signal_hits": 3,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 1,
+        "distinct_queries": 2,
         "search_providers": [
           "bing-rss"
         ],
@@ -1442,9 +1582,284 @@
         "query_urls": [
           "https://ilo.so/twitter-viewer"
         ],
+        "discovery_score": 19
+      },
+      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "tweetviewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 27,
+      "query_count": 1,
+      "final_url": "https://tweetviewer.com/about",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 33,
+        "article_count": 9,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "username",
+          "user",
+          "tweet",
+          "twitter",
+          "paste",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best ",
+          "top ",
+          "guide"
+        ],
+        "editorial_marker_hits": [
+          "subscribe"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 2,
+        "query_intent_hits": 1,
+        "search_signal_hits": 3,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://tweetviewer.com/",
+          "bing-rss:twitter profile viewer: view any profile without login (2026) look up any public x (twitter) profile — tweets, media, followers, bio — without logging in. how a profile viewer works in 2026, what it shows, and how to save the media.",
+          "bing-rss:about tweet viewer — free video download tool learn about tweet viewer, the free, fast, and easy-to-use tool for downloading x (twitter) videos in hd without login or watermarks."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter",
+          "tweet"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [
+          "analytics"
+        ],
+        "editorial_signal_count": 6,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://tweetviewer.com/",
+          "https://tweetviewer.com/blog/twitter-profile-viewer-no-login",
+          "https://tweetviewer.com/about"
+        ],
+        "discovery_score": 16
+      },
+      "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=2; providers=1; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "tryadlicio.com",
+      "platform": "reddit",
+      "accepted": true,
+      "score": 26,
+      "query_count": 1,
+      "final_url": "https://tryadlicio.com/tools/reddit-viewer",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser",
+          "visor",
+          "visualizador"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "visor",
+          "visualizador",
+          "browser"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 6,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "profile",
+          "post"
+        ],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": true,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://tryadlicio.com/tools/reddit-viewer",
+          "bing-rss:reddit viewer: browse any subreddit, post or profile, no login free reddit viewer. read any public subreddit, post with comments, or user profile without a reddit account or app. search comments and export csv."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit",
+          "subreddit"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [
+          "analyzer",
+          "statistics"
+        ],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://tryadlicio.com/tools/reddit-viewer"
+        ],
         "discovery_score": 15
       },
-      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
@@ -1563,237 +1978,72 @@
       "error": ""
     },
     {
-      "domain": "twitterviewer.net",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 30,
-      "query_count": 0,
-      "final_url": "https://twitterviewer.net/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "header_brand_hits": [
-          "nitter"
-        ],
-        "header_service_hits": [
-          "viewer",
-          "gallery"
-        ],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "handle",
-          "media"
-        ],
-        "body_service_hits": [
-          "viewer",
-          "frontend",
-          "browser",
-          "gallery"
-        ],
-        "body_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "service_hits": [
-          "viewer",
-          "frontend",
-          "browser",
-          "gallery"
-        ],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 3,
-        "forms": 0,
-        "buttons": 41,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username",
-          "tweet",
-          "twitter",
-          "paste"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [
-          "analytics",
-          "statistics"
-        ],
-        "service_kind": "viewer/frontend+tool",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://twitterviewer.net/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter",
-          "tweet",
-          "nitter"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "frontend"
-        ],
-        "runtime_framework_hits": [
-          "nuxt"
-        ],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 7,
-        "tool_signal_hits": [
-          "analytics",
-          "tracking",
-          "statistics"
-        ],
-        "editorial_signal_count": 3,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://twitterviewer.net/"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "tweetviewer.com",
-      "platform": "twitter",
+      "domain": "zoomblr.com",
+      "platform": "tumblr",
       "accepted": true,
       "score": 24,
       "query_count": 0,
-      "final_url": "https://tweetviewer.com/",
+      "final_url": "https://zoomblr.com/",
       "evidence": {
         "platform_hits": [
-          "twitter",
-          "x"
+          "tumblr"
         ],
-        "twitter_x_context_ok": true,
+        "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [
-          "twitter",
-          "x"
+          "tumblr"
         ],
         "header_brand_hits": [],
         "header_service_hits": [
           "viewer"
         ],
         "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
+          "blog",
           "post",
           "posts",
-          "handle",
-          "media"
+          "profile",
+          "avatar"
         ],
         "body_service_hits": [
           "viewer",
           "browser"
         ],
         "body_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
+          "blog",
+          "blogs",
           "post",
           "posts",
-          "timeline",
-          "handle",
-          "media"
+          "profile",
+          "avatar",
+          "tag",
+          "tags"
         ],
         "service_hits": [
           "viewer",
           "browser"
         ],
         "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
+          "blog",
+          "blogs",
           "post",
           "posts",
-          "timeline",
-          "handle",
-          "media"
+          "profile",
+          "avatar",
+          "tag",
+          "tags"
         ],
         "ui_signal": true,
-        "inputs": 3,
-        "forms": 3,
-        "buttons": 30,
-        "article_count": 9,
-        "article_structure_hint": true,
-        "interactive_target_hits": [
-          "username",
-          "user",
-          "tweet",
-          "twitter",
-          "paste",
-          "view"
-        ],
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": true,
         "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best ",
-          "top ",
-          "guide"
-        ],
-        "editorial_marker_hits": [
-          "subscribe"
-        ],
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": true,
@@ -1807,35 +2057,27 @@
         "distinct_queries": 0,
         "search_providers": [],
         "search_evidence": [
-          "Web-verified viewer seed: https://tweetviewer.com/"
+          "Web-verified viewer seed: https://zoomblr.com/"
         ],
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
         ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter",
-          "tweet"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "browser"
-        ],
-        "runtime_framework_hits": [
-          "react"
-        ],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 5,
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
         "tool_signal_hits": [],
-        "editorial_signal_count": 6,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://tweetviewer.com/"
+          "https://zoomblr.com/"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=0; providers=0; queries=0",
+      "reason": "platform=tumblr; service=viewer; identity=blog/post/posts/profile/avatar; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -1950,133 +2192,6 @@
         "discovery_score": 6
       },
       "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/handle/media; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "tryadlicio.com",
-      "platform": "reddit",
-      "accepted": true,
-      "score": 21,
-      "query_count": 0,
-      "final_url": "https://tryadlicio.com/tools/reddit-viewer",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [
-          "viewer",
-          "browser",
-          "visor",
-          "visualizador"
-        ],
-        "body_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "thread"
-        ],
-        "service_hits": [
-          "viewer",
-          "visor",
-          "visualizador",
-          "browser"
-        ],
-        "identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "thread"
-        ],
-        "ui_signal": true,
-        "inputs": 3,
-        "forms": 3,
-        "buttons": 6,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username",
-          "profile",
-          "post"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://tryadlicio.com/tools/reddit-viewer"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "reddit",
-          "subreddit"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "browser"
-        ],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 5,
-        "tool_signal_hits": [
-          "analyzer",
-          "statistics"
-        ],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://tryadlicio.com/tools/reddit-viewer"
-        ],
-        "discovery_score": 5
-      },
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -2390,12 +2505,12 @@
       "error": ""
     },
     {
-      "domain": "www.yna.co.kr",
+      "domain": "twitter.en.softonic.com",
       "platform": "twitter",
       "accepted": false,
-      "score": 10,
-      "query_count": 3,
-      "final_url": "https://www.yna.co.kr/view/AKR20250924061300009",
+      "score": 9,
+      "query_count": 4,
+      "final_url": "https://twitter.en.softonic.com/",
       "evidence": {
         "platform_hits": [
           "twitter",
@@ -2403,178 +2518,36 @@
         ],
         "twitter_x_context_ok": true,
         "brand_hits": [],
-        "header_platform_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [
-          "reader",
-          "gallery"
+        "body_service_hits": [
+          "browser"
         ],
-        "identity_hits": [
+        "body_identity_hits": [
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
           "media",
           "publication"
         ],
-        "ui_signal": true,
-        "inputs": 81,
-        "forms": 0,
-        "buttons": 265,
-        "article_count": 2,
-        "article_structure_hint": true,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 3,
-        "search_signal_hits": 3,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 3,
-        "search_providers": [
-          "bing-rss",
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-rss:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 주의 일부 마을이 러시아군에 점령됐다. 미콜라이우와 드니프로페트로우스크 등 2개 주의 접경지역에도 소규모이긴 하지만 러시아군 점령지가 ...",
-          "bing-html:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 yna.co.kr https://www.yna.co.kr › view 2025년 9월 24일 · 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
-        ],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
-        "query_urls": [
-          "https://www.yna.co.kr/view/AKR20250924061300009"
-        ],
-        "discovery_score": 18
-      },
-      "reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
-      "error": ""
-    },
-    {
-      "domain": "www.linkedin.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 13,
-      "query_count": 2,
-      "final_url": "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [
-          "front end"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
-        "service_hits": [],
-        "identity_hits": [
-          "user",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 120,
-        "forms": 20,
-        "buttons": 208,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing-html",
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
-          "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "front end"
-        ],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 4,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
-        ],
-        "discovery_score": 14
-      },
-      "reason": "platform=-; service=-; identity=user/media; search_intent=0; providers=0; queries=2",
-      "error": ""
-    },
-    {
-      "domain": "dubai.dubizzle.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 4,
-      "query_count": 2,
-      "final_url": "https://dubai.dubizzle.com/jobs/search/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [
-          "browser"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
         "service_hits": [
           "browser"
         ],
         "identity_hits": [
-          "user"
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "media",
+          "publication"
         ],
         "ui_signal": false,
         "inputs": 0,
@@ -2583,56 +2556,88 @@
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
-        "service_path_hint": true,
+        "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "service_kind": "unknown",
         "header_service_identity_hint": false,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 2,
+        "distinct_queries": 4,
         "search_providers": [
-          "bing-html",
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
-          "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
+          "bing-rss:x (twitter) - download x, formerly known as twitter, is a free social and communication app that lets you post gifs, pictures, links, polls, text, and videos to a profile in posts that are formerly called ‘ tweets’."
         ],
         "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
+        "fetch_via": "jina",
+        "fetch_status_code": null,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
+        "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://dubai.dubizzle.com/jobs/search/"
+          "https://twitter.en.softonic.com/"
         ],
-        "discovery_score": 14
+        "discovery_score": 16
       },
-      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "reason": "platform=twitter/x; service=browser; identity=tweets/user/profile/post/posts/media/publication; search_intent=0; providers=0; queries=4",
       "error": ""
     },
     {
-      "domain": "www.yelp.com",
+      "domain": "support.reddithelp.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 4,
+      "final_url": "https://support.reddithelp.com/",
+      "evidence": {
+        "discovery_score": 16
+      },
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "www.heise.de",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 3,
+      "final_url": "https://www.heise.de/thema/Twitter",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "review"
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": true,
+        "discovery_score": 14
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "wenku.baidu.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 2,
-      "final_url": "https://www.yelp.com/search?find_desc=Plumbers&find_loc=Via%2BFlorida%2B25%2C%2B00186%2BRoma&msockid=0c62382624eb6f020ae32023251d6eea",
+      "final_url": "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
       "evidence": {
         "discovery_score": 12
       },
@@ -2640,22 +2645,19 @@
       "error": ""
     },
     {
-      "domain": "aijourn.com",
+      "domain": "sotwe.co.uk",
       "platform": "twitter",
       "accepted": false,
       "score": 23,
       "query_count": 1,
-      "final_url": "https://aijourn.com/best-7-twitter-private-account-viewer-tools/",
+      "final_url": "https://sotwe.co.uk/",
       "evidence": {
         "platform_hits": [
           "twitter",
-          "x",
-          "nitter"
+          "x"
         ],
         "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
+        "brand_hits": [],
         "header_platform_hits": [
           "twitter",
           "x"
@@ -2665,61 +2667,50 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "profile",
+          "user",
           "posts",
           "media"
         ],
-        "body_service_hits": [
-          "viewer",
-          "front-end",
-          "alternative front-end",
-          "reader"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
-          "posts",
-          "timeline",
           "media"
         ],
         "service_hits": [
-          "viewer",
-          "frontend",
-          "instance",
-          "reader"
+          "viewer"
         ],
         "identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
           "posts",
-          "timeline",
           "media"
         ],
         "ui_signal": true,
-        "inputs": 50,
-        "forms": 14,
-        "buttons": 46,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 7,
         "article_count": 1,
         "article_structure_hint": true,
         "interactive_target_hits": [
-          "username"
+          "username",
+          "twitter",
+          "account",
+          "view"
         ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "how to ",
-          "best "
+          "what is "
         ],
         "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "non_frontend_service_hits": [
+          "tracking"
+        ],
+        "service_kind": "viewer/frontend+tool",
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
@@ -2735,47 +2726,42 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:best 7 twitter private account viewer tools | the ai journal a private twitter viewer is most useful when it’s honest about limits and focused on public browsing. the best tools help you review public profiles, public posts, trends, and hashtags without forcing a login."
+          "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [
-          "twitter",
-          "tweet"
+          "twitter"
         ],
         "runtime_service_hits": [
-          "viewer",
-          "frontend",
-          "front end",
-          "alternative front end",
-          "reader"
+          "viewer"
         ],
         "runtime_framework_hits": [],
         "runtime_service_hint": true,
-        "positive_frontend_signals": 8,
+        "positive_frontend_signals": 3,
         "tool_signal_hits": [
           "analytics",
           "tracker",
           "tracking"
         ],
-        "editorial_signal_count": 2,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://aijourn.com/best-7-twitter-private-account-viewer-tools/"
+          "https://sotwe.co.uk/"
         ],
         "discovery_score": 10
       },
-      "reason": "platform=twitter/x; service=viewer; identity=profile/posts/media; search_intent=1; providers=1; queries=1",
+      "reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
-      "domain": "event-theme.com",
+      "domain": "viewvix.com",
       "platform": "reddit",
       "accepted": false,
       "score": 23,
       "query_count": 1,
-      "final_url": "https://event-theme.com/tools/social-viewer/reddit-anonymous/",
+      "final_url": "https://viewvix.com/reddit/user/",
       "evidence": {
         "platform_hits": [
           "reddit"
@@ -2790,47 +2776,38 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "post",
           "posts",
+          "user",
           "profile"
         ],
         "body_service_hits": [
           "viewer"
         ],
         "body_identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "service_hits": [
           "viewer",
           "frontend"
         ],
         "identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "ui_signal": true,
-        "inputs": 9,
+        "inputs": 18,
         "forms": 2,
-        "buttons": 10,
-        "article_count": 18,
+        "buttons": 11,
+        "article_count": 20,
         "article_structure_hint": true,
         "interactive_target_hits": [
-          "username",
           "user",
           "reddit",
           "paste"
@@ -2839,6 +2816,7 @@
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
+          "what is ",
           "review"
         ],
         "editorial_marker_hits": [],
@@ -2859,7 +2837,7 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:reddit anonymous viewer – browse posts, profiles & subreddits anonymously view reddit posts, profiles & stories anonymously with event theme's reddit anonymous viewer. no login, fast & private."
+          "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -2875,23 +2853,143 @@
         "runtime_service_hint": true,
         "positive_frontend_signals": 4,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 0,
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://event-theme.com/tools/social-viewer/reddit-anonymous/"
+          "https://viewvix.com/reddit/user/"
         ],
         "discovery_score": 10
       },
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/post/posts/profile; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
-      "domain": "www.lightinthebox.com",
-      "platform": "twitter",
+      "domain": "xarchive.net",
+      "platform": "reddit",
       "accepted": false,
-      "score": 4,
+      "score": 21,
       "query_count": 1,
-      "final_url": "https://www.lightinthebox.com/es/search?q=qsstcirsversion%2Bxxcalgomezsmoketest&query_type=1&msockid=3b8fcf0a5dde68bb1746d70f5ca5692b",
+      "final_url": "https://xarchive.net/archive-reddit",
+      "evidence": {
+        "platform_hits": [
+          "reddit"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "reddit"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "subreddit",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "body_service_hits": [
+          "browser"
+        ],
+        "body_identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "profile",
+          "thread"
+        ],
+        "ui_signal": true,
+        "inputs": 7,
+        "forms": 1,
+        "buttons": 25,
+        "article_count": 37,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "twitter",
+          "reddit"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best ",
+          "top ",
+          "review"
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:reddit archive search, viewer & offline export tool | xarchive search reddit archive snapshots by subreddit, user page, or direct url, then export public wayback machine captures in html, csv, or json."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "reddit",
+          "subreddit"
+        ],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 5,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://xarchive.net/archive-reddit"
+        ],
+        "discovery_score": 10
+      },
+      "reason": "platform=reddit; service=viewer; identity=subreddit/comments/post/posts/user/profile/thread; search_intent=1; providers=1; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "emploi.paris.fr",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 8,
+      "query_count": 1,
+      "final_url": "https://emploi.paris.fr/offres/search/index/frontsearchtab_id/4/page/2",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -2904,10 +3002,10 @@
         "body_identity_hits": [],
         "service_hits": [],
         "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
+        "ui_signal": true,
+        "inputs": 18,
+        "forms": 3,
+        "buttons": 6,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -2931,23 +3029,21 @@
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:qsstcirsversion xxcalgomezsmoketest - compras en línea para ... lightinthebox.com https://www.lightinthebox.com › es › search ¿no encontraste lo que necesitas? envíanos un correo electrónico con las fotos aquí: litbcs@lightinthebox.com.",
-          "bing-html:qsstcirsversion xxcalgomezsmoketest - online shopping for ... lightinthebox.com https://www.lightinthebox.com › search email us with the photos here: litbcs@lightinthebox.com."
+          "bing-html:paris emploi - recherche d'offres d'emploi paris.fr https://emploi.paris.fr › offres › search › index › frontsearchtab_id › page consultez toutes les offres d'emploi paris emploi et postulez en ligne a nos annonces emploi sur le site recrutement paris emploi"
         ],
         "trusted_sources": [],
-        "fetch_via": "jina",
-        "fetch_status_code": null,
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
+        "internal_routes_checked": 2,
         "query_urls": [
-          "https://www.lightinthebox.com/es/search?q=qsstcirsversion%2Bxxcalgomezsmoketest&query_type=1&msockid=3b8fcf0a5dde68bb1746d70f5ca5692b",
-          "https://www.lightinthebox.com/search?q=qsstcirsversion%2Bxxcalgomezsmoketest&query_type=1&msockid=3b8fcf0a5dde68bb1746d70f5ca5692b"
+          "https://emploi.paris.fr/offres/search/index/frontsearchtab_id/4/page/2"
         ],
         "discovery_score": 8
       },
@@ -2955,73 +3051,54 @@
       "error": ""
     },
     {
-      "domain": "similarlabs.com",
-      "platform": "twitter",
+      "domain": "fotki.yandex.com",
+      "platform": "tumblr",
       "accepted": false,
-      "score": 19,
+      "score": 0,
       "query_count": 1,
-      "final_url": "https://similarlabs.com/p/twitterviewer",
+      "final_url": "https://fotki.yandex.com/showcaptcha?cc=1&form-fb-hint=2.1&mt=ADB8A6D35E0C3329A819495FD39AF43CC1F56D926E60031DCE3BFB9BBD9868DB6EFE7E922989BDB6FF80FA3BD744B43AFA53247783AB3038D6CB58B737D9B7668F0DAA7735AEBB4A24552A1E5DB4D78BFFBE5740FA655B65D209DD05EC20C15F3FA5C47448B641CE352BEB64975C43B2964839BD3A842A5CBC242C4AFA8CC86FDCB76CEE2A4D5D45&retpath=aHR0cHM6Ly9mb3RraS55YW5kZXguY29tL3NlYXJjaD90ZXh0PXglMkI3NSUyQnZjJTJCYmlvcyUyQiUyQmR1bXAmbHI9MjEyMDYmbWlzc3dvcmQ9MQ%2C%2C_34f25d58f1c0f84722a075599385683d&t=2%252F1793704896%252Fdb3f0e6d3ada4cd5a4c9703cfc7612de&u=9693033542489147600&s=17251b683ff3ff341ad2214cefa79cde",
       "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "twitter_x_context_ok": true,
+        "discovery_score": 8
+      },
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "www.online-rechner.org",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 14,
+      "query_count": 1,
+      "final_url": "https://www.online-rechner.org/mathematik/taschenrechner",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
         "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
+        "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [
-          "viewer"
+          "browser"
         ],
-        "header_identity_hits": [
-          "profile",
-          "posts",
-          "media"
-        ],
+        "header_identity_hits": [],
         "body_service_hits": [
-          "viewer",
-          "browser",
-          "reader"
+          "browser"
         ],
-        "body_identity_hits": [
-          "user",
-          "profile",
-          "post",
-          "posts",
-          "timeline",
-          "media"
-        ],
+        "body_identity_hits": [],
         "service_hits": [
-          "viewer",
-          "browser",
-          "reader"
+          "browser"
         ],
-        "identity_hits": [
-          "user",
-          "profile",
-          "post",
-          "posts",
-          "timeline",
-          "media"
-        ],
+        "identity_hits": [],
         "ui_signal": true,
         "inputs": 1,
-        "forms": 1,
-        "buttons": 70,
-        "article_count": 24,
+        "forms": 0,
+        "buttons": 31,
+        "article_count": 5,
         "article_structure_hint": true,
-        "interactive_target_hits": [
-          "post"
-        ],
+        "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
-        "content_title_hits": [
-          "best "
-        ],
+        "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
@@ -3038,75 +3115,74 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:twitterviewer - view public x content without an x account or login ... twitterviewer is a web tool that lets users access public x (formerly twitter) posts, threads, replies, profiles, and media without requiring an x account or login."
+          "bing-rss:taschenrechner online – kostenlos, ohne anmeldung smarter online-taschenrechner: freie eingabe, klammern, prozent, verlauf, tastatur-bedienung. kostenlos, ohne anmeldung, direkt im browser."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "browser"
         ],
-        "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [
+          "tracker"
+        ],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://similarlabs.com/p/twitterviewer"
+          "https://www.online-rechner.org/mathematik/taschenrechner"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=twitter/x; service=viewer; identity=profile/posts/media; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "it.euronews.com",
+      "domain": "devforum.roblox.com",
       "platform": "tumblr",
       "accepted": false,
-      "score": 14,
+      "score": 11,
       "query_count": 1,
-      "final_url": "https://it.euronews.com/",
+      "final_url": "https://devforum.roblox.com/c/collaboration/recruitment/82",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
-        "header_service_hits": [
-          "gallery"
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "post"
         ],
-        "header_identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [
-          "tag"
-        ],
+        "body_identity_hits": [],
         "service_hits": [
-          "gallery"
+          "browser"
         ],
         "identity_hits": [
+          "post",
           "tag"
         ],
         "ui_signal": true,
-        "inputs": 51,
-        "forms": 4,
-        "buttons": 7,
-        "article_count": 308,
-        "article_structure_hint": true,
+        "inputs": 8,
+        "forms": 2,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [
-          "twitter"
+          "username"
         ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
+        "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
@@ -3119,36 +3195,38 @@
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:francia | euronews euronews.com https://it.euronews.com › tag › francia 5 giorni fa · resta informato sulle ultime notizie, eventi e sviluppi in francia. ricevi aggiornamenti su politica, cultura, economia e ..."
+          "bing-html:latest find and hire talent topics - developer forum | roblox roblox.com https://devforum.roblox.com › collaboration › recruitment 15. okt. 2019 · post job listings to hire talent. this category is for creators to post job offers for long-term partnerships or short-term ...",
+          "bing-html:latest topics - developer forum | roblox roblox.com https://devforum.roblox.com › latest vor einem tag · chat with other creators, learn about roblox platform updates, and report issues with the platform."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [
-          "gallery"
+          "browser"
         ],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 3,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
+        "editorial_signal_count": 0,
         "internal_routes_checked": 1,
         "query_urls": [
-          "https://it.euronews.com/tag/francia"
+          "https://devforum.roblox.com/c/collaboration/recruitment/82",
+          "https://devforum.roblox.com/latest"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=gallery; identity=tag; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=browser; identity=post; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "news.microsoft.com",
-      "platform": "twitter",
+      "domain": "rechnerzentrale.com",
+      "platform": "tumblr",
       "accepted": false,
-      "score": 14,
+      "score": 9,
       "query_count": 1,
-      "final_url": "https://news.microsoft.com/the-new-Bing/",
+      "final_url": "https://rechnerzentrale.com/taschenrechner",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3156,37 +3234,28 @@
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [
-          "gallery"
+          "browser"
         ],
         "header_identity_hits": [],
         "body_service_hits": [
           "browser"
         ],
         "body_identity_hits": [
-          "profile",
-          "post",
-          "media"
+          "profil"
         ],
         "service_hits": [
-          "browser",
-          "gallery"
+          "browser"
         ],
         "identity_hits": [
-          "profile",
-          "post",
-          "posts",
-          "media"
+          "profil"
         ],
-        "ui_signal": true,
-        "inputs": 1,
-        "forms": 1,
-        "buttons": 10,
-        "article_count": 21,
-        "article_structure_hint": true,
-        "interactive_target_hits": [
-          "post",
-          "view"
-        ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 57,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
@@ -3207,172 +3276,27 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:reinventing search with a new ai-powered bing and edge, your copilot ... today, we’re launching an all new, ai-powered bing search engine and edge browser, available in preview now at bing.com, to deliver better search, more complete answers, a new chat experience and the ability to generate content."
+          "bing-rss:taschenrechner online kostenlos – mit rechenband & speicher online-taschenrechner mit rechenband, speicher (m+/mr) und voller tastaturbedienung. werbefrei, ohne cookies, ohne anmeldung – sofort im browser rechnen."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [
-          "browser",
-          "gallery"
+          "browser"
         ],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 4,
-        "tool_signal_hits": [
-          "tracking"
-        ],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 1,
-        "query_urls": [
-          "https://news.microsoft.com/the-new-Bing/"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=gallery; identity=profile/post/posts/media; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "c.mi.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://c.mi.com/id/post/339106",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "post"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:daftar kode rahasia xiaomi redmi beserta fungsinya lengkap! mi.com https://c.mi.com › id › post 26 mar 2019 · forum resmi xiaomi untuk membantu pengguna xiaomi dan menyediakan berita terbaru tentang produk-produk mi ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [
-          "react"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://c.mi.com/id/post/339106"
+          "https://rechnerzentrale.com/taschenrechner"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=post; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "new.c.mi.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 2,
-      "query_count": 1,
-      "final_url": "https://new.c.mi.com/ru/post/376263",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [
-          "post"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:монитор xiaomi mi 2k gaming monitor 27 mi.com https://new.c.mi.com › ru › post 1 feb 2024 · официальный форум xiaomi создан для помощи mi фанам и предоставления последних новостей о продукции ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [
-          "react"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://new.c.mi.com/ru/post/376263"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=-; identity=post; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=browser; identity=profil; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
@@ -3442,16 +3366,94 @@
       "error": ""
     },
     {
-      "domain": "footprintiq.app",
-      "platform": "twitter",
+      "domain": "forums.commentcamarche.net",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://footprintiq.app/twitter-search-without-account",
+      "final_url": "https://forums.commentcamarche.net/forum/affich-12168095-ma-page-facebook-est-devenue-tres-grande",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": true,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "instagram.en.softonic.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://instagram.en.softonic.com/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "HTTPError: HTTP Error 406: Not Acceptable",
+        "status_code": 406,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "instagram.en.uptodown.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://instagram.en.uptodown.com/android",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [
-          "what is "
+          "best "
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": true,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "misindromeviajero.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://misindromeviajero.com/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "RemoteDisconnected: Remote end closed connection without response",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "saveinta.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://saveinta.com/en",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
         ],
         "editorial_marker_hits": [],
         "service_path_hint": false,
@@ -3463,15 +3465,55 @@
       "error": ""
     },
     {
-      "domain": "pickuptheguitar.com",
+      "domain": "search.pullpush.io",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://search.pullpush.io/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-rss"
+        ],
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
+        "status_code": 403,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "stackoverflow.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://pickuptheguitar.com/list-of-all-justin-bieber-songs/",
+      "final_url": "https://stackoverflow.com/",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
+        "status_code": 403,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "upvote.net",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://upvote.net/redditlist",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [
+          "what is ",
+          "how to ",
           "best ",
           "top ",
           "list of "
@@ -3486,55 +3528,18 @@
       "error": ""
     },
     {
-      "domain": "seranking.com",
-      "platform": "tumblr",
+      "domain": "www.redditshuffle.com",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://seranking.com/",
-      "evidence": {
-        "non_frontend_service_hits": [
-          "tracker",
-          "tracking"
-        ],
-        "frontend_signal_hint": false,
-        "header_service_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "discovery_score": 6
-      },
-      "reason": "non-frontend service/tool page",
-      "error": ""
-    },
-    {
-      "domain": "visitarebarcellona.com",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://visitarebarcellona.com/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-html"
-        ],
-        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
-        "status_code": 403,
-        "discovery_score": 6
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.20minutos.es",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.20minutos.es/",
+      "final_url": "https://www.redditshuffle.com/subreddit-finder",
       "evidence": {
         "content_path_hint": false,
-        "content_title_hits": [],
+        "content_title_hits": [
+          "best ",
+          "top "
+        ],
         "editorial_marker_hits": [],
         "service_path_hint": false,
         "host_service_hint": false,
@@ -3545,12 +3550,12 @@
       "error": ""
     },
     {
-      "domain": "www.fidal.it",
-      "platform": "twitter",
+      "domain": "www.thunderbird-mail.de",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://www.fidal.it/impianto/centro-sportivo-comunale/710",
+      "final_url": "https://www.thunderbird-mail.de/forum/thread/67940-mehrere-mails-gleichzeitig-markieren-erl/",
       "evidence": {
         "content_path_hint": false,
         "content_title_hits": [],
@@ -3561,63 +3566,6 @@
         "discovery_score": 6
       },
       "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.health.gov.au",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.health.gov.au/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-html"
-        ],
-        "fetch_error": "TimeoutError: The read operation timed out",
-        "status_code": null,
-        "discovery_score": 6
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.lacucinaitaliana.it",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.lacucinaitaliana.it/gallery/migliori-pizzerie-roma-indirizzi/",
-      "evidence": {
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "article_structure_hint": true,
-        "discovery_score": 6
-      },
-      "reason": "article/content page, not a frontend endpoint",
-      "error": ""
-    },
-    {
-      "domain": "www.massacarrarainrete.it",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 0,
-      "query_count": 1,
-      "final_url": "https://www.massacarrarainrete.it/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-html"
-        ],
-        "fetch_error": "URLError: <urlopen error [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1010)>",
-        "status_code": null,
-        "discovery_score": 6
-      },
-      "reason": "page unavailable",
       "error": ""
     },
     {
@@ -3640,22 +3588,23 @@
       "error": ""
     },
     {
-      "domain": "zoomblr.com",
-      "platform": "tumblr",
+      "domain": "www.zdnet.fr",
+      "platform": "reddit",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://zoomblr.com/",
+      "final_url": "https://www.zdnet.fr/pratique/comment-supprimer-definitivement-votre-compte-facebook-39932301.htm",
       "evidence": {
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
+        "non_frontend_service_hits": [
+          "analyser"
         ],
-        "search_providers": [],
-        "fetch_error": "HTTPError: HTTP Error 429: Too Many Requests",
-        "status_code": 429,
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
         "discovery_score": 6
       },
-      "reason": "page unavailable",
+      "reason": "non-frontend service/tool page",
       "error": ""
     },
     {

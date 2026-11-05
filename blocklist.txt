@@ -8,6 +8,7 @@
 ||1-163-216-226.dynamic-ip.hinet.net^
 ||1-163-218-70.dynamic-ip.hinet.net^
 ||1-163-233-233.dynamic-ip.hinet.net^
+||1-163-254-80.dynamic-ip.hinet.net^
 ||1-164-169-73.dynamic-ip.hinet.net^
 ||1-164-182-236.dynamic-ip.hinet.net^
 ||100searchengines.com^
@@ -375,6 +376,7 @@
 ||brantaq.com^
 ||bras-base-otwaon0906w-grc-03-142-126-114-87.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-07-142-126-139-194.dsl.bell.ca^
+||bras-base-otwaon0906w-grc-09-142-126-146-45.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-18-142-126-191-47.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-27-70-52-162-17.dsl.bell.ca^
 ||bras-base-otwaon0906w-grc-28-184-147-148-190.dsl.bell.ca^
@@ -835,6 +837,8 @@
 ||freesoft-100.com^
 ||freesoft.ru^
 ||freesubstats.com^
+||freetar.de^
+||freetar.habedieeh.re^
 ||freevaults.com^
 ||freeware.de^
 ||freewarefiles.com^
@@ -1091,6 +1095,7 @@
 ||imgur.artemislena.eu^
 ||imgur.nerdvpn.de^
 ||imlive.com^
+||in.bloat.cat^
 ||incogram.com^
 ||incogsnoo.com^
 ||indiehackers.com^
@@ -1118,6 +1123,10 @@
 ||instasaved.net^
 ||instaseer.com^
 ||instastoriesviewer.com^
+||int.dc09.xyz^
+||intellectual.catsarch.com^
+||intellectual.ducks.party^
+||intellectual.insprill.net^
 ||intern-ai.org.cn^
 ||internet-browser.softonic.com^
 ||interneto.raindrop.page^
@@ -1290,6 +1299,7 @@
 ||libremdb.r4fo.com^
 ||libremdb.tux.pizza^
 ||libresearch.space^
+||libretranslate.com^
 ||librewolf.net^
 ||librex.baczek.me^
 ||librex.bloatcat.tk^
@@ -1301,7 +1311,11 @@
 ||librex.retro-hax.net^
 ||librex.yogeshlamichhane.com.np^
 ||librex.zzls.xyz^
+||librey.4o1x5.dev^
+||librey.baczek.me^
 ||librey.darkness.services^
+||librey.nube-gran.de^
+||librey.org^
 ||libtar.de^
 ||liebao.cn^
 ||lightbrd.com^
@@ -1365,6 +1379,7 @@
 ||lx.benike.monster^
 ||lx.vern.cc^
 ||lxv.dc09.ru^
+||ly.owo.si^
 ||lycan.feeds.blue^
 ||lynx.invisible-island.net^
 ||m-shokai.jp^
@@ -2264,6 +2279,7 @@
 ||search.aol.com^
 ||search.banke.cloud^
 ||search.bladerunn.in^
+||search.blitzw.in^
 ||search.brave.com^
 ||search.catboy.house^
 ||search.chocolatemoo53.com^
@@ -2284,8 +2300,10 @@
 ||search.inetol.net^
 ||search.jeremyh.xyz^
 ||search.liuzj.net^
+||search.liv.town^
 ||search.lumy.live^
 ||search.madreyk.xyz^
+||search.mdosch.de^
 ||search.mectov.my.id^
 ||search.mint.lgbt^
 ||search.minus27315.dev^
@@ -2293,19 +2311,23 @@
 ||search.pabloferreiro.es^
 ||search.pereira.is^
 ||search.pi.vps.pw^
+||search.revvy.de^
 ||search.rhscz.eu^
 ||search.rowie.at^
+||search.seddens.net^
 ||search.serpensin.com^
 ||search.sethforprivacy.com^
 ||search.spaceint.fr^
 ||search.spiralab.org^
 ||search.stinpriza.org^
+||search.technicalvoid.dev^
 ||search.tiekoetter.com^
 ||search.tiekoetter.net^
 ||search.tildevarsh.in^
 ||search.undertale.uk^
 ||search.unredacted.org^
 ||search.utilibre.org^
+||search.uwabaki.party^
 ||search.yahoo.co.jp^
 ||search.yahoo.com^
 ||search.yonderly.org^
@@ -2351,6 +2373,7 @@
 ||searxng.deggo.fyi^
 ||searxng.eshnetwork.space^
 ||searxng.gdebest.net^
+||searxng.gr^
 ||searxng.jaydenha.uk^
 ||searxng.moonshadow.dev^
 ||searxng.org^
@@ -2393,6 +2416,7 @@
 ||sensecore.cn^
 ||sensenova.cn^
 ||sensetime.com^
+||serp.catswords.net^
 ||sev.monster^
 ||sexlikereal.com^
 ||sexvid.xxx^
@@ -2608,6 +2632,7 @@
 ||t.sneed.network^
 ||tabbyml.com^
 ||tabnine.com^
+||tabs.adast.dk^
 ||tabtter.jp^
 ||tagembed.com^
 ||taimienphi.vn^
@@ -2809,7 +2834,9 @@
 ||tranny.one^
 ||transfer.sh^
 ||transfernow.net^
+||translate.cutie.dating^
 ||translate.dr460nf1r3.org^
+||translate.fedilab.app^
 ||translate.google.com^
 ||translate.igna.wtf^
 ||translate.jae.fi^

@@ -13,6 +13,7 @@
 1-164-169-73.dynamic-ip.hinet.net
 1-164-182-236.dynamic-ip.hinet.net
 100searchengines.com
+109-186-194-249.bb.netvision.net.il
 109-186-197-156.bb.netvision.net.il
 109-186-209-36.bb.netvision.net.il
 109-186-215-9.bb.netvision.net.il
@@ -1024,6 +1025,7 @@ hclips.com
 heise.de
 helium.computer
 helixstudios.net
+help.shrt.win
 helpdesk.pekidi.com
 henghengmao.com
 henghengmao.net
@@ -2433,6 +2435,7 @@ shi.meowing.de
 shitter.thepixora.com
 shooshtime.com
 shreven.org
+shrt.win
 sidekickbrowser.com
 sigmaios.com
 sigmaos.com

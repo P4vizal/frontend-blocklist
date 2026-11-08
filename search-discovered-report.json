@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T05:03:24Z",
+  "generated": "2026-11-08T10:48:21Z",
   "report_schema_version": 2,
   "status": "no_update",
   "accepted": [],
@@ -183,7 +183,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=0; providers=0; queries=0"
+      "validation_reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=3"
     },
     {
       "platform": "twitter",
@@ -203,7 +203,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=0; providers=0; queries=0"
+      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=1; providers=1; queries=1"
     },
     {
       "platform": "twitter",
@@ -311,10 +311,15 @@
   ],
   "newly_discovered_count": 0,
   "github_discovered_candidate_count": 14,
-  "search_queries": 0,
+  "search_queries": 72,
   "search_backend": "bing-rss-fallback",
-  "discovery_mode": "deep",
-  "active_search_languages": [],
+  "discovery_mode": "daily",
+  "active_search_languages": [
+    "en",
+    "es",
+    "fr",
+    "de"
+  ],
   "language_rotation": [
     "fr",
     "de",
@@ -340,11 +345,11 @@
     5
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 0,
-  "search_queries_with_results": 0,
+  "search_pages_succeeded": 132,
+  "search_queries_with_results": 72,
   "search_queries_without_results": 0,
   "search_backend_failures": 0,
-  "search_fallbacks": 0,
+  "search_fallbacks": 60,
   "source_candidate_counts": {
     "github": 14,
     "gitlab": 0,
@@ -353,41 +358,16 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 116,
-  "validated_candidates": 28,
+  "candidates_discovered": 146,
+  "validated_candidates": 32,
   "pending_verification_count": 22,
   "pending_status_counts": {
     "challenge_blocked": 4,
     "forbidden": 1,
-    "search_strong_but_page_unverified": 15,
-    "temporary_unavailable": 2
+    "search_strong_but_page_unverified": 16,
+    "temporary_unavailable": 1
   },
   "pending_verification": [
-    {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "queries": [
-        "SOURCE:Alternative frontends 4",
-        "SOURCE:Alternative frontends 6"
-      ],
-      "urls": [
-        "https://www.xeddit.com/"
-      ],
-      "sources": [
-        "Alternative frontends 4",
-        "Alternative frontends 6"
-      ],
-      "providers": [],
-      "search_evidence": [],
-      "first_seen": "2026-11-07T10:42:40Z",
-      "last_attempt": "2026-11-08T05:03:24Z",
-      "last_attempt_epoch": 1794114204.6816132,
-      "attempts": 2,
-      "status": "temporary_unavailable",
-      "last_reason": "page unavailable",
-      "discovery_score": 6,
-      "next_retry_epoch": 1794287004.6816132
-    },
     {
       "domain": "nitter.r4fo.com",
       "platform": "twitter",
@@ -731,13 +711,38 @@
         "bing-rss:redlib.org redlib.org is a platform for sharing and accessing books, resources, and educational materials online."
       ],
       "first_seen": "2026-11-07T10:42:40Z",
-      "last_attempt": "2026-11-07T10:42:40Z",
-      "last_attempt_epoch": 1794048160.6106946,
-      "attempts": 1,
+      "last_attempt": "2026-11-08T10:48:21Z",
+      "last_attempt_epoch": 1794134901.697667,
+      "attempts": 2,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "discovery_score": 11,
-      "next_retry_epoch": 1794134560.6106946
+      "next_retry_epoch": 1794307701.697667
+    },
+    {
+      "domain": "fossy.dev",
+      "platform": "tumblr",
+      "queries": [
+        "\"Priviblur frontend\" alternative -news -article -guide -review"
+      ],
+      "urls": [
+        "https://fossy.dev/syeopite/priviblur"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:priviblur - fossy - curated foss directory for community and discussion a self-hosted tool for blurring faces in images and videos"
+      ],
+      "first_seen": "2026-11-08T10:48:21Z",
+      "last_attempt": "2026-11-08T10:48:21Z",
+      "last_attempt_epoch": 1794134901.697667,
+      "attempts": 1,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1794221301.697667
     },
     {
       "domain": "promvex.com",
@@ -940,114 +945,52 @@
       "next_retry_epoch": 1794137470.8390899
     }
   ],
-  "near_miss_count": 5,
+  "near_miss_count": 3,
   "top_near_misses": [
     {
-      "domain": "2gis.ru",
-      "platform": "tumblr",
+      "domain": "www.britannica.com",
+      "platform": "reddit",
       "discovery_score": 16,
-      "validation_score": 15,
-      "reason": "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3",
-      "status": "search_strong_but_page_unverified",
+      "validation_score": 0,
+      "reason": "page unavailable",
+      "status": "forbidden",
       "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "профиль"
-        ],
-        "service_hits": [
-          "frontend",
-          "visor",
-          "reader"
-        ],
-        "identity_hits": [
-          "профиль"
-        ],
-        "ui_signal": true,
-        "inputs": 21,
-        "forms": 2,
-        "buttons": 41,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 3,
-        "search_signal_hits": 3,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 3,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:г москва ул раменки д 29 в москве на карте: ☎ телефоны, ★ ... 2gis.ru https://2gis.ru › moscow › search результаты поиска по запросу г москва ул раменки д 29 на карте в москве."
-        ],
         "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "frontend",
-          "reader",
-          "visor"
+        "search_providers": [
+          "bing-rss"
         ],
-        "runtime_framework_hits": [
-          "react"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 5,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 1,
-        "query_urls": [
-          "https://2gis.ru/moscow/search/%D0%B3%20%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%83%D0%BB%20%D1%80%D0%B0%D0%BC%D0%B5%D0%BD%D0%BA%D0%B8%20%D0%B4%2029"
-        ],
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
+        "status_code": 403,
         "discovery_score": 16
       }
     },
     {
-      "domain": "street-viewer.ru",
-      "platform": "tumblr",
-      "discovery_score": 13,
-      "validation_score": 11,
-      "reason": "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2",
+      "domain": "redlib.org",
+      "platform": "reddit",
+      "discovery_score": 11,
+      "validation_score": 19,
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
-        "brand_hits": [],
+        "brand_hits": [
+          "redlib"
+        ],
         "header_platform_hits": [],
-        "header_brand_hits": [],
+        "header_brand_hits": [
+          "redlib"
+        ],
         "header_service_hits": [],
         "header_identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [
-          "пост"
-        ],
+        "body_identity_hits": [],
         "service_hits": [],
-        "identity_hits": [
-          "пост"
-        ],
+        "identity_hits": [],
         "ui_signal": true,
-        "inputs": 6,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 6,
+        "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -1062,184 +1005,381 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 2,
+        "distinct_queries": 1,
         "search_providers": [
-          "bing-html"
+          "bing-rss"
         ],
         "search_evidence": [
-          "bing-html:улица раменки , 29 на карте москвы street-viewer.ru https://street-viewer.ru › moscow › locations на странице представлено расположение адреса улица раменки, 29 на карте города москвы. ниже, можно построить ..."
+          "bing-rss:redlib.org redlib.org is a platform for sharing and accessing books, resources, and educational materials online."
         ],
         "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
+        "fetch_via": "jina",
+        "fetch_status_code": null,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 3,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://street-viewer.ru/moscow/locations/ulitsa-ramenki-29/"
+          "https://redlib.org/"
         ],
-        "discovery_score": 13
+        "discovery_score": 11
       }
     },
     {
-      "domain": "www.capcut.cn",
+      "domain": "fossy.dev",
       "platform": "tumblr",
-      "discovery_score": 12,
-      "validation_score": 4,
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
+      "discovery_score": 10,
+      "validation_score": 23,
+      "reason": "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
-        "platform_hits": [],
+        "platform_hits": [
+          "tumblr"
+        ],
         "twitter_x_context_ok": false,
-        "brand_hits": [],
+        "brand_hits": [
+          "priviblur"
+        ],
         "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [],
-        "service_hits": [],
-        "identity_hits": [],
-        "ui_signal": false,
-        "inputs": 0,
+        "header_brand_hits": [
+          "priviblur"
+        ],
+        "header_service_hits": [
+          "frontend"
+        ],
+        "header_identity_hits": [
+          "profile"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "alternative frontend"
+        ],
+        "body_identity_hits": [
+          "user",
+          "profile",
+          "tag"
+        ],
+        "service_hits": [
+          "frontend",
+          "alternative frontend"
+        ],
+        "identity_hits": [
+          "post",
+          "user",
+          "profile",
+          "tag"
+        ],
+        "ui_signal": true,
+        "inputs": 10,
         "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
+        "buttons": 37,
+        "article_count": 4,
+        "article_structure_hint": true,
         "interactive_target_hits": [],
         "service_path_hint": true,
         "host_service_hint": false,
         "content_path_hint": false,
-        "content_title_hits": [],
+        "content_title_hits": [
+          "top "
+        ],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
+        "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 2,
+        "distinct_queries": 1,
         "search_providers": [
-          "bing-html"
+          "bing-rss"
         ],
         "search_evidence": [
-          "bing-html:视频剪辑软件 - 剪映 capcut.cn https://www.capcut.cn › view 剪映视频剪辑软件提供,还会包括其他视频剪辑相关内容。剪映全能易用的剪辑软件-轻而易剪,让创作,上传,分享更简单。"
+          "bing-rss:priviblur - fossy - curated foss directory for community and discussion a self-hosted tool for blurring faces in images and videos"
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://www.capcut.cn/view"
+        "runtime_platform_hits": [
+          "tumblr",
+          "priviblur"
         ],
-        "discovery_score": 12
+        "runtime_service_hits": [
+          "frontend",
+          "alternative frontend"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 6,
+        "tool_signal_hits": [
+          "tracking"
+        ],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://fossy.dev/syeopite/priviblur"
+        ],
+        "discovery_score": 10
       }
-    },
+    }
+  ],
+  "retained_historical_count": 233,
+  "retained_total_count": 233,
+  "output_domain_count": 233,
+  "append_only": true,
+  "output_preserved": true,
+  "rejection_reason_counts": {
+    "page unavailable": 4,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 1,
+    "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=gallery; identity=blog; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=gallery; identity=-; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 5,
+    "article/content page, not a frontend endpoint": 4,
+    "non-frontend service/tool page": 1,
+    "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=0": 1,
+    "challenge/parked page detected": 1
+  },
+  "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
+  "candidates": [
     {
-      "domain": "wenku.baidu.com",
-      "platform": "tumblr",
-      "discovery_score": 12,
-      "validation_score": 0,
-      "reason": "challenge/parked page detected",
-      "status": "challenge_blocked",
-      "evidence": {
-        "discovery_score": 12
-      }
-    },
-    {
-      "domain": "promvex.com",
-      "platform": "reddit",
-      "discovery_score": 10,
-      "validation_score": 23,
-      "reason": "platform=reddit; service=viewer; identity=comments/post/posts; search_intent=1; providers=1; queries=1",
-      "status": "search_strong_but_page_unverified",
+      "domain": "ilo.so",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 27,
+      "query_count": 3,
+      "final_url": "https://ilo.so/twitter-viewer",
       "evidence": {
         "platform_hits": [
-          "reddit"
+          "twitter",
+          "x"
         ],
-        "twitter_x_context_ok": false,
+        "twitter_x_context_ok": true,
         "brand_hits": [],
         "header_platform_hits": [
-          "reddit"
+          "twitter",
+          "x"
         ],
         "header_brand_hits": [],
         "header_service_hits": [
-          "viewer"
+          "viewer",
+          "reader"
         ],
         "header_identity_hits": [
-          "comments",
-          "post",
-          "posts"
-        ],
-        "body_service_hits": [
-          "viewer"
-        ],
-        "body_identity_hits": [
-          "subreddit",
-          "comment",
-          "comments",
+          "tweet",
+          "profile",
           "post",
           "posts",
-          "user",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser",
+          "reader"
+        ],
+        "body_identity_hits": [
           "profile",
-          "thread"
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
         ],
         "service_hits": [
           "viewer",
-          "frontend"
+          "mirror",
+          "browser",
+          "reader"
         ],
         "identity_hits": [
-          "subreddit",
-          "comment",
-          "comments",
+          "tweet",
+          "profile",
           "post",
           "posts",
-          "user",
-          "profile",
-          "thread"
+          "timeline",
+          "handle",
+          "media"
         ],
         "ui_signal": true,
-        "inputs": 9,
-        "forms": 1,
-        "buttons": 8,
-        "article_count": 19,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 42,
+        "article_count": 3,
         "article_structure_hint": true,
         "interactive_target_hits": [
           "username",
-          "user",
-          "reddit",
-          "paste"
+          "profile",
+          "post"
         ],
-        "service_path_hint": false,
+        "service_path_hint": true,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [
+          "author"
+        ],
+        "non_frontend_service_hits": [
+          "analytics"
+        ],
+        "service_kind": "viewer/frontend+tool",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 3,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 3,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "Web-verified viewer seed: https://ilo.so/twitter-viewer",
+          "bing-rss:twitter viewer: public x profiles and posts without login | ilo use a twitter web viewer to open one public x profile or post without logging in. see recent posts, media, dates, and public engagement counts."
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "reader"
+        ],
+        "runtime_framework_hits": [
+          "astro"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 6,
+        "tool_signal_hits": [
+          "analyzer",
+          "analytics",
+          "profile analyzer"
+        ],
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://ilo.so/twitter-viewer"
+        ],
+        "discovery_score": 23
+      },
+      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=1; providers=1; queries=3",
+      "error": ""
+    },
+    {
+      "domain": "twitterviewer.net",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 33,
+      "query_count": 1,
+      "final_url": "https://twitterviewer.net/",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [
+          "nitter"
+        ],
+        "header_platform_hits": [
+          "twitter",
+          "x",
+          "nitter"
+        ],
+        "header_brand_hits": [
+          "nitter"
+        ],
+        "header_service_hits": [
+          "viewer",
+          "gallery"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 0,
+        "buttons": 41,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "username",
+          "tweet",
+          "twitter",
+          "paste"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
           "what is ",
-          "review"
+          "how to ",
+          "best "
         ],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [
-          "tracking"
+          "analytics",
+          "statistics"
         ],
         "service_kind": "viewer/frontend+tool",
         "header_service_identity_hint": true,
@@ -1257,52 +1397,43 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:reddit anonymous viewer - browse reddit privately - promvex.com browse reddit anonymously with a fast reddit anonymous viewer. read posts, comments, and communities privately without logging in or tracking."
+          "Web-verified viewer seed: https://twitterviewer.net/",
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account free twitter/x viewer! view any public tweet, profile, and replies online – no account required. the best nitter alternative."
         ],
-        "trusted_sources": [],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [
-          "reddit"
+          "twitter",
+          "tweet",
+          "nitter"
         ],
         "runtime_service_hits": [
           "viewer",
           "frontend"
         ],
-        "runtime_framework_hits": [],
+        "runtime_framework_hits": [
+          "nuxt"
+        ],
         "runtime_service_hint": true,
-        "positive_frontend_signals": 4,
+        "positive_frontend_signals": 7,
         "tool_signal_hits": [
           "analytics",
-          "tracking"
+          "tracking",
+          "statistics"
         ],
-        "editorial_signal_count": 2,
-        "internal_routes_checked": 0,
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 2,
         "query_urls": [
-          "https://promvex.com/reddit/anonymous/"
+          "https://twitterviewer.net/"
         ],
-        "discovery_score": 10
-      }
-    }
-  ],
-  "retained_historical_count": 233,
-  "retained_total_count": 233,
-  "output_domain_count": 233,
-  "append_only": true,
-  "output_preserved": true,
-  "rejection_reason_counts": {
-    "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3": 1,
-    "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2": 1,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2": 1,
-    "challenge/parked page detected": 3,
-    "platform=reddit; service=viewer; identity=comments/post/posts; search_intent=1; providers=1; queries=1": 1,
-    "page unavailable": 3,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 4,
-    "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=0": 1,
-    "article/content page, not a frontend endpoint": 2
-  },
-  "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
-  "candidates": [
+        "discovery_score": 18
+      },
+      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=1; providers=1; queries=1",
+      "error": ""
+    },
     {
       "domain": "viewanonymous.com",
       "platform": "reddit",
@@ -1416,149 +1547,6 @@
         "discovery_score": 7
       },
       "reason": "platform=reddit; service=viewer; identity=comments/posts; search_intent=1; providers=1; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "twitterviewer.net",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 30,
-      "query_count": 0,
-      "final_url": "https://twitterviewer.net/",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
-        "header_platform_hits": [
-          "twitter",
-          "x",
-          "nitter"
-        ],
-        "header_brand_hits": [
-          "nitter"
-        ],
-        "header_service_hits": [
-          "viewer",
-          "gallery"
-        ],
-        "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "handle",
-          "media"
-        ],
-        "body_service_hits": [
-          "viewer",
-          "frontend",
-          "browser",
-          "gallery"
-        ],
-        "body_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "service_hits": [
-          "viewer",
-          "frontend",
-          "browser",
-          "gallery"
-        ],
-        "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 3,
-        "forms": 0,
-        "buttons": 41,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username",
-          "tweet",
-          "twitter",
-          "paste"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": true,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [
-          "analytics",
-          "statistics"
-        ],
-        "service_kind": "viewer/frontend+tool",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://twitterviewer.net/"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter",
-          "tweet",
-          "nitter"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "frontend"
-        ],
-        "runtime_framework_hits": [
-          "nuxt"
-        ],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 7,
-        "tool_signal_hits": [
-          "analytics",
-          "tracking",
-          "statistics"
-        ],
-        "editorial_signal_count": 3,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://twitterviewer.net/"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -1756,9 +1744,7 @@
         "host_service_hint": true,
         "content_path_hint": false,
         "content_title_hits": [],
-        "editorial_marker_hits": [
-          "published"
-        ],
+        "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": true,
@@ -1787,7 +1773,7 @@
         "tool_signal_hits": [
           "statistics"
         ],
-        "editorial_signal_count": 1,
+        "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
           "https://www.tumviews.com/"
@@ -2014,133 +2000,6 @@
         "discovery_score": 6
       },
       "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/handle/media; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "ilo.so",
-      "platform": "twitter",
-      "accepted": true,
-      "score": 22,
-      "query_count": 0,
-      "final_url": "https://ilo.so/twitter-viewer",
-      "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "twitter_x_context_ok": true,
-        "brand_hits": [],
-        "header_platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer",
-          "reader"
-        ],
-        "header_identity_hits": [
-          "tweet",
-          "profile",
-          "post",
-          "posts",
-          "media"
-        ],
-        "body_service_hits": [
-          "viewer",
-          "browser",
-          "reader"
-        ],
-        "body_identity_hits": [
-          "profile",
-          "post",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "service_hits": [
-          "viewer",
-          "mirror",
-          "browser",
-          "reader"
-        ],
-        "identity_hits": [
-          "tweet",
-          "profile",
-          "post",
-          "posts",
-          "timeline",
-          "handle",
-          "media"
-        ],
-        "ui_signal": true,
-        "inputs": 3,
-        "forms": 3,
-        "buttons": 42,
-        "article_count": 3,
-        "article_structure_hint": true,
-        "interactive_target_hits": [
-          "username",
-          "profile",
-          "post"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to "
-        ],
-        "editorial_marker_hits": [
-          "author"
-        ],
-        "non_frontend_service_hits": [
-          "analytics"
-        ],
-        "service_kind": "viewer/frontend+tool",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://ilo.so/twitter-viewer"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "reader"
-        ],
-        "runtime_framework_hits": [
-          "astro"
-        ],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 6,
-        "tool_signal_hits": [
-          "analyzer",
-          "analytics",
-          "profile analyzer"
-        ],
-        "editorial_signal_count": 2,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://ilo.so/twitter-viewer"
-        ],
-        "discovery_score": 5
-      },
-      "reason": "platform=twitter/x; service=viewer/reader; identity=tweet/profile/post/posts/media; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -2581,113 +2440,51 @@
       "error": ""
     },
     {
-      "domain": "2gis.ru",
-      "platform": "tumblr",
+      "domain": "www.britannica.com",
+      "platform": "reddit",
       "accepted": false,
-      "score": 15,
-      "query_count": 3,
-      "final_url": "https://2gis.ru/moscow/search/%D0%B3%20%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%83%D0%BB%20%D1%80%D0%B0%D0%BC%D0%B5%D0%BD%D0%BA%D0%B8%20%D0%B4%2029",
+      "score": 0,
+      "query_count": 10,
+      "final_url": "https://www.britannica.com/",
       "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "профиль"
-        ],
-        "service_hits": [
-          "frontend",
-          "visor",
-          "reader"
-        ],
-        "identity_hits": [
-          "профиль"
-        ],
-        "ui_signal": true,
-        "inputs": 21,
-        "forms": 2,
-        "buttons": 41,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": true,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 3,
-        "search_signal_hits": 3,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 3,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:г москва ул раменки д 29 в москве на карте: ☎ телефоны, ★ ... 2gis.ru https://2gis.ru › moscow › search результаты поиска по запросу г москва ул раменки д 29 на карте в москве."
-        ],
         "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "frontend",
-          "reader",
-          "visor"
+        "search_providers": [
+          "bing-rss"
         ],
-        "runtime_framework_hits": [
-          "react"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 5,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 1,
-        "query_urls": [
-          "https://2gis.ru/moscow/search/%D0%B3%20%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%83%D0%BB%20%D1%80%D0%B0%D0%BC%D0%B5%D0%BD%D0%BA%D0%B8%20%D0%B4%2029"
-        ],
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
+        "status_code": 403,
         "discovery_score": 16
       },
-      "reason": "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3",
+      "reason": "page unavailable",
       "error": ""
     },
     {
-      "domain": "street-viewer.ru",
-      "platform": "tumblr",
+      "domain": "redlib.org",
+      "platform": "reddit",
       "accepted": false,
-      "score": 11,
-      "query_count": 2,
-      "final_url": "https://street-viewer.ru/moscow/locations/ulitsa-ramenki-29/",
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://redlib.org/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
-        "brand_hits": [],
+        "brand_hits": [
+          "redlib"
+        ],
         "header_platform_hits": [],
-        "header_brand_hits": [],
+        "header_brand_hits": [
+          "redlib"
+        ],
         "header_service_hits": [],
         "header_identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [
-          "пост"
-        ],
+        "body_identity_hits": [],
         "service_hits": [],
-        "identity_hits": [
-          "пост"
-        ],
+        "identity_hits": [],
         "ui_signal": true,
-        "inputs": 6,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 6,
+        "buttons": 0,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -2702,16 +2499,296 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 2,
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:redlib.org redlib.org is a platform for sharing and accessing books, resources, and educational materials online."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://redlib.org/"
+        ],
+        "discovery_score": 11
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "fossy.dev",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 23,
+      "query_count": 1,
+      "final_url": "https://fossy.dev/syeopite/priviblur",
+      "evidence": {
+        "platform_hits": [
+          "tumblr"
+        ],
+        "twitter_x_context_ok": false,
+        "brand_hits": [
+          "priviblur"
+        ],
+        "header_platform_hits": [],
+        "header_brand_hits": [
+          "priviblur"
+        ],
+        "header_service_hits": [
+          "frontend"
+        ],
+        "header_identity_hits": [
+          "profile"
+        ],
+        "body_service_hits": [
+          "frontend",
+          "alternative frontend"
+        ],
+        "body_identity_hits": [
+          "user",
+          "profile",
+          "tag"
+        ],
+        "service_hits": [
+          "frontend",
+          "alternative frontend"
+        ],
+        "identity_hits": [
+          "post",
+          "user",
+          "profile",
+          "tag"
+        ],
+        "ui_signal": true,
+        "inputs": 10,
+        "forms": 0,
+        "buttons": 37,
+        "article_count": 4,
+        "article_structure_hint": true,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "top "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:priviblur - fossy - curated foss directory for community and discussion a self-hosted tool for blurring faces in images and videos"
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "tumblr",
+          "priviblur"
+        ],
+        "runtime_service_hits": [
+          "frontend",
+          "alternative frontend"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 6,
+        "tool_signal_hits": [
+          "tracking"
+        ],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://fossy.dev/syeopite/priviblur"
+        ],
+        "discovery_score": 10
+      },
+      "reason": "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "sagradafamilia.org",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 17,
+      "query_count": 1,
+      "final_url": "https://sagradafamilia.org/en/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "gallery"
+        ],
+        "header_identity_hits": [
+          "blog"
+        ],
+        "body_service_hits": [
+          "browser",
+          "gallery"
+        ],
+        "body_identity_hits": [
+          "blog",
+          "user",
+          "tag"
+        ],
+        "service_hits": [
+          "frontend",
+          "browser",
+          "gallery"
+        ],
+        "identity_hits": [
+          "blog",
+          "user",
+          "tag"
+        ],
+        "ui_signal": true,
+        "inputs": 55,
+        "forms": 12,
+        "buttons": 7,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "best ",
+          "top "
+        ],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
         "search_providers": [
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:улица раменки , 29 на карте москвы street-viewer.ru https://street-viewer.ru › moscow › locations на странице представлено расположение адреса улица раменки, 29 на карте города москвы. ниже, можно построить ..."
+          "bing-html:sagrada família - official ticket vendors - sagrada familia sagradafamilia.org https://sagradafamilia.org › en 1 de nov de 2026 · official architecture blog of the sagrada família. here you can follow the progress on gaudí's masterpiece, which ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "browser"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 4,
+        "tool_signal_hits": [
+          "analytics",
+          "statistics"
+        ],
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://sagradafamilia.org/en/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=gallery; identity=blog; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "www.beeradvocate.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 9,
+      "query_count": 1,
+      "final_url": "https://www.beeradvocate.com/beer/profile/31393/626018/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [
+          "profile"
+        ],
+        "body_service_hits": [],
+        "body_identity_hits": [
+          "posts",
+          "tags"
+        ],
+        "service_hits": [],
+        "identity_hits": [
+          "post",
+          "posts",
+          "profile",
+          "tags"
+        ],
+        "ui_signal": true,
+        "inputs": 108,
+        "forms": 9,
+        "buttons": 0,
+        "article_count": 34,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "profile",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:nada nada | roughtail brewing co. | beeradvocate beeradvocate.com https://www.beeradvocate.com › beer › profile 7 de abr de 2025 · nada nada is a fruited sour ale style beer brewed by roughtail brewing co. in oklahoma city, ok. score: 83 ... reseñas: 10",
+          "bing-html:nada banana | omaha brewing company | beeradvocate beeradvocate.com https://www.beeradvocate.com › beer › profile 25 de jul de 2021 · nada banana is a hefeweizen style beer brewed by omaha brewing company in omaha, ga. score: 86 with 26 ... reseñas: 26"
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -2720,25 +2797,99 @@
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 1,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
+        "internal_routes_checked": 2,
         "query_urls": [
-          "https://street-viewer.ru/moscow/locations/ulitsa-ramenki-29/"
+          "https://www.beeradvocate.com/beer/profile/31393/626018/",
+          "https://www.beeradvocate.com/beer/profile/36674/150527/"
         ],
-        "discovery_score": 13
+        "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2",
+      "reason": "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "www.capcut.cn",
-      "platform": "tumblr",
+      "domain": "maps.google.fr",
+      "platform": "twitter",
       "accepted": false,
-      "score": 4,
-      "query_count": 2,
-      "final_url": "https://www.capcut.cn/view",
+      "score": 8,
+      "query_count": 1,
+      "final_url": "https://maps.google.fr/intl/fr/streetview/gallery/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [
+          "gallery"
+        ],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 0,
+        "buttons": 9,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:consultez des images du monde entier publiées par google et ... google.fr https://maps.google.fr › intl › fr › streetview › gallery explorez des images du monde entier avec google street view, offrant une vue immersive à 360 degrés de divers lieux et paysages."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "gallery"
+        ],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 1,
+        "query_urls": [
+          "https://maps.google.fr/intl/fr/streetview/gallery/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=-; service=gallery; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "www.xeddit.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 0,
+      "final_url": "https://www.xeddit.com/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -2758,208 +2909,122 @@
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
-        "service_path_hint": true,
+        "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "service_kind": "unknown",
         "header_service_identity_hint": false,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 2,
-        "search_signal_hits": 2,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 2,
-        "search_providers": [
-          "bing-html"
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [],
+        "trusted_sources": [
+          "Alternative frontends 4",
+          "Alternative frontends 6"
         ],
-        "search_evidence": [
-          "bing-html:视频剪辑软件 - 剪映 capcut.cn https://www.capcut.cn › view 剪映视频剪辑软件提供,还会包括其他视频剪辑相关内容。剪映全能易用的剪辑软件-轻而易剪,让创作,上传,分享更简单。"
-        ],
-        "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
+        "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://www.capcut.cn/view"
+          "https://www.xeddit.com/"
         ],
-        "discovery_score": 12
+        "discovery_score": 6
       },
-      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
-      "domain": "wenku.baidu.com",
+      "domain": "blog.sagradafamilia.org",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
-      "query_count": 2,
-      "final_url": "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
-      "evidence": {
-        "discovery_score": 12
-      },
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "promvex.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 23,
       "query_count": 1,
-      "final_url": "https://promvex.com/reddit/anonymous/",
+      "final_url": "https://blog.sagradafamilia.org/es/relacion-montserrat-gaudi-sagrada-familia/",
       "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "comments",
-          "post",
-          "posts"
-        ],
-        "body_service_hits": [
-          "viewer"
-        ],
-        "body_identity_hits": [
-          "subreddit",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "thread"
-        ],
-        "service_hits": [
-          "viewer",
-          "frontend"
-        ],
-        "identity_hits": [
-          "subreddit",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "thread"
-        ],
-        "ui_signal": true,
-        "inputs": 9,
-        "forms": 1,
-        "buttons": 8,
-        "article_count": 19,
-        "article_structure_hint": true,
-        "interactive_target_hits": [
-          "username",
-          "user",
-          "reddit",
-          "paste"
-        ],
-        "service_path_hint": false,
-        "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "what is ",
-          "review"
+          "what is "
         ],
         "editorial_marker_hits": [],
-        "non_frontend_service_hits": [
-          "tracking"
-        ],
-        "service_kind": "viewer/frontend+tool",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 1,
-        "query_intent_hits": 1,
-        "search_signal_hits": 2,
-        "strong_search_evidence_hint": true,
-        "search_provider_hits": [
-          "bing-rss"
-        ],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-rss"
-        ],
-        "search_evidence": [
-          "bing-rss:reddit anonymous viewer - browse reddit privately - promvex.com browse reddit anonymously with a fast reddit anonymous viewer. read posts, comments, and communities privately without logging in or tracking."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "reddit"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "frontend"
-        ],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 4,
-        "tool_signal_hits": [
-          "analytics",
-          "tracking"
-        ],
-        "editorial_signal_count": 2,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://promvex.com/reddit/anonymous/"
-        ],
-        "discovery_score": 10
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false,
+        "discovery_score": 6
       },
-      "reason": "platform=reddit; service=viewer; identity=comments/post/posts; search_intent=1; providers=1; queries=1",
+      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
-      "domain": "fotki.yandex.com",
+      "domain": "buzzglobe.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://buzzglobe.com/x",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.elevenplusexams.co.uk",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://www.elevenplusexams.co.uk/forum/11plus/",
+      "evidence": {
+        "non_frontend_service_hits": [
+          "statistics"
+        ],
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "non-frontend service/tool page",
+      "error": ""
+    },
+    {
+      "domain": "www.morpheus-formation.fr",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://fotki.yandex.com/showcaptcha?cc=1&form-fb-hint=2.1.c1e1dd7516a50d8d05749abafbadb7361b690f0f1ef177b2bdf0864978003d3501fe1199cd1678f0292145071fd1768c0f0cc1ad612dd088b107cd66&mt=BCDF709798DA7A8E2C0A760D563DEE2351B2AA8ADD6629ECF94607FE444F2B59005512F1636A68A7E0F747ABB6A76C4DD8099B823BF5A319479296315E3208FF9E0952079F79DF8BD741C317085EF0E4EB7D678CCDD3BD38CAC1B5D9AD212AD8B8E169473D1105A33D5A7004D05D7C9AECE47B5F53F4DDC7D9FF29B8ABEC24AE01E05EC33E30EB32B96E3AA1BAC3066A7B6533E7F7460149789222&retpath=aHR0cHM6Ly9mb3RraS55YW5kZXguY29tL3NlYXJjaD90ZXh0PXglMkI3NSUyQnZjJTJCYmlvcyUyQiUyQmR1bXAmbHI9MjEyMDYmbWlzc3dvcmQ9MQ%2C%2C_2cb8b2f462383f4c36066839668d006a&t=2%252F1794114194%252F573cb5a4cba6e0b0be4b1b3089bb164d&u=9720501016114776360&s=6f5c91095837137e344761ed82fc614b",
+      "final_url": "https://www.morpheus-formation.fr/",
       "evidence": {
-        "discovery_score": 8
-      },
-      "reason": "challenge/parked page detected",
-      "error": ""
-    },
-    {
-      "domain": "www.xeddit.com",
-      "platform": "reddit",
-      "accepted": false,
-      "score": 0,
-      "query_count": 2,
-      "final_url": "https://www.xeddit.com/",
-      "evidence": {
-        "trusted_sources": [
-          "Alternative frontends 4",
-          "Alternative frontends 6"
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
         ],
-        "search_providers": [],
-        "fetch_error": "HTTPError: HTTP Error 401: Unauthorized",
-        "status_code": 401,
+        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
+        "status_code": 403,
         "discovery_score": 6
       },
       "reason": "page unavailable",
@@ -2967,7 +3032,7 @@
     },
     {
       "domain": "fdroid.gitlab.io",
-      "platform": "twitter",
+      "platform": "reddit",
       "accepted": false,
       "score": 1,
       "query_count": 0,
@@ -3032,7 +3097,7 @@
     },
     {
       "domain": "fdroid.gitlab.io",
-      "platform": "reddit",
+      "platform": "twitter",
       "accepted": false,
       "score": 1,
       "query_count": 0,

@@ -2318,6 +2318,7 @@
 ||search.pabloferreiro.es^
 ||search.pereira.is^
 ||search.pi.vps.pw^
+||search.privacyredirect.com^
 ||search.revvy.de^
 ||search.rhscz.eu^
 ||search.rowie.at^

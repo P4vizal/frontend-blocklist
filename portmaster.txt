@@ -1586,6 +1586,7 @@ nitter.holo-mix.com
 nitter.hostux.net
 nitter.inpt.fr
 nitter.io.lol
+nitter.ip6arpa.uk
 nitter.it
 nitter.jakefrosty.com
 nitter.jaydenha.uk
@@ -1631,6 +1632,7 @@ nitter.wisq.net
 nitter.woodland.cafe
 nitter.xitter.cc
 nitter.zebes.info
+nitterts.pages.dev
 nittertwitter.com
 niuproxy.com
 nlnet.nl

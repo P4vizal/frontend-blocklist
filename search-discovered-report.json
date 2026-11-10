@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-09T12:09:43Z",
+  "generated": "2026-11-10T11:48:33Z",
   "report_schema_version": 2,
   "status": "no_update",
   "accepted": [],
@@ -123,7 +123,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=0; providers=0; queries=0"
+      "validation_reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=1; providers=1; queries=1"
     },
     {
       "platform": "reddit",
@@ -193,7 +193,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x; service=viewer/ビューア; identity=tweet/tweets/user/profile/post/posts/handle/プロフィール/ユーザー/投稿; search_intent=1; providers=1; queries=4"
+      "validation_reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=0; providers=0; queries=0"
     },
     {
       "platform": "twitter",
@@ -203,7 +203,7 @@
       "in_discovery_history": true,
       "verified_seed": true,
       "validation_accepted": true,
-      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=5"
+      "validation_reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=1; providers=1; queries=1"
     },
     {
       "platform": "twitter",
@@ -317,8 +317,8 @@
   "active_search_languages": [
     "en",
     "es",
-    "zh",
-    "ja"
+    "ko",
+    "hi"
   ],
   "language_rotation": [
     "fr",
@@ -332,7 +332,7 @@
     "pt",
     "it"
   ],
-  "search_page2_rotating_language": "zh",
+  "search_page2_rotating_language": "ko",
   "search_backends": [
     "bing-rss",
     "bing-html"
@@ -345,11 +345,11 @@
     5
   ],
   "search_backend_disabled": false,
-  "search_pages_succeeded": 89,
-  "search_queries_with_results": 72,
-  "search_queries_without_results": 0,
+  "search_pages_succeeded": 107,
+  "search_queries_with_results": 69,
+  "search_queries_without_results": 3,
   "search_backend_failures": 0,
-  "search_fallbacks": 17,
+  "search_fallbacks": 40,
   "source_candidate_counts": {
     "github": 14,
     "gitlab": 0,
@@ -358,13 +358,13 @@
     "urlscan": 0
   },
   "validation_crash_count": 0,
-  "candidates_discovered": 135,
-  "validated_candidates": 39,
-  "pending_verification_count": 23,
+  "candidates_discovered": 152,
+  "validated_candidates": 45,
+  "pending_verification_count": 27,
   "pending_status_counts": {
-    "challenge_blocked": 5,
+    "challenge_blocked": 7,
     "forbidden": 1,
-    "search_strong_but_page_unverified": 16,
+    "search_strong_but_page_unverified": 18,
     "temporary_unavailable": 1
   },
   "pending_verification": [
@@ -413,13 +413,13 @@
         "bing-html:一日之计在于晨 , 一年之计在于春 :完整原文、出处及作者详解 baidu.com https://wenku.baidu.com › view “一年之计在于春,一日之计在于晨”这句脍炙人口的格言,其更完整的版本为“一年之计在于春,一日之计在于晨,一家之计在于和,一 ..."
       ],
       "first_seen": "2026-10-30T04:26:49Z",
-      "last_attempt": "2026-11-08T05:03:24Z",
-      "last_attempt_epoch": 1794114204.6816132,
-      "attempts": 5,
-      "status": "challenge_blocked",
-      "last_reason": "challenge/parked page detected",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 6,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
       "discovery_score": 12,
-      "next_retry_epoch": 1794287004.6816132
+      "next_retry_epoch": 1794916113.7570455
     },
     {
       "domain": "www.yelp.com",
@@ -555,13 +555,13 @@
         "bing-rss:x 75 vc bios +dump — yandex: found 3 thousand results asus - asus x75vc | vinafix.com technical download for asus x75vc. resource type: bios / firmware dump. spi flash capacity: 8 mb. the archive contains 1 entries."
       ],
       "first_seen": "2026-10-22T04:16:42Z",
-      "last_attempt": "2026-11-08T05:03:24Z",
-      "last_attempt_epoch": 1794114204.6816132,
-      "attempts": 8,
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 9,
       "status": "challenge_blocked",
       "last_reason": "challenge/parked page detected",
       "discovery_score": 8,
-      "next_retry_epoch": 1794287004.6816132
+      "next_retry_epoch": 1794484113.7570455
     },
     {
       "domain": "www.wap.yandex.com",
@@ -609,13 +609,13 @@
         "bing-html:г москва ул раменки д 29 в москве на карте: ☎ телефоны, ★ ... 2gis.ru https://2gis.ru › moscow › search результаты поиска по запросу г москва ул раменки д 29 на карте в москве."
       ],
       "first_seen": "2026-11-06T11:31:10Z",
-      "last_attempt": "2026-11-08T05:03:24Z",
-      "last_attempt_epoch": 1794114204.6816132,
-      "attempts": 2,
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 3,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3",
       "discovery_score": 16,
-      "next_retry_epoch": 1794287004.6816132
+      "next_retry_epoch": 1794656913.7570455
     },
     {
       "domain": "even.dev",
@@ -660,13 +660,38 @@
         "bing-html:улица раменки , 29 на карте москвы street-viewer.ru https://street-viewer.ru › moscow › locations на странице представлено расположение адреса улица раменки, 29 на карте города москвы. ниже, можно построить ..."
       ],
       "first_seen": "2026-11-06T11:31:10Z",
-      "last_attempt": "2026-11-08T05:03:24Z",
-      "last_attempt_epoch": 1794114204.6816132,
-      "attempts": 2,
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 3,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2",
       "discovery_score": 13,
-      "next_retry_epoch": 1794287004.6816132
+      "next_retry_epoch": 1794656913.7570455
+    },
+    {
+      "domain": "blog.octobrowser.net",
+      "platform": "reddit",
+      "queries": [
+        "\"reddit anonymous viewer\""
+      ],
+      "urls": [
+        "https://blog.octobrowser.net/anonymous-reddit-browsing-how-to-go-incognito-on-reddit"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:anonymous reddit browsing: how to go incognito on reddit how to browse reddit anonymously without an account how to browse reddit anonymously on desktop (pc and mac) how to browse reddit anonymously on mobile devices top tools to increase anonymity on reddit limits and risks of anonymous reddit browsing faq maintain your online anonymity with octo browser. your real digital fingerprint cannot be tracked."
+      ],
+      "first_seen": "2026-11-10T11:48:33Z",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 1,
+      "status": "challenge_blocked",
+      "last_reason": "challenge/parked page detected",
+      "discovery_score": 13,
+      "next_retry_epoch": 1794484113.7570455
     },
     {
       "domain": "www.capcut.cn",
@@ -711,13 +736,88 @@
         "bing-rss:redlib.org redlib.org is a platform for sharing and accessing books, resources, and educational materials online."
       ],
       "first_seen": "2026-11-07T10:42:40Z",
-      "last_attempt": "2026-11-08T10:48:21Z",
-      "last_attempt_epoch": 1794134901.697667,
-      "attempts": 2,
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 3,
       "status": "search_strong_but_page_unverified",
       "last_reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "discovery_score": 11,
-      "next_retry_epoch": 1794307701.697667
+      "next_retry_epoch": 1794656913.7570455
+    },
+    {
+      "domain": "sotwe.co.uk",
+      "platform": "twitter",
+      "queries": [
+        "\"twitter anonymous viewer\""
+      ],
+      "urls": [
+        "https://sotwe.co.uk/"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
+      ],
+      "first_seen": "2026-10-26T04:18:31Z",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 5,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1794916113.7570455
+    },
+    {
+      "domain": "viewvix.com",
+      "platform": "reddit",
+      "queries": [
+        "\"Reddit profile viewer\" -news -article -guide -review"
+      ],
+      "urls": [
+        "https://viewvix.com/reddit/user/"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
+      ],
+      "first_seen": "2026-10-26T04:18:31Z",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 5,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1794916113.7570455
+    },
+    {
+      "domain": "www.wappkit.com",
+      "platform": "reddit",
+      "queries": [
+        "\"reddit anonymous viewer\""
+      ],
+      "urls": [
+        "https://www.wappkit.com/blog/browse-reddit-without-account-2025"
+      ],
+      "sources": [],
+      "providers": [
+        "bing-rss"
+      ],
+      "search_evidence": [
+        "bing-rss:how to browse reddit without an account in 2026 (5 methods that still ... old reddit now requires a login. here are 5 anonymous viewing methods that still work in 2026, from direct urls and rss to a free reader extension."
+      ],
+      "first_seen": "2026-11-10T11:48:33Z",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 1,
+      "status": "search_strong_but_page_unverified",
+      "last_reason": "platform=reddit; service=viewer/browser/reader; identity=subreddit/subreddits; search_intent=1; providers=1; queries=1",
+      "discovery_score": 10,
+      "next_retry_epoch": 1794397713.7570455
     },
     {
       "domain": "aijourn.com",
@@ -870,54 +970,54 @@
       "next_retry_epoch": 1794393760.6106946
     },
     {
-      "domain": "sotwe.co.uk",
-      "platform": "twitter",
+      "domain": "findby.co.kr",
+      "platform": "tumblr",
       "queries": [
-        "\"twitter anonymous viewer\""
+        "\"tumblr 웹 뷰어\""
       ],
       "urls": [
-        "https://sotwe.co.uk/"
+        "https://findby.co.kr/search/34377"
       ],
       "sources": [],
       "providers": [
-        "bing-rss"
+        "bing-html"
       ],
       "search_evidence": [
-        "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
+        "bing-html:34377 , 대전광역시 대덕구 오정동 우편번호 findby.co.kr https://findby.co.kr › search 34377 🍀 34377 의 우편주소 총 27건 이 검색 되었습니다. 도로명주소의 우편번호 또는 영문주소, 지번주소를 찾으실 수 있으며, 상세 ..."
       ],
-      "first_seen": "2026-10-26T04:18:31Z",
-      "last_attempt": "2026-11-03T11:21:48Z",
-      "last_attempt_epoch": 1793704908.5829244,
-      "attempts": 4,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1794309708.5829244
+      "first_seen": "2026-11-10T11:48:33Z",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 1,
+      "status": "challenge_blocked",
+      "last_reason": "challenge/parked page detected",
+      "discovery_score": 8,
+      "next_retry_epoch": 1794484113.7570455
     },
     {
-      "domain": "viewvix.com",
+      "domain": "www.netflix.com",
       "platform": "reddit",
       "queries": [
-        "\"Reddit profile viewer\" -news -article -guide -review"
+        "\"reddit visor web\" \"sin iniciar sesión\""
       ],
       "urls": [
-        "https://viewvix.com/reddit/user/"
+        "https://www.netflix.com/search?q=ri"
       ],
       "sources": [],
       "providers": [
-        "bing-rss"
+        "bing-html"
       ],
       "search_evidence": [
-        "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
+        "bing-html:netflix - watch tv shows online, watch movies online netflix.com https://www.netflix.com › search aquí nos gustaría mostrarte una descripción, pero el sitio web que estás mirando no lo permite. más información"
       ],
-      "first_seen": "2026-10-26T04:18:31Z",
-      "last_attempt": "2026-11-03T11:21:48Z",
-      "last_attempt_epoch": 1793704908.5829244,
-      "attempts": 4,
-      "status": "search_strong_but_page_unverified",
-      "last_reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
-      "discovery_score": 10,
-      "next_retry_epoch": 1794309708.5829244
+      "first_seen": "2026-11-10T11:48:33Z",
+      "last_attempt": "2026-11-10T11:48:33Z",
+      "last_attempt_epoch": 1794311313.7570455,
+      "attempts": 1,
+      "status": "challenge_blocked",
+      "last_reason": "challenge/parked page detected",
+      "discovery_score": 8,
+      "next_retry_epoch": 1794484113.7570455
     },
     {
       "domain": "ojs.aaai.org",
@@ -970,42 +1070,41 @@
       "next_retry_epoch": 1794398983.798555
     }
   ],
-  "near_miss_count": 9,
+  "near_miss_count": 11,
   "top_near_misses": [
     {
-      "domain": "www.yna.co.kr",
-      "platform": "twitter",
-      "discovery_score": 18,
-      "validation_score": 10,
-      "reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
+      "domain": "2gis.ru",
+      "platform": "tumblr",
+      "discovery_score": 16,
+      "validation_score": 15,
+      "reason": "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3",
       "status": "search_strong_but_page_unverified",
       "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "twitter_x_context_ok": true,
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [],
+        "body_identity_hits": [
+          "профиль"
+        ],
         "service_hits": [
-          "reader",
-          "gallery"
+          "frontend",
+          "visor",
+          "reader"
         ],
         "identity_hits": [
-          "media",
-          "publication"
+          "профиль"
         ],
         "ui_signal": true,
-        "inputs": 81,
-        "forms": 0,
-        "buttons": 265,
-        "article_count": 2,
-        "article_structure_hint": true,
+        "inputs": 21,
+        "forms": 2,
+        "buttons": 41,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [],
         "service_path_hint": true,
         "host_service_hint": false,
@@ -1015,7 +1114,7 @@
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": false,
-        "single_query_service_ok": false,
+        "single_query_service_ok": true,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
         "query_intent_hits": 3,
@@ -1024,38 +1123,40 @@
         "search_provider_hits": [],
         "distinct_queries": 3,
         "search_providers": [
-          "bing-rss",
           "bing-html"
         ],
         "search_evidence": [
-          "bing-rss:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 주의 일부 마을이 러시아군에 점령됐다. 미콜라이우와 드니프로페트로우스크 등 2개 주의 접경지역에도 소규모이긴 하지만 러시아군 점령지가 ...",
-          "bing-html:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 yna.co.kr https://www.yna.co.kr › view 2025년 9월 24일 · 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 ..."
+          "bing-html:г москва ул раменки д 29 в москве на карте: ☎ телефоны, ★ ... 2gis.ru https://2gis.ru › moscow › search результаты поиска по запросу г москва ул раменки д 29 на карте в москве."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "reader",
+          "visor"
         ],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
+        "runtime_framework_hits": [
+          "react"
+        ],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 5,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://www.yna.co.kr/view/AKR20250924061300009"
+          "https://2gis.ru/moscow/search/%D0%B3%20%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%83%D0%BB%20%D1%80%D0%B0%D0%BC%D0%B5%D0%BD%D0%BA%D0%B8%20%D0%B4%2029"
         ],
-        "discovery_score": 18
+        "discovery_score": 16
       }
     },
     {
-      "domain": "support.reddithelp.com",
+      "domain": "www.britannica.com",
       "platform": "reddit",
       "discovery_score": 16,
-      "validation_score": 12,
-      "reason": "platform=reddit; service=-; identity=用户; search_intent=0; providers=0; queries=4",
+      "validation_score": 8,
+      "reason": "platform=reddit; service=-; identity=subreddit/subreddits/comments/post/posts/user/publication; search_intent=0; providers=0; queries=4",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
@@ -1068,19 +1169,94 @@
         ],
         "header_brand_hits": [],
         "header_service_hits": [],
-        "header_identity_hits": [
-          "用户"
-        ],
+        "header_identity_hits": [],
         "body_service_hits": [],
         "body_identity_hits": [
           "subreddit",
-          "用户"
+          "subreddits",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "publication"
         ],
         "service_hits": [],
         "identity_hits": [
           "subreddit",
-          "用户"
+          "subreddits",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "publication"
         ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [
+          "published"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:reddit | description, history, features, influence, & controversy ... reddit is an online social media forum where users share news stories and other content. reddit comprises millions of individual forums called “subreddits,” managed by volunteer moderators who set and enforce rules for posting and commenting."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://www.britannica.com/money/Reddit"
+        ],
+        "discovery_score": 16
+      }
+    },
+    {
+      "domain": "www.espn.com",
+      "platform": "tumblr",
+      "discovery_score": 14,
+      "validation_score": 3,
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=3",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
         "ui_signal": false,
         "inputs": 0,
         "forms": 0,
@@ -1099,20 +1275,24 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 4,
-        "search_signal_hits": 4,
+        "query_intent_hits": 3,
+        "search_signal_hits": 3,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 4,
+        "distinct_queries": 3,
         "search_providers": [
-          "bing-rss"
+          "bing-html"
         ],
         "search_evidence": [
-          "bing-rss:社区 – reddit help 什么是社区或“subreddit”? 如何订阅或退出社区 了解 reddit 上的每周访客数和贡献数 可以在哪里找到我订阅的社区列表? 什么是公共社区、受限社区、私人社区和仅限 premium 社区? 社区侧边栏是什么?"
+          "bing-html:trey boyd - northwestern wildcats offensive lineman - espn espn.com https://www.espn.com › college-football › player › id view the profile of northwestern wildcats offensive lineman trey boyd on espn. get the latest news, live stats and game ...",
+          "bing-html:trey boyd iii - hofstra pride guard - espn espn.com https://www.espn.com › mens-college-basketball › player › id view the profile of hofstra pride guard trey boyd iii on espn. get the latest news, live stats and game highlights.",
+          "bing-html:ethan feaster - usc trojans wide receiver - espn espn.com https://www.espn.com › college-football › player › id view the profile of usc trojans wide receiver ethan feaster on espn. get the latest news, live stats and game highlights.",
+          "bing-html:ethan feaster wide receiver recruiting profile - espn espn.com https://www.espn.com › college-sports › football › recruiting › player › id 4 de jul de 2025 · view the ethan feaster, wide receiver from desoto high school recruiting profile including all the latest activity, ...",
+          "bing-html:elijah brown - washington huskies quarterback - espn espn.com https://www.espn.com › college-football › player › id view the profile of washington huskies quarterback elijah brown on espn. get the latest news, live stats and game highlights."
         ],
         "trusted_sources": [],
-        "fetch_via": "jina",
-        "fetch_status_code": null,
+        "fetch_via": "direct",
+        "fetch_status_code": 202,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
@@ -1122,51 +1302,21 @@
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://support.reddithelp.com/hc/zh-cn/sections/201073125-%E7%A4%BE%E5%8C%BA"
+          "https://www.espn.com/college-football/player/_/id/5212591/trey-boyd",
+          "https://www.espn.com/mens-college-basketball/player/_/id/5312162/trey-boyd-iii",
+          "https://www.espn.com/college-football/player/_/id/5268018/ethan-feaster",
+          "https://www.espn.com/college-sports/football/recruiting/player/_/id/261481/ethan-feaster",
+          "https://www.espn.com/college-football/player/_/id/5079318/elijah-brown"
         ],
-        "discovery_score": 16
+        "discovery_score": 14
       }
     },
     {
-      "domain": "www.britannica.com",
-      "platform": "reddit",
-      "discovery_score": 16,
-      "validation_score": 0,
-      "reason": "page unavailable",
-      "status": "forbidden",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-rss"
-        ],
-        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
-        "status_code": 403,
-        "discovery_score": 16
-      }
-    },
-    {
-      "domain": "www.t.co",
-      "platform": "twitter",
-      "discovery_score": 16,
-      "validation_score": 0,
-      "reason": "page unavailable",
-      "status": "temporary_unavailable",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-rss"
-        ],
-        "fetch_error": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1011)>",
-        "status_code": null,
-        "discovery_score": 16
-      }
-    },
-    {
-      "domain": "www.linkedin.com",
-      "platform": "twitter",
-      "discovery_score": 14,
-      "validation_score": 13,
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=2",
+      "domain": "street-viewer.ru",
+      "platform": "tumblr",
+      "discovery_score": 13,
+      "validation_score": 11,
+      "reason": "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [],
@@ -1176,34 +1326,30 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [
-          "front end"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [
-          "user"
+          "пост"
         ],
         "service_hits": [],
         "identity_hits": [
-          "user"
+          "пост"
         ],
         "ui_signal": true,
-        "inputs": 125,
-        "forms": 21,
-        "buttons": 213,
+        "inputs": 6,
+        "forms": 0,
+        "buttons": 6,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
+        "service_path_hint": false,
+        "host_service_hint": true,
         "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
+        "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": true,
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
         "query_intent_hits": 2,
@@ -1212,38 +1358,45 @@
         "search_provider_hits": [],
         "distinct_queries": 2,
         "search_providers": [
-          "bing-html",
-          "bing-rss"
+          "bing-html"
         ],
         "search_evidence": [
-          "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
-          "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
+          "bing-html:улица раменки , 29 на карте москвы street-viewer.ru https://street-viewer.ru › moscow › locations на странице представлено расположение адреса улица раменки, 29 на карте города москвы. ниже, можно построить ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "front end"
-        ],
+        "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 4,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
+          "https://street-viewer.ru/moscow/locations/ulitsa-ramenki-29/"
         ],
-        "discovery_score": 14
+        "discovery_score": 13
       }
     },
     {
-      "domain": "dubai.dubizzle.com",
-      "platform": "twitter",
-      "discovery_score": 14,
-      "validation_score": 4,
-      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "domain": "blog.octobrowser.net",
+      "platform": "reddit",
+      "discovery_score": 13,
+      "validation_score": 0,
+      "reason": "challenge/parked page detected",
+      "status": "challenge_blocked",
+      "evidence": {
+        "discovery_score": 13
+      }
+    },
+    {
+      "domain": "wenku.baidu.com",
+      "platform": "tumblr",
+      "discovery_score": 12,
+      "validation_score": 9,
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [],
@@ -1253,20 +1406,12 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [
-          "browser"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
-        "service_hits": [
-          "browser"
-        ],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 1,
         "forms": 0,
         "buttons": 0,
         "article_count": 0,
@@ -1289,12 +1434,12 @@
         "search_provider_hits": [],
         "distinct_queries": 2,
         "search_providers": [
-          "bing-html",
-          "bing-rss"
+          "bing-html"
         ],
         "search_evidence": [
-          "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
-          "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
+          "bing-html:中国 四大 地理区域划分详解: 东部 、 中部 、 西部 、 东北 各有 ... baidu.com https://wenku.baidu.com › view 中国四大地理区域划分详解:东部、中部、西部、东北各有哪些省份? 中国四大地理区域,是指依据地理位置和省级行政区划,综合 ...",
+          "bing-html:一日之计在于晨 , 一年之计在于春 :全文、出处与含义详解 baidu.com https://wenku.baidu.com › view 一年之计在于春:指一年的计划要在春季考虑安排。 春天是播种和规划的关键季节,只有在年初定好目标、打好基础,才能为全年的 ...",
+          "bing-html:一日之计在于晨 , 一年之计在于春 :完整原文、出处及作者详解 baidu.com https://wenku.baidu.com › view “一年之计在于春,一日之计在于晨”这句脍炙人口的格言,其更完整的版本为“一年之计在于春,一日之计在于晨,一家之计在于和,一 ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -1303,33 +1448,101 @@
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://dubai.dubizzle.com/jobs/search/"
+          "https://wenku.baidu.com/view/905e9a4da1e9856a561252d380eb6294dd88229d.html",
+          "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
+          "https://wenku.baidu.com/view/8ea34742b3360b4c2e3f5727a5e9856a561226e5.html"
         ],
-        "discovery_score": 14
+        "discovery_score": 12
       }
     },
     {
-      "domain": "aijourn.com",
+      "domain": "redlib.org",
+      "platform": "reddit",
+      "discovery_score": 11,
+      "validation_score": 19,
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [
+          "redlib"
+        ],
+        "header_platform_hits": [],
+        "header_brand_hits": [
+          "redlib"
+        ],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:redlib.org redlib.org is a platform for sharing and accessing books, resources, and educational materials online."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://redlib.org/"
+        ],
+        "discovery_score": 11
+      }
+    },
+    {
+      "domain": "sotwe.co.uk",
       "platform": "twitter",
       "discovery_score": 10,
       "validation_score": 23,
-      "reason": "platform=twitter/x; service=viewer; identity=profile/posts/handle/media; search_intent=1; providers=1; queries=1",
+      "reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
           "twitter",
-          "x",
-          "nitter"
+          "x"
         ],
         "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
+        "brand_hits": [],
         "header_platform_hits": [
           "twitter",
           "x"
@@ -1339,65 +1552,50 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "profile",
+          "user",
           "posts",
-          "handle",
           "media"
         ],
-        "body_service_hits": [
-          "viewer",
-          "front-end",
-          "alternative front-end",
-          "reader"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
-          "posts",
-          "timeline",
           "media"
         ],
         "service_hits": [
-          "viewer",
-          "frontend",
-          "instance",
-          "reader"
+          "viewer"
         ],
         "identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
           "posts",
-          "timeline",
-          "handle",
           "media"
         ],
         "ui_signal": true,
-        "inputs": 50,
-        "forms": 14,
-        "buttons": 46,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 7,
         "article_count": 1,
         "article_structure_hint": true,
         "interactive_target_hits": [
           "username",
-          "handle"
+          "twitter",
+          "account",
+          "view"
         ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "how to ",
-          "best ",
-          "guide"
+          "what is "
         ],
         "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "non_frontend_service_hits": [
+          "tracking"
+        ],
+        "service_kind": "viewer/frontend+tool",
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
@@ -1413,44 +1611,39 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:best 7 twitter private account viewer tools | the ai journal a private twitter viewer is most useful when it’s honest about limits and focused on public browsing. the best tools help you review public profiles, public posts, trends, and hashtags without forcing a login."
+          "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [
-          "twitter",
-          "tweet"
+          "twitter"
         ],
         "runtime_service_hits": [
-          "viewer",
-          "frontend",
-          "front end",
-          "alternative front end",
-          "reader"
+          "viewer"
         ],
         "runtime_framework_hits": [],
         "runtime_service_hint": true,
-        "positive_frontend_signals": 8,
+        "positive_frontend_signals": 3,
         "tool_signal_hits": [
           "analytics",
           "tracker",
           "tracking"
         ],
-        "editorial_signal_count": 3,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://aijourn.com/best-7-twitter-private-account-viewer-tools/"
+          "https://sotwe.co.uk/"
         ],
         "discovery_score": 10
       }
     },
     {
-      "domain": "event-theme.com",
+      "domain": "viewvix.com",
       "platform": "reddit",
       "discovery_score": 10,
       "validation_score": 23,
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/post/posts/profile; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
@@ -1466,47 +1659,38 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "post",
           "posts",
+          "user",
           "profile"
         ],
         "body_service_hits": [
           "viewer"
         ],
         "body_identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "service_hits": [
           "viewer",
           "frontend"
         ],
         "identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "ui_signal": true,
-        "inputs": 9,
+        "inputs": 18,
         "forms": 2,
-        "buttons": 10,
-        "article_count": 18,
+        "buttons": 11,
+        "article_count": 20,
         "article_structure_hint": true,
         "interactive_target_hits": [
-          "username",
           "user",
           "reddit",
           "paste"
@@ -1515,6 +1699,7 @@
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
+          "what is ",
           "review"
         ],
         "editorial_marker_hits": [],
@@ -1535,7 +1720,7 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:reddit anonymous viewer – browse posts, profiles & subreddits anonymously view reddit posts, profiles & stories anonymously with event theme's reddit anonymous viewer. no login, fast & private."
+          "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -1551,110 +1736,188 @@
         "runtime_service_hint": true,
         "positive_frontend_signals": 4,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 0,
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://event-theme.com/tools/social-viewer/reddit-anonymous/"
+          "https://viewvix.com/reddit/user/"
         ],
         "discovery_score": 10
       }
     },
     {
-      "domain": "fossy.dev",
-      "platform": "tumblr",
+      "domain": "www.wappkit.com",
+      "platform": "reddit",
       "discovery_score": 10,
-      "validation_score": 23,
-      "reason": "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
+      "validation_score": 20,
+      "reason": "platform=reddit; service=viewer/browser/reader; identity=subreddit/subreddits; search_intent=1; providers=1; queries=1",
       "status": "search_strong_but_page_unverified",
       "evidence": {
         "platform_hits": [
-          "tumblr"
+          "reddit"
         ],
         "twitter_x_context_ok": false,
         "brand_hits": [
-          "priviblur"
+          "redlib"
         ],
-        "header_platform_hits": [],
-        "header_brand_hits": [
-          "priviblur"
+        "header_platform_hits": [
+          "reddit"
         ],
+        "header_brand_hits": [],
         "header_service_hits": [
-          "frontend"
+          "viewer",
+          "browser",
+          "reader"
         ],
         "header_identity_hits": [
-          "profile"
+          "subreddit",
+          "subreddits"
         ],
         "body_service_hits": [
-          "frontend",
-          "alternative frontend"
+          "viewer",
+          "browser",
+          "reader"
         ],
         "body_identity_hits": [
-          "user",
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
           "profile",
-          "tag"
+          "thread"
         ],
         "service_hits": [
-          "frontend",
-          "alternative frontend"
+          "viewer",
+          "browser",
+          "reader"
         ],
         "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
           "post",
-          "user",
+          "posts",
           "profile",
-          "tag"
+          "thread"
         ],
-        "ui_signal": true,
-        "inputs": 10,
+        "ui_signal": false,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 37,
-        "article_count": 4,
-        "article_structure_hint": true,
+        "buttons": 56,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [],
-        "service_path_hint": true,
+        "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "top "
+          "best ",
+          "review"
         ],
-        "editorial_marker_hits": [],
+        "editorial_marker_hits": [
+          "author"
+        ],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
+        "search_intent_hits": 1,
         "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
         "distinct_queries": 1,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:priviblur - fossy - curated foss directory for community and discussion a self-hosted tool for blurring faces in images and videos"
+          "bing-rss:how to browse reddit without an account in 2026 (5 methods that still ... old reddit now requires a login. here are 5 anonymous viewing methods that still work in 2026, from direct urls and rss to a free reader extension."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "tumblr",
-          "priviblur"
-        ],
-        "runtime_service_hits": [
-          "frontend",
-          "alternative frontend"
-        ],
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
         "runtime_framework_hits": [],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 6,
-        "tool_signal_hits": [
-          "tracking"
-        ],
-        "editorial_signal_count": 1,
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 4,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 3,
         "internal_routes_checked": 3,
         "query_urls": [
-          "https://fossy.dev/syeopite/priviblur"
+          "https://www.wappkit.com/blog/browse-reddit-without-account-2025"
+        ],
+        "discovery_score": 10
+      }
+    },
+    {
+      "domain": "www.espn.com",
+      "platform": "reddit",
+      "discovery_score": 10,
+      "validation_score": 2,
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
+      "status": "search_strong_but_page_unverified",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:roman voss - minnesota golden gophers tight end - espn espn.com https://www.espn.com › college-football › player › id view the profile of minnesota golden gophers tight end roman voss on espn. get the latest news, live stats and game highlights.",
+          "bing-html:marquise lightfoot - miami hurricanes defensive lineman - espn espn.com https://www.espn.com › college-football › player › id view the profile of miami hurricanes defensive lineman marquise lightfoot on espn. get the latest news, live stats and game ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 202,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://www.espn.com/college-football/player/_/id/5244731/roman-voss",
+          "https://www.espn.com/college-football/player/_/id/5126999/marquise-lightfoot"
         ],
         "discovery_score": 10
       }
@@ -1666,21 +1929,21 @@
   "append_only": true,
   "output_preserved": true,
   "rejection_reason_counts": {
-    "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3": 1,
-    "platform=reddit; service=-; identity=用户; search_intent=0; providers=0; queries=4": 1,
-    "page unavailable": 5,
-    "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=2": 1,
-    "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2": 1,
-    "platform=twitter/x; service=viewer; identity=profile/posts/handle/media; search_intent=1; providers=1; queries=1": 1,
-    "platform=reddit; service=viewer; identity=subreddit/subreddits/post/posts/profile; search_intent=1; providers=1; queries=1": 1,
-    "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 1,
-    "challenge/parked page detected": 3,
-    "platform=-; service=browser; identity=post; search_intent=0; providers=0; queries=1": 1,
-    "platform=-; service=mirror/proxy/镜像/代理/前端/实例; identity=blog/profile/用户/博文; search_intent=0; providers=0; queries=1": 1,
+    "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3": 1,
+    "platform=reddit; service=-; identity=subreddit/subreddits/comments/post/posts/user/publication; search_intent=0; providers=0; queries=4": 1,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=3": 1,
+    "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2": 1,
+    "challenge/parked page detected": 5,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2": 2,
+    "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1": 4,
+    "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1": 1,
+    "platform=reddit; service=viewer/browser/reader; identity=subreddit/subreddits; search_intent=1; providers=1; queries=1": 1,
     "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=0": 5,
-    "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1": 1,
-    "article/content page, not a frontend endpoint": 3,
+    "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=1": 1,
+    "page unavailable": 3,
+    "article/content page, not a frontend endpoint": 5,
+    "non-frontend service/tool page": 1,
     "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=0": 1
   },
   "search_strategy": "maintained registries + curated alternative-frontends sources + GitHub + bounded rotated Bing RSS search + same-engine HTML fallback + parallel page validation",
@@ -1689,8 +1952,8 @@
       "domain": "twitterviewer.net",
       "platform": "twitter",
       "accepted": true,
-      "score": 36,
-      "query_count": 5,
+      "score": 33,
+      "query_count": 1,
       "final_url": "https://twitterviewer.net/twitter-advanced-search",
       "evidence": {
         "platform_hits": [
@@ -1786,22 +2049,21 @@
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
-        "search_intent_hits": 2,
-        "query_intent_hits": 5,
-        "search_signal_hits": 7,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 5,
+        "distinct_queries": 1,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
           "Web-verified viewer seed: https://twitterviewer.net/",
-          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x.",
-          "bing-rss:twitter (x) advanced search — free, no login required search twitter (x) by account, date, engagement and more — results appear right on the page. no account or login required.",
-          "bing-rss:ツイッターをログインなしで見るだけ — 無料 twitter/x ビューア アカウント登録もログインも不要。 ツイッターを見るだけで使える無料の twitter/x ビューアです。 公開ツイート・プロフィール・返信をそのまま表示し、動画のダウンロードにも対応。 相手に通知は届かず、足跡も残りません。"
+          "bing-rss:free twitter/x viewer — view tweets, profiles & replies without an account what is a twitter viewer? a twitter viewer (also known as an x viewer or tweet viewer) is a third-party web tool that lets you view twitter without an account. browse and read public tweets, user profiles, and replies without logging in to twitter / x. since twitter's policy changes removed anonymous access, tools like our anonymous twitter viewer fill this gap — providing a seamless, secure ...",
+          "bing-rss:twitter (x) advanced search — free, no login required search twitter (x) by account, date, engagement and more — results appear right on the page. no account or login required."
         ],
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
@@ -1828,135 +2090,114 @@
         "internal_routes_checked": 3,
         "query_urls": [
           "https://twitterviewer.net/",
-          "https://twitterviewer.net/twitter-advanced-search",
-          "https://twitterviewer.net/ja"
+          "https://twitterviewer.net/twitter-advanced-search"
         ],
-        "discovery_score": 26
+        "discovery_score": 16
       },
-      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=2; providers=1; queries=5",
+      "reason": "platform=twitter/x/nitter; service=viewer/gallery; identity=tweet/tweets/user/profile/posts/handle/media; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
-      "domain": "tweetviewer.com",
-      "platform": "twitter",
+      "domain": "tryadlicio.com",
+      "platform": "reddit",
       "accepted": true,
-      "score": 30,
-      "query_count": 4,
-      "final_url": "https://tweetviewer.com/ja",
+      "score": 26,
+      "query_count": 1,
+      "final_url": "https://tryadlicio.com/tools/reddit-viewer",
       "evidence": {
         "platform_hits": [
-          "twitter",
-          "x"
+          "reddit"
         ],
-        "twitter_x_context_ok": true,
+        "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [
-          "twitter",
-          "x"
+          "reddit"
         ],
         "header_brand_hits": [],
         "header_service_hits": [
-          "viewer",
-          "ビューア"
+          "viewer"
         ],
         "header_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
           "post",
           "posts",
-          "handle",
-          "プロフィール",
-          "ユーザー",
-          "投稿"
+          "user",
+          "profile"
         ],
         "body_service_hits": [
           "viewer",
           "browser",
-          "ビューア"
+          "visor",
+          "visualizador"
         ],
         "body_identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
           "post",
           "posts",
-          "timeline",
-          "handle",
-          "media",
-          "プロフィール",
-          "ユーザー",
-          "投稿",
-          "ポスト"
+          "user",
+          "profile",
+          "thread"
         ],
         "service_hits": [
           "viewer",
-          "ビューア",
+          "visor",
+          "visualizador",
           "browser"
         ],
         "identity_hits": [
-          "tweet",
-          "tweets",
-          "user",
-          "profile",
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
           "post",
           "posts",
-          "timeline",
-          "handle",
-          "media",
-          "プロフィール",
-          "ユーザー",
-          "投稿",
-          "ポスト"
+          "user",
+          "profile",
+          "thread"
         ],
         "ui_signal": true,
         "inputs": 3,
         "forms": 3,
-        "buttons": 30,
-        "article_count": 17,
-        "article_structure_hint": true,
+        "buttons": 6,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [
           "username",
-          "user",
-          "tweet",
-          "twitter",
-          "paste",
-          "view"
+          "profile",
+          "post"
         ],
-        "service_path_hint": false,
-        "host_service_hint": true,
+        "service_path_hint": true,
+        "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "what is ",
-          "how to ",
-          "best ",
-          "top ",
-          "guide"
+          "how to "
         ],
-        "editorial_marker_hits": [
-          "subscribe"
-        ],
+        "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": true,
-        "single_query_service_ok": false,
+        "single_query_service_ok": true,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 1,
-        "query_intent_hits": 4,
-        "search_signal_hits": 5,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
         "strong_search_evidence_hint": true,
         "search_provider_hits": [
           "bing-rss"
         ],
-        "distinct_queries": 4,
+        "distinct_queries": 1,
         "search_providers": [
           "bing-rss"
         ],
         "search_evidence": [
-          "Web-verified viewer seed: https://tweetviewer.com/",
-          "bing-rss:twitter ビューアー — ログインせずにツイートとタイムラインを ... twitter のコンテンツを個人用に保存する tweet viewer のツールは、x が配信しているのと同じ品質のまま twitter のコンテンツを保存します。 再エンコードなし、透かしなし、720p への強制的な制限もありません。"
+          "Web-verified viewer seed: https://tryadlicio.com/tools/reddit-viewer",
+          "bing-rss:reddit viewer: browse any subreddit, post or profile, no login free reddit viewer. read any public subreddit, post with comments, or user profile without a reddit account or app. search comments and export csv."
         ],
         "trusted_sources": [
           "Web-verified seed 2026-10-03"
@@ -1964,29 +2205,28 @@
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [
-          "twitter",
-          "tweet"
+          "reddit",
+          "subreddit"
         ],
         "runtime_service_hits": [
           "viewer",
-          "browser",
-          "ビューア"
+          "browser"
         ],
-        "runtime_framework_hits": [
-          "react"
-        ],
+        "runtime_framework_hits": [],
         "runtime_service_hint": true,
-        "positive_frontend_signals": 7,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 6,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [
+          "analyzer",
+          "statistics"
+        ],
+        "editorial_signal_count": 1,
         "internal_routes_checked": 2,
         "query_urls": [
-          "https://tweetviewer.com/",
-          "https://tweetviewer.com/ja"
+          "https://tryadlicio.com/tools/reddit-viewer"
         ],
-        "discovery_score": 26
+        "discovery_score": 15
       },
-      "reason": "platform=twitter/x; service=viewer/ビューア; identity=tweet/tweets/user/profile/post/posts/handle/プロフィール/ユーザー/投稿; search_intent=1; providers=1; queries=4",
+      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
@@ -2237,6 +2477,139 @@
       "error": ""
     },
     {
+      "domain": "tweetviewer.com",
+      "platform": "twitter",
+      "accepted": true,
+      "score": 24,
+      "query_count": 0,
+      "final_url": "https://tweetviewer.com/",
+      "evidence": {
+        "platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "twitter_x_context_ok": true,
+        "brand_hits": [],
+        "header_platform_hits": [
+          "twitter",
+          "x"
+        ],
+        "header_brand_hits": [],
+        "header_service_hits": [
+          "viewer"
+        ],
+        "header_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "handle",
+          "media"
+        ],
+        "body_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "body_identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "identity_hits": [
+          "tweet",
+          "tweets",
+          "user",
+          "profile",
+          "post",
+          "posts",
+          "timeline",
+          "handle",
+          "media"
+        ],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 30,
+        "article_count": 9,
+        "article_structure_hint": true,
+        "interactive_target_hits": [
+          "username",
+          "user",
+          "tweet",
+          "twitter",
+          "paste",
+          "view"
+        ],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "what is ",
+          "how to ",
+          "best ",
+          "top ",
+          "guide"
+        ],
+        "editorial_marker_hits": [
+          "subscribe"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 0,
+        "search_signal_hits": 0,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 0,
+        "search_providers": [],
+        "search_evidence": [
+          "Web-verified viewer seed: https://tweetviewer.com/"
+        ],
+        "trusted_sources": [
+          "Web-verified seed 2026-10-03"
+        ],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [
+          "twitter",
+          "tweet"
+        ],
+        "runtime_service_hits": [
+          "viewer",
+          "browser"
+        ],
+        "runtime_framework_hits": [
+          "react"
+        ],
+        "runtime_service_hint": true,
+        "positive_frontend_signals": 5,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 6,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://tweetviewer.com/"
+        ],
+        "discovery_score": 6
+      },
+      "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/post/posts/handle/media; search_intent=0; providers=0; queries=0",
+      "error": ""
+    },
+    {
       "domain": "www.tumviews.com",
       "platform": "tumblr",
       "accepted": true,
@@ -2298,7 +2671,9 @@
         "host_service_hint": true,
         "content_path_hint": false,
         "content_title_hits": [],
-        "editorial_marker_hits": [],
+        "editorial_marker_hits": [
+          "published"
+        ],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": true,
@@ -2327,7 +2702,7 @@
         "tool_signal_hits": [
           "statistics"
         ],
-        "editorial_signal_count": 0,
+        "editorial_signal_count": 1,
         "internal_routes_checked": 0,
         "query_urls": [
           "https://www.tumviews.com/"
@@ -2554,133 +2929,6 @@
         "discovery_score": 6
       },
       "reason": "platform=twitter/x; service=viewer; identity=tweet/tweets/user/profile/handle/media; search_intent=0; providers=0; queries=0",
-      "error": ""
-    },
-    {
-      "domain": "tryadlicio.com",
-      "platform": "reddit",
-      "accepted": true,
-      "score": 21,
-      "query_count": 0,
-      "final_url": "https://tryadlicio.com/tools/reddit-viewer",
-      "evidence": {
-        "platform_hits": [
-          "reddit"
-        ],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [
-          "reddit"
-        ],
-        "header_brand_hits": [],
-        "header_service_hits": [
-          "viewer"
-        ],
-        "header_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile"
-        ],
-        "body_service_hits": [
-          "viewer",
-          "browser",
-          "visor",
-          "visualizador"
-        ],
-        "body_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "thread"
-        ],
-        "service_hits": [
-          "viewer",
-          "visor",
-          "visualizador",
-          "browser"
-        ],
-        "identity_hits": [
-          "subreddit",
-          "subreddits",
-          "comment",
-          "comments",
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "thread"
-        ],
-        "ui_signal": true,
-        "inputs": 3,
-        "forms": 3,
-        "buttons": 6,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [
-          "username",
-          "profile",
-          "post"
-        ],
-        "service_path_hint": true,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [
-          "how to "
-        ],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 0,
-        "search_signal_hits": 0,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 0,
-        "search_providers": [],
-        "search_evidence": [
-          "Web-verified viewer seed: https://tryadlicio.com/tools/reddit-viewer"
-        ],
-        "trusted_sources": [
-          "Web-verified seed 2026-10-03"
-        ],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "reddit",
-          "subreddit"
-        ],
-        "runtime_service_hits": [
-          "viewer",
-          "browser"
-        ],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 5,
-        "tool_signal_hits": [
-          "analyzer",
-          "statistics"
-        ],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
-        "query_urls": [
-          "https://tryadlicio.com/tools/reddit-viewer"
-        ],
-        "discovery_score": 5
-      },
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/comment/comments/post/posts/user/profile; search_intent=0; providers=0; queries=0",
       "error": ""
     },
     {
@@ -2994,39 +3242,38 @@
       "error": ""
     },
     {
-      "domain": "www.yna.co.kr",
-      "platform": "twitter",
+      "domain": "2gis.ru",
+      "platform": "tumblr",
       "accepted": false,
-      "score": 10,
+      "score": 15,
       "query_count": 3,
-      "final_url": "https://www.yna.co.kr/view/AKR20250924061300009",
+      "final_url": "https://2gis.ru/moscow/search/%D0%B3%20%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%83%D0%BB%20%D1%80%D0%B0%D0%BC%D0%B5%D0%BD%D0%BA%D0%B8%20%D0%B4%2029",
       "evidence": {
-        "platform_hits": [
-          "twitter",
-          "x"
-        ],
-        "twitter_x_context_ok": true,
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
         "brand_hits": [],
         "header_platform_hits": [],
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
         "body_service_hits": [],
-        "body_identity_hits": [],
+        "body_identity_hits": [
+          "профиль"
+        ],
         "service_hits": [
-          "reader",
-          "gallery"
+          "frontend",
+          "visor",
+          "reader"
         ],
         "identity_hits": [
-          "media",
-          "publication"
+          "профиль"
         ],
         "ui_signal": true,
-        "inputs": 81,
-        "forms": 0,
-        "buttons": 265,
-        "article_count": 2,
-        "article_structure_hint": true,
+        "inputs": 21,
+        "forms": 2,
+        "buttons": 41,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [],
         "service_path_hint": true,
         "host_service_hint": false,
@@ -3036,7 +3283,7 @@
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": false,
-        "single_query_service_ok": false,
+        "single_query_service_ok": true,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
         "query_intent_hits": 3,
@@ -3045,41 +3292,43 @@
         "search_provider_hits": [],
         "distinct_queries": 3,
         "search_providers": [
-          "bing-rss",
           "bing-html"
         ],
         "search_evidence": [
-          "bing-rss:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 주의 일부 마을이 러시아군에 점령됐다. 미콜라이우와 드니프로페트로우스크 등 2개 주의 접경지역에도 소규모이긴 하지만 러시아군 점령지가 ...",
-          "bing-html:우크라 영토 20% 러시아에 점령중...동부·동남부 격전 | 연합뉴스 yna.co.kr https://www.yna.co.kr › view 2025년 9월 24일 · 우크라이나 북동부 수미 주와 이에 맞닿은 러시아 북서부 쿠르스크 주에서도 양국 군대의 공방이 벌어지면서 수미 ..."
+          "bing-html:г москва ул раменки д 29 в москве на карте: ☎ телефоны, ★ ... 2gis.ru https://2gis.ru › moscow › search результаты поиска по запросу г москва ул раменки д 29 на карте в москве."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "twitter"
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [
+          "frontend",
+          "reader",
+          "visor"
         ],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [],
+        "runtime_framework_hits": [
+          "react"
+        ],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 2,
+        "positive_frontend_signals": 5,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 3,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://www.yna.co.kr/view/AKR20250924061300009"
+          "https://2gis.ru/moscow/search/%D0%B3%20%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%83%D0%BB%20%D1%80%D0%B0%D0%BC%D0%B5%D0%BD%D0%BA%D0%B8%20%D0%B4%2029"
         ],
-        "discovery_score": 18
+        "discovery_score": 16
       },
-      "reason": "platform=twitter/x; service=reader/gallery; identity=media/publication; search_intent=0; providers=0; queries=3",
+      "reason": "platform=-; service=frontend/visor/reader; identity=профиль; search_intent=0; providers=0; queries=3",
       "error": ""
     },
     {
-      "domain": "support.reddithelp.com",
+      "domain": "www.britannica.com",
       "platform": "reddit",
       "accepted": false,
-      "score": 12,
+      "score": 8,
       "query_count": 4,
-      "final_url": "https://support.reddithelp.com/hc/zh-cn/sections/201073125-%E7%A4%BE%E5%8C%BA",
+      "final_url": "https://www.britannica.com/money/Reddit",
       "evidence": {
         "platform_hits": [
           "reddit"
@@ -3091,19 +3340,96 @@
         ],
         "header_brand_hits": [],
         "header_service_hits": [],
-        "header_identity_hits": [
-          "用户"
-        ],
+        "header_identity_hits": [],
         "body_service_hits": [],
         "body_identity_hits": [
           "subreddit",
-          "用户"
+          "subreddits",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "publication"
         ],
         "service_hits": [],
         "identity_hits": [
           "subreddit",
-          "用户"
+          "subreddits",
+          "comments",
+          "post",
+          "posts",
+          "user",
+          "publication"
         ],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [
+          "published"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 4,
+        "search_signal_hits": 4,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 4,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:reddit | description, history, features, influence, & controversy ... reddit is an online social media forum where users share news stories and other content. reddit comprises millions of individual forums called “subreddits,” managed by volunteer moderators who set and enforce rules for posting and commenting."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://www.britannica.com/money/Reddit"
+        ],
+        "discovery_score": 16
+      },
+      "reason": "platform=reddit; service=-; identity=subreddit/subreddits/comments/post/posts/user/publication; search_intent=0; providers=0; queries=4",
+      "error": ""
+    },
+    {
+      "domain": "www.espn.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 3,
+      "query_count": 3,
+      "final_url": "https://www.espn.com/college-football/player/_/id/5079318/elijah-brown",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
         "ui_signal": false,
         "inputs": 0,
         "forms": 0,
@@ -3122,20 +3448,24 @@
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
-        "query_intent_hits": 4,
-        "search_signal_hits": 4,
+        "query_intent_hits": 3,
+        "search_signal_hits": 3,
         "strong_search_evidence_hint": false,
         "search_provider_hits": [],
-        "distinct_queries": 4,
+        "distinct_queries": 3,
         "search_providers": [
-          "bing-rss"
+          "bing-html"
         ],
         "search_evidence": [
-          "bing-rss:社区 – reddit help 什么是社区或“subreddit”? 如何订阅或退出社区 了解 reddit 上的每周访客数和贡献数 可以在哪里找到我订阅的社区列表? 什么是公共社区、受限社区、私人社区和仅限 premium 社区? 社区侧边栏是什么?"
+          "bing-html:trey boyd - northwestern wildcats offensive lineman - espn espn.com https://www.espn.com › college-football › player › id view the profile of northwestern wildcats offensive lineman trey boyd on espn. get the latest news, live stats and game ...",
+          "bing-html:trey boyd iii - hofstra pride guard - espn espn.com https://www.espn.com › mens-college-basketball › player › id view the profile of hofstra pride guard trey boyd iii on espn. get the latest news, live stats and game highlights.",
+          "bing-html:ethan feaster - usc trojans wide receiver - espn espn.com https://www.espn.com › college-football › player › id view the profile of usc trojans wide receiver ethan feaster on espn. get the latest news, live stats and game highlights.",
+          "bing-html:ethan feaster wide receiver recruiting profile - espn espn.com https://www.espn.com › college-sports › football › recruiting › player › id 4 de jul de 2025 · view the ethan feaster, wide receiver from desoto high school recruiting profile including all the latest activity, ...",
+          "bing-html:elijah brown - washington huskies quarterback - espn espn.com https://www.espn.com › college-football › player › id view the profile of washington huskies quarterback elijah brown on espn. get the latest news, live stats and game highlights."
         ],
         "trusted_sources": [],
-        "fetch_via": "jina",
-        "fetch_status_code": null,
+        "fetch_via": "direct",
+        "fetch_status_code": 202,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
@@ -3145,58 +3475,24 @@
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://support.reddithelp.com/hc/zh-cn/sections/201073125-%E7%A4%BE%E5%8C%BA"
+          "https://www.espn.com/college-football/player/_/id/5212591/trey-boyd",
+          "https://www.espn.com/mens-college-basketball/player/_/id/5312162/trey-boyd-iii",
+          "https://www.espn.com/college-football/player/_/id/5268018/ethan-feaster",
+          "https://www.espn.com/college-sports/football/recruiting/player/_/id/261481/ethan-feaster",
+          "https://www.espn.com/college-football/player/_/id/5079318/elijah-brown"
         ],
-        "discovery_score": 16
+        "discovery_score": 14
       },
-      "reason": "platform=reddit; service=-; identity=用户; search_intent=0; providers=0; queries=4",
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=3",
       "error": ""
     },
     {
-      "domain": "www.britannica.com",
-      "platform": "reddit",
+      "domain": "street-viewer.ru",
+      "platform": "tumblr",
       "accepted": false,
-      "score": 0,
-      "query_count": 4,
-      "final_url": "https://www.britannica.com/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-rss"
-        ],
-        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
-        "status_code": 403,
-        "discovery_score": 16
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.t.co",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 0,
-      "query_count": 10,
-      "final_url": "https://www.t.co/",
-      "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-rss"
-        ],
-        "fetch_error": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1011)>",
-        "status_code": null,
-        "discovery_score": 16
-      },
-      "reason": "page unavailable",
-      "error": ""
-    },
-    {
-      "domain": "www.linkedin.com",
-      "platform": "twitter",
-      "accepted": false,
-      "score": 13,
+      "score": 11,
       "query_count": 2,
-      "final_url": "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai",
+      "final_url": "https://street-viewer.ru/moscow/locations/ulitsa-ramenki-29/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3205,34 +3501,30 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [
-          "front end"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [
-          "user"
+          "пост"
         ],
         "service_hits": [],
         "identity_hits": [
-          "user"
+          "пост"
         ],
         "ui_signal": true,
-        "inputs": 125,
-        "forms": 21,
-        "buttons": 213,
+        "inputs": 6,
+        "forms": 0,
+        "buttons": 6,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
-        "service_path_hint": true,
-        "host_service_hint": false,
+        "service_path_hint": false,
+        "host_service_hint": true,
         "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
+        "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
-        "single_query_service_ok": true,
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
         "query_intent_hits": 2,
@@ -3241,41 +3533,50 @@
         "search_provider_hits": [],
         "distinct_queries": 2,
         "search_providers": [
-          "bing-html",
-          "bing-rss"
+          "bing-html"
         ],
         "search_evidence": [
-          "bing-html:17,000+ jobs in dubai - linkedin linkedin.com https://www.linkedin.com › jobs › search today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily.",
-          "bing-rss:17,000+ jobs in dubai - linkedin today’s top 17,000+ jobs in dubai. leverage your professional network, and get hired. new dubai jobs added daily."
+          "bing-html:улица раменки , 29 на карте москвы street-viewer.ru https://street-viewer.ru › moscow › locations на странице представлено расположение адреса улица раменки, 29 на карте города москвы. ниже, можно построить ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "front end"
-        ],
+        "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 4,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://www.linkedin.com/jobs/search/?location=Dubai%2C%20Dubai"
+          "https://street-viewer.ru/moscow/locations/ulitsa-ramenki-29/"
         ],
-        "discovery_score": 14
+        "discovery_score": 13
       },
-      "reason": "platform=-; service=-; identity=user; search_intent=0; providers=0; queries=2",
+      "reason": "platform=-; service=-; identity=пост; search_intent=0; providers=0; queries=2",
       "error": ""
     },
     {
-      "domain": "dubai.dubizzle.com",
-      "platform": "twitter",
+      "domain": "blog.octobrowser.net",
+      "platform": "reddit",
       "accepted": false,
-      "score": 4,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://blog.octobrowser.net/anonymous-reddit-browsing-how-to-go-incognito-on-reddit",
+      "evidence": {
+        "discovery_score": 13
+      },
+      "reason": "challenge/parked page detected",
+      "error": ""
+    },
+    {
+      "domain": "wenku.baidu.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 9,
       "query_count": 2,
-      "final_url": "https://dubai.dubizzle.com/jobs/search/",
+      "final_url": "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3284,20 +3585,12 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [
-          "browser"
-        ],
-        "body_identity_hits": [
-          "user"
-        ],
-        "service_hits": [
-          "browser"
-        ],
-        "identity_hits": [
-          "user"
-        ],
-        "ui_signal": false,
-        "inputs": 0,
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 1,
         "forms": 0,
         "buttons": 0,
         "article_count": 0,
@@ -3320,12 +3613,12 @@
         "search_provider_hits": [],
         "distinct_queries": 2,
         "search_providers": [
-          "bing-html",
-          "bing-rss"
+          "bing-html"
         ],
         "search_evidence": [
-          "bing-html:jobs in dubai , uae - dubizzle dubizzle.com https://dubai.dubizzle.com › jobs › search search for jobs careers and vacancies with dubizzle.com. submit your cv for free.",
-          "bing-rss:jobs in dubai, uae - dubizzle search for jobs careers and vacancies with dubizzle.com. submit your cv for free."
+          "bing-html:中国 四大 地理区域划分详解: 东部 、 中部 、 西部 、 东北 各有 ... baidu.com https://wenku.baidu.com › view 中国四大地理区域划分详解:东部、中部、西部、东北各有哪些省份? 中国四大地理区域,是指依据地理位置和省级行政区划,综合 ...",
+          "bing-html:一日之计在于晨 , 一年之计在于春 :全文、出处与含义详解 baidu.com https://wenku.baidu.com › view 一年之计在于春:指一年的计划要在春季考虑安排。 春天是播种和规划的关键季节,只有在年初定好目标、打好基础,才能为全年的 ...",
+          "bing-html:一日之计在于晨 , 一年之计在于春 :完整原文、出处及作者详解 baidu.com https://wenku.baidu.com › view “一年之计在于春,一日之计在于晨”这句脍炙人口的格言,其更完整的版本为“一年之计在于春,一日之计在于晨,一家之计在于和,一 ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -3334,35 +3627,105 @@
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
+        "positive_frontend_signals": 2,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://dubai.dubizzle.com/jobs/search/"
+          "https://wenku.baidu.com/view/905e9a4da1e9856a561252d380eb6294dd88229d.html",
+          "https://wenku.baidu.com/view/7391dd24727f5acfa1c7aa00b52acfc789eb9fa3.html",
+          "https://wenku.baidu.com/view/8ea34742b3360b4c2e3f5727a5e9856a561226e5.html"
         ],
-        "discovery_score": 14
+        "discovery_score": 12
       },
-      "reason": "platform=-; service=browser; identity=user; search_intent=0; providers=0; queries=2",
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
       "error": ""
     },
     {
-      "domain": "aijourn.com",
+      "domain": "redlib.org",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 19,
+      "query_count": 1,
+      "final_url": "https://redlib.org/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [
+          "redlib"
+        ],
+        "header_platform_hits": [],
+        "header_brand_hits": [
+          "redlib"
+        ],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": true,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:redlib.org redlib.org is a platform for sharing and accessing books, resources, and educational materials online."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "jina",
+        "fetch_status_code": null,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 3,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://redlib.org/"
+        ],
+        "discovery_score": 11
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "sotwe.co.uk",
       "platform": "twitter",
       "accepted": false,
       "score": 23,
       "query_count": 1,
-      "final_url": "https://aijourn.com/best-7-twitter-private-account-viewer-tools/",
+      "final_url": "https://sotwe.co.uk/",
       "evidence": {
         "platform_hits": [
           "twitter",
-          "x",
-          "nitter"
+          "x"
         ],
         "twitter_x_context_ok": true,
-        "brand_hits": [
-          "nitter"
-        ],
+        "brand_hits": [],
         "header_platform_hits": [
           "twitter",
           "x"
@@ -3372,65 +3735,50 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "profile",
+          "user",
           "posts",
-          "handle",
           "media"
         ],
-        "body_service_hits": [
-          "viewer",
-          "front-end",
-          "alternative front-end",
-          "reader"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
-          "posts",
-          "timeline",
           "media"
         ],
         "service_hits": [
-          "viewer",
-          "frontend",
-          "instance",
-          "reader"
+          "viewer"
         ],
         "identity_hits": [
-          "tweet",
           "tweets",
           "user",
           "profile",
-          "post",
           "posts",
-          "timeline",
-          "handle",
           "media"
         ],
         "ui_signal": true,
-        "inputs": 50,
-        "forms": 14,
-        "buttons": 46,
+        "inputs": 2,
+        "forms": 1,
+        "buttons": 7,
         "article_count": 1,
         "article_structure_hint": true,
         "interactive_target_hits": [
           "username",
-          "handle"
+          "twitter",
+          "account",
+          "view"
         ],
         "service_path_hint": false,
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
-          "how to ",
-          "best ",
-          "guide"
+          "what is "
         ],
         "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "viewer/frontend",
+        "non_frontend_service_hits": [
+          "tracking"
+        ],
+        "service_kind": "viewer/frontend+tool",
         "header_service_identity_hint": true,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
@@ -3446,47 +3794,42 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:best 7 twitter private account viewer tools | the ai journal a private twitter viewer is most useful when it’s honest about limits and focused on public browsing. the best tools help you review public profiles, public posts, trends, and hashtags without forcing a login."
+          "bing-rss:sotwe – twitter web viewer sotwe redefines online exploration with anonymous twitter browsing, trend tracking, and smart media tools."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
         "runtime_platform_hits": [
-          "twitter",
-          "tweet"
+          "twitter"
         ],
         "runtime_service_hits": [
-          "viewer",
-          "frontend",
-          "front end",
-          "alternative front end",
-          "reader"
+          "viewer"
         ],
         "runtime_framework_hits": [],
         "runtime_service_hint": true,
-        "positive_frontend_signals": 8,
+        "positive_frontend_signals": 3,
         "tool_signal_hits": [
           "analytics",
           "tracker",
           "tracking"
         ],
-        "editorial_signal_count": 3,
-        "internal_routes_checked": 2,
+        "editorial_signal_count": 1,
+        "internal_routes_checked": 0,
         "query_urls": [
-          "https://aijourn.com/best-7-twitter-private-account-viewer-tools/"
+          "https://sotwe.co.uk/"
         ],
         "discovery_score": 10
       },
-      "reason": "platform=twitter/x; service=viewer; identity=profile/posts/handle/media; search_intent=1; providers=1; queries=1",
+      "reason": "platform=twitter/x; service=viewer; identity=user/posts/media; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
-      "domain": "event-theme.com",
+      "domain": "viewvix.com",
       "platform": "reddit",
       "accepted": false,
       "score": 23,
       "query_count": 1,
-      "final_url": "https://event-theme.com/tools/social-viewer/reddit-anonymous/",
+      "final_url": "https://viewvix.com/reddit/user/",
       "evidence": {
         "platform_hits": [
           "reddit"
@@ -3501,47 +3844,38 @@
           "viewer"
         ],
         "header_identity_hits": [
-          "subreddit",
-          "subreddits",
-          "post",
           "posts",
+          "user",
           "profile"
         ],
         "body_service_hits": [
           "viewer"
         ],
         "body_identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "service_hits": [
           "viewer",
           "frontend"
         ],
         "identity_hits": [
-          "subreddit",
-          "subreddits",
           "comments",
           "post",
           "posts",
           "user",
-          "profile",
-          "thread"
+          "profile"
         ],
         "ui_signal": true,
-        "inputs": 9,
+        "inputs": 18,
         "forms": 2,
-        "buttons": 10,
-        "article_count": 18,
+        "buttons": 11,
+        "article_count": 20,
         "article_structure_hint": true,
         "interactive_target_hits": [
-          "username",
           "user",
           "reddit",
           "paste"
@@ -3550,6 +3884,7 @@
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [
+          "what is ",
           "review"
         ],
         "editorial_marker_hits": [],
@@ -3570,7 +3905,7 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:reddit anonymous viewer – browse posts, profiles & subreddits anonymously view reddit posts, profiles & stories anonymously with event theme's reddit anonymous viewer. no login, fast & private."
+          "bing-rss:reddit user viewer – view reddit profiles and activity what is reddit user viewer? a clear profile overview reddit user viewer helps you explore public reddit profiles, activity patterns, interests, and shared content through a simple, focused experience."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -3586,77 +3921,232 @@
         "runtime_service_hint": true,
         "positive_frontend_signals": 4,
         "tool_signal_hits": [],
-        "editorial_signal_count": 1,
-        "internal_routes_checked": 0,
+        "editorial_signal_count": 2,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://event-theme.com/tools/social-viewer/reddit-anonymous/"
+          "https://viewvix.com/reddit/user/"
         ],
         "discovery_score": 10
       },
-      "reason": "platform=reddit; service=viewer; identity=subreddit/subreddits/post/posts/profile; search_intent=1; providers=1; queries=1",
+      "reason": "platform=reddit; service=viewer; identity=posts/user/profile; search_intent=1; providers=1; queries=1",
       "error": ""
     },
     {
-      "domain": "fossy.dev",
-      "platform": "tumblr",
+      "domain": "www.wappkit.com",
+      "platform": "reddit",
       "accepted": false,
-      "score": 23,
+      "score": 20,
       "query_count": 1,
-      "final_url": "https://fossy.dev/syeopite/priviblur",
+      "final_url": "https://www.wappkit.com/",
       "evidence": {
         "platform_hits": [
-          "tumblr"
+          "reddit"
         ],
         "twitter_x_context_ok": false,
         "brand_hits": [
-          "priviblur"
+          "redlib"
         ],
-        "header_platform_hits": [],
-        "header_brand_hits": [
-          "priviblur"
+        "header_platform_hits": [
+          "reddit"
         ],
+        "header_brand_hits": [],
         "header_service_hits": [
-          "frontend"
+          "viewer",
+          "browser",
+          "reader"
         ],
         "header_identity_hits": [
-          "profile"
+          "subreddit",
+          "subreddits"
         ],
         "body_service_hits": [
-          "frontend",
-          "alternative frontend"
+          "viewer",
+          "browser",
+          "reader"
         ],
         "body_identity_hits": [
-          "user",
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
+          "post",
+          "posts",
           "profile",
-          "tag"
+          "thread"
         ],
         "service_hits": [
-          "frontend",
-          "alternative frontend"
+          "viewer",
+          "browser",
+          "reader"
         ],
         "identity_hits": [
+          "subreddit",
+          "subreddits",
+          "comment",
+          "comments",
           "post",
-          "user",
+          "posts",
           "profile",
-          "tag"
+          "thread"
         ],
-        "ui_signal": true,
-        "inputs": 10,
+        "ui_signal": false,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 37,
-        "article_count": 4,
-        "article_structure_hint": true,
+        "buttons": 56,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [
+          "best ",
+          "review"
+        ],
+        "editorial_marker_hits": [
+          "author"
+        ],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": true,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 1,
+        "query_intent_hits": 1,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": true,
+        "search_provider_hits": [
+          "bing-rss"
+        ],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-rss"
+        ],
+        "search_evidence": [
+          "bing-rss:how to browse reddit without an account in 2026 (5 methods that still ... old reddit now requires a login. here are 5 anonymous viewing methods that still work in 2026, from direct urls and rss to a free reader extension."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 4,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 3,
+        "internal_routes_checked": 3,
+        "query_urls": [
+          "https://www.wappkit.com/blog/browse-reddit-without-account-2025"
+        ],
+        "discovery_score": 10
+      },
+      "reason": "platform=reddit; service=viewer/browser/reader; identity=subreddit/subreddits; search_intent=1; providers=1; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "www.espn.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 2,
+      "query_count": 2,
+      "final_url": "https://www.espn.com/college-football/player/_/id/5126999/marquise-lightfoot",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": false,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "unknown",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 2,
+        "search_signal_hits": 2,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 2,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:roman voss - minnesota golden gophers tight end - espn espn.com https://www.espn.com › college-football › player › id view the profile of minnesota golden gophers tight end roman voss on espn. get the latest news, live stats and game highlights.",
+          "bing-html:marquise lightfoot - miami hurricanes defensive lineman - espn espn.com https://www.espn.com › college-football › player › id view the profile of miami hurricanes defensive lineman marquise lightfoot on espn. get the latest news, live stats and game ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 202,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 0,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 0,
+        "query_urls": [
+          "https://www.espn.com/college-football/player/_/id/5244731/roman-voss",
+          "https://www.espn.com/college-football/player/_/id/5126999/marquise-lightfoot"
+        ],
+        "discovery_score": 10
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=2",
+      "error": ""
+    },
+    {
+      "domain": "eu.ping.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 8,
+      "query_count": 1,
+      "final_url": "https://eu.ping.com/en-gb/golf-clubs/putters/all-putters/view",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 0,
+        "forms": 0,
+        "buttons": 28,
+        "article_count": 0,
+        "article_structure_hint": false,
         "interactive_target_hits": [],
         "service_path_hint": true,
         "host_service_hint": false,
         "content_path_hint": false,
-        "content_title_hits": [
-          "top "
-        ],
+        "content_title_hits": [],
         "editorial_marker_hits": [],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
-        "header_service_identity_hint": true,
+        "header_service_identity_hint": false,
         "single_query_service_ok": false,
         "header_verified_search_service_ok": false,
         "search_intent_hits": 0,
@@ -3669,42 +4159,103 @@
           "bing-rss"
         ],
         "search_evidence": [
-          "bing-rss:priviblur - fossy - curated foss directory for community and discussion a self-hosted tool for blurring faces in images and videos"
+          "bing-rss:all putters - ping ping putters are built for precision, feel, and alignment—featuring blade, mallet, and mid-mallet options to suit every stroke."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
         "fetch_status_code": 200,
-        "runtime_platform_hits": [
-          "tumblr",
-          "priviblur"
-        ],
-        "runtime_service_hits": [
-          "frontend",
-          "alternative frontend"
-        ],
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
         "runtime_framework_hits": [],
-        "runtime_service_hint": true,
-        "positive_frontend_signals": 6,
-        "tool_signal_hits": [
-          "tracking"
-        ],
-        "editorial_signal_count": 1,
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
         "internal_routes_checked": 3,
         "query_urls": [
-          "https://fossy.dev/syeopite/priviblur"
+          "https://eu.ping.com/en-gb/golf-clubs/putters/all-putters/view"
         ],
-        "discovery_score": 10
+        "discovery_score": 8
       },
-      "reason": "platform=tumblr; service=frontend; identity=profile; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
       "error": ""
     },
     {
-      "domain": "www.douyin.com",
+      "domain": "spaceplace.nasa.gov",
       "platform": "tumblr",
       "accepted": false,
-      "score": 3,
+      "score": 8,
       "query_count": 1,
-      "final_url": "https://www.douyin.com/search/%E5%A4%8D%E5%88%B6%E6%89%93%E5%BC%80%E6%8A%96%E9%9F%B3%E7%9C%8B%E7%9C%8B%E4%BD%9C%E5%93%81",
+      "final_url": "https://spaceplace.nasa.gov/search/air/",
+      "evidence": {
+        "platform_hits": [],
+        "twitter_x_context_ok": false,
+        "brand_hits": [],
+        "header_platform_hits": [],
+        "header_brand_hits": [],
+        "header_service_hits": [],
+        "header_identity_hits": [],
+        "body_service_hits": [],
+        "body_identity_hits": [],
+        "service_hits": [],
+        "identity_hits": [],
+        "ui_signal": true,
+        "inputs": 3,
+        "forms": 3,
+        "buttons": 0,
+        "article_count": 0,
+        "article_structure_hint": false,
+        "interactive_target_hits": [],
+        "service_path_hint": true,
+        "host_service_hint": false,
+        "content_path_hint": false,
+        "content_title_hits": [],
+        "editorial_marker_hits": [],
+        "non_frontend_service_hits": [],
+        "service_kind": "viewer/frontend",
+        "header_service_identity_hint": false,
+        "single_query_service_ok": false,
+        "header_verified_search_service_ok": false,
+        "search_intent_hits": 0,
+        "query_intent_hits": 1,
+        "search_signal_hits": 1,
+        "strong_search_evidence_hint": false,
+        "search_provider_hits": [],
+        "distinct_queries": 1,
+        "search_providers": [
+          "bing-html"
+        ],
+        "search_evidence": [
+          "bing-html:air | nasa space place – nasa science for kids nasa.gov https://spaceplace.nasa.gov › search › air 31 de jul de 2026 · why is the sky blue? learn the answer and impress your friends! explore pdfs of space place activities print ...",
+          "bing-html:why | nasa space place – nasa science for kids nasa.gov https://spaceplace.nasa.gov › search › why › is › the › sky › blue 31 de jul de 2026 · why are planets round? and how round are they? explore why is the sky blue? learn the answer and impress ..."
+        ],
+        "trusted_sources": [],
+        "fetch_via": "direct",
+        "fetch_status_code": 200,
+        "runtime_platform_hits": [],
+        "runtime_service_hits": [],
+        "runtime_framework_hits": [],
+        "runtime_service_hint": false,
+        "positive_frontend_signals": 2,
+        "tool_signal_hits": [],
+        "editorial_signal_count": 0,
+        "internal_routes_checked": 2,
+        "query_urls": [
+          "https://spaceplace.nasa.gov/search/air/",
+          "https://spaceplace.nasa.gov/search/why/is/the/sky/blue/"
+        ],
+        "discovery_score": 8
+      },
+      "reason": "platform=-; service=-; identity=-; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "view.nate.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 4,
+      "query_count": 1,
+      "final_url": "https://view.nate.com/travel/view/273597/",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -3728,7 +4279,9 @@
         "host_service_hint": false,
         "content_path_hint": false,
         "content_title_hits": [],
-        "editorial_marker_hits": [],
+        "editorial_marker_hits": [
+          "published"
+        ],
         "non_frontend_service_hits": [],
         "service_kind": "viewer/frontend",
         "header_service_identity_hint": false,
@@ -3744,27 +4297,21 @@
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:复制打开抖音 看看作品 - 抖音 douyin.com https://www.douyin.com › search › 复制打开抖音看看作品 2025年8月2日 · https://v.douyin.com/sgdvh_nsnti/ 3@4.com :8pm #开播大吉. 您在查找复制打开抖音看看作品吗? 抖音综合搜索帮 ...",
-          "bing-html:【 抖音 】记录美好生活 douyin.com https://www.douyin.com › search › dy 【抖音】记录美好生活",
-          "bing-html:c位娱子酱的 抖音 - 抖音 douyin.com https://www.douyin.com › user 2026年10月9日 · #一起跳舞伊利哩#喝伊利大红枣山歌赢全场#山歌搭子选伊利#蹦山咔啦咔. 伊利大红枣,实在让人念念不忘! #一起 ...",
-          "bing-html:宇菠萝的 抖音 - 抖音 douyin.com https://www.douyin.com › user 2026年9月6日 · 职业短线客,捡漏战法集大成者! 先了解再评价! 房车号@菠萝削. 上证月线macd高位死叉怎么看? #提升交易认 ..."
+          "bing-html:‘ 서울 가볼 만한 곳 베스트 10’ 서울에서 꼭 가봐야 할 10대 ... nate.com https://view.nate.com › travel › view 대표적인 서울 가볼 만한 곳부터 독특한 체험이 있는 놀거리와 같은 곳까지, 서울에는 너무나도 많은 명소가 있지만, 그중 가장 핫한 ..."
         ],
         "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
+        "fetch_via": "jina",
+        "fetch_status_code": null,
         "runtime_platform_hits": [],
         "runtime_service_hits": [],
         "runtime_framework_hits": [],
         "runtime_service_hint": false,
         "positive_frontend_signals": 1,
         "tool_signal_hits": [],
-        "editorial_signal_count": 0,
+        "editorial_signal_count": 1,
         "internal_routes_checked": 0,
         "query_urls": [
-          "https://www.douyin.com/search/%E5%A4%8D%E5%88%B6%E6%89%93%E5%BC%80%E6%8A%96%E9%9F%B3%E7%9C%8B%E7%9C%8B%E4%BD%9C%E5%93%81",
-          "https://www.douyin.com/search/dy",
-          "https://www.douyin.com/user/MS4wLjABAAAAU0_T3q1tk6-mh3PD4sj3PBh-z-_9prFB5LWMne0RBD4",
-          "https://www.douyin.com/user/MS4wLjABAAAAfZf5xo0_HNS3M5GMZY183vk7KCHa4nk_HqVq27pipMU"
+          "https://view.nate.com/travel/view/273597/"
         ],
         "discovery_score": 8
       },
@@ -3772,12 +4319,12 @@
       "error": ""
     },
     {
-      "domain": "ojs.aaai.org",
+      "domain": "findby.co.kr",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://ojs.aaai.org/",
+      "final_url": "https://findby.co.kr/search/34377",
       "evidence": {
         "discovery_score": 8
       },
@@ -3785,12 +4332,12 @@
       "error": ""
     },
     {
-      "domain": "tv.yandex.com",
+      "domain": "fotki.yandex.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://tv.yandex.com/showcaptcha?cc=1&form-fb-hint=2.1.e66e618bde5433108b9bec9015a1b44875a5ee85386554d60c6f1f739bba6c812dc1e98f76549cb9c24b68c57afe64d5490c0b4390c74cb6e2587cc0&mt=44260AFD87EF32E0851FDAA37A232B3C26CDDF3FE483FFEF8F762F4240E630A5DE5F660FABFE1988F312BBF544B1498E92BA2F6E865904FD7D2E2061835215D6D9007CF5D06A07D82D64E108345DFF0C2D263E4B27A30EE96DFFA854994C8F391BC2C9A58AB9B1C82F76F6328FD5E6A038A78B15BC6A99A4CDCAE165437A5B3360B18D6000AC11A4F9E1035BE3A42FD2B0CCDFA31C95F0D760&retpath=aHR0cHM6Ly90di55YW5kZXguY29tL3NlYXJjaD90ZXh0PSVEOSU4MiVEOCVCNSVEOCVBOSUyQiVEOCVCOSVEOCVCNCVEOSU4MiUyQiVEOCVBNyVEOSU4NCVEOSU4NSVEOSU4OCVEOSU4MiVEOCVCOSUyQiVEOCVBNyVEOSU4NCVEOCVCMSVEOCVCMyVEOSU4NSVEOSU4QSZscj0yMTQxNCZwPTA%2C_9838662d4a1111ed94256e601f0fde9b&t=2%252F1794226167%252Fabb0e6d367e7d8f24a065c34fd3c7a3b&u=9728015414995724588&s=e36897572fdd775c22b3139d1b8304f4",
+      "final_url": "https://fotki.yandex.com/showcaptcha?cc=1&form-fb-hint=2.1.db0ccce22c9443a1e243d4d8b215bec75aaa8632092592d97f7df69687d1bcc4b0f9ea0e6980a1d04828952a11620a144cc979cf549319c4adc36ecf&mt=489FB210E66F904F97EB0F50534BF9B321D6F984C95C15AE1E2CC1C2B9A994DE62C0007D95C6FB60DAF3204ED05A2F1C6D6D84932484B43CA7297C1CDF88A93077528D210E18A40461AF72B7DD93194709E068ABBAFB20DDC9A81C682D5A73FE1CFC2DF95DE1CDAF127F0F25C7306BEF69FE993D79D5AB0A26F84E01F08D96F158CE5AD1AE3117CFFC8617EAFA90D1B262B1FB2C866DD7EAB77D716F&retpath=aHR0cHM6Ly9mb3RraS55YW5kZXguY29tL3NlYXJjaD90ZXh0PXglMkI3NSUyQnZjJTJCYmlvcyUyQiUyQmR1bXAmbHI9MjEyMDYmbWlzc3dvcmQ9MQ%2C%2C_499c8c14358a08251bd5f022b9e6e9d0&t=2%252F1794311298%252F63b745e0e6ee27b8d5c7570842862438&u=9733728494055861903&s=9d0db788f78033917b2f07d8fa95ccff",
       "evidence": {
         "discovery_score": 8
       },
@@ -3798,177 +4345,16 @@
       "error": ""
     },
     {
-      "domain": "forum.lowyat.net",
-      "platform": "tumblr",
+      "domain": "www.netflix.com",
+      "platform": "reddit",
       "accepted": false,
-      "score": 6,
+      "score": 0,
       "query_count": 1,
-      "final_url": "https://forum.lowyat.net/topic/3167775/all",
+      "final_url": "https://www.netflix.com/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fsearch%3Fq%3Dri",
       "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [
-          "post"
-        ],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "post",
-          "posts"
-        ],
-        "service_hits": [
-          "browser"
-        ],
-        "identity_hits": [
-          "post",
-          "posts",
-          "user",
-          "profile",
-          "tag"
-        ],
-        "ui_signal": false,
-        "inputs": 11,
-        "forms": 3,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:[found sos] cant login whatsapp browser - lowyat.net lowyat.net https://forum.lowyat.net › topic 2026年2月27日 · lowyat.net -> kopitiam -> serious kopitiam bump topic add reply rss feed bottom outline · [ standard ] · ...",
-          "bing-html:those use ipon watsapp web browser - lowyat.net lowyat.net https://forum.lowyat.net › topic 2026年2月27日 · those use ipon watsapp web browser outline · [ standard ] · linear+ those use ipon watsapp web browser, ...",
-          "bing-html:(wts) bitcoin asic miner 440-520 ghs - lowyat.net lowyat.net https://forum.lowyat.net › topic › all 2014年3月20日 · lowyat.net -> garage sales bump topic topic closed rss feed bottom 0 read latest posts outline · [ standard ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [
-          "browser"
-        ],
-        "runtime_framework_hits": [],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 1,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 0,
-        "query_urls": [
-          "https://forum.lowyat.net/topic/5556445",
-          "https://forum.lowyat.net/topic/5556449",
-          "https://forum.lowyat.net/topic/3167775/all"
-        ],
-        "discovery_score": 6
+        "discovery_score": 8
       },
-      "reason": "platform=-; service=browser; identity=post; search_intent=0; providers=0; queries=1",
-      "error": ""
-    },
-    {
-      "domain": "blog.csdn.net",
-      "platform": "tumblr",
-      "accepted": false,
-      "score": 3,
-      "query_count": 1,
-      "final_url": "https://blog.csdn.net/",
-      "evidence": {
-        "platform_hits": [],
-        "twitter_x_context_ok": false,
-        "brand_hits": [],
-        "header_platform_hits": [],
-        "header_brand_hits": [],
-        "header_service_hits": [],
-        "header_identity_hits": [],
-        "body_service_hits": [],
-        "body_identity_hits": [
-          "profile",
-          "用户",
-          "博文"
-        ],
-        "service_hits": [
-          "mirror",
-          "proxy",
-          "镜像",
-          "代理",
-          "前端",
-          "实例"
-        ],
-        "identity_hits": [
-          "blog",
-          "profile",
-          "用户",
-          "博文"
-        ],
-        "ui_signal": false,
-        "inputs": 1,
-        "forms": 0,
-        "buttons": 0,
-        "article_count": 0,
-        "article_structure_hint": false,
-        "interactive_target_hits": [],
-        "service_path_hint": false,
-        "host_service_hint": false,
-        "content_path_hint": false,
-        "content_title_hits": [],
-        "editorial_marker_hits": [],
-        "non_frontend_service_hits": [],
-        "service_kind": "unknown",
-        "header_service_identity_hint": false,
-        "single_query_service_ok": false,
-        "header_verified_search_service_ok": false,
-        "search_intent_hits": 0,
-        "query_intent_hits": 1,
-        "search_signal_hits": 1,
-        "strong_search_evidence_hint": false,
-        "search_provider_hits": [],
-        "distinct_queries": 1,
-        "search_providers": [
-          "bing-html"
-        ],
-        "search_evidence": [
-          "bing-html:mac 原生运行 switch 游戏新选择:asterisk模拟器实测指南 ... csdn.net https://blog.csdn.net › article › details › ... 2026年8月31日 · 过去两三年,大家想在 mac 上玩 switch 游戏,基本只有两个选择:一是用 ryujinx 或 yuzu 的早期版本通过 rosetta ...",
-          "bing-html:macos系统运行模拟器畅玩 switch 游戏_ mac switch 模拟 ... csdn.net https://blog.csdn.net › article › details › ... 2025年6月21日 · 这是一篇macos系统运行模拟器畅玩switch游戏的避坑指南。 介绍了所需环境,包括电脑、电视、手柄等;说明 ..."
-        ],
-        "trusted_sources": [],
-        "fetch_via": "direct",
-        "fetch_status_code": 200,
-        "runtime_platform_hits": [],
-        "runtime_service_hits": [],
-        "runtime_framework_hits": [
-          "react",
-          "vue"
-        ],
-        "runtime_service_hint": false,
-        "positive_frontend_signals": 0,
-        "tool_signal_hits": [],
-        "editorial_signal_count": 0,
-        "internal_routes_checked": 1,
-        "query_urls": [
-          "https://blog.csdn.net/weixin_32932149/article/details/164251647",
-          "https://blog.csdn.net/weixin_37064409/article/details/148765504"
-        ],
-        "discovery_score": 6
-      },
-      "reason": "platform=-; service=mirror/proxy/镜像/代理/前端/实例; identity=blog/profile/用户/博文; search_intent=0; providers=0; queries=1",
+      "reason": "challenge/parked page detected",
       "error": ""
     },
     {
@@ -4038,12 +4424,12 @@
       "error": ""
     },
     {
-      "domain": "filehelper.weixin.qq.com",
+      "domain": "www.hudl.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 1,
       "query_count": 1,
-      "final_url": "https://filehelper.weixin.qq.com/cgi-bin/?lang=en_US",
+      "final_url": "https://www.hudl.com/profile/19323101/Ethan-Feaster",
       "evidence": {
         "platform_hits": [],
         "twitter_x_context_ok": false,
@@ -4052,18 +4438,16 @@
         "header_brand_hits": [],
         "header_service_hits": [],
         "header_identity_hits": [],
-        "body_service_hits": [
-          "browser"
-        ],
+        "body_service_hits": [],
         "body_identity_hits": [],
-        "service_hits": [
-          "browser"
+        "service_hits": [],
+        "identity_hits": [
+          "profile"
         ],
-        "identity_hits": [],
         "ui_signal": false,
-        "inputs": 3,
+        "inputs": 0,
         "forms": 0,
-        "buttons": 0,
+        "buttons": 8,
         "article_count": 0,
         "article_structure_hint": false,
         "interactive_target_hits": [],
@@ -4087,8 +4471,7 @@
           "bing-html"
         ],
         "search_evidence": [
-          "bing-html:微信文件传输助手 qq.com https://filehelper.weixin.qq.com › cgi-bin › mmwebwx-bin › webwxinit { \"baseresponse\": { \"ret\": 1, \"errmsg\": \"\" } , \"count\": 0, \"contactlist\": [], \"synckey\": { \"count\": 0, \"list\": [] } , \"user\": { \"uin\": 0, ...",
-          "bing-html:wechat/weixin for web qq.com https://filehelper.weixin.qq.com › cgi-bin tip: web wechat requires the use browser cookies to help you log in to allow the web application to function. more information"
+          "bing-html:ethan feaster - hudl hudl.com https://www.hudl.com › profile 21 de abr de 2023 · watch ethan feaster's videos and highlights on hudl. more info: desoto high school - varsity football / wr / ..."
         ],
         "trusted_sources": [],
         "fetch_via": "direct",
@@ -4100,14 +4483,53 @@
         "positive_frontend_signals": 0,
         "tool_signal_hits": [],
         "editorial_signal_count": 0,
-        "internal_routes_checked": 2,
+        "internal_routes_checked": 1,
         "query_urls": [
-          "https://filehelper.weixin.qq.com/cgi-bin/mmwebwx-bin/webwxinit",
-          "https://filehelper.weixin.qq.com/cgi-bin/?lang=en_US"
+          "https://www.hudl.com/profile/19323101"
         ],
         "discovery_score": 6
       },
-      "reason": "platform=-; service=browser; identity=-; search_intent=0; providers=0; queries=1",
+      "reason": "platform=-; service=-; identity=profile; search_intent=0; providers=0; queries=1",
+      "error": ""
+    },
+    {
+      "domain": "answers.microsoft.com",
+      "platform": "tumblr",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://answers.microsoft.com/en-us/feedback/forum/all/mass-spam-reports-august-19-25-2019/c86e32b7-dcc7-4db4-beb7-a901bc57e18e",
+      "evidence": {
+        "trusted_sources": [],
+        "search_providers": [
+          "bing-html"
+        ],
+        "fetch_error": "fetch failed",
+        "status_code": null,
+        "discovery_score": 6
+      },
+      "reason": "page unavailable",
+      "error": ""
+    },
+    {
+      "domain": "buzzglobe.com",
+      "platform": "twitter",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://buzzglobe.com/x",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
       "error": ""
     },
     {
@@ -4132,22 +4554,44 @@
       "error": ""
     },
     {
-      "domain": "stackoverflow.com",
+      "domain": "support.microsoft.com",
+      "platform": "reddit",
+      "accepted": false,
+      "score": 0,
+      "query_count": 1,
+      "final_url": "https://support.microsoft.com/en-us/",
+      "evidence": {
+        "content_path_hint": false,
+        "content_title_hits": [
+          "how to "
+        ],
+        "editorial_marker_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
+        "article_structure_hint": false,
+        "discovery_score": 6
+      },
+      "reason": "article/content page, not a frontend endpoint",
+      "error": ""
+    },
+    {
+      "domain": "www.linkedin.com",
       "platform": "tumblr",
       "accepted": false,
       "score": 0,
       "query_count": 1,
-      "final_url": "https://stackoverflow.com/",
+      "final_url": "https://www.linkedin.com/",
       "evidence": {
-        "trusted_sources": [],
-        "search_providers": [
-          "bing-html"
+        "non_frontend_service_hits": [
+          "tracking"
         ],
-        "fetch_error": "HTTPError: HTTP Error 403: Forbidden",
-        "status_code": 403,
+        "frontend_signal_hint": false,
+        "header_service_hits": [],
+        "service_path_hint": false,
+        "host_service_hint": false,
         "discovery_score": 6
       },
-      "reason": "page unavailable",
+      "reason": "non-frontend service/tool page",
       "error": ""
     },
     {

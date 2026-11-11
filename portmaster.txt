@@ -1386,6 +1386,7 @@ lutan.ch
 lx.benike.monster
 lx.vern.cc
 lxv.dc09.ru
+lxv.dc09.xyz
 ly.owo.si
 lycan.feeds.blue
 lynx.invisible-island.net
@@ -3431,6 +3432,7 @@ yy.su27.net
 z.ai
 z.opnxng.com
 zamantika.com
+zbin.io
 zbporn.com
 zdescargas.org
 zed.dev

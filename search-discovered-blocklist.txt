@@ -211,6 +211,7 @@
 ||www.peekstr.com^
 ||www.postel.app^
 ||www.rapidseedbox.com^
+||www.scriptweavers.com^
 ||www.sotwe.com^
 ||www.subredditviewer.com^
 ||www.sumatrapdfreader.org^

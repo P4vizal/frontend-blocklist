@@ -1047,6 +1047,7 @@
 ||hidester.com^
 ||home.kingsoft.jp^
 ||honesthook.com^
+||hosted-by.privateweb.is^
 ||hosting.cz-pro.cz^
 ||hostingtg.com^
 ||hotgoo.com^
@@ -1114,6 +1115,7 @@
 ||infini.wtf^
 ||inflact.com^
 ||inflection.ai^
+||info.html^
 ||inspiretothrive.com^
 ||insta-finsta.com^
 ||insta-stories-viewer.com^
@@ -2056,6 +2058,7 @@
 ||reddit.com^
 ||reddit.idevicehacked.com^
 ||reddit.invak.id^
+||reddit.jeremyh.xyz^
 ||reddit.lol^
 ||reddit.map.fastly.net^
 ||reddit.nerdvpn.de^
@@ -2145,7 +2148,9 @@
 ||redlib.tiekoetter.com^
 ||redlib.trom.tf^
 ||redlib.tux.pizza^
+||redlib.utilibre.org^
 ||redlib.xn--hackerhhle-kcb.org^
+||redlib.zanity.net^
 ||redlibinstances.com^
 ||redlite.app^
 ||rednotedownloader.com^

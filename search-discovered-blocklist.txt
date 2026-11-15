@@ -51,6 +51,7 @@
 ||jpf-reddit.netlify.app^
 ||kawarimidoll.com^
 ||kddit.kalli.st^
+||keep.md^
 ||knightlab.com^
 ||labmemo.com^
 ||lessie.ai^
@@ -85,6 +86,7 @@
 ||peekstr.com^
 ||peekvault.com^
 ||peekviewer.com^
+||peekx.app^
 ||peerpush.com^
 ||pf-reddit.netlify.app^
 ||posfie.com^

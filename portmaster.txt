@@ -2756,6 +2756,7 @@ tent.deep-swarm.xyz
 tent.nbh.ax
 tent.private.coffee
 tent.sny.sh
+tent.xnand.xyz
 terabox.com
 tg-downloader.com
 tg-me.com
@@ -2826,6 +2827,7 @@ tlgrm.eu
 tlgrm.ru
 tmblr.co
 tmblrviewer.com
+tn.dc09.xyz
 tn.maid.zone
 tnaflix.com
 toene.hoffnungfuerdiezukunft.net

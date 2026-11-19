@@ -123,6 +123,7 @@
 ||rosint.dev^
 ||rosintplus.github.io^
 ||ru.dicloak.com^
+||similarlabs.com^
 ||smtools.org^
 ||smviewer.com^
 ||snapany.com^

@@ -1,13 +1,14 @@
 # Informational only: Hagezi Pro is NOT imported into blocklist.txt.
-# Generated domains: 3469
-# Hagezi domains parsed: 244951
-# Overlap: 17
+# Generated domains: 3470
+# Hagezi domains parsed: 246453
+# Overlap: 18
 
 apponic.com
 botize.com
 braincash.com
 brightdata.com
 duote.com
+file.io
 filebin.net
 imlive.com
 libreddit.domain.glass

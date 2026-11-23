@@ -1593,6 +1593,7 @@ nitter.dafriser.be
 nitter.datura.network
 nitter.fdn.fr
 nitter.fediflix.org
+nitter.femboy.delivery
 nitter.freedit.eu
 nitter.holo-mix.com
 nitter.hostux.net

@@ -12,6 +12,7 @@
 1-163-224-130.dynamic-ip.hinet.net
 1-163-233-233.dynamic-ip.hinet.net
 1-163-254-80.dynamic-ip.hinet.net
+1-164-153-129.dynamic-ip.hinet.net
 1-164-169-73.dynamic-ip.hinet.net
 1-164-182-236.dynamic-ip.hinet.net
 100searchengines.com
@@ -1778,6 +1779,7 @@ paste.ononoki.org
 paste.plus
 paste.probablyvpn.com
 paste.skynetcloud.site
+paste.tuxcloud.net
 paste.utilibre.org
 paste.webevolutions.ch
 patchmypc.com
@@ -1923,6 +1925,7 @@ privatebin.cc
 privatebin.lol
 privatebin.net
 privatebin.oxidizer.de
+privatebin.qualityaustria.com
 privatebin.unige.ch
 privatebin.wildberries.ru
 priviblur.canine.tools
@@ -2316,6 +2319,7 @@ search.coffeelover.uk
 search.ctq.ro
 search.davidovski.xyz
 search.decentrala.org
+search.dnslister.com
 search.drescher.network
 search.einfachzocken.eu
 search.ethibox.fr
@@ -2364,6 +2368,7 @@ search.yonderly.org
 search.yuri.llc
 search.zeroish.xyz
 search.zina.dev
+search2.drinker.beer
 search4faces.com
 searchalot.com
 searchengine.party
@@ -3154,6 +3159,7 @@ vps-773e829a.vps.ovh.ca
 vps-84f729f8.vps.ovh.us
 vps-b24f0293.vps.ovh.us
 vps-ebe9aed2.vps.ovh.us
+vps3624407.trouble-free.net
 vrcock.com
 vrcosplay.com
 vrporn.com

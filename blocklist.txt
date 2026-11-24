@@ -802,6 +802,7 @@
 ||files.psu.ru^
 ||fileupload.ggc-project.de^
 ||filmora.wondershare.es^
+||finchview.com^
 ||find.xenorio.xyz^
 ||findalternate.com^
 ||finderlaunch.com^
@@ -1500,6 +1501,7 @@
 ||monica.im^
 ||monsnode.com^
 ||monstics.com^
+||moonshadow.dev^
 ||moonshot.ai^
 ||moonshot.cn^
 ||moooi.jp^

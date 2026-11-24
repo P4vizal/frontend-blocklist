@@ -28,6 +28,7 @@
 ||eddrit.com^
 ||en.download.it^
 ||federated.nexus^
+||finchview.com^
 ||finderlaunch.com^
 ||floppydata.com^
 ||forum.cloudron.io^

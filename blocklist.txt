@@ -263,6 +263,7 @@
 ||askyourpdf.com^
 ||assemblyai.com^
 ||astian.org^
+||at.moonshadow.dev^
 ||at.wormhole.mosphere.at^
 ||atom.mail.ru^
 ||atomgit.com^
@@ -374,6 +375,7 @@
 ||bolt.new^
 ||bonito.cafe^
 ||bonus01.hwb0307.com^
+||bookmarks.moonshadow.dev^
 ||booruview.com^
 ||boostfluence.com^
 ||botize.com^
@@ -777,6 +779,7 @@
 ||fdown.tools^
 ||fdownloader.net^
 ||federated.nexus^
+||feels.moonshadow.dev^
 ||feixon.com^
 ||fellody.com^
 ||felo.ai^
@@ -799,6 +802,7 @@
 ||filemail.com^
 ||filepuma.com^
 ||files.fm^
+||files.moonshadow.dev^
 ||files.psu.ru^
 ||fileupload.ggc-project.de^
 ||filmora.wondershare.es^
@@ -934,6 +938,7 @@
 ||git.kalli.st^
 ||git.kareem.one^
 ||git.miningtcup.me^
+||git.moonshadow.dev^
 ||gitcdn.link^
 ||gitclone.com^
 ||gitcode.com^
@@ -1341,6 +1346,7 @@
 ||lingva.garudalinux.org^
 ||lingva.lunar.icu^
 ||lingva.ml^
+||lingva.moonshadow.dev^
 ||lingyiwanwu.com^
 ||links.twibright.com^
 ||linuxadictos.com^
@@ -1449,6 +1455,7 @@
 ||mcpmarket.com^
 ||md.vern.cc^
 ||mdleom.com^
+||media.moonshadow.dev^
 ||mediaboss.fr^
 ||mediapuller.com^
 ||mediascroll.io^
@@ -1794,6 +1801,7 @@
 ||pb.cleberg.net^
 ||pb.fbin.in^
 ||pb.foobar.vip^
+||pb.moonshadow.dev^
 ||pb.proxik.cloud^
 ||pbs.twimg.com^
 ||pc.115.com^

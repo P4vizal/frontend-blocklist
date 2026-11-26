@@ -2109,6 +2109,7 @@ redditmaster.com
 redditmedia.com
 redditmetis.com
 redditp.com
+redditpp.com
 redditprofile.com
 redditpx.com
 redditsave.com
@@ -3340,6 +3341,7 @@ www.plataformamedia.com
 www.postel.app
 www.postman.com
 www.postmcpai.com
+www.pounce.so
 www.privacytools.io
 www.rapidseedbox.com
 www.raymondcamden.com

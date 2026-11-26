@@ -11,6 +11,7 @@
 ||1-163-218-70.dynamic-ip.hinet.net^
 ||1-163-224-130.dynamic-ip.hinet.net^
 ||1-163-233-233.dynamic-ip.hinet.net^
+||1-163-245-134.dynamic-ip.hinet.net^
 ||1-163-254-80.dynamic-ip.hinet.net^
 ||1-164-153-129.dynamic-ip.hinet.net^
 ||1-164-169-73.dynamic-ip.hinet.net^
@@ -2391,6 +2392,7 @@
 ||searx.ecdsa.ssl-cert.tiekoetter.net^
 ||searx.githo.st^
 ||searx.gnu.style^
+||searx.idler.me^
 ||searx.linxx.net^
 ||searx.mastodontech.de^
 ||searx.mbuf.net^
@@ -2686,6 +2688,7 @@
 ||tabbyml.com^
 ||tabnine.com^
 ||tabs.adast.dk^
+||tabs.utilibre.org^
 ||tabtter.jp^
 ||tagembed.com^
 ||taimienphi.vn^

@@ -110,6 +110,7 @@
 ||reddit.lol^
 ||reddit.rtrace.io^
 ||redditery.com^
+||redditpp.com^
 ||redditprofile.com^
 ||reddtastic.com^
 ||redlib.cakez.net^
@@ -214,6 +215,7 @@
 ||www.nitter.com^
 ||www.peekstr.com^
 ||www.postel.app^
+||www.pounce.so^
 ||www.rapidseedbox.com^
 ||www.scriptweavers.com^
 ||www.sotwe.com^

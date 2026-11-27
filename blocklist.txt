@@ -336,6 +336,7 @@
 ||binternet.canine.tools^
 ||binternet.ducks.party^
 ||binternet.nadeko.net^
+||binternet.notbig.business^
 ||binternet.privadency.com^
 ||binternet.utilibre.org^
 ||bird.habedieeh.re^
@@ -2632,6 +2633,7 @@
 ||static.139.160.90.157.clients.your-server.de^
 ||static.139.241.4.46.clients.your-server.de^
 ||static.18.236.105.178.clients.your-server.de^
+||static.211.163.29.2.clients.your-server.de^
 ||static.60.99.4.46.clients.your-server.de^
 ||static.84.216.75.5.clients.your-server.de^
 ||status.sev.monster^
@@ -2780,6 +2782,7 @@
 ||tent.canine.tools^
 ||tent.deep-swarm.xyz^
 ||tent.nbh.ax^
+||tent.notbig.business^
 ||tent.private.coffee^
 ||tent.sny.sh^
 ||tent.xnand.xyz^

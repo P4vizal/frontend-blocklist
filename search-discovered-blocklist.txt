@@ -112,6 +112,7 @@
 ||redditery.com^
 ||redditpp.com^
 ||redditprofile.com^
+||redditwank.ing^
 ||reddtastic.com^
 ||redlib.cakez.net^
 ||redlib.freedit.eu^
@@ -174,6 +175,7 @@
 ||tumlook.com^
 ||tuta.com^
 ||tweet-viewer.vercel.app^
+||tweet.app^
 ||tweetgrok.ai^
 ||tweetviewer.com^
 ||twexapi.io^
@@ -183,6 +185,7 @@
 ||twillot.com^
 ||twilog.org^
 ||twitee.co^
+||twitr.sh^
 ||twitterapi.io^
 ||twitterviewer.app^
 ||twitterviewer.net^
